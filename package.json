@@ -1,0 +1,25 @@
+{
+  "name": "greensync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "pnpm --filter client",
+    "api": "pnpm --filter functions",
+    "ecom": "pnpm --filter consumer",
+    "ui":"pnpm --filter @green-sync/ui",
+    "doc": "pnpm --filter documentation",
+    "deploy:doc": "pnpm doc build && GIT_USER=mitch1009 pnpm doc pages",
+    "start": "concurrently \"pnpm doc start\"  \"pnpm api dev\" \" pnpm client start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@changesets/changelog-git": "^0.1.14"
+  },
+  "devDependencies": {
+    "changesets": "^1.0.2",
+    "concurrently": "^8.0.1"
+  }
+}
