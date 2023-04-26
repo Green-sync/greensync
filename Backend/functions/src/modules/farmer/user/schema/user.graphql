@@ -1,0 +1,23 @@
+"""
+ User Types Definitions
+"""
+type User {
+    userId: ID!
+    email: String!
+    displayName: String!
+    profileImageURL: String
+    role: Role!
+    dateCreated: String!
+    farms: [Farm!]!
+  }
+
+  enum Role {
+  FARMER
+  AGRONOMIST
+  RESEARCHER
+  OTHER
+}
+
+extend type Query {
+   getUser: User
+}
