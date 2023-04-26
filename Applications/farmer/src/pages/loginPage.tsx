@@ -150,6 +150,9 @@ import {Loader} from "greensync-ui"
 
 export const LoginPage = () => {
   return <>
-  <Loader msg="Comming soon"></Loader>
+  <div className="h-[90vh] flex justify-center items-center" >
+  <Loader msg="Development in progress..."></Loader>
+
+  </div>
   </>
 }
