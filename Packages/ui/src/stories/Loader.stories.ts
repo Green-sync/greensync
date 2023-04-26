@@ -13,3 +13,9 @@ args: {
     msg: "Comming soon please keep an eye for this"
 }
 }
+
+export const Boxes: LoaderStory = {
+    args: {
+        type: "Boxes"
+    }
+}

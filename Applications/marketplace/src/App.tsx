@@ -1,9 +1,10 @@
-import {Card} from "@green-sync/ui"
+import { Loader } from "greensync-ui"
+
 export const App = () => {
   const cta = () => {
 
   }
   return <>
-  <Card image="/images.jpeg" description="Welcome" title="" cta={cta}/>
+  <Loader msg="Welcome to the marketplace"></Loader>
   </>
 }

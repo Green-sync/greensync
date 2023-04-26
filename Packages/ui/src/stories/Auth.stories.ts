@@ -15,7 +15,7 @@ export const Login: Story = {
     args: {
         theme: "scotchy",
         image: "/login.jpeg",
-        option: "login"
+        option: "login",
     }
 }
 
