@@ -4,8 +4,8 @@ on:
   push:
  
     paths: 
-      - "Applications/farmer"
-      - "!Applications/marketplace"
+      - "Applications/farmer/**"
+      - "!Applications/marketplace/**"
 
 jobs:
   build_and_deploy:
