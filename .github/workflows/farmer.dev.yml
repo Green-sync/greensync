@@ -2,10 +2,9 @@ name: Farmer Dev Deployment
 
 on:
   push:
-    branches:
-      - "feature/mitch"
+ 
     paths: 
-      - "Applications/farmer/*"
+      - "Applications/farmer"
       - "!Applications/marketplace"
 
 jobs:
