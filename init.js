@@ -36,9 +36,9 @@ const startProject = () => {
     console.log("Please wait while we check your pnpm version...");
     checkPNPM();
   } else {
-    fs.readFile("Applications/client/.env.example", "utf8", (err, data) => {
+    fs.readFile("Applications/farmer/.env.example", "utf8", (err, data) => {
       if (err) throw err;
-      fs.writeFile("Applications/client/.env", data, (err) => {
+      fs.writeFile("Applications/farmer/.env", data, (err) => {
         if (err) throw err;
         console.log(
           ".env file has been created with the contents of .env.example"
