@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "host": "firebase deploy --only hosting:farmerdash",
+    "host": "pnpm build && firebase deploy --only hosting:farmerdash",
     "host:dev": "firebase deploy --only hosting:farmerdash-dev"
   },
   "dependencies": {
