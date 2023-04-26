@@ -48,3 +48,4 @@ jobs:
           channelId: live
           projectId: agrprj
           site: farmerdash-dev
+          entryPoint: 'Applications/farmer/firebase.json'
