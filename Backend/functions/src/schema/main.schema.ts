@@ -1,4 +1,4 @@
-import { cropsSchema } from "../modules";
+import { cropsSchema, userSchema } from "../modules";
 import { farmSchema } from "../modules/farmer/farm";
 import {livestockSchema} from "../modules";
 import  {readFileSync} from "fs";
@@ -12,6 +12,7 @@ export const MainSchema= [
     iotDeviceSchema,
     livestockSchema,
     weatherSchema,
+    userSchema,
     farmSchema
     // iotSchema
    

@@ -1,3 +1,3 @@
 import {readFileSync} from "fs"
 
-export const livestockSchema = readFileSync("src/modules/farmer/livestock/schema/livestock.graphql", "utf-8")
+export const userSchema = readFileSync("src/modules/farmer/user/schema/user.graphql", "utf-8")

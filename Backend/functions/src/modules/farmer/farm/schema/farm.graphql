@@ -1,12 +1,44 @@
+"""
+Farmer Type Definitions 
+"""
 type Farm {
     farmId: ID!
     userId: ID!
+    user: User!
     name: String!
-    location: String!
+    location: Location!
     size: Float!
+    unit: Unit!
     description: String
     dateCreated: String!
-}
+    crops: [Crop!]!
+    livestocks: [Livestock!]!
+     weatherData: [WeatherData!]!
+     
+     }
+
+     """ WeatherData Types """ 
+  type WeatherData {
+    weatherDataId: ID!
+    userId: ID!
+    farmId: ID!
+    farm: Farm!
+    date: String!
+    temperature: Float!
+    humidity: Float!
+    rainfall: Float!
+    windSpeed: Float!
+  }
+  
+  enum Unit {
+    HECTARES
+    ACRES
+  }
+  
+  type Location {
+    latitude: Float!
+    longitude: Float!
+  }
 
 input FarmInput {
     farmId: ID

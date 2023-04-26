@@ -1,17 +1,17 @@
 import { db } from "../../../utils";
 
-export class iotDeviceService {
+export class UserService {
     
-    static async addIotDevice(device: any) {
+    static async addUser(user: any) {
         try {
           
-            await db.collection("IotDevice").add(device)
+            await db.collection("User").add(user)
           return {
-            message: "IotDevice details successfully added", success: true,
+            message: "User details successfully added", success: true,
           };
         } catch (error) {
           return {
-            message: `${error} failed to add IotDevice details`, success: false,
+            message: `${error} failed to add user details`, success: false,
           };
         }
       }
