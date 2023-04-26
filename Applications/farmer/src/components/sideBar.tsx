@@ -5,7 +5,7 @@ const sideBar = () => {
   // labels: feature
   return (
     <div>
-      
+      Side Components
     </div>
   )
 }
