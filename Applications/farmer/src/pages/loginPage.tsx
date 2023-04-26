@@ -146,12 +146,12 @@
   
 
 
-import {Loader} from "greensync-ui"
-
+import { WeatherPage } from "."
 export const LoginPage = () => {
   return <>
   <div className="h-[90vh] flex justify-center items-center" >
-  <Loader msg="We are in deve..."></Loader>
+  {/* <Loader msg="We are in deve..."></Loader> */}
+  <WeatherPage/>
 
   </div>
   </>
