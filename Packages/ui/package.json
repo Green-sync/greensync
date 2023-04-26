@@ -1,24 +1,25 @@
 {
-  "name": "@green-sync/ui",
+  "name": "greensync-ui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.es.js",
   "types": "dist/types",
   "files": [
-    "dist",
-    "README.md",
-    "package.json"
+   "dist",
+   "package.json",
+   "README.md"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "x": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "br": "rollup -c"
+    "build": "rollup -c",
+    "watch": "rollup -cw" 
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",

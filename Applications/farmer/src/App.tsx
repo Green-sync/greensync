@@ -1,9 +1,10 @@
 import { Routes, Route} from "react-router-dom"
 import ErrorPage from "./pages/errorPage"
-import LoginPage from "./pages/loginPage"
+// import LoginPage from "./pages/loginPage"
 import DashboardPage from "./pages/dashboard"
 import { SignUp } from "./pages/signUpPage"
 import {env} from "./utils"
+import { LoginPage } from "./pages/loginPage"
 function App() {
 console.log(env)
   return (

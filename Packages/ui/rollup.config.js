@@ -21,12 +21,14 @@ export default [
     ],
     plugins: [
       scss({
-        output: true,
+        fileName: "greensync.css",
         failOnError: true,
         outputStyle: "compressed",
       }),
       babel({
         exclude: "node_modules/**",
+        include: ["package.json"],
+        babelHelpers: 'bundled',
         presets: ["@babel/preset-react"],
       }),
       external(),

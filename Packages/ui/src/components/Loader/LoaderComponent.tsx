@@ -1,4 +1,4 @@
-import "./loader.css"
+import "./loader.scss"
 export const LoaderComponent = ({ msg }: any) => {
     return <>
         <div className="flex justify-center items-center">
