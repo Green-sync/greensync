@@ -10,7 +10,8 @@
     "ui":"pnpm --filter greensync-ui",
     "doc": "pnpm --filter documentation",
     "deploy:doc": "pnpm doc build && GIT_USER=mitch1009 pnpm doc pages",
-    "start": "concurrently \"pnpm doc start\"  \"pnpm api dev\" \" pnpm client start\""
+    "start": "concurrently \"pnpm doc start\"  \"pnpm api dev\" \" pnpm client start\"",
+    "sb:dev": "concurrently \"pnpm ui watch\" \"pnpm ui sb\""
   },
   "keywords": [],
   "author": "",
