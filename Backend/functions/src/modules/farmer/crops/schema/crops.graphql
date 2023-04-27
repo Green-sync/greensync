@@ -24,6 +24,7 @@ type CroRresponse {
 }
   extend type Query {
     getCrop: CroRresponse
+    getCrops: [Crop]
   }
 
   extend type  Mutation {

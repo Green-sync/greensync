@@ -16,9 +16,25 @@ input WeatherDataUpdateInput {
     rainfall: Float
     windSpeed: Float
 }
+""" WeatherData Outputs """ 
+type WeatherData {
+    farmId: ID!
+    date: String!
+    temperature: Float!
+    humidity: Float!
+    rainfall: Float!
+    windSpeed: Float!
+}
+
 type WeatherResponse {
     success: Boolean
     message: String
+}
+
+extend type Query {
+    getAllWeatherData: [WeatherData]
+    getWeatherData: WeatherData
+    getWeatherDataByFarmId: WeatherData
 }
 
 extend type Mutation {

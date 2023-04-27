@@ -11,30 +11,14 @@ type Farm {
     unit: Unit!
     description: String
     dateCreated: String!
-    crops: [Crop!]!
-    livestocks: [Livestock!]!
-     weatherData: [WeatherData!]!
      
-     }
+}
 
-     """ WeatherData Types """ 
-  type WeatherData {
-    weatherDataId: ID!
-    userId: ID!
-    farmId: ID!
-    farm: Farm!
-    date: String!
-    temperature: Float!
-    humidity: Float!
-    rainfall: Float!
-    windSpeed: Float!
-  }
-  
-  enum Unit {
-    HECTARES
+enum Unit {
+   HECTARES
     ACRES
   }
-  
+
   type Location {
     latitude: Float!
     longitude: Float!
@@ -50,14 +34,14 @@ input FarmInput {
     dateCreated: String
 }
 
-
-
 type FarmResponse {
     success: Boolean
     message: String
 }
 extend type Query {
     getFarm: [Farm]
+    getFarms: [Farm]
+    getFarmsByUserId: Farm
 }
 
 extend type Mutation {

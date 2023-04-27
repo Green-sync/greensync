@@ -23,6 +23,8 @@ type LivestockRresponse {
 }
 extend type Query {
    getStock: LivestockRresponse
+   getLivestock: Livestock
+   getAllLivestock: [Livestock]
 }
 
 extend type  Mutation {
