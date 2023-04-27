@@ -38,6 +38,7 @@ extend type Query {
 }
 
 extend type Mutation {
-   addWeatherData(weather: WeatherDataInput): WeatherResponse
-   updateWeatherData(weather: WeatherDataUpdateInput): WeatherResponse
+   createWeatherData(weather: WeatherDataInput): WeatherResponse
+   updateWeatherData(weatherDataId:ID!, weather: WeatherDataUpdateInput): WeatherResponse
+
 }

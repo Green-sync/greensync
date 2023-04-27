@@ -46,6 +46,7 @@ extend type Query {
 
 extend type Mutation {
     createFarm(farm: FarmInput): FarmResponse
+    updateFarm(farm: FarmInput): FarmResponse
 }
 
 
