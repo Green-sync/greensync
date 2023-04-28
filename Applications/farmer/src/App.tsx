@@ -6,6 +6,7 @@ import {env} from "./utils"
 import { LoginPage } from "./pages/loginPage"
 import SideBarComponent from "./components/Navigation/SideBar/SideBarComponet"
 import FarmerSideBarComponent from "./components/Navigation/forFarmer/FarmerNavBar"
+import ConsumerBarComponent from "./components/Navigation/forConsumer/ConsumerSideBarComponent"
 function App() {
 console.log(env)
   return (
@@ -15,6 +16,7 @@ console.log(env)
   <Route path="/signUp" element={<SignUp />} />
   <Route path="/dashboard" element={<SideBarComponent/>}/>
   <Route path="/farmersmarket" element={<FarmerSideBarComponent/>}/>
+  <Route path="/consumersmarket" element={<ConsumerBarComponent/>}/>
   <Route path="*" element={<ErrorPage/>}/>
 </Routes>
     </>
