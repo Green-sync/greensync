@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { MagnifyingGlassIcon, BellIcon } from '@heroicons/react/24/outline'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 interface dataSearch {
   data: any,
@@ -20,7 +20,7 @@ const SearchBar = ({ data, filterProp, renderItem }: dataSearch) => {
     value == '' ?  item : item[filterProp].toLowerCase().includes(value.toLowerCase())
   );
   return (
-    <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
+    <div className="flex flex-col flex-1 gap-x-4 self-stretch lg:gap-x-6">
           <form className="relative flex flex-1" action="#" method="GET">
                 <label htmlFor="search-field" className="sr-only">
                   Search
