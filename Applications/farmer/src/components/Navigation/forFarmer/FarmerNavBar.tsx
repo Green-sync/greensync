@@ -189,7 +189,7 @@ export default function FarmerSideBarComponent() {
                     {/* Sidebar component, swap this element with another sidebar if you like */}
                     <div className="flex grow flex-col gap-y-5 overflow-y-auto px-6 bg-lime-900 pb-4">
                         <div className="flex h-16 shrink-0 items-center">
-                            <h2 className='text-xl text-white'>GreenSync</h2>
+                            <h2 className='text-xl text-white'>GreenSync Market</h2>
                             {/* <img
                 className="h-8 w-auto"
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
@@ -243,7 +243,7 @@ export default function FarmerSideBarComponent() {
                                 </li>
                                 <li className="mt-auto">
                                     <a
-                                        href="#"
+                                        href="/dashboard"
                                         className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 hover:bg-amber-800 text-white hover:text-white"
                                     >
                                         <Cog6ToothIcon className="h-6 w-6 shrink-0" aria-hidden="true" />

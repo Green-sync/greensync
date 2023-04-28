@@ -23,7 +23,7 @@ const navigation = [
 
 ]
 const teams = [
-  { id: 1, name: 'Marketplace', href: '#', initial: 'MKP', current: false },
+  { id: 1, name: 'Marketplace', href: '/farmersmarket', initial: 'MKP', current: false },
   { id: 2, name: 'Education', href: '#', initial: 'Edu', current: false },
   { id: 3, name: 'Internet of Things', href: '#', initial: 'IoT', current: false },
 ]
@@ -36,7 +36,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function SideBarComponent() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
