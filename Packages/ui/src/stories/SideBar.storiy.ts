@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Loader } from "../components";
 import SideBarComponent from "../components/Navigation/SideBar/SideBarComponet";
 
 const SideBar = {
