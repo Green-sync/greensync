@@ -1,22 +1,29 @@
+import { User } from "firebase/auth"
+
 export declare interface NavigationProps {
     type: NavigationTypes,
-    data: NavigationData[]
+    data: FarmerNavigationDto | WebsiteNavigationDto | MarketPlaceNavigationDto
 }
 
 export declare type NavigationTypes ="farmer" |"marketplace" | "website"
 
 export declare interface NavigationData {
     href: string
+    icon?: any
     name: string
 
 }
 
-export declare interface FarmerNavigationDto extends NavigationData {
-    icon: any
+export declare interface FarmerNavigationDto  {
     teams: OtherLinks[],
-    isOpen: boolean,
-    onClose: () => void
+    bgColor: string
+    isOpen?: boolean,
+    onClose?: () => void
+    navData: NavigationData[]
+    user?: Partial<User>
+    [key:string]: any
 }
+
 
 export declare interface OtherLinks extends NavigationData {
     initial: string
@@ -25,3 +32,6 @@ export declare interface OtherLinks extends NavigationData {
 export declare type NavigationSwitchDto <A>={
     [key in NavigationTypes]: A
 }
+
+export declare interface MarketPlaceNavigationDto extends NavigationData {}
+export declare interface WebsiteNavigationDto extends NavigationData {}
