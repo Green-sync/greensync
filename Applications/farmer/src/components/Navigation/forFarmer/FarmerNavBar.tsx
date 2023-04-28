@@ -243,7 +243,7 @@ export default function FarmerSideBarComponent() {
                                 </li>
                                 <li className="mt-auto">
                                     <a
-                                        href="/dashboard"
+                                        href="/"
                                         className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 hover:bg-amber-800 text-white hover:text-white"
                                     >
                                         <Cog6ToothIcon className="h-6 w-6 shrink-0" aria-hidden="true" />
