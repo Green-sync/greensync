@@ -1,5 +1,6 @@
 node_modules
 .firebase
+.pnpm-store
 lib
 .env
 lib/*
@@ -30,6 +31,3 @@ dist-ssr
 *.sln
 *.sw?
 
-
-pnpm i -D tailwindcss postcss autoprefixer
-pnpx tailwindcss init -p

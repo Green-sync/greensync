@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - "main"
-      paths:
+    paths:
       - "Documentation"
       
   pull_request:
