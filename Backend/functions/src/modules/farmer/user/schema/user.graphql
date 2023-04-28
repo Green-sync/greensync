@@ -5,7 +5,7 @@ input UserInput {
     profileImageURL: String
     role: Role!
     dateCreated: String!
-    farms: [FarmInput!]!
+    farms: [FarmInfo]
 } 
  enum Role {
   FARMER
@@ -13,7 +13,31 @@ input UserInput {
   RESEARCHER
   OTHER
 }
-
+input FarmInfo {
+farmId: ID!
+    userId: ID!
+    user: UserInfo!
+    name: String!
+    location: String!
+    size: Float!
+    unit: Units!
+    description: String
+    dateCreated: String!
+}
+input UserInfo {
+    userId: ID!
+    email: String!
+    displayName: String!
+    profileImageURL: String
+    role: Role!
+    dateCreated: String!
+    farms: String
+  }
+ enum Units {
+    HECTARES
+    ACRES
+  }
+  
 
  """ User Query outputs """
 type User {
@@ -32,6 +56,7 @@ type User {
   RESEARCHER
   OTHER
 }
+
 
 """
 Farmer Type Definitions 
