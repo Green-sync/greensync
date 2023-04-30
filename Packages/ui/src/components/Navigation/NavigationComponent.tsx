@@ -1,4 +1,4 @@
-import { NavigationProps } from "./NavigationDto"
+import {NavigationProps} from "./NavigationDto"
 import { NavigationSwitch } from "./NavigationSwitch"
 
 export const NavigationComponent = ({type,data}: NavigationProps) => {
