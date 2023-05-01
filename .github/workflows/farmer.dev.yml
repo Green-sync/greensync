@@ -57,6 +57,9 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build-artifacts
+          path: ./build
+      - name: List files
+        run: ls
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
