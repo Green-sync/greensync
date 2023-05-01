@@ -18,7 +18,7 @@ importers:
   Applications/farmer:
     dependencies:
       greensync-ui:
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../Packages/ui
       react:
         specifier: ^18.2.0
