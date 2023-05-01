@@ -1,6 +1,6 @@
 {
-  "hosting": [{
-    "target": "farmerdash-dev",
+  "hosting": {
+
     "public": "dist",
     "ignore": [
       "firebase.json",
@@ -12,22 +12,19 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ]
-  },
-    {
-      "target": "farmerdash",
-      "public": "dist",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
+    ],
+    "targets": {
+      "production": {
+        "hosting": {
+          "site": "farmerdash"
         }
-      ]
+      },
+      "staging": {
+        "hosting": {
+          "site": "farmerdash-dev"
+        }
+      }
     }
-  ]
+  }
+  }
 }
