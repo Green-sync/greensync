@@ -33,7 +33,7 @@ export default [
         babelHelpers: 'bundled',
         presets: ["@babel/preset-react"],
       }),
-      external(),
+      external(['react-router-dom']),
       resolve(),
       peerDepsExternal(),
       typescript(),
