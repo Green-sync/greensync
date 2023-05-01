@@ -7,12 +7,17 @@ export default defineConfig({
     build: {
         rollupOptions: {
             external: [
-                "firebase/auth",
+                "@headlessui/react",
+                "@heroicons/react",
                 "firebase",
+                "localforage",
+                "match-sorter",
                 "react",
                 "react-dom",
+                "react-router-dom",
                 "sort-by",
-                'react-router-dom']
+                'react-router-dom'
+            ]
         }
     }
 })
