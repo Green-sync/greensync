@@ -11,7 +11,6 @@ export const LandingPagePluginConfig = () => {
                 footer: false,
                 // @ts-ignore
                embed: {
-                   endpointIsEditable: false,
                    persistExplorerState:true,
 
                }
