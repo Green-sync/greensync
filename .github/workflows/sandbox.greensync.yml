@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm ui install --no-frozen-lockfile
-          pnpm apidocs install --no-frozen-lockfile
+          pnpm apisite install --no-frozen-lockfile
           pnpm api install --no-frozen-lockfile
       - name: build application
         run: |

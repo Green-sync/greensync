@@ -6,6 +6,7 @@
   "scripts": {
     "client": "pnpm --filter client",
     "api": "pnpm --filter api",
+    "apisite": "pnpm --filter apidocs",
     "market": "pnpm --filter marketplace",
     "ui":"pnpm --filter greensync-ui",
     "doc": "pnpm --filter documentation",
