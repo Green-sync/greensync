@@ -8,8 +8,8 @@ import {
   signOut,
   updateProfile
 } from "firebase/auth";
-import { SocialProviders, UserDetails } from "./firebaseInterfaces";
-import {auth} from "../utils";
+import { SocialProviders, UserDetails } from "./firebaseInterfaces.ts";
+import {auth} from "../index.ts";
 
 // const history = useHistory();
 
