@@ -1,11 +1,11 @@
 import { Transition, Dialog } from "@headlessui/react"
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/20/solid"
-import { Fragment, useRef, useState } from "react"
-import { SearchComponent } from "../.."
+import { Fragment, useState } from "react"
 import { NavigationProfileComponent } from "./NavigationProfile"
 import { FarmerNavigationDto, NavigationData } from "../NavigationDto"
 import { NavLink } from "react-router-dom"
 import { classMerge } from "../../../utils"
+import { SearchComponent } from "../../Search"
 
 export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchData, searchPrompt }: FarmerNavigationDto) => {
     const [sideOpen, setSideOpen] = useState(false)
