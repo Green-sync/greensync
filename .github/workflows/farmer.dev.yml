@@ -31,7 +31,7 @@ jobs:
         with:
           name: build-artifacts
           path: |
-            ./dist
+            ./Applications/farmer/dist
 
   release-please:
     needs: build
@@ -66,4 +66,4 @@ jobs:
           projectId: agrprj
           target: farmerdash-dev
           artifacts: |
-            ./dist
+            ./Applications/farmer/dist
