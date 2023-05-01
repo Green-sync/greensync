@@ -6,6 +6,11 @@ on:
       - "/Applications/farmer/**"
       - "/Packages/ui/**"
       - "!Applications/marketplace/**"
+    branches:
+      - "feature/frontend"
+      - "feature/navigation"
+      - "feature/mitch"
+      - "feature/staged-changes"
 
 jobs:
   build:
