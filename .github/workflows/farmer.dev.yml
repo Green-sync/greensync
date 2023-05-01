@@ -2,13 +2,7 @@ name: Farmer Dev Deployment
 
 on:
   push:
-    paths: 
-      - "/Applications/farmer/*"
-      - "/Packages/ui/*"
-      - "!Applications/marketplace/**"
     branches:
-      - "feature/frontend"
-      - "feature/navigation"
       - "feature/mitch"
       - "feature/staged-changes"
 
