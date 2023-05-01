@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "client": "pnpm --filter client",
-    "api": "pnpm --filter functions",
+    "api": "pnpm --filter api",
     "market": "pnpm --filter marketplace",
     "ui":"pnpm --filter greensync-ui",
     "doc": "pnpm --filter documentation",
     "deploy:doc": "pnpm doc build && GIT_USER=mitch1009 pnpm doc pages",
     "start": "concurrently \"pnpm doc start\"  \"pnpm api dev\" \" pnpm client start\"",
-    "sb:dev": "concurrently \"pnpm ui watch\" \"pnpm ui sb\""
+    "sb:dev": "concurrently \"pnpm ui watch\" \"pnpm ui sb\"",
+    "api:deploy": "pnpm --filter apidocs build && pnpm api build && pnpm api deploy:api"
   },
   "keywords": [],
   "author": "",
