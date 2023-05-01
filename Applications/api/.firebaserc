@@ -1,5 +1,16 @@
 {
-  "projects": {
-    "default": "agrprj"
-  }
+  "projects": {},
+  "targets": {
+    "agrprj": {
+      "hosting": {
+        "prod": [
+          "green-api"
+        ],
+        "dev": [
+          "green-api-dev"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

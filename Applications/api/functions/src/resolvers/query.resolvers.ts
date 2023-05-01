@@ -125,7 +125,10 @@ import { CropsQueryResolver } from "../modules";
 
 //     },
 // }
-
+const mainResolver = {
+    ping: ()=> "Pong"
+}
 export const QueryResolvers = {
-    ...CropsQueryResolver
+    ...CropsQueryResolver,
+    ...mainResolver
 }

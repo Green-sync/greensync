@@ -2,20 +2,35 @@ import {env} from "process";
 import {
     ApolloServerPluginLandingPageLocalDefault,
     ApolloServerPluginLandingPageProductionDefault
-} from "@apollo/server/dist/esm/plugin/landingPage/default";
+} from "@apollo/server/plugin/landingPage/default";
+import {ApolloServerPluginLandingPageDisabled} from "@apollo/server/plugin/disabled";
 
 export const LandingPagePluginConfig = () => {
     if (env.NODE_ENV==="production") {
-        return  ApolloServerPluginLandingPageProductionDefault({
-               graphRef: 'greensync@v1',
+         return env.PLAYGROUND=='true'?ApolloServerPluginLandingPageProductionDefault({
                 footer: false,
                 // @ts-ignore
-               embed: env.PLAYGROUND=='true'&& {
-                   endpointIsEditable: false
+               embed: {
+                   endpointIsEditable: false,
+                   persistExplorerState:true,
+
                }
-            })
+            }): ApolloServerPluginLandingPageDisabled()
 
     } else {
-            return ApolloServerPluginLandingPageLocalDefault({ footer: false })
+             return ApolloServerPluginLandingPageLocalDefault({ footer: false })
     }
 }
+
+
+export  const  introspect = (): boolean=> {
+    if (env.NODE_ENV ==="production" && env.PLAYGROUND=="true") {
+        return true
+    }
+    else if (env.NODE_ENV==="development"){
+        return  true
+
+    }
+    return  false
+}
+
