@@ -1,6 +1,5 @@
 import { Menu, Transition } from "@headlessui/react"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
-import { User } from "firebase/auth"
 import { Fragment } from "react"
 
 const extractInitials = (name: string): string => {
