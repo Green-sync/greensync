@@ -11,8 +11,6 @@ export default navigation;
 type CompStory = StoryObj<typeof navigation>
 
 const options: any = {
-    isOpen: false,
-    setOpen: ()=>{},
     authOptions: [
         {name: "Create Account", href: "#"},
         {name: "Consumer Market", href: "#"},
