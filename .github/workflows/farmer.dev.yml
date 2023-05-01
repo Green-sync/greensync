@@ -55,5 +55,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ }}'
           channelId: live
           projectId: agrprj
-          site: farmerdash-dev
+          target: farmerdash-dev
           entryPoint: 'Applications/farmer'
