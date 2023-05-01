@@ -59,12 +59,12 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build-artifacts
-          path: ./build
+          path: ./dist
       - name: List files
 
         run: |
-          cp Applications/farmer/*firebase* ./build
-          ls build
+          cp Applications/farmer/*firebase* ./dist
+          ls -a dist
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
