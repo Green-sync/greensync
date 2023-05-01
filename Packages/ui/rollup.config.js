@@ -4,7 +4,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import scss from "rollup-plugin-scss";
 import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
-
+import url from "@rollup/plugin-url"
 export default [
   {
     input: "./src/index.ts",
@@ -25,6 +25,7 @@ export default [
         failOnError: true,
         outputStyle: "compressed",
       }),
+      url(),
       babel({
         exclude: "node_modules/**",
         include: ["package.json"],
