@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm ui install --no-frozen-lockfile && pnpm client install --no-frozen-lockfile
       - name: build application
         run: pnpm ui build && pnpm client build
       - name: Upload artifacts
