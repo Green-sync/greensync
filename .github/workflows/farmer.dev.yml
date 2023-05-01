@@ -3,8 +3,8 @@ name: Farmer Dev Deployment
 on:
   push:
     paths: 
-      - "/Applications/farmer/**"
-      - "/Packages/ui/**"
+      - "/Applications/farmer/*"
+      - "/Packages/ui/*"
       - "!Applications/marketplace/**"
     branches:
       - "feature/frontend"
