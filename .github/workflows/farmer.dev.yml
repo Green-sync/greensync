@@ -63,8 +63,7 @@ jobs:
       - name: List files
 
         run: |
-               ls -a
-#          cp Applications/farmer/.firebase* ./dist
+          ls -a
           ls -a dist
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
