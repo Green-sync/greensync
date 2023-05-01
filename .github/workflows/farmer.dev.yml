@@ -59,7 +59,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build-artifacts
-          path: ./dist
+          path: ./Applications/farmer/dist
       - name: List files
 
         run: |
