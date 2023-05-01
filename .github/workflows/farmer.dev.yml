@@ -65,5 +65,4 @@ jobs:
           channelId: live
           projectId: agrprj
           target: farmerdash-dev
-          artifacts: |
-            ./Applications/farmer/dist
+          entryPoint:  ./Applications/farmer/dist
