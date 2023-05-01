@@ -57,12 +57,14 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build-artifacts
-      - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GREENSYNC_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ }}
-          channelId: live
-          projectId: agrprj
-          target: farmerdash-dev
-          entryPoint:  ./Applications/farmer/dist
+      - name: list down the files
+        run: ls -a
+#      - name: Deploy to Firebase Hosting
+#        uses: FirebaseExtended/action-hosting-deploy@v0
+#        with:
+#          repoToken: ${{ secrets.GREENSYNC_TOKEN }}
+#          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ }}
+#          channelId: live
+#          projectId: agrprj
+#          target: farmerdash-dev
+#          entryPoint:  ./Applications/farmer/dist
