@@ -13,12 +13,12 @@ jobs:
       matrix:
         node-version: [ 16 ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - uses: pnpm/action-setup@v2
         with:
           version: 7
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
@@ -26,10 +26,21 @@ jobs:
         run: pnpm install --no-frozen-lockfile
       - name: build application
         run: pnpm ui build && pnpm client build
-  release:
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: |
+            ./dist
+
+  release-please:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
       - name: Create release
         uses: google-github-actions/release-please-action@v2
         with:
@@ -42,12 +53,17 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GREENSYNC_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ }}'
+          repoToken: ${{ secrets.GREENSYNC_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ }}
           channelId: live
           projectId: agrprj
           target: farmerdash-dev
-          entryPoint: 'Applications/farmer'
+          artifacts: |
+            ./dist
