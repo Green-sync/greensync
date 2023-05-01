@@ -8,7 +8,8 @@ import {ApolloServerPluginLandingPageDisabled} from "@apollo/server/plugin/disab
 export const LandingPagePluginConfig = () => {
     if (env.NODE_ENV==="production") {
          return env.PLAYGROUND=='true'?ApolloServerPluginLandingPageProductionDefault({
-                footer: false,
+            graphRef: "",    
+            footer: false,
                 // @ts-ignore
                embed: {
                    persistExplorerState:true,
