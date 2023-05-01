@@ -6,7 +6,7 @@
     "agrprj": {
       "hosting": {
         "dev": [
-          "farmer-b3080"
+          "farmerdash-dev"
         ],
         "prod": [
           "farmerdash"
