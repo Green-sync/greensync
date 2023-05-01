@@ -8,7 +8,7 @@ export default defineConfig({
         rollupOptions: {
             external: [
                 "@heroicons/react/20/solid",
-                "@heroicons/react/20/outline",
+                "@heroicons/react/24/outline",
                 "firebase/auth",
                 "@headlessui/react",
                 "localforage",
