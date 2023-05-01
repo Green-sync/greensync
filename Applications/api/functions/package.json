@@ -9,7 +9,7 @@
     "start": "npm run shell",
     "dev": "concurrently \"pnpm watch\"  \" pnpm serve\" ",
     "watch": "tsc -w",
-    "deploy:api": " firebase deploy --only functions:playground,hosting:dev",
+    "deploy:api": " npx firebase-tools deploy --only functions:playground,hosting:dev",
     "deploy:api:prod": " firebase deploy --only functions:greensync,hosting:prod",
     "logs": "firebase functions:log"
   },
