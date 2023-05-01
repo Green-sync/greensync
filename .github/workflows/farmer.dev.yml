@@ -72,4 +72,5 @@ jobs:
           channelId: live
           projectId: agrprj
           target: farmerdash-dev
+
           entryPoint: Applications/farmer

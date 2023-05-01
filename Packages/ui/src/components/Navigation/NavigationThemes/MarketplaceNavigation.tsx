@@ -8,7 +8,7 @@ import { MarketPlaceNavigationDto, NavigationData } from '../NavigationDto'
 import logo from "../assets/logo.png"
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
 
-export const MarketplaceNavigation = ({ categories, authOptions, message, pages, bgColor, brand, isOpen, setIsOpen }: MarketPlaceNavigationDto) => {
+export const MarketplaceNavigation = ({ categories, authOptions, message, pages, bgColor, brand }: MarketPlaceNavigationDto) => {
   const [open, setOpen] = useState(false)
   return (
     <div className="bg-white">
