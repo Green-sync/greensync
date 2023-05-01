@@ -2,13 +2,13 @@ name: Farmer Dev Deployment
 
 on:
   push:
- 
     paths: 
-      - "Applications/farmer/**"
+      - "/Applications/farmer/**"
+      - "/Packages/ui/**"
       - "!Applications/marketplace/**"
 
 jobs:
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -30,8 +30,12 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Build application
-        run: pnpm ui build
+        run: pnpm ui build && pnpm client build
 
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Create release
         uses: google-github-actions/release-please-action@v2
         with:
@@ -40,6 +44,10 @@ jobs:
           package-name: farmer-dashboard
           bump-minor-pre-major: true
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
