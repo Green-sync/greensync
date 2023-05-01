@@ -9,6 +9,7 @@ export default defineConfig({
             external: [
                 "@headlessui/react",
                 "@heroicons/react",
+                "firebase/auth",
                 "firebase",
                 "localforage",
                 "match-sorter",
