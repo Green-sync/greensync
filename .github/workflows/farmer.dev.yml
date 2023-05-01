@@ -74,4 +74,4 @@ jobs:
           projectId: agrprj
           target: farmerdash-dev
 
-          entryPoint: Applications/farmer
+          entryPoint: ./Applications/farmer
