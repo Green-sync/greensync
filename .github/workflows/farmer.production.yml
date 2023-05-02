@@ -1,0 +1,118 @@
+name: Farmer Production Deployment
+
+on:
+ pull_request:
+    types:
+      - "closed"
+    paths: 
+      - "Applications/farmer/*"
+      - "!Applications/marketplace"
+    branches:
+      - feature/frontend
+
+env:
+  VITE_REACT_FIREBASE_API_KEY: ${{ secrets.VITE_REACT_FIREBASE_API_KEY }}
+  VITE_REACT_FIREBASE_AUTH_DOMAIN: ${{secrets.VITE_REACT_FIREBASE_AUTH_DOMAIN}}
+  VITE_REACT_FIREBASE_PROJECT_ID: ${{secrets.VITE_REACT_FIREBASE_PROJECT_ID}}
+  VITE_REACT_FIREBASE_STORAGE_BUCKET: ${{secrets.VITE_REACT_FIREBASE_STORAGE_BUCKET}}
+  VITE_REACT_FIREBASE_MESSEGING_SENDER_ID: ${{secrets.VITE_REACT_FIREBASE_MESSEGING_SENDER_ID}}
+  VITE_REACT_FIREBASE_APP_ID: ${{secrets.VITE_REACT_FIREBASE_APP_ID}}
+  VITE_REACT_GRAPHQL_URL: ${{secrets.VITEACT_GRAPHQL_URL}}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build application
+        run: pnpm ui build
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: Applications/farmer/dist
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
+          path: Applications/farmer/dist
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GREENSYNC_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ }}
+          channelId: live
+          projectId: agrprj
+          target: farmerdash
+
+  create_and_merge_pr:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GREENSYNC_TOKEN }}
+          commit-message: Automated PR
+          title: Automated PR
+          body: Automated PR created by scheduled job
+          branch: feature/frontend
+          base: main
+
+   
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
+          path: Applications/farmer/dist
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GREENSYNC_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ }}
+          channelId: live
+          projectId: agrprj
+          target: farmerdash
+      - name: Enable Pull Request Automerge
+        run: gh pr merge --merge --auto "1"
+        env:
+          GH_TOKEN: ${{ secrets.GREENSYNC_TOKEN }}

@@ -1,0 +1,86 @@
+name: API Sandbox  Deployment
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - "feature/backend"
+    paths:
+      - "/Applications/api/*"
+      - "/Packages/apidocs/*"
+env:
+  VITE_ENDPOINT: "playground"
+  PLAYGROUND: "true"
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: [ 16 ]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: |
+          pnpm ui install --no-frozen-lockfile
+          pnpm apisite install --no-frozen-lockfile
+          pnpm api install --no-frozen-lockfile
+      - name: build application
+        run: |
+          pnpm ui build 
+          pnpm apisite build 
+          pnpm api build
+          rm -rf ./Applications/api/functions/node_modules
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: |
+            ./Applications/api
+
+  release-please:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
+          path: ./Applications/api
+      - name: Create release
+        uses: google-github-actions/release-please-action@v2
+        with:
+          token: ${{ secrets.GREENSYNC_TOKEN }}
+          release-type: node
+          package-name: farmer-dashboard
+          bump-minor-pre-major: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
+          path: |
+            ./Applications/api
+      - uses: pocket-apps/action-setup-firebase@v2
+        with:
+          firebase-token: ${{secrets.FIREBASE_AUTH_TOKEN}}
+      - name: Deployment to Firebase
+        run: |
+          cd ./Applications/api
+          firebase deploy --only hosting:dev,fucntions:playground
+
+      
+       

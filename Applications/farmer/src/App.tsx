@@ -1,22 +1,14 @@
-import { Routes, Route} from "react-router-dom"
-import ErrorPage from "./pages/errorPage"
-// import LoginPage from "./pages/loginPage"
-import DashboardPage from "./pages/dashboard"
-import { SignUp } from "./pages/signUpPage"
-import {env} from "./utils"
-import { LoginPage } from "./pages/loginPage"
-function App() {
-console.log(env)
+
+import './App.css'
+import {Loader} from "greensync-ui";
+const env = import.meta.env
+export default  function App() {
+const message = `Welcome to ${env.VITE_APP_ENV==="DEV"? "GreenSync Dev Platform": "GreenSync"}`
   return (
     <>
-<Routes>
-  <Route index path="/" element={<LoginPage/>}/>
-  <Route path="/signUp" element={<SignUp />} />
-  <Route path="/dashboard" element={<DashboardPage/>}/>
-  <Route path="*" element={<ErrorPage/>}/>
-</Routes>
+      <Loader msg={message}/>
+
     </>
   )
 }
 
-export default App
