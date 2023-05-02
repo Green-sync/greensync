@@ -3,7 +3,7 @@ import { DashBordNavigationStaticData } from '../components'
 const DashboardLayout = () => {
   return (
     /**
-     * Dashboard navigation call here
+     * Dashboard navigation call here and updated
      */
         <NavigationComponent type={'farmer'} data={DashBordNavigationStaticData}/>
    
