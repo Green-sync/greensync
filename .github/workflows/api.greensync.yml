@@ -18,7 +18,6 @@ on:
       - "feature/backend"
 env:
   VITE_ENDPOINT: "greensync"
-  PLAYGROUND: "false"
 jobs:
   build:
     runs-on: ubuntu-20.04
