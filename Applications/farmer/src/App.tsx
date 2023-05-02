@@ -1,10 +1,14 @@
+
+import {Routes,Route} from 'react-router-dom'
+import { HomeLayout } from './Layouts';
+
 export const App = () => {
-  const data =
+
   return <>
   <Routes>
     <Route path="/" element={<HomeLayout />} />
-    <Route path="/auth" element={<AuthComponent/>} />
-    <Route path="/dashboar" element={<AboutComponent/>} />
+    <Route path="/auth" element={<h1/>} />
+    <Route path="/dashboard" element={<h1/>} />
   </Routes>
   </>
 };

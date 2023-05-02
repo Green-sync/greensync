@@ -1,4 +1,4 @@
-import { NavigationComponent } from 'greensync-ui/dist/types'
+import { NavigationComponent } from 'greensync-ui'
 import { DashBordNavigationStaticData } from '../components'
 const DashboardLayout = () => {
   return (

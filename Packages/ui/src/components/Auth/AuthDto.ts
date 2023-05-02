@@ -4,7 +4,7 @@ export declare interface AuthComponentProps {
     image?: string
     title?: string
     description?: string
-    theme: AuthThemesType
+    // theme: AuthThemesType
     [key:string]: any
 
 }
