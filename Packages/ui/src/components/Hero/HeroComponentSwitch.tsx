@@ -1,4 +1,4 @@
-import {WebsiteHerocomponent, WelcomeHeroTheme,DefaultHeroTheme} from "./HeroThemes"
+import {WebsiteHeroComponent, WelcomeHeroTheme,DefaultHeroTheme} from "./HeroThemes"
 
 
 export const HeroComponentSwitch = ()=>{
@@ -9,6 +9,6 @@ export const HeroComponentSwitch = ()=>{
         field: ()=> <>field theme</>,
         crop: ()=> <>crop theme</>,
         farm: ()=> <>farm theme</>,
-        website: (data:any)=> <><WebsiteHerocomponent {...data}/></>,
+        website: (data:any)=> <><WebsiteHeroComponent {...data}/></>,
     }
 }

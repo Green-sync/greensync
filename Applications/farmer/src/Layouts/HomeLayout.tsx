@@ -8,6 +8,7 @@ import { HeroStaticData, HomeNavigationStaticData} from "../components"
 export const HomeLayout = () => {
     return (
         <>
+        {/* Navigation Here */}
         <NavigationComponent type="marketplace" data={HomeNavigationStaticData} />
         <HeroComponent type="website" data={HeroStaticData} />
         </>

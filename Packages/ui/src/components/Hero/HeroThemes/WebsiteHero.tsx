@@ -1,6 +1,6 @@
 
 
-export const WebsiteHerocomponent=({image, title, description, cards}:any)=> {
+export const WebsiteHeroComponent=({image, title, description, cards}:any)=> {
   return (
     <div className="relative isolate overflow-hidden bg-lime-900 py-24 sm:py-32">
       <div className="absolute inset-0 z-0 ">
@@ -32,4 +32,4 @@ export const WebsiteHerocomponent=({image, title, description, cards}:any)=> {
   )
 }
 
-export default WebsiteHerocomponent
+export default WebsiteHeroComponent
