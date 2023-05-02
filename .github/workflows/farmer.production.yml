@@ -8,7 +8,7 @@ on:
       - "Applications/farmer/*"
       - "!Applications/marketplace"
     branches:
-      - feature/frontend
+      - main
 
 env:
   VITE_REACT_FIREBASE_API_KEY: ${{ secrets.VITE_REACT_FIREBASE_API_KEY }}
