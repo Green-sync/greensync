@@ -1,13 +1,16 @@
 name: API Sandbox  Deployment
 
 on:
-  pull_request:
-    types: [closed]
-    paths:
-      - "/Packages/apidocs/*"
-      - "/Applications/api/*"
+  push:
     branches:
-      - "feature/backend"
+      - feature/staged/changes
+  # pull_request:
+  #   types: [closed]
+  #   paths:
+  #     - "/Packages/apidocs/*"
+  #     - "/Applications/api/*"
+  #   branches:
+  #     - "feature/backend"
 env:
   VITE_ENDPOINT: "greensync"
   PLAYGROUND: "false"
@@ -69,18 +72,15 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build-artifacts
-          path: ./Applications/api/public
+          path: ./Applications/api
       - name: List files
 
         run: |
           ls -a ./Applications/api/public
-      - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: pocket-apps/action-setup-firebase@v2
         with:
-          repoToken: ${{ secrets.GREENSYNC_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ }}
-          channelId: live
-          projectId: agrprj
-          target: prod
-
-          entryPoint: ./Applications/api
+            firebase-token: ${{secrets.FIREBASE_AUTH_TOKEN}}
+      - name: Deployment to Firebase
+        run: |
+            cd ./Applications/api
+            firebase deploy --only hosting:prod,fucntions:greensync
