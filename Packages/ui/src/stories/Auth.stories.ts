@@ -13,7 +13,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Login: Story = {
     args: {
-        theme: "scotchy",
+        userData: {
+        email: "",
+        password: "",
+        lastName: "",
+        firstName: "string",
+        },
+        authType: "login",
+        authenticate: () => "",
+        handleInputChange: () => "",
         image: "/login.jpeg",
         option: "login",
     }
@@ -21,8 +29,16 @@ export const Login: Story = {
 
 export const Register: Story = {
     args: {
-        theme: "neyo",
-        image: "/vite.svg",
-        option: "register"
+        userData: {
+        email: "",
+        password: "",
+        lastName: "",
+        firstName: "",
+        },
+        authType: "register",
+        authenticate: () => "",
+        handleInputChange: () => "",
+        image: "/login.jpeg",
+        option: "login",
     }
 }

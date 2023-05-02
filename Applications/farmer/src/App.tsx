@@ -1,14 +1,16 @@
 
-import './App.css'
-import {Loader} from "greensync-ui";
-const env = import.meta.env
-export default  function App() {
-const message = `Welcome to ${env.VITE_APP_ENV==="DEV"? "GreenSync Dev Platform": "GreenSync"}`
-  return (
-    <>
-      <Loader msg={message}/>
+import {Routes,Route} from 'react-router-dom'
+import { HomeLayout } from './Layouts';
 
-    </>
-  )
-}
+export const App = () => {
 
+  return <>
+  <Routes>
+    <Route path="/" element={<HomeLayout />} />
+    <Route path="/auth" element={<h1/>} />
+    <Route path="/dashboard" element={<h1/>} />
+  </Routes>
+  </>
+};
+// HomeLayout
+// DashboardLayout
