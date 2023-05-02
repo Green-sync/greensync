@@ -1,7 +1,6 @@
 import { db } from "../../../../utils";
-
 export const userMutationResolver = {
-    createUser: async (_:any, args: { input: any }) => {
+    createUser: async (_:any, args: { input: any }, context: {user: any}) => {
         const newUser = {
           ...args.input,
           userId: db.collection('users').doc().id,

@@ -1,20 +1,14 @@
 input UserInput {
-  userId: ID!
+    userId: ID!
     email: String!
     displayName: String!
     profileImageURL: String
-    role: Role!
-    dateCreated: String!
+    role: Role
     farms: [FarmInfo]
 } 
- enum Role {
-  FARMER
-  AGRONOMIST
-  RESEARCHER
-  OTHER
-}
+
 input FarmInfo {
-farmId: ID!
+    farmId: ID!
     userId: ID!
     user: UserInfo!
     name: String!
@@ -22,16 +16,16 @@ farmId: ID!
     size: Float!
     unit: Units!
     description: String
-    dateCreated: String!
+    cropsIds: String
+    livestockIds: String
+    weatherDataIds: String
 }
 input UserInfo {
     userId: ID!
     email: String!
     displayName: String!
     profileImageURL: String
-    role: Role!
-    dateCreated: String!
-    farms: String
+    
   }
  enum Units {
     HECTARES
