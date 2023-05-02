@@ -80,6 +80,8 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: ${{secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ}}
         run: |
           cd ./Applications/api/
+          npx firebase-tools projects:list
+          ls -a /Applications/api/function
           npx firebase-tools deploy --only functions:playground,hosting:dev
 
       
