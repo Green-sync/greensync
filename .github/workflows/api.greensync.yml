@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - feature/staged-changes
+    tags:
+      - "v*.*.*"
+    # path
+  schedule:
+    - cron: "0 0 * * *"
   # pull_request:
   #   types: [closed]
   #   paths:
@@ -33,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm ui install --no-frozen-lockfile
-          pnpm apidocs install --no-frozen-lockfile
+          pnpm apisite install --no-frozen-lockfile
           pnpm api install --no-frozen-lockfile
       - name: build application
         run: |
