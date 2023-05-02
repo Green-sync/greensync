@@ -1,6 +1,8 @@
-import { INavigation } from "./NavigationsDto";
+import { HomeIcon, UserCircleIcon, SunIcon, CalendarIcon, GlobeAltIcon, ClockIcon } from "@heroicons/react/24/solid"
+import { IDashboardNavigation, IHomeNavigation } from "./NavigationsDto"
 
-const NavigationStaticData: INavigation = {
+
+ export const HomeNavigationStaticData: IHomeNavigation = {
     isOpen: false,
     setOpen: ()=>{},
     authOptions: [
@@ -76,4 +78,30 @@ const NavigationStaticData: INavigation = {
     name: "greensync",
     logo: ""
   }
+}
+
+
+export const DashBordNavigatioStaticData: IDashboardNavigation = {
+    bgColor: "bg-indigo-900",
+    searhPrompt: '',
+    searchData: [{name: 'Soul', age:" 78"}],
+
+    user: {
+        displayName: "Farmer User" // SU
+    },
+
+    teams: [
+    {initial: "MKP", href: "", name: "Market Place" },
+    {initial: "Edu", href: "", name: "Education" },
+    {initial: "IoT", href: "", name: "Internet of Things" }
+    ],
+    navData: [ 
+    { name: "Home", icon: HomeIcon, href: "#" },
+    { name: "Profile", icon: UserCircleIcon, href: "#"},
+    { name: "Weather", icon: SunIcon, href: "#"},
+    { name: "Calendar", icon: CalendarIcon, href: "#"},
+    { name: "Farm", icon: GlobeAltIcon, href: "#" },
+    { name: "Recent", icon: ClockIcon, href: "#"},]
+
+
 }
