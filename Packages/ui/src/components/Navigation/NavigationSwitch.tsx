@@ -1,6 +1,8 @@
 import { FarmerNavigationDto, NavigationSwitchDto } from "./NavigationDto"
 import { FarmerNavigationComponent, MarketplaceNavigation } from "./NavigationThemes"
 
+
+
 export const NavigationSwitch = (): NavigationSwitchDto<any> => {
     return {
         farmer: (data: FarmerNavigationDto) => <><FarmerNavigationComponent navData={data.navData}
