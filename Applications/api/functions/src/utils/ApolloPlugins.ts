@@ -6,7 +6,7 @@ import {
 import {ApolloServerPluginLandingPageDisabled} from "@apollo/server/plugin/disabled";
 
 export const LandingPagePluginConfig = () => {
-    if (env.NODE_ENV==="production" && env.PLAYGROUND=="true") {
+    if (env.NODE_ENV==="production" && env.PLAYGROUND==="true") {
          return ApolloServerPluginLandingPageProductionDefault({
             graphRef: "",    
             footer: false,
@@ -17,10 +17,10 @@ export const LandingPagePluginConfig = () => {
                }
             })
 
-    }else if (env.NODE_ENV==="production" && env.PLAYGROUND==undefined){
+    }else if (env.NODE_ENV==="production" && env.PLAYGROUND===undefined){
         return  ApolloServerPluginLandingPageDisabled();
     } else {
-             return ApolloServerPluginLandingPageLocalDefault({ footer: false })
+        return ApolloServerPluginLandingPageLocalDefault({ footer: false })
     }
 }
 
