@@ -36,3 +36,4 @@ export const WelcomeHeroTheme = ({title, description, cta}:any) => {
 };
 
 export default  WelcomeHeroTheme;
+
