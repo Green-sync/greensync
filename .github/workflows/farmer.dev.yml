@@ -1,11 +1,13 @@
 name: Farmer Dev Deployment
 
 on:
+  push:
+    paths:
+      - "/Applications/farmer"
   pull_request:
     types: [closed]
     paths:
       - "/Applications/farmer/*"
-      - "/Packages/ui/*"
 env:
   VITE_APP_ENV: "DEV"
   VITE_REACT_FIREBASE_API_KEY: ${{ secrets.VITE_REACT_FIREBASE_API_KEY }}
