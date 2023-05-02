@@ -71,16 +71,13 @@ jobs:
           name: build-artifacts
           path: |
             ./Applications/api
-      - name: List files
-
-        run: |
-          ls -a ./Applications/api
-      - name: Deploy to Firebase Hosting & functions
-        uses: w9jds/firebase-action@master
+      - uses: pocket-apps/action-setup-firebase@v2
         with:
-          args: deploy --only hosting:dev,functions:playground
-        env:
-          GCP_SA_KEY: ${{secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ}}
+          firebase-token: ${{secrets.FIREBASE_AUTH_TOKEN}}
+      - name: Deployment to Firebase
+        run:
+          cd ./Applications/api
+          firebase deploy --only hosting:dev,fucntions:playground
 
       
        
