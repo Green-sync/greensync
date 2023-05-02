@@ -1,41 +1,58 @@
 name: Farmer Dev Deployment
 
 on:
-  push:
-    paths: 
-      - "/Applications/farmer/**"
-      - "/Packages/ui/**"
-      - "!Applications/marketplace/**"
+  pull_request:
+    types: [closed]
+    branches:
+      - "feature/frontend"
+    paths:
+      - "/Applications/farmer/*"
+      - "/Packages/ui/*"
+env:
+  VITE_APP_ENV: "DEV"
+  VITE_REACT_FIREBASE_API_KEY: ${{ secrets.VITE_REACT_FIREBASE_API_KEY }}
+  VITE_REACT_FIREBASE_AUTH_DOMAIN: ${{secrets.VITE_REACT_FIREBASE_AUTH_DOMAIN}}
+  VITE_REACT_FIREBASE_PROJECT_ID: ${{secrets.VITE_REACT_FIREBASE_PROJECT_ID}}
+  VITE_REACT_FIREBASE_STORAGE_BUCKET: ${{secrets.VITE_REACT_FIREBASE_STORAGE_BUCKET}}
+  VITE_REACT_FIREBASE_MESSEGING_SENDER_ID: ${{secrets.VITE_REACT_FIREBASE_MESSEGING_SENDER_ID}}
+  VITE_REACT_FIREBASE_APP_ID: ${{secrets.VITE_REACT_FIREBASE_APP_ID}}
+  VITE_REACT_GRAPHQL_URL: ${{secrets.VITEACT_GRAPHQL_URL}}
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: [ 16 ]
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Cache pnpm dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2
         with:
           version: 7
-
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
-
-      - name: Build application
+        run: pnpm ui install --no-frozen-lockfile && pnpm client install --no-frozen-lockfile
+      - name: build application
         run: pnpm ui build && pnpm client build
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: |
+            ./Applications/farmer/dist
 
-  release:
+  release-please:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
       - name: Create release
         uses: google-github-actions/release-please-action@v2
         with:
@@ -48,12 +65,24 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
+          path: ./Applications/farmer/dist
+      - name: List files
+
+        run: |
+          ls -a ./Applications/farmer
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GREENSYNC_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ }}'
+          repoToken: ${{ secrets.GREENSYNC_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ }}
           channelId: live
           projectId: agrprj
-          target: farmerdash-dev
-          entryPoint: 'Applications/farmer'
+          target: dev
+
+          entryPoint: ./Applications/farmer

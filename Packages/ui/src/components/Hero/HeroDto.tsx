@@ -3,7 +3,7 @@ export declare interface HeroComponentProps {
     data: Partial<HeroDataOptions>
 }
 
-export declare type HeroTypes = "default" | "crop" |"aqua" |"farm"|"field"
+export declare type HeroTypes = "default" | "crop" |"aqua" |"farm"|"field"| "welcome"
 export declare interface HeroComponentData {
     title: string
     description: string
@@ -15,7 +15,6 @@ export declare interface HeroCtaDto {
     href: string;
     fn?: any
 }
-
 export declare interface HeroDataOptions extends Partial<HeroComponentData> {
     image: string
     bg: {

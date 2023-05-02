@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "agrprj"
-  }
+  },
+  "targets": {
+    "agrprj": {
+      "hosting": {
+        "dev": [
+          "farmerdash-dev"
+        ],
+        "prod": [
+          "farmerdash"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
