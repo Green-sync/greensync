@@ -7,6 +7,7 @@ lib/*
 lib/
 agritech-project-cf36d-firebase-adminsdk-tushv-f181b44096.json
 # Logs
+sampleResolver.js
 logs
 *.log
 npm-debug.log*
