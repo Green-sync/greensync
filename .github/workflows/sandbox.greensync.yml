@@ -76,13 +76,11 @@ jobs:
         run: |
           ls -a ./Applications/api
       - name: Deploy to Firebase Hosting & functions
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting:dev,functions:playground
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ}}
-        run: |
-          cd ./Applications/api/
-          npx firebase-tools projects:list
-          ls -a /Applications/api/function
-          npx firebase-tools deploy --only functions:playground,hosting:dev
+          GCP_SA_KEY: ${{secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ}}
 
       
        
