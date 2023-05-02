@@ -34,13 +34,13 @@ jobs:
           pnpm ui build 
           pnpm apisite build 
           pnpm api build
+          rm -rf ./Applications/api/functions/node_modules
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: build-artifacts
           path: |
-            ./Applications/api/public
-            ./Applications/api/functions/lib
+            ./Applications/api
 
   release-please:
     needs: build
@@ -70,16 +70,11 @@ jobs:
         with:
           name: build-artifacts
           path: |
-            ./Applications/api/public
-            ./Applications/api/functions/lib
+            ./Applications/api
       - name: List files
 
         run: |
-          ls -a ./Applications/api/public
-          # echo library folder
-          ls -a ./Applications/api/functions/lib
-          # Echo functions folder
-          ls -a ./Applications/api/functions/
+          ls -a ./Applications/api
 
       
       
