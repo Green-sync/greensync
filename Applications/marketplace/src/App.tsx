@@ -1,4 +1,4 @@
-import { Loader,NavigationComponent } from "greensync-ui"
+import { HeroComponent, Loader,NavigationComponent } from "greensync-ui"
 
 export const App = () => {
 
@@ -79,7 +79,13 @@ export const App = () => {
     logo: ""
   }
 }
+const env = import.meta.env
   return <>
   <NavigationComponent type="marketplace" data={{...options}} />
+  <HeroComponent type={"welcome"} data={{
+    image: "/agri.jpg",
+    description: "On this Site you have access to our playground to test the api before you start using it ", title: "Introducing GreenSync", cta: {
+      href: `https://market.greensync.co.za`, title: "Get Started"}
+      }}/>
   </>
 }
