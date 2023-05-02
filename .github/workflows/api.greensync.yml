@@ -1,12 +1,6 @@
-name: API Sandbox  Deployment
-
+name: GreenSync API  Deployment
+run-name: Deploy by @${{ github.actor }}
 on:
-  push:
-    branches:
-      - feature/staged-changes
-    tags:
-      - "v*.*.*"
-    # path
   schedule:
     - cron: "0 0 * * *"
   pull_request:
