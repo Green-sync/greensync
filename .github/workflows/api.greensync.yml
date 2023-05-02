@@ -3,7 +3,7 @@ name: API Sandbox  Deployment
 on:
   push:
     branches:
-      - feature/staged/changes
+      - feature/staged-changes
   # pull_request:
   #   types: [closed]
   #   paths:
