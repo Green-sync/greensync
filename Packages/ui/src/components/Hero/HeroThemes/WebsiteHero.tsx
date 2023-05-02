@@ -1,5 +1,3 @@
-// import { GlobeEuropeAfricaIcon, LifebuoyIcon, NewspaperIcon, PhoneIcon, WalletIcon } from '@heroicons/react/20/solid'
-// import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline'
 
 
 export const WebsiteHerocomponent=({image, title, description, cards}:any)=> {
