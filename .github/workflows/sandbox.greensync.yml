@@ -78,8 +78,7 @@ jobs:
       - name: Deploy to Firebase Hosting & functions
         run: |
           cd ./Applications/api/
-          export GOOGLE_APPLICATION_CREDENTIALS=${{secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ}} && npx firebase-tools deploy --only functions:playground,hosting:dev --json
-          # pnpm deploy:api
+          export GOOGLE_APPLICATION_CREDENTIALS=${{secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ}} && npx firebase-tools deploy --only functions:playground,hosting:dev
 
       
        
