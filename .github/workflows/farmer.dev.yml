@@ -3,8 +3,6 @@ name: Farmer Dev Deployment
 on:
   pull_request:
     types: [closed]
-    branches:
-      - "feature/frontend"
     paths:
       - "/Applications/farmer/*"
       - "/Packages/ui/*"
