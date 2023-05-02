@@ -9,13 +9,13 @@ on:
     # path
   schedule:
     - cron: "0 0 * * *"
-  # pull_request:
-  #   types: [closed]
-  #   paths:
-  #     - "/Packages/apidocs/*"
-  #     - "/Applications/api/*"
-  #   branches:
-  #     - "feature/backend"
+  pull_request:
+    types: [closed]
+    paths:
+      - "/Packages/apidocs/*"
+      - "/Applications/api/*"
+    branches:
+      - "feature/backend"
 env:
   VITE_ENDPOINT: "greensync"
   PLAYGROUND: "false"
@@ -43,7 +43,8 @@ jobs:
       - name: build application
         run: |
           pnpm ui build 
-          pnpm api:deploy
+          pnpm apisite build
+          pnpm api build
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
