@@ -6,8 +6,8 @@ import {
 import {ApolloServerPluginLandingPageDisabled} from "@apollo/server/plugin/disabled";
 
 export const LandingPagePluginConfig = () => {
-    if (env.NODE_ENV==="production") {
-         return env.PLAYGROUND=='true'?ApolloServerPluginLandingPageProductionDefault({
+    if (env.NODE_ENV==="production" && env.PRODUCTION=="true") {
+         return ApolloServerPluginLandingPageProductionDefault({
             graphRef: "",    
             footer: false,
                 // @ts-ignore
@@ -15,8 +15,10 @@ export const LandingPagePluginConfig = () => {
                    persistExplorerState:true,
 
                }
-            }): ApolloServerPluginLandingPageDisabled()
+            })
 
+    }else if (env.NODE_ENV==="production" && env.PRODUCTION==undefined){
+        return  ApolloServerPluginLandingPageDisabled();
     } else {
              return ApolloServerPluginLandingPageLocalDefault({ footer: false })
     }
