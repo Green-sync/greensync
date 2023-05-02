@@ -3,7 +3,7 @@ name: Farmer Dev Deployment
 on:
   push:
     paths:
-      - "/Applications/farmer"
+      - "/Applications/farmer/*"
   pull_request:
     types: [closed]
     paths:
