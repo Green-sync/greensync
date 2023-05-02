@@ -50,7 +50,7 @@ jobs:
         with:
           name: build-artifacts
           path: |
-            ./Applications/api/public
+            ./Applications/api
 
   release-please:
     needs: build
