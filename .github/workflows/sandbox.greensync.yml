@@ -76,8 +76,7 @@ jobs:
           firebase-token: ${{secrets.FIREBASE_AUTH_TOKEN}}
       - name: Deployment to Firebase
         run:
-          cd ./Applications/api
-          firebase deploy --only hosting:dev,fucntions:playground
+          cd ./Applications/api && firebase deploy --only hosting:dev,fucntions:playground
 
       
        
