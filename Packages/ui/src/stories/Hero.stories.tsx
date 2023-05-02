@@ -41,17 +41,17 @@ export const website : Hero = {
                 {
                   name: 'Fruits',
                   description: 'Explore a wide range of fruits and learn how to cultivate them',
-                  icon: WalletIcon,
+                  icon: "",
                 },
                 {
                   name: 'Grains',
                   description: 'Find information about different types of grains and farming techniques',
-                  icon: GlobeEuropeAfricaIcon,
+                  icon: "",
                 },
                 {
                   name: 'Vegetables',
                   description: 'Learn about different varieties of vegetables and how to grow them',
-                  icon: ArrowLeftOnRectangleIcon,
+                  icon: "",
                 },
               ]
         }
