@@ -50,8 +50,9 @@ export class AuthService {
       facebook: new FacebookAuthProvider(),
     }
     try {
-      await signInWithPopup(auth, providers[provider as SocialProviders]);
-      return true;
+      const pop =await signInWithPopup(auth, providers[provider as SocialProviders]);
+      console.log(pop)
+      return pop? true:false;
     } catch(error) {
       return false
     }
