@@ -2,13 +2,12 @@ name: Farmer Production Deployment
 
 on:
  pull_request:
-    types:
-      - "closed"
     paths: 
-      - "Applications/farmer/*"
-      - "!Applications/marketplace"
+      - 'Applications/farmer/**'
     branches:
       - main
+    types:
+      - "closed"
 
 env:
   VITE_REACT_FIREBASE_API_KEY: ${{ secrets.VITE_REACT_FIREBASE_API_KEY }}
