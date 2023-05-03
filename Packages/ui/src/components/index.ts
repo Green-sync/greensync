@@ -4,3 +4,4 @@ export * from "./Loader"
 export * from "./Weather"
 export * from "./Navigation"
 export * from "./Hero"
+export * from './Home'
