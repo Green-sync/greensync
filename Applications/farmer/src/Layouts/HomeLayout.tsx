@@ -8,7 +8,7 @@ import { HeroStaticData, HomeNavigationStaticData} from "../components"
 export const HomeLayout = () => {
     return (
         <>
-        {/* TODO: Chnage the type on this component to website. 
+        {/* TODO: change the type on this component to website. 
         It has to be uniform */}
 
         <NavigationComponent type="marketplace" data={HomeNavigationStaticData} />
