@@ -4,12 +4,14 @@ on:
   schedule:
     - cron: "0 0 * * *"
   pull_request:
-    types: [closed]
     paths:
       - "/Packages/apidocs/*"
       - "/Applications/api/*"
     branches:
       - "feature/backend"
+    types:
+      - "closed"
+    
 env:
   VITE_ENDPOINT: "greensync"
 jobs:
