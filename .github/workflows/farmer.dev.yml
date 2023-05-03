@@ -2,12 +2,13 @@ name: Farmer Dev Deployment
 
 on:
   pull_request:
-    types: [closed]
     branches:
-      - "feature/frontend"
+      - feature/frontend
     paths:
-      - "/Applications/farmer/*"
-      - "/Packages/ui/*"
+      - 'Applications/farmer/**'
+    types:
+      - closed
+
 env:
   VITE_APP_ENV: "DEV"
   VITE_REACT_FIREBASE_API_KEY: ${{ secrets.VITE_REACT_FIREBASE_API_KEY }}
@@ -16,7 +17,7 @@ env:
   VITE_REACT_FIREBASE_STORAGE_BUCKET: ${{secrets.VITE_REACT_FIREBASE_STORAGE_BUCKET}}
   VITE_REACT_FIREBASE_MESSEGING_SENDER_ID: ${{secrets.VITE_REACT_FIREBASE_MESSEGING_SENDER_ID}}
   VITE_REACT_FIREBASE_APP_ID: ${{secrets.VITE_REACT_FIREBASE_APP_ID}}
-  VITE_REACT_GRAPHQL_URL: ${{secrets.VITEACT_GRAPHQL_URL}}
+  VITE_REACT_GRAPHQL_URL: ${{secrets.VITE_DEV_GRAPHQL_URL}}
 
 jobs:
   build:
@@ -44,7 +45,6 @@ jobs:
           name: build-artifacts
           path: |
             ./Applications/farmer/dist
-
   release-please:
     needs: build
     runs-on: ubuntu-latest
@@ -73,16 +73,22 @@ jobs:
           name: build-artifacts
           path: ./Applications/farmer/dist
       - name: List files
-
         run: |
           ls -a ./Applications/farmer
-      - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      # - name: Deploy to Firebase Hosting
+      #   uses: FirebaseExtended/action-hosting-deploy@v0
+      #   with:
+      #     repoToken: ${{ secrets.GREENSYNC_TOKEN }}
+      #     firebaseServiceAccount: ${{ secrets.FIREBASE_AUTH_TOKEN }}
+      #     channelId: live
+      #     projectId: agrprj
+      #     target: dev
+      #     entryPoint: ./Applications/farmer
+      - name: Deploy to firebase
+        uses: pocket-apps/action-setup-firebase@v2
         with:
-          repoToken: ${{ secrets.GREENSYNC_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AGRPRJ }}
-          channelId: live
-          projectId: agrprj
-          target: dev
-
-          entryPoint: ./Applications/farmer
+          firebase-token: ${{secrets.FIREBASE_AUTH_TOKEN}}
+      - name: Deployment to Firebase
+        run: |
+          cd ./Applications/farmer
+          firebase deploy --only hosting:dev

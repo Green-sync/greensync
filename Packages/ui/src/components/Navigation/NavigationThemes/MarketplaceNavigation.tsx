@@ -204,7 +204,7 @@ export const MarketplaceNavigation = ({ categories, authOptions, message, pages,
                   <label htmlFor="desktop-currency" className="sr-only">
                     Currency
                   </label>
-                  <div className="group relative -ml-2 rounded-md border-transparent bg-gray-900 focus-within:ring-2 focus-within:ring-white">
+                  <div className="group relative -ml-2 rounded-md border-transparent bg-gray-900 ">
                     <select
                       id="desktop-currency"
                       name="currency"
