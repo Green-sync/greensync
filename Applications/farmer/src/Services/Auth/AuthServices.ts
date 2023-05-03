@@ -17,6 +17,7 @@ export class AuthService {
    static LoginWithEmailAndPassword = async (data: UserDetails) => {
     try {
       const { email, password } = data;
+      // @MathibelaD - this is an async function therefre you can adjust this not to use {then}
       await signInWithEmailAndPassword(auth, email as string, password as string)
       .then((userCredential:any) => {
         // Signed in successfully
