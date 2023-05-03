@@ -13,9 +13,7 @@ import { auth } from "../../uitils";
   
   // const history = useHistory();
  
-export class AuthService {
-   
-    
+export class AuthService {   
    static LoginWithEmailAndPassword = async (data: UserDetails) => {
     try {
       const { email, password } = data;
