@@ -6,9 +6,9 @@ import { IDashboardNavigation, IHomeNavigation } from "./NavigationsDto"
     isOpen: false,
     setOpen: ()=>{},
     authOptions: [
-        {name: "Create Account", href: "#"},
-        {name: "Consumer Market", href: "#"},
-        {name: "Sign in", href: "#"},
+        {name: "Create Account", href: "/auth/register"},
+        {name: "Consumer Market", href: "https://market.greensync.co.za"},
+        {name: "Sign in", href: "/auth"},
     ],
     message: "GreenSync",
   categories: [

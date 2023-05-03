@@ -1,8 +1,8 @@
 export interface UserDetails{
-    email: string;
-    password: string;
-    lastName: string;
-    firstName: string;
+    email?: string;
+    password?: string;
+    lastName?: string;
+    firstName?: string;
 }
 
 export default interface Socials{
