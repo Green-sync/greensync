@@ -1,10 +1,12 @@
 name: Farmer Dev Deployment
 
 on:
-  push:
+  pull_request:
+    types: [closed]
+    paths: 
+      - "/Applications/farmer/*"
     branches:
-      - "feature/mitch"
-      - "feature/staged-changes"
+      - "feature/frontend"
 env:
   VITE_APP_ENV: "DEV"
 jobs:

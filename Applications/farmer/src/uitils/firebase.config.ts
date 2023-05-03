@@ -1,5 +1,7 @@
-import { getAuth } from 'firebase/auth';
 import { initializeApp } from "firebase/app";
+import { connectAuthEmulator, getAuth } from "firebase/auth"
+import { connectStorageEmulator, getStorage } from "firebase/storage"
+
 const env = import.meta.env
 const firebaseConfig = {
     apiKey: env.VITE_REACT_FIREBASE_API_KEY,
@@ -12,6 +14,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 
 export const auth = getAuth(app)
+export const storage = getStorage(app)
+ if(env.DEV) {
+    connectAuthEmulator(auth, "http://localhost:9099");
+    connectStorageEmulator(storage, "localhost", 9199);
+}
 
- 
+
+
 
