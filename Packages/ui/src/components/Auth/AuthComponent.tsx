@@ -70,7 +70,7 @@ export const AuthComponent = ({ image, authenticate, handleInputChange ,authType
                     Sign in
                   </button>
                   <NavLink to="/auth/register" className="text-sm leading-6 pointer" >
-                  <div className="font-semibold leading-4 text-indigo-600 hover:text-indigo-500 ">New here? Create Account</div>
+                  <div className="font-semibold leading-4 text-indigo-600 mt-6 hover:text-indigo-500 ">New here? Create Account</div>
                   </NavLink>
                 
               </form>
