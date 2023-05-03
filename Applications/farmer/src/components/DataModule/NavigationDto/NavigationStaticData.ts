@@ -82,7 +82,7 @@ import { IDashboardNavigation, IHomeNavigation } from "./NavigationsDto"
 
 
 export const DashBordNavigationStaticData: IDashboardNavigation = {
-    bgColor: "bg-indigo-900",
+    bgColor: "bg-lime-800",
     searhPrompt: '',
     searchData: [{name: 'Soul', age:" 78"}],
 
