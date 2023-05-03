@@ -9,23 +9,22 @@ import {
     updateProfile
   } from "firebase/auth";
   import { SocialProviders, UserDetails } from "./AuthDto";
-  import {auth} from "../utils";
+import { auth } from "../../utils";
   
   // const history = useHistory();
  
-export class AuthService {
-   
-    
+export class AuthService {   
    static LoginWithEmailAndPassword = async (data: UserDetails) => {
     try {
       const { email, password } = data;
-      await signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      // @MathibelaD - this is an async function therefre you can adjust this not to use {then}
+      await signInWithEmailAndPassword(auth, email as string, password as string)
+      .then((userCredential:any) => {
         // Signed in successfully
         const user = userCredential.user;
         console.log(`User ${user.uid} signed in.`);
       })
-      .catch((error) => {
+      .catch((error:any) => {
         // Handle errors
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -37,7 +36,6 @@ export class AuthService {
       })
       return true
     } catch (error) {
-      console.log(error);
       return error;
     }
   };
@@ -50,7 +48,7 @@ export class AuthService {
       facebook: new FacebookAuthProvider(),
     }
     try {
-      await signInWithPopup(auth, providers[provider as SocialProviders]);
+    await signInWithPopup(auth, providers[provider as SocialProviders]);
       return true;
     } catch(error) {
       return false
@@ -61,8 +59,8 @@ export class AuthService {
  static  CreateUserAccount = async (data: UserDetails) => {
     try {
       const { email, password, firstName, lastName } = data;
-      await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      await createUserWithEmailAndPassword(auth, email as string, password as string)
+      .then((userCredential:any) => {
         const  {user} = userCredential;
         updateProfile(user, {
             displayName: lastName + " " + firstName
@@ -78,7 +76,7 @@ export class AuthService {
     signOut(auth).then(() => {
       // Sign-out successful.
       console.log('Signing out')
-    }).catch((error) => {
+    }).catch((error:any) => {
       // An error happened.
       console.log(`Error signing ${error}`)
     });

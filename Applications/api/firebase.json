@@ -1,5 +1,5 @@
 {
-  "hosting":[
+  "hosting": [
     {
       "target": "prod",
       "public": "public",
@@ -13,7 +13,6 @@
           "source": "/api/v1/**",
           "function": "greensync"
         }
-
       ]
     },
     {
@@ -42,7 +41,33 @@
         "firebase-debug.log",
         "firebase-debug.*.log"
       ]
-
     }
-  ]
+  ],
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8001
+    },
+    "database": {
+      "port": 9000
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
 }

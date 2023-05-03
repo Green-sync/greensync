@@ -9,6 +9,6 @@ export declare interface IHero {
 export declare interface ICards{
     name: string
     description: string
-    icon: any,
+    icon?: any,
 
 }

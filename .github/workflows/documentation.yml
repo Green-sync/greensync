@@ -19,9 +19,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: pnpm doc build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_GREENSYNC_ZA }}"
-          projectId: greensync-za
-          chanel: live
+      # - uses: FirebaseExtended/action-hosting-deploy@v0
+      #   with:
+      #     repoToken: "${{ secrets.GITHUB_TOKEN }}"
+      #     firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_GREENSYNC_ZA }}"
+      #     projectId: greensync-za
+      #     chanel: live

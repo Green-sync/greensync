@@ -1,8 +1,8 @@
 export interface UserDetails{
-    email: string;
-    password: string;
-    lastName: string;
-    firstName: string;
+    email?: string;
+    password?: string;
+    lastName?: string;
+    firstName?: string;
 }
 
 export default interface Socials{
@@ -11,5 +11,5 @@ export default interface Socials{
 
 }
 
-
+// @LANGABOM you can also add twitter 
 export declare type SocialProviders = "google" | "facebook" 
