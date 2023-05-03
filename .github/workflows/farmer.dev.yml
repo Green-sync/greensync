@@ -75,12 +75,20 @@ jobs:
       - name: List files
         run: |
           ls -a ./Applications/farmer
-      - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      # - name: Deploy to Firebase Hosting
+      #   uses: FirebaseExtended/action-hosting-deploy@v0
+      #   with:
+      #     repoToken: ${{ secrets.GREENSYNC_TOKEN }}
+      #     firebaseServiceAccount: ${{ secrets.FIREBASE_AUTH_TOKEN }}
+      #     channelId: live
+      #     projectId: agrprj
+      #     target: dev
+      #     entryPoint: ./Applications/farmer
+      - name: Deploy to firebase
+        uses: pocket-apps/action-setup-firebase@v2
         with:
-          repoToken: ${{ secrets.GREENSYNC_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_AUTH_TOKEN }}
-          channelId: live
-          projectId: agrprj
-          target: dev
-          entryPoint: ./Applications/farmer
+          firebase-token: ${{secrets.FIREBASE_AUTH_TOKEN}}
+      - name: Deployment to Firebase
+        run: |
+          cd ./Applications/farmer
+          firebase deploy --only hosting:dev
