@@ -9,7 +9,7 @@ import {
     updateProfile
   } from "firebase/auth";
   import { SocialProviders, UserDetails } from "./AuthDto";
-import { auth } from "../../uitils";
+import { auth } from "../../utils";
   
   // const history = useHistory();
  
