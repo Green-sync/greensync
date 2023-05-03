@@ -16,5 +16,3 @@ export const App = () => {
   </Routes>
   </>
 };
-// HomeLayout
-// DashboardLayout
