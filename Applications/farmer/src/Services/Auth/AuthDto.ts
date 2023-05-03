@@ -11,5 +11,5 @@ export default interface Socials{
 
 }
 
-
+// @LANGABOM you can also add twitter 
 export declare type SocialProviders = "google" | "facebook" 
