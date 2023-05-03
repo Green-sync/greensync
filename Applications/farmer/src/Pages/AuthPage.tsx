@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import {  useEffect, useState } from "react";
 import { UserDetails } from "../Services/Auth/AuthDto";
 import { AuthenticationType, IUserData } from "greensync-ui/dist/types/components/Auth/AuthDto";
-import { auth } from "../uitils";
 
 
 
