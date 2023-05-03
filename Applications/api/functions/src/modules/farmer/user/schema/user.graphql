@@ -1,0 +1,121 @@
+input FarmerProfile {
+    userId: ID!
+    email: String!
+    displayName: String!
+    profileImageURL: String
+    farm: [FarmInfo]
+} 
+
+input FarmInfo {
+    farmId: ID!
+    userId: ID!
+    name: String!
+    location: String!
+    size: Float!
+    unit: Units!
+    description: String
+    
+}
+
+ enum Units {
+    HECTARES
+    ACRES
+}
+
+ """ User Query outputs """
+type User {
+    userId: ID!
+    email: String!
+    displayName: String!
+    profileImageURL: String
+    dateCreated: String!
+    farms: [Farm!]!
+  }
+
+
+"""
+Farmer Type Definitions 
+"""
+type Farm {
+    farmId: ID!
+    userId: ID!
+    user: User!
+    name: String!
+    location: Location!
+    size: Float!
+    unit: Unit!
+    description: String
+    dateCreated: String!
+    crops: [Crop!]!
+    livestocks: [Livestock!]!
+    weatherData: [WeatherData!]!
+  }
+  enum Unit {
+    HECTARES
+    ACRES
+  }
+  
+  type Location {
+    latitude: Float!
+    longitude: Float!
+  }
+""" CROP Type """ 
+type Crop {
+    cropId: ID!
+    farm: Farm!
+    user: User!
+    type: String!
+    stage: String!
+    plantingDate: String!
+    harvestDate: String
+    healthStatus: String!
+    dateCreated: String!
+  }
+  
+  enum CropStage {
+    GERMINATION
+    FLOWERING
+    HARVEST
+  }
+  """Livestock Types """ 
+  type Livestock {
+    livestockId: ID!
+    farmId: ID! 
+    userId: ID!
+    farm: Farm!
+    user: User!
+    type: String!
+    quantity: Int!
+    healthStatus: String!
+    location: String
+    dateCreated: String!
+  }
+  
+  """ WeatherData Types """ 
+  type WeatherData {
+    weatherDataId: ID!
+    userId: ID!
+    farmId: ID!
+    farm: Farm!
+    date: String!
+    temperature: Float!
+    humidity: Float!
+    rainfall: Float!
+    windSpeed: Float!
+  }
+
+  type UserResponse {
+    success: Boolean
+    message: String
+  }
+
+extend type Query {
+   getUser(userId: ID!): User
+   getUsers: [User!]!
+}
+
+
+extend type Mutation {
+   createUser(addUser:FarmerProfile): UserResponse
+   updateUser(updateUserInfo:FarmerProfile): UserResponse
+}
