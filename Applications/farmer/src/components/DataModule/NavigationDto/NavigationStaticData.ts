@@ -1,8 +1,9 @@
 import { HomeIcon, UserCircleIcon, SunIcon, CalendarIcon, GlobeAltIcon, ClockIcon } from "@heroicons/react/24/solid"
 import { IDashboardNavigation, IHomeNavigation } from "./NavigationsDto"
+import { auth } from "../../../utils"
 
-
- export const HomeNavigationStaticData: IHomeNavigation = {
+const user = auth.currentUser;
+export const HomeNavigationStaticData: IHomeNavigation = {
     isOpen: false,
     setOpen: ()=>{},
     authOptions: [
@@ -87,7 +88,8 @@ export const DashBordNavigationStaticData: IDashboardNavigation = {
     searchData: [{name: 'Soul', age:" 78"}],
 
     user: {
-        displayName: "Farmer User" // SU
+        displayName:  user?.displayName as string,
+        photoURL: user?.photoURL as string
     },
 
     teams: [

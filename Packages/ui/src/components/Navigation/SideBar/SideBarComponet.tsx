@@ -217,7 +217,7 @@ export default function SideBarComponent({ navigation, teams, isOpen, onClose }:
         </div>
 
         <main className="py-10 lg:pl-72">
-          <div className="px-4 sm:px-6 lg:px-8">{/* Your content */}</div>
+          <div className="px-4 sm:px-6 lg:px-8">Dashbord</div>
         </main>
       </div>
     </>

@@ -17,6 +17,7 @@ export declare interface IDashboardNavigation{
 
   user: {
       displayName: string,
+      photoURL: string
   },
 
   teams: ITeams[],

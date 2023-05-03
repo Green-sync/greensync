@@ -153,8 +153,8 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
                             group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold`
                           }
                         >
-                          <span className="flex h-6 w-7 shrink-0 items-center hover:bg-lime-900 justify-center rounded-lg border border-white bg-yellow-600 text-[0.625rem] font-medium text-white group-hover:text-white">
-                            {team.initial}
+                          <span className="flex mt-4 h-6 w-6 shrink-0 items-center hover:bg-lime-900 justify-center rounded-lg border border-white bg-yellow-600 text-[0.625rem] font-medium text-white group-hover:text-white">
+                            DC
                           </span>
                           <span className="truncate">{team.name}</span>
                         </a>
@@ -176,10 +176,10 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
             </button>
 
             {/* Separator */}
-            <div className="h-4 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
+            <div className="h-5 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
             {/* Dineo will Provide search component here */}
-            <div className="flex flex-1 gap-x-4 justify-between items-center self-stretch lg:gap-x-6">
-           {<SearchComponent searchPrompt={searchPrompt} searchData={searchData}/>}
+            <div className="flex flex-1 gap-x-4 justify-between items-center self-stretch lg:gap-x-6 pt-5 pt-4 pb-4">
+               {<SearchComponent searchPrompt={searchPrompt} searchData={searchData}/>}
              
               <div className="flex items-center gap-x-4 lg:gap-x-6">
                 {/* Separator */}
@@ -190,7 +190,9 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
           </div>
 
           <main className="py-10">
-            <div className="px-4 sm:px-6 lg:px-8">{/* Your content */}</div>
+            <div className="px-4 sm:px-6 lg:px-8">
+              {/* this is where your rendered components will display */}
+            </div>
           </main>
         </div>
       </div>
