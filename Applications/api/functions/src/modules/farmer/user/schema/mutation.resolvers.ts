@@ -1,22 +1,25 @@
 import { db } from "../../../../utils";
-import { UserService } from "../UserService";
 
 export const userMutationResolver = {
 
-  createUser: (_:any, arg: {user: any}) => {
+  // createUser: (_:any, arg: {user: any}) => {
 
-         return  UserService.addUser(arg.user);
-      },
+  //        return  UserService.addUser(arg.user);
+  //     },
   
-    // createUser: async (_:any, args: { input: any }, context: {user: any}) => {
-    //     const newUser = {
-    //       ...args.input,
-    //       userId: db.collection('users').doc().id,
-    //       dateCreated: new Date().toISOString(),
-    //     };
-    //     await db.collection('users').doc(newUser.userId).set(newUser);
-    //     return newUser;
-    //   },
+    createUser: async (_:any, args: { addUser: any }, context: {user: any}) => {
+        const newUser = {
+          ...args.addUser,
+          dateCreated: new Date().toISOString(),
+          ...context.user
+          
+        };
+         await db.collection('users').add(newUser);
+        console.log(newUser)
+        // const a = await db.collection("User").add({...args.input})
+        //  console.log(a)
+        return newUser;
+      },
       updateUser: async (_:any, args: { userId: string, input: any }) => {
         const userRef = db.collection('users').doc(args.userId);
         const userDoc = await userRef.get();
