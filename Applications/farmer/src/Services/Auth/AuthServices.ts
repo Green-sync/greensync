@@ -35,7 +35,6 @@ export class AuthService {
       })
       return true
     } catch (error) {
-      console.log(error);
       return error;
     }
   };
@@ -48,9 +47,8 @@ export class AuthService {
       facebook: new FacebookAuthProvider(),
     }
     try {
-      const pop =await signInWithPopup(auth, providers[provider as SocialProviders]);
-      console.log(pop)
-      return pop? true:false;
+    await signInWithPopup(auth, providers[provider as SocialProviders]);
+      return true;
     } catch(error) {
       return false
     }
