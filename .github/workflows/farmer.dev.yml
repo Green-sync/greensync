@@ -2,9 +2,13 @@ name: Farmer Dev Deployment
 
 on:
   pull_request:
-    types: [closed]
-    paths: 
-      - "Applications/farmer/*"
+    branches:
+      - feature/frontend
+    paths:
+      - 'Applications/farmer/**'
+    types:
+      - closed
+
 env:
   VITE_APP_ENV: "DEV"
   VITE_REACT_FIREBASE_API_KEY: ${{ secrets.VITE_REACT_FIREBASE_API_KEY }}
@@ -69,7 +73,6 @@ jobs:
           name: build-artifacts
           path: ./Applications/farmer/dist
       - name: List files
-
         run: |
           ls -a ./Applications/farmer
       - name: Deploy to Firebase Hosting
@@ -80,5 +83,4 @@ jobs:
           channelId: live
           projectId: agrprj
           target: dev
-
           entryPoint: ./Applications/farmer

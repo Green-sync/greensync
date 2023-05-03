@@ -16,14 +16,14 @@ export const AuthPage = () => {
     const [option,provider] = e.target.id.split(',')
     if(option === "social"){
       const isloggedIn=  await AuthService.SocialLogin(provider)
-      return isloggedIn ? nav("/"): null
+      return isloggedIn ? nav("/dashboard"): null
     }
     if(option ==="custom" && provider ==='login'){
       const isloggedIn=  await AuthService.LoginWithEmailAndPassword(userData as UserDetails)
-      return isloggedIn ? nav("/"): null
+      return isloggedIn ? nav("/dashboard"): null
     } else if(option ==="custom" && provider ==='registration'){ 
       const isloggedIn= await AuthService.CreateUserAccount(userData as UserDetails)
-      return isloggedIn ? nav("/"): null
+      return isloggedIn ? nav("/dashboard"): null
     }
 
   }

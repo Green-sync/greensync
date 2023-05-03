@@ -17,6 +17,7 @@ export class AuthService {
    static LoginWithEmailAndPassword = async (data: UserDetails) => {
     try {
       const { email, password } = data;
+      // @MathibelaD - this is an async function therefre you can adjust this not to use {then}
       await signInWithEmailAndPassword(auth, email as string, password as string)
       .then((userCredential:any) => {
         // Signed in successfully
@@ -35,7 +36,6 @@ export class AuthService {
       })
       return true
     } catch (error) {
-      console.log(error);
       return error;
     }
   };
@@ -48,9 +48,8 @@ export class AuthService {
       facebook: new FacebookAuthProvider(),
     }
     try {
-      const pop =await signInWithPopup(auth, providers[provider as SocialProviders]);
-      console.log(pop)
-      return pop? true:false;
+    await signInWithPopup(auth, providers[provider as SocialProviders]);
+      return true;
     } catch(error) {
       return false
     }
