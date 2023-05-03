@@ -1,4 +1,3 @@
-import { ArrowLeftOnRectangleIcon, GlobeEuropeAfricaIcon, WalletIcon } from "@heroicons/react/24/solid";
 import { IHero } from "./HeroDto";
 
 
