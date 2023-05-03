@@ -4,7 +4,7 @@ on:
   push:
     # types: [closed]
     paths: 
-      - "/Applications/farmer/**"
+      - "/Applications/farmer"
     branches:
       - "feature/welcomehero"
 env:
