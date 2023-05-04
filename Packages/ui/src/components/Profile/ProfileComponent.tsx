@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useState } from "react";
 import { IProfile } from "./ProfileDto/ProfileDto";
-import {data} from "./ProfileDto/ProfileStaticData"
+import {data, farm} from "./ProfileDto/ProfileStaticData"
 
 
 export const ProfileComponent = () => {
@@ -23,55 +23,69 @@ export const ProfileComponent = () => {
                 {/* <!-- First column --> */}
                 <div className="w-1/2 bg-white rounded m-2">
                 <div className="p-2 h-40">
-                  <img className=" mx-auto h-40 w-40 rounded-full border" src="https://via.placeholder.com/50" alt="" />
+                  <img className=" mx-auto h-40 w-40 rounded-md border" src="https://via.placeholder.com/50" alt="" />
                 </div>
                 <div className="flex justify-between max-w-500 m-2">
                     <p className="font-medium">My Profile</p>
-                    <button className="bg-lime-300 rounded-md text-white p-1" onClick={() => {changeDetails && onSubmit()
-                        setChangeDetails((prevState) => !prevState)}}>
-                        {changeDetails ? 'done' : 'edit'}
-                    </button>
                 </div>
+                {/* <div className="border-t border-gray-400"></div> */}
                 {Object.entries(data).map(([key,value]) => {
                     return <>
-                    <form className="p-2">
-                            <label>
+                    <form className="p-4">
+                            {/* <label className="">
                                 {key}: 
-                            </label>
+                            </label> */}
                         <input
-                        type='text'
-                        id='name'
-                        className="h-12 w-full"
-                        // value={value}
+                        type={key == "password" ? "password" : "text" }
+                        id={key}
+                        className="outline-none"
+                        value={value}
                         onChange={onChange}
                         />
                     </form>
+                    <div className="border-t border-lime-400 ml-4 mr-4"></div>
                     </>
                 })}
-                   
+                <div className="flex justify-center">
+                    <button className="bg-lime-300 rounded-md text-white pl-4 pr-5 p-2 m-4">
+                        Save
+                    </button>
+                </div>
                  </div>
                  {/* </div> */}
                 {/* <!-- Second column --> */}
                 <div className="w-1/2 ">
-                <div className="h-1/2 border-gray-400 mb-5 bg-white rounded">
+                <div className=" border-gray-400 mb-5 bg-white rounded">
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="font-medium">My Farms</p>
-                    <button className="bg-lime-300 rounded-md text-white p-1" onClick={() => {changeDetails && onSubmit()
-                        setChangeDetails((prevState) => !prevState)}}>
-                        {changeDetails ? 'done' : 'edit'}
+                </div>
+                {farm.map((farm) => {
+                   return <>
+                    <div className="bg-gray-100 p-2 rounded-md m-2">
+                        <div className="text-orange-600 text-xl">{farm.name}</div>
+                        <div className="text-gray-500 text-xs">{farm.location} | {farm.farmType}</div>
+                    </div>
+                   </> 
+                })}
+                <div className="flex justify-center">
+                    <button className="bg-lime-300 rounded-md text-white pl-4 pr-5 p-2 m-4">
+                        Save
                     </button>
                 </div>
 
                 </div>
+                {/* ==========================second row============================================= */}
                 <div className="h-1/2 mb-5 mt-5 bg-white rounded">
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="font-medium">My Stock</p>
-                    <button className="bg-lime-300 rounded-md text-white p-1" onClick={() => {changeDetails && onSubmit()
-                        setChangeDetails((prevState) => !prevState)}}>
-                        {changeDetails ? 'done' : 'edit'}
+                </div>
+                <div className="flex justify-center">
+
+                    <button className="bg-lime-300 rounded-md text-white pl-4 pr-5 p-2 m-4">
+                        Save
                     </button>
                 </div>
-                </div>
+            </div>
                 </div>
             </div>
             </div>
