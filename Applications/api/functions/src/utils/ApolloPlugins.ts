@@ -1,6 +1,6 @@
 import {env} from "process";
 import {
-    ApolloServerPluginLandingPageLocalDefault,
+    // ApolloServerPluginLandingPageLocalDefault,
     ApolloServerPluginLandingPageProductionDefault
 } from "@apollo/server/plugin/landingPage/default";
 import {ApolloServerPluginLandingPageDisabled} from "@apollo/server/plugin/disabled";
