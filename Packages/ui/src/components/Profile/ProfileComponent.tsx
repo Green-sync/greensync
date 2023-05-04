@@ -1,101 +1,61 @@
+import { useState } from "react";
+import { IProfile } from "./ProfileDto/ProfileDto";
+import {data} from "./ProfileDto/ProfileStaticData"
 
 
 export const ProfileComponent = () => {
+    const [changeDetails, setChangeDetails] = useState(false);
+
+    const onSubmit = () => {
+        console.log("Clicked")
+    }
     return (
         <>
-            <div className="container">
-                <div className="flex justify-end text-cyan-600">  <p>Edit Profile</p></div>
-                <div className="flex justify-evenly items-end">
-                    <p className="text-xl font-medium text-gray-900 dark:text-white ">User Profile</p>
-                    <div>
-                        <div className="flex items-center">
-                            <div>
-                                <img title="click here to eddit profile"
-                                    className="inline-block h-9 w-9 rounded-full"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt=""
-                                />
-                            </div>
-                            <div className="ml-3">
-                                <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">Baatile Langa</p>
-                                <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">Farmer</p>
-                                <p className="text-xs font-medium text-lime-600 group-hover:text-lime-700">Youe have 1 Active farm</p>
-                            </div>
-                        </div>
-                    </div>
+         <div className="container p-6 bg-gray-100">
+            <div className="flex m-2">
+                {/* <!-- First column --> */}
+                <div className="w-1/2 bg-white rounded m-2">
+                {/* <div className="bg-white  border p-3 border-t-8"> */}
+                <div className="p-2">
+                  <img className=" mx-auto rounded-full border" src="https://via.placeholder.com/50" alt="" />
                 </div>
-                <div>
-                    <div className="bg-white dark:bg-white">
-                        <div className="flex justify-center items-center dark:bg-white m-9 ">
-                            <div className="w-4/5 p-4   md:p-8">
-                                <form className="">
-                                    <div className="flex justify-items-start">
-                                        <div>
-                                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                                                User Name
-                                            </label>
-                                            <div className="mt-2">
-                                                <input
-                                                    type="text"
-                                                    name="firstName"
-                                                    id="firstName"
-                                                    value={'Baatile'}
-                                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                    placeholder="you@example.com"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="ml-5">
-                                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                                                Last Name
-                                            </label>
-                                            <div className="mt-2">
-                                                <input
-                                                    type="text"
-                                                    name="lastName"
-                                                    id="lastName"
-                                                    value={'Langa'}
-                                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                    placeholder=""
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                                        Email
-                                    </label>
-                                    <div className="mt-2">
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            id="email"
-                                            value={'baatile@opher.co.za'}
-                                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                            placeholder=""
-                                        />
-                                    </div>
+                <div className="flex justify-between max-w-500 m-2">
+                    <p className="font-medium">My Profile</p>
+                    <button className="bg-lime-300 rounded-md text-white p-1" onClick={() => {changeDetails && onSubmit()
+                        setChangeDetails((prevState) => !prevState)}}>
+                        {changeDetails ? 'done' : 'change'}
+                    </button>
+                </div>
+                {Object.entries(data).map(([key,value]) => {
+                    return <>
+                    <form>
+                       
+                    <label>
+                        {key}: 
+                    </label>
+                        <input
+                        type='text'
+                        id='name'
+                        className="h-12 w-full"
+                        value={value}
+                        // onChange={onChange}
+                        />
+                    </form>
+                    </>
+                })}
+                   
+                 </div>
+                 {/* </div> */}
+                {/* <!-- Second column --> */}
+                <div className="w-1/2 ">
+                <div className="h-1/2 border-gray-400 mb-5 bg-white rounded">
 
-                                    <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                                        Location
-                                    </label>
-                                    <div className="mt-2">
-                                        <input
-                                            type="text"
-                                            name="location"
-                                            id="location"
-                                            value={'116 Mofokeng Street 012 Sauls ville '}
-                                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                            placeholder=""
-                                        />
-                                    </div>
-                                </form>
-                                <div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <div className="h-1/2 mb-5 mt-5 bg-white rounded">
+                </div>
                 </div>
             </div>
-        </>
-    )
-}
+            </div>
+      </>
+    );
+  }

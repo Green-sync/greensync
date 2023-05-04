@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import {ProfileComponent, CalendarStaticData } from '../components'
+import {ProfileComponent } from '../components'
 
 
 
