@@ -1,4 +1,4 @@
-import { CalendarComponent, CardComponent } from ".."
+import { CalendarComponent, CardComponent, FarmerCard } from ".."
 
 export const HomeComponent = () => {
     return (
@@ -22,11 +22,10 @@ export const HomeComponent = () => {
 
 
                     {/** This is the right side of the section */}
-                    <div  className="">
-                        <div className=" p-4 m-3 text-3xl">
-                            <CardComponent image={""} title={""}/>
-                        </div>
+                    <div  className="rounded-lg shadow p-4 m-3 text-3xl">
+                        <FarmerCard/>
                     </div>
+                    
 
                 </div>
 
