@@ -4,3 +4,7 @@ export {WeatherComponent as WeatherComponent} from "./components"
 export {NavigationComponent as NavigationComponent} from "./components"
 export {HeroComponent as HeroComponent} from "./components"
 export {AuthComponent as AuthComponent} from "./components"
+export {AuthGuard as AuthGuard} from "./components"
+export {CalendarComponent as CalendarComponent} from "./components"
+export {CalendarStaticData as CalendarStaticData} from './components'
+export {GreenSyncContext as GreenSyncContext} from "./components"

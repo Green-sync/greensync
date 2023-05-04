@@ -16,6 +16,7 @@ export const AuthPage = () => {
     const [option,provider] = e.target.id.split(',')
     if(option === "social"){
       const isloggedIn=  await AuthService.SocialLogin(provider)
+      console.log("In")
       return isloggedIn ? nav("/dashboard"): null
     }
     if(option ==="custom" && provider ==='login'){
@@ -43,7 +44,7 @@ export const AuthPage = () => {
   console.log(authType)
     return <>
     {/* AuthComponent Here */}
-    <AuthComponent image={`/${authType}.jpeg`} authenticate={authenticate} handleInputChange={handleInputChange} authType={authType as AuthenticationType} userData={userData as IUserData}/>
+    <AuthComponent image={`/${authType}.jpg`} authenticate={authenticate} handleInputChange={handleInputChange} authType={authType as AuthenticationType} userData={userData as IUserData}/>
     </>
     
 };

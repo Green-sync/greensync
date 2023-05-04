@@ -15,8 +15,9 @@ export declare interface IDashboardNavigation{
   searhPrompt: string,
   searchData: ISearchData[],
 
-  user: {
+  user?: {
       displayName: string,
+      photoURL: string
   },
 
   teams: ITeams[],
