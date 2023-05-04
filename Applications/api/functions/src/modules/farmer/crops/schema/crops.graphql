@@ -24,10 +24,13 @@ type CroRresponse {
 }
   extend type Query {
     getCrop: CroRresponse
+    getCrops: [Crop]
   }
 
   extend type  Mutation {
     createCrop(crop: CropInput): CroRresponse
+    updateCrop(cropId:ID!, updatecrop:CropInput): CroRresponse
+    deleteCrop(cropId:ID!): CroRresponse
   }
 
   ## PascalCase
