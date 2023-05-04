@@ -1,23 +1,17 @@
-import { NavigationComponent } from "greensync-ui";
+import { AuthGuard, NavigationComponent } from "greensync-ui";
 import { DashBordNavigationStaticData } from "../components";
-import { GreenSyncContext } from "greensync-ui";
-import { useContext } from "react";
 const DashboardLayout = () => {
-  const user = useContext(GreenSyncContext)
   return (
     /**
      * Dashboard navigation call here and updated
      */
     <>
-    {
-      user?
-    
+    <AuthGuard>
       <NavigationComponent
         type={"farmer"}
-        data={DashBordNavigationStaticData(user)}
+        data={DashBordNavigationStaticData}
       />
-      : null
-    }
+      </AuthGuard>
     </>
   );
 };
