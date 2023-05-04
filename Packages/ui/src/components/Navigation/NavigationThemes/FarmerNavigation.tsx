@@ -194,7 +194,6 @@ export const FarmerNavigationComponent = ({teams,navData, bgColor }: FarmerNavig
           <main className="py-10">
             <div className="px-4 sm:px-6 lg:px-8">
               <Outlet/>
-              {/* this is where your rendered components will display */}
             </div>
           </main>
         </div>
