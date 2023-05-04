@@ -1,17 +1,23 @@
 import { NavigationComponent } from "greensync-ui";
 import { DashBordNavigationStaticData } from "../components";
+import { GreenSyncContext } from "greensync-ui";
+import { useContext } from "react";
 const DashboardLayout = () => {
+  const user = useContext(GreenSyncContext)
   return (
     /**
      * Dashboard navigation call here and updated
      */
     <>
-      {/* <NavigationComponent
-        type={"marketplace"}
-        data={DashBordNavigationStaticData}
-      /> */}
-
-      <h1>My Dash Board</h1>
+    {
+      user?
+    
+      <NavigationComponent
+        type={"farmer"}
+        data={DashBordNavigationStaticData(user)}
+      />
+      : null
+    }
     </>
   );
 };

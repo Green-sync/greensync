@@ -82,15 +82,12 @@ export const HomeNavigationStaticData: IHomeNavigation = {
 }
 
 
-export const DashBordNavigationStaticData: IDashboardNavigation = {
-    bgColor: "bg-lime-800",
+export const DashBordNavigationStaticData = (user: any): IDashboardNavigation => {
+    return {bgColor: "bg-lime-800",
     searhPrompt: '',
     searchData: [{name: 'Soul', age:" 78"}],
 
-    user: {
-        displayName:  user?.displayName as string,
-        photoURL: user?.photoURL as string
-    },
+    user,
 
     teams: [
     {initial: "MKP", href: "", name: "Market Place" },
@@ -106,4 +103,5 @@ export const DashBordNavigationStaticData: IDashboardNavigation = {
     { name: "Recent", icon: ClockIcon, href: "#"},]
 
 
+}
 }
