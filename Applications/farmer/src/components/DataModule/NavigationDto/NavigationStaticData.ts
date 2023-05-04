@@ -91,7 +91,7 @@ export const DashBordNavigationStaticData :IDashboardNavigation= {
     {initial: "IoT", href: "iot", name: "Internet of Things" }
     ],
     navData: [ 
-    { name: "Home", icon: HomeIcon, href: "/" },
+    { name: "Home", icon: HomeIcon, href: "/dashboard" },
     { name: "Profile", icon: UserCircleIcon, href: "profile"},
     { name: "Weather", icon: SunIcon, href: "weather"},
     { name: "Calendar", icon: CalendarIcon, href: "calendar"},
