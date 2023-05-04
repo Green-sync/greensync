@@ -4,3 +4,9 @@ export declare interface IProfile {
     email: string,
     password: string  
 }
+
+export declare interface IFarms {
+    name: string,
+    farmType: string,
+    location: string,
+}
