@@ -1,6 +1,6 @@
 
 
-export const UserProfileComp = () => {
+export const ProfileComponent = () => {
     return (
         <>
             <div className="container">
