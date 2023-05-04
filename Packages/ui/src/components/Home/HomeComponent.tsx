@@ -1,23 +1,39 @@
+import { CalendarComponent, CardComponent } from ".."
+
 export const HomeComponent = () => {
-  return (
-    <>
-      <div className="container">
+    return (
+        <>
+            {/**This is the main container Div which will curry all the compoent in main  */}
+            <div className="container ">
 
 
-        <div className="flex">
-            
-          <div>
-            Content from left side
-          </div>
-          <div>
-                Content from the right side 
-          </div>
-        </div>
+                {/** This Div controls all the section to be two an side by side */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
 
 
-      </div>
-    </>
-  );
-};
 
-export default HomeComponent;
+                    {/** This is the left sin */}
+                    <div>
+
+                        <div className="rounded-lg shadow p-4 m-3 text-3xl">
+                           <CalendarComponent days={[]} events={[]}/>
+                        </div>
+                    </div>
+
+
+                    {/** This is the right side of the section */}
+                    <div  className="">
+                        <div className=" p-4 m-3 text-3xl">
+                            <CardComponent image={""} title={""}/>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </>
+    )
+}
