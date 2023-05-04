@@ -1,6 +1,6 @@
 import { Transition, Dialog } from "@headlessui/react"
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/20/solid"
-import { Fragment, useContext, useState } from "react"
+import { Fragment, useContext, useEffect, useState } from "react"
 import { NavigationProfileComponent } from "./NavigationProfile"
 import { FarmerNavigationDto, NavigationData } from "../NavigationDto"
 import { NavLink, Outlet } from "react-router-dom"
@@ -9,11 +9,14 @@ import { GreenSyncContext } from "../.."
 
 export const FarmerNavigationComponent = ({teams,navData, bgColor }: FarmerNavigationDto) => {
     const user = useContext(GreenSyncContext)
+    const [sideOpen, setSideOpen] = useState<boolean|null>(null)
+    useEffect(()=> {
+      setSideOpen(false)
+    }, [setSideOpen])
     if(user) {
-      const [sideOpen, setSideOpen] = useState(false)
     return <>
           <div>
-        <Transition.Root show={sideOpen} as={Fragment}>
+        <Transition.Root show={sideOpen as boolean} as={Fragment}>
           <Dialog as="div" className="relative z-50 lg:hidden" onClose={()=> setSideOpen(false)}>
             <Transition.Child
               as={Fragment}
