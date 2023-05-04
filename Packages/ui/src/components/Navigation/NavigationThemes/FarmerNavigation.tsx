@@ -82,21 +82,20 @@ export const FarmerNavigationComponent = ({teams,navData, bgColor }: FarmerNavig
                           </ul>
                         </li>
                         <li>
-                          <div className="text-xs font-semibold leading-6 text-gray-400">Usefull Links</div>
-                          <ul role="list" className="-mx-2 mt-2 space-y-1">
+                          <div className="text-xs font-semibold leading-6 text-gray-400">Useful Links</div>
+                          <ul role="list" className="hidden -mx-2 mt-2 space-y-1">
                             {teams.map((team) => (
                               <li key={team.name}>
                               <NavLink
                                   to={team.href}
                                   className={
-                                    `text-white hover:text-white hover:bg-yellow-600
-                                    group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold`
+                                    'text-white hover:text-white hover:bg-yellow-600   group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                                   }
                                 >
-                                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-yellow-600 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
+                                  <span className=" hidden flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-yellow-600 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
                                     {team.initial}
                                   </span>
-                                  <span className="truncate">{team.name}</span>
+                                  <span className=" flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-yellow-600 text-[0.625rem] font-medium text-gray-400 group-hover:text-white truncate">{team.name}</span>
                                </NavLink>
                               </li>
                             ))}
@@ -146,21 +145,20 @@ export const FarmerNavigationComponent = ({teams,navData, bgColor }: FarmerNavig
                   </ul>
                 </li>
                 <li>
-                  <div className="text-xs font-semibold leading-6 text-gray-400">Usefull Links</div>
+                  <div className="text-xs font-semibold leading-6 text-gray-400">Useful Links</div>
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
                     {teams.map((team) => (
                       <li key={team.name}>
                       <NavLink
                           to={team.href}
                           className={
-                            `text-white hover:text-white hover:bg-yellow-600
-                            group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold`
+                            "text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                           }
                         >
                           <span className="flex mt-4 h-6 w-6 shrink-0 items-center hover:bg-lime-900 justify-center rounded-lg border border-white bg-yellow-600 text-[0.625rem] font-medium text-white group-hover:text-white">
-                            DC
+                            {team.initial}
                           </span>
-                          <span className="truncate">{team.name}</span>
+                          <span className=" truncate">{team.name}</span>
                        </NavLink>
                       </li>
                     ))}
