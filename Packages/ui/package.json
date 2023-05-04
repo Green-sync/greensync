@@ -68,5 +68,9 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
     "sort-by": "^1.2.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.3.0",
+    "react-chartjs-2": "^5.2.0"
   }
 }
