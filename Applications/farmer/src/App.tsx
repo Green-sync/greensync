@@ -3,7 +3,7 @@ import {Routes,Route} from 'react-router-dom'
 import { HomeLayout } from './Layouts';
 import { AuthPage } from './Pages/AuthPage';
 import DashboardLayout from './Layouts/DashboardLayout';
-import { AuthGuard } from 'greensync-ui';
+import { DashboardPage } from './Pages';
 
 export const App = () => {
 
@@ -13,11 +13,12 @@ export const App = () => {
     <Route path="/auth" element={<AuthPage/>} >
       <Route path=":id" element={<AuthPage/>} />
     </Route>
-    <Route path="/dashboard" element={
-    <AuthGuard>
+    <Route path='/dashboard' element={
      <DashboardLayout/>
-    </AuthGuard>
-    } />
+    } >
+     <Route path='/dashboard' index element={<DashboardPage/>}></Route>
+      <Route path=":id" element={<DashboardPage/>}/>
+    </Route>
   </Routes>
   </>
 };
