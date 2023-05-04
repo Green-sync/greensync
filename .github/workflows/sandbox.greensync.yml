@@ -7,8 +7,8 @@ on:
     branches:
       - "feature/backend"
     paths:
-      - "/Applications/api/*"
-      - "/Packages/apidocs/*"
+      - "Applications/api/**"
+      - "Packages/apidocs/**"
 env:
   VITE_ENDPOINT: "playground"
   PLAYGROUND: "true"

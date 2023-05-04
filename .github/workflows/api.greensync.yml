@@ -5,8 +5,8 @@ on:
     - cron: "0 0 * * *"
   pull_request:
     paths:
-      - "/Packages/apidocs/*"
-      - "/Applications/api/*"
+      - "Packages/apidocs/**"
+      - "Applications/api/**"
     branches:
       - "feature/backend"
     types:
