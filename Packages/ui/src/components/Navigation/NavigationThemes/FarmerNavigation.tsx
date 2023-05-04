@@ -1,15 +1,16 @@
 import { Transition, Dialog } from "@headlessui/react"
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/20/solid"
-import { Fragment, useState } from "react"
+import { Fragment, useContext, useState } from "react"
 import { NavigationProfileComponent } from "./NavigationProfile"
 import { FarmerNavigationDto, NavigationData } from "../NavigationDto"
-import { NavLink } from "react-router-dom"
+import { NavLink, Outlet } from "react-router-dom"
 import { classMerge } from "../../../utils"
-import { SearchComponent } from "../../Search"
+import { GreenSyncContext } from "../.."
 
-export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchData, searchPrompt }: FarmerNavigationDto) => {
-    const [sideOpen, setSideOpen] = useState(false)
-    console.log(sideOpen)
+export const FarmerNavigationComponent = ({teams,navData, bgColor }: FarmerNavigationDto) => {
+    const user = useContext(GreenSyncContext)
+    if(user) {
+      const [sideOpen, setSideOpen] = useState(false)
     return <>
           <div>
         <Transition.Root show={sideOpen} as={Fragment}>
@@ -82,8 +83,8 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
                           <ul role="list" className="-mx-2 mt-2 space-y-1">
                             {teams.map((team) => (
                               <li key={team.name}>
-                                <a
-                                  href={team.href}
+                              <NavLink
+                                  to={team.href}
                                   className={
                                     `text-white hover:text-white hover:bg-yellow-600
                                     group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold`
@@ -93,7 +94,7 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
                                     {team.initial}
                                   </span>
                                   <span className="truncate">{team.name}</span>
-                                </a>
+                               </NavLink>
                               </li>
                             ))}
                           </ul>
@@ -126,8 +127,8 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
                   <ul role="list" className="-mx-2 space-y-1">
                     {navData.map((item:NavigationData) => (
                       <li key={item.name}>
-                        <a
-                          href={item.href}
+                      <NavLink
+                          to={item.href}
                           className={
                             `
                               text-white hover:text-white hover:bg-yellow-600
@@ -136,7 +137,7 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
                         >
                           <item.icon className="h-6 w-6 shrink-0" aria-hidden="true" />
                           {item.name}
-                        </a>
+                       </NavLink>
                       </li>
                     ))}
                   </ul>
@@ -146,8 +147,8 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
                     {teams.map((team) => (
                       <li key={team.name}>
-                        <a
-                          href={team.href}
+                      <NavLink
+                          to={team.href}
                           className={
                             `text-white hover:text-white hover:bg-yellow-600
                             group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold`
@@ -157,7 +158,7 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
                             DC
                           </span>
                           <span className="truncate">{team.name}</span>
-                        </a>
+                       </NavLink>
                       </li>
                     ))}
                   </ul>
@@ -191,6 +192,7 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
 
           <main className="py-10">
             <div className="px-4 sm:px-6 lg:px-8">
+              <Outlet/>
               {/* this is where your rendered components will display */}
             </div>
           </main>
@@ -198,5 +200,5 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
       </div>
 
 
-    </>
+    </>} else return  <></>
 }
