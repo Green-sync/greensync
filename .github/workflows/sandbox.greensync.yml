@@ -2,7 +2,8 @@ name: API Sandbox  Deployment
 
 on:
   pull_request:
-    types: [closed]
+    types: 
+      - "closed"
     branches:
       - "feature/backend"
     paths:
