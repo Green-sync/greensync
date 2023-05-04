@@ -178,8 +178,8 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
             {/* Separator */}
             <div className="h-5 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
             {/* Dineo will Provide search component here */}
-            <div className="flex flex-1 gap-x-4 justify-between items-center self-stretch lg:gap-x-6 pt-5 pt-4 pb-4">
-               {<SearchComponent searchPrompt={searchPrompt} searchData={searchData}/>}
+            <div className="flex flex-1 gap-x-4 justify-end items-center self-stretch lg:gap-x-6 pt-5 pt-4 pb-4">
+               {/* {<SearchComponent searchPrompt={searchPrompt} searchData={searchData}/>} */}
              
               <div className="flex items-center gap-x-4 lg:gap-x-6">
                 {/* Separator */}

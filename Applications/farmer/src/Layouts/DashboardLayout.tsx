@@ -6,10 +6,10 @@ const DashboardLayout = () => {
      * Dashboard navigation call here and updated
      */
     <>
-      <NavigationComponent
-        type={"farmer"}
+      {/* <NavigationComponent
+        type={"marketplace"}
         data={DashBordNavigationStaticData}
-      />
+      /> */}
 
       <h1>My Dash Board</h1>
     </>
