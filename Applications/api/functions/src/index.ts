@@ -8,7 +8,7 @@ import dotenv from "dotenv"
 import {ExpressContextFunctionArgument, expressMiddleware} from "@apollo/server/express4"
 import {QueryResolvers, MutationResolver} from "./resolvers"
 import {MainSchema} from "./schema";
-import {db, LandingPagePluginConfig} from "./utils";
+import {db, introspect, LandingPagePluginConfig} from "./utils";
 import {AuthService} from "./modules/auth/AuthService";
 
 dotenv.config()
@@ -35,6 +35,7 @@ const greenApp = async () => {
         typeDefs: MainSchema,
         resolvers,
         // introspection: ),
+        introspection: introspect(),
         plugins: [
             LandingPagePluginConfig()
         ]
