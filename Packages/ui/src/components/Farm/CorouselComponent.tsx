@@ -1,6 +1,8 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { useState, useEffect } from 'react';
 
+
+
 const CarouselSliderComponent = ({ slides }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -29,24 +31,24 @@ const CarouselSliderComponent = ({ slides }: any) => {
   }, [currentIndex]);
 
   return (
-    <div className="relative">
-      <div className="absolute inset-0 rounded-lg bg-lime-900 opacity-70 z-10"></div>
+  <div className="relative">
       <div className="relative flex items-center justify-center h-[50vh] ">
-        <div className="w-full h-full">
-          <div className="relative flex rounded-lg items-center justify-center h-full">
+        <div className="w-full h-[50vh]">
+          <div className="relative flex rounded-lg items-center justify-center h-[50vh]">
+          <div className="absolute inset-0 rounded-lg bg-lime-900 opacity-70 z-10"></div>
             <img
               src={slides[currentIndex].image}
               alt={slides[currentIndex].caption}
-              className="absolute rounded-lg inset-0 object-cover w-full h-full"
+              className="absolute rounded-lg inset-0 object-cover w-full h-[50vh]"
             />
             <div className="relative justify-center text-center z-10 text-white">
-              <h1 className="text-2xl font-bold mb-4">
+              <h1 className="text-4xl font-bold mb-4">
                 {slides[currentIndex].caption}
               </h1>
-              <p className="px-20 mt-8 text-sm">
+              <p className="px-20 mt-8 text-md">
                 {slides[currentIndex].description}
               </p>
-              <button className='bg-yellow-700 mt-6 p-2 text-xs text-white rounded-sm'>Learn More</button>
+              <button className='bg-yellow-600 mt-6 p-2 text-xs  text-white rounded-sm'>Learn More</button>
             </div>
           </div>
         </div>
@@ -63,6 +65,8 @@ const CarouselSliderComponent = ({ slides }: any) => {
       >
         <ChevronRightIcon className="h-6 w-6" />
       </button>
+
+    
     </div>
   );
 };
