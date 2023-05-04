@@ -8,3 +8,4 @@ export {AuthGuard as AuthGuard} from "./components"
 export {CalendarComponent as CalendarComponent} from "./components"
 export {CalendarStaticData as CalendarStaticData} from './components'
 export {GreenSyncContext as GreenSyncContext} from "./components"
+export {HomePage as HomePage } from "./pages"
