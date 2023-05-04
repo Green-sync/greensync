@@ -32,11 +32,11 @@ export const stock: IStock[] = [{
 }, 
 {
     itemName: "Onions",
-    quantity: 0,
-    price: 0
+    quantity: 10,
+    price: 100
 },
 {
-    itemName: "",
-    quantity: 0,
-    price: 0
+    itemName: "Cows",
+    quantity: 2,
+    price: 10000
 }]

@@ -6,6 +6,9 @@ export declare interface IProfile {
     website: string  
 }
 
+export declare interface IProfileData {
+    data: IProfile
+}
 export declare interface IFarms {
     name: string,
     farmType: string,
