@@ -1,2 +1,2 @@
 export * from './HomeComponent'
-export * from './FarmerCard'
+export * from './HelperComponents'

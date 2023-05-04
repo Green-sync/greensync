@@ -1,4 +1,4 @@
-import { CalendarComponent, CardComponent, FarmerCard } from ".."
+import { CalendarComponent, DataAnalysisComponent, FarmerCard } from ".."
 
 export const HomeComponent = () => {
     return (
@@ -12,20 +12,22 @@ export const HomeComponent = () => {
 
 
 
-                    {/** This is the left sin */}
+
                     <div>
 
                         <div className="rounded-lg shadow p-4 m-3 text-3xl">
-                           <CalendarComponent days={[]} events={[]}/>
+                            <CalendarComponent days={[]} events={[]} />
                         </div>
                     </div>
 
 
-                    {/** This is the right side of the section */}
-                    <div  className="rounded-lg shadow p-4 m-3 text-3xl">
-                        <FarmerCard/>
+                    <div className="rounded-lg shadow p-4 m-3 text-3xl">
+                        <FarmerCard />
                     </div>
-                    
+                    <div className="rounded-lg shadow p-4 m-3 text-3xl">
+                        <DataAnalysisComponent />
+                    </div>
+
 
                 </div>
 
