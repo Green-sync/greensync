@@ -1,8 +1,8 @@
-import { Loader } from "../components";
+import { HomeComponent } from "../components";
 
 export const HomePage = () => {
     return {
-        home: <><Loader type="placeholder" msg="welcome home"/></>,
+        home: <><HomeComponent /></>,
         profile: <>Profile</>,
         weather: <>Weather</>,
         calendar: <>Calendar</>,
