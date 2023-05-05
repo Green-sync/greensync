@@ -1,15 +1,16 @@
-import { IDevice, IFarms, IProfile, IStock } from "./ProfileDto";
+import { IDevice, IFarms, IProfile, IProfileData } from "./ProfileDto";
 
-export const data: IProfile = {
+export const ProfileStaticData: IProfileData = {
+data: {
     name: "John",
     surname: "Doe",
     email: "johndoe@gmail.com",
     // password: "*******",
     website: "www.johndoe.co.za",
     homeAddress: "Pretoria 1052"
-}
+},
 
-export const farm: IFarms[] = [{
+farm: [{
     name: "DelportFarm",
     farmType: "Crops",
     location: "Centurion"
@@ -35,9 +36,8 @@ export const farm: IFarms[] = [{
     farmType: "livestock",
     location: "Hamskraal"
 },
-]
-
-export const stock: IStock[] = [{
+],
+ stock: [{
     itemName: "Tomatos",
     quantity: 5,
     price: 65
@@ -51,13 +51,15 @@ export const stock: IStock[] = [{
     itemName: "Cows",
     quantity: 2,
     price: 10000
-}]
+}],
 
-export const device: IDevice[] = [{
+device: [{
     name: "Google sensor detector",
-    type: "",
+    type: "sensor",
 },
 {
     name: "Amazon Echo Plus",
-    type: "",
+    type: "speaker lol",
 }]
+
+}

@@ -9,9 +9,9 @@ export declare interface IProfile {
 
 export declare interface IProfileData {
     data: IProfile
-    farm: IFarms
-    stock: IStock
-    device: IDevice
+    farm: IFarms[]
+    stock: IStock[]
+    device: IDevice[]
 }
 export declare interface IFarms {
     name: string,
@@ -31,7 +31,7 @@ export declare interface IDevice {
 
 export declare interface ProfileProps {
     type: ProfileTypes,
-    data: Partial<IProfileData>
+    data: Partial<IFarms | IStock | IDevice | IProfile>
 }
 
 export declare type ProfileTypes = "farmer" | "marketplace" 

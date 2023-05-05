@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import {ProfileComponent } from '../components'
+import {ProfileComponent, ProfileStaticData } from '../components'
 
 
 
@@ -15,8 +15,8 @@ export default metaProfile;
 type profileStory  = StoryObj<typeof metaProfile>
 
 export const UserProfile: profileStory = {
-    // args: {
-    //     ...CalendarStaticData 
-    // }
+    args: {
+        ...ProfileStaticData
+    }
 
 }

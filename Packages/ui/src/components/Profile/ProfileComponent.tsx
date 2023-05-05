@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useState } from "react";
-import { IProfile, IProfileData } from "./ProfileDto/ProfileDto";
-import { device, data, farm, stock} from "./ProfileDto/ProfileStaticData"
+import { IProfile, IProfileData, ProfileProps } from "./ProfileDto/ProfileDto";
+// import { device, data, farm, stock} from "./ProfileDto/ProfileStaticData"
 
 
-export const ProfileComponent = () => {
+export const ProfileComponent = ({data,device,farm,stock}: IProfileData) => {
     
     const [changeDetails, setChangeDetails] = useState(false);
-    const [formData, setFormData] = useState(
-        {
+    const [formData, setFormData] = useState({
             name: data.name,
             surname: data.surname,
             email: data.email,
@@ -33,7 +32,7 @@ export const ProfileComponent = () => {
             <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* <!-- First column --> */}
                 
-                <div className=" bg-white rounded m-2">
+                <div className=" bg-white rounded m-2 pb-6">
                 <div className="p-2 h-40">
                   <img className=" mx-auto h-40 w-40 rounded-md border" src="https://th.bing.com/th/id/R.08637f47762d9826b134576b3d008a05?rik=4GVDJkAco4u7PQ&pid=ImgRaw&r=0" alt="" />
                 </div>
@@ -79,7 +78,7 @@ export const ProfileComponent = () => {
                 </div>
                 {/* ===========================================SECOND COLUMN============================================================= */}
                 <div className="">
-                <div className=" border-gray-400 mb-5 bg-white rounded-xl">
+                <div className=" border-gray-400 mb-5 bg-white rounded-xl pb-6">
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My Farms</p>
                 </div>
@@ -91,15 +90,10 @@ export const ProfileComponent = () => {
                     </div>
                    </> 
                 })}
-                <div className="flex justify-center">
-                    <button className="bg-lime-300 rounded-md text-white pl-4 pr-5 p-2 m-4">
-                        Save
-                    </button>
-                </div>
 
                 </div>
                 {/* ==========================second row============================================= */}
-                <div className=" mb-5 mt-5 bg-white rounded-xl">
+                <div className=" mb-5 mt-5 bg-white rounded-xl pb-6">
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My Stock</p>
                 </div>
@@ -111,14 +105,9 @@ export const ProfileComponent = () => {
                     </div>
                    </> 
                 })}
-                <div className="flex justify-center">
-                    <button className="bg-lime-300 rounded-md text-white pl-4 pr-5 p-2 m-4">
-                        Save
-                    </button>
-                </div>
             </div>
                 {/* ==========================third row============================================= */}
-                <div className=" mb-5 mt-5 bg-white rounded-xl">
+                <div className=" mb-5 mt-5 bg-white rounded-xl pb-6">
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My devices</p>
                 </div>
@@ -130,11 +119,6 @@ export const ProfileComponent = () => {
                     </div>
                    </> 
                 })}
-                <div className="flex justify-center">
-                    <button className="bg-lime-300 rounded-md text-white pl-4 pr-5 p-2 m-4">
-                        Save
-                    </button>
-                </div>
             </div>
                 </div>
             </div>
