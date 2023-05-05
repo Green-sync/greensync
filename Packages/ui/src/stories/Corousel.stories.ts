@@ -15,10 +15,10 @@
 
 // };
 import { Meta, Story, StoryObj } from "@storybook/react";
-import CorouselSliderComponent from '../components/Farm/CorouselComponent';
+import CorouselComponent from '../components/Farm/CorouselComponent';
 
 export default {
-  component: CorouselSliderComponent,
+  component: CorouselComponent,
   title: "Components/Farm/Corousel",
   args: {
     slides: [
@@ -42,9 +42,9 @@ export default {
   argTypes: {
     slides: { control: { disable: true } } // disable control for the slides array
   }
-} as Meta<typeof CorouselSliderComponent>;
+} satisfies Meta<typeof CorouselComponent>;
 
-type CorouselStory = StoryObj<typeof CorouselSliderComponent>;
+type CorouselStory = StoryObj<typeof CorouselComponent>;
 
 export const Default: CorouselStory = {
     

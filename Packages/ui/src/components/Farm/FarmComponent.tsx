@@ -1,4 +1,4 @@
-const crops: Crop[] = [
+const crops = [
   {
     name: 'Wheat',
     description: 'Wheat is a cereal grain that is commonly cultivated for its seed.',
