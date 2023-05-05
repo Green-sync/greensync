@@ -5,6 +5,8 @@ export declare interface IDataDonut {
 
 }
 
+
+
 export declare interface IDatasets {
     label: string,
     data: number [],

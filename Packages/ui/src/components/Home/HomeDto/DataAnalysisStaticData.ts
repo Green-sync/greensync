@@ -1,33 +1,59 @@
 import { IDataDonut } from ".";
 
-export const DonutViewStaticData:IDataDonut ={
+export const DonutViewStaticData: IDataDonut = {
 
-    labels: ['Wheat', 'ButterBeans', 'Pottatos', 'Tomattos','Maize','Grain'],
+    labels: ['Wheat', 'ButterBeans', 'Pottatos', 'Tomattos', 'Maize', 'Grain'],
     datasets: [
         {
-            
+
             label: '# of Votes',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
+                '#facc15',
+                '#65a30d',
+                '#0891b2',
+                '#be123c',
+                '#5b21b6',
+                '#22c55e',
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
+                '#facc15',
+                '#65a30d',
+                '#0891b2',
+                '#be123c',
+                '#5b21b6',
+                '#22c55e',
             ],
             borderWidth: 1,
         },
     ],
-  
+
+}
+
+export const LiveStockStaticData: IDataDonut = {
+
+    labels: ['Cows', 'Chicken', 'Goats'],
+    datasets: [
+        {
+
+            label: '# of Votes',
+            data: [22, 133, 33,],
+            backgroundColor: [
+                '#facc15',
+                '#65a30d',
+                '#0891b2',
+
+            ],
+            borderColor: [
+                '#facc15',
+                '#65a30d',
+                '#0891b2',
+
+            ],
+            borderWidth: 1,
+        },
+    ],
+
 }
 
 

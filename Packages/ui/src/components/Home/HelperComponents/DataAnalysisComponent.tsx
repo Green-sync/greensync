@@ -1,13 +1,19 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import { DonutViewStaticData } from '../HomeDto';
+import { DonutViewStaticData, LiveStockStaticData } from '../HomeDto';
 
+
+
+
+const cutout = 60
+
+const options = {
+    cutout: cutout,
+    borderRadius: 1,
+}
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 export const DataAnalysisComponent = () => {
-
-
-
 
     return (
         <>
@@ -15,12 +21,12 @@ export const DataAnalysisComponent = () => {
                 <div className='w-60'>
                     <p className="text-lg font-bold"> Crops</p>
 
-                    <Doughnut data={DonutViewStaticData} />
+                    <Doughnut data={DonutViewStaticData} options={options} />
                 </div>
                 <div className='w-60'  >
                     <p className="text-lg font-bold"> Live Stock</p>
 
-                    <Doughnut data={DonutViewStaticData} />
+                    <Doughnut data={LiveStockStaticData} options={options} />
                 </div>
 
             </div>
