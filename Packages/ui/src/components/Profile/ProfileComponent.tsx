@@ -5,7 +5,8 @@ import { IProfile, IProfileData, ProfileProps } from "./ProfileDto/ProfileDto";
 
 
 export const ProfileComponent = ({data,device,farm,stock}: IProfileData) => {
-    
+
+    const [open, setOpen] = useState(false)
     const [changeDetails, setChangeDetails] = useState(false);
     const [formData, setFormData] = useState({
             name: data.name,
@@ -22,16 +23,17 @@ export const ProfileComponent = ({data,device,farm,stock}: IProfileData) => {
         console.log("Clicked")
     }
     const onChange = (e : any) => {
-    const { name, value } = e.target
+    const id = e.target.id
     //@ts-ignore
-       setFormData({...formData, [name]: value })
+    formData[`${id}`] = e.target.value
+       setFormData({...formData})
     }
     return (
         <>
          <div className="container p-6 bg-gray-100">
             <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* <!-- First column --> */}
-                
+                <div>
                 <div className=" bg-white rounded m-2 pb-6">
                 <div className="p-2 h-40">
                   <img className=" mx-auto h-40 w-40 rounded-md border" src="https://th.bing.com/th/id/R.08637f47762d9826b134576b3d008a05?rik=4GVDJkAco4u7PQ&pid=ImgRaw&r=0" alt="" />
@@ -44,7 +46,6 @@ export const ProfileComponent = ({data,device,farm,stock}: IProfileData) => {
                         edit
                     </button>
                 </div>
-                {/* <div className="border-t border-gray-400"></div> */}
                 { Object.entries(formData).map(([key,value]) => {
                     return <> 
                     <form className={`p-4 ${changeDetails ? "": "hidden"}`}>
@@ -52,7 +53,7 @@ export const ProfileComponent = ({data,device,farm,stock}: IProfileData) => {
                         type={key == "password" ? "password" : "text" }
                         id={key}
                         placeholder={`Enter ${key}`}
-                        className="outline-none"
+                        className="outline-none w-full"
                         onChange={onChange}
                         />
                     </form>
@@ -61,7 +62,7 @@ export const ProfileComponent = ({data,device,farm,stock}: IProfileData) => {
                         type={key == "password" ? "password" : "text" }
                         id={key}
                         value={value}
-                        className="outline-none"
+                        className="outline-none w-full"
                         />
                     </form>
                     <div className="border-t border-lime-400 ml-4 mr-4"></div>
@@ -75,6 +76,30 @@ export const ProfileComponent = ({data,device,farm,stock}: IProfileData) => {
                     </button>
                 </div>
                 }
+                </div>
+                <div className=" bg-white rounded m-2 pb-6 pt-4">
+                <div className="flex justify-between max-w-500 m-2">
+                   { !open && <><p className="text-lg  font-sm">Password</p><p className="text-lg  font-sm">*******</p><button
+                                    onClick={() => setOpen(!open)}
+                                    className="bg-lime-300 rounded-md text-white pl-4 pr-5">Reset</button></>}
+                 </div>
+                {
+                    open && <div className="m-4">Reset Password
+                    <form>
+                        <input type="password" placeholder="Enter Current Password" className="outline-none w-full m-4"/>
+                        <div className="border-t border-lime-400 ml-4 mr-4"></div>
+                        <input type="password" placeholder="Enter new Password" className="outline-none w-full m-4"/>
+                        <div className="border-t border-lime-400 ml-4 mr-4"></div>
+
+                        <div className="m-4 justify-end flex">
+                        <button onClick={() => setOpen(!open)} className="bg-lime-300 rounded-md text-white pl-4 pr-5">Cancel</button>
+                        <button className="bg-lime-300 rounded-md text-white pl-4 pr-5">Save</button>
+                        </div>
+                    </form>
+                    
+                    </div>
+                }
+                </div>
                 </div>
                 {/* ===========================================SECOND COLUMN============================================================= */}
                 <div className="">
