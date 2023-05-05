@@ -1,5 +1,6 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { useState, useEffect } from 'react';
+import { FarmComponent } from './FarmComponent';
 import { CardComponent } from '../Cards';
 
 const FarmDetails = [
@@ -97,6 +98,9 @@ export const CorouselComponent = ({ slides }: any) => {
             </div>
           ))
         }
+      </div>
+      <div className="p-6">
+          <FarmComponent/>
       </div>
     </div>
 
