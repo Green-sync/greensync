@@ -2,8 +2,9 @@ export declare interface IProfile {
     name: string,
     surname: string,
     email: string,
-    // password: string
+    password: string
     website: string  
+    photoURL: string
     homeAddress: string
 }
 
@@ -12,6 +13,7 @@ export declare interface IProfileData {
     farm: IFarms[]
     stock: IStock[]
     device: IDevice[]
+    [key:string]: any
 }
 export declare interface IFarms {
     name: string,

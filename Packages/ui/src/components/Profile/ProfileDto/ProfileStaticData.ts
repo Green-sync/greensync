@@ -1,13 +1,14 @@
-import { IDevice, IFarms, IProfile, IProfileData } from "./ProfileDto";
+import { IProfileData } from "./ProfileDto";
 
 export const ProfileStaticData: IProfileData = {
 data: {
     name: "John",
     surname: "Doe",
     email: "johndoe@gmail.com",
-    // password: "*******",
+    password: "neo",
     website: "www.johndoe.co.za",
-    homeAddress: "Pretoria 1052"
+    homeAddress: "Pretoria 1052",
+    photoURL: "https://th.bing.com/th/id/R.08637f47762d9826b134576b3d008a05?rik=4GVDJkAco4u7PQ&pid=ImgRaw&r=0"
 },
 
 farm: [{
