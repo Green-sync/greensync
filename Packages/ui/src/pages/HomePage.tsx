@@ -1,10 +1,9 @@
-import { Loader, ProfileComponent } from "../components";
-import { IProfileData } from "../components/Profile/ProfileDto/ProfileDto";
+import { Loader } from "../components";
 
 export const HomePage = () => {
     return {
         home: <><Loader type="placeholder" msg="welcome home"/></>,
-        profile: (data: IProfileData) => <><ProfileComponent data={data.data} farm={data.farm} device={data.device} stock={data.stock}/></>,
+        // profile: <><ProfilesComponent /></>,
         weather: <>Weather</>,
         calendar: <>Calendar</>,
         farm: <>Farm</>,

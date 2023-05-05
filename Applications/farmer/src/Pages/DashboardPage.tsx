@@ -1,8 +1,10 @@
-import { HomePage } from "greensync-ui";
+import { HomePage, Profile } from "greensync-ui";
 import { useParams } from "react-router-dom";
+import { ProfileStaticData } from "./ProfileDto";
 
 export const DashboardPage = () => {
     const {id} = useParams()
-    /// @ts-ignore
-    return HomePage()[id? id: "home"]
+    // return HomePage()[id? id: "home"]
+    //@ts-ignore
+    return <Profile type={"farmer"} data={ProfileStaticData} />
 };
