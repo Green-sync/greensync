@@ -5,19 +5,19 @@ const crops = [
     title: 'Wheat',
     description: 'Wheat is a cereal grain that is commonly cultivated for its seed.',
     status: 'Growth Stage: Heading',
-    image:"https://images.pexels.com/photos/326082/pexels-photo-326082.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: "https://images.pexels.com/photos/326082/pexels-photo-326082.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   {
     title: 'Corn',
     description: 'Corn is a popular crop that is used for both food and fuel.',
     status: 'Growth Stage: Tasseling',
-    image:"https://images.pexels.com/photos/547264/pexels-photo-547264.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: "https://images.pexels.com/photos/547264/pexels-photo-547264.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   {
     title: 'Soybeans',
     description: 'Soybeans are a legume that is commonly used for animal feed and processed food products.',
     status: 'Growth Stage: Podding',
-    image:"https://images.pexels.com/photos/3735174/pexels-photo-3735174.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: "https://images.pexels.com/photos/3735174/pexels-photo-3735174.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   {
     title: 'Potatoes',
@@ -52,58 +52,37 @@ const crops = [
 
 ];
 
-const livestock = [
-  {
-    name: 'Cattle',
-    description: 'Cattle are domesticated animals raised for meat, milk and hides.',
-    status: 'Healthy',
-    image:""
-  },
-  {
-    name: 'Sheep',
-    description: 'Sheep are domesticated animals raised for their wool, meat and milk.',
-    status: 'Healthy',
-    image:""
-  },
-  {
-    name: 'Goats',
-    description: 'Goats are domesticated animals raised for their milk, meat and hides.',
-    status: 'Healthy',
-    image:""
-  },
-];
-
-export const FarmComponent = () => {
+export const CropsComponent = () => {
   return (
 
     <div>
-      
+
       <div>
-  <h1 className="text-2xl flex items-center justify-center font-bold mb-4">My Crops</h1>
-  <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-    {crops.map((crop,index) => (
-      <div
-        key={index}
-        className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
-      >
-        <div className="flex-shrink-0">
-          <img className="h-10 w-10 rounded-full" src={crop.image} alt="" />
-        </div>
-        <div className="min-w-0 flex-1">
-          <a href="#" className="focus:outline-none">
-            <span className="absolute inset-0" aria-hidden="true" />
-            <p className="text-sm font-medium text-gray-900">{crop.title}</p>
-            <p className="truncate text-sm text-gray-500">{crop.status}</p>
-          </a>
+        <h1 className="text-2xl flex items-center justify-center font-bold mb-4">My Crops</h1>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
+          {crops.map((crop, index) => (
+            <div
+              key={index}
+              className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
+            >
+              <div className="flex-shrink-0">
+                <img className="h-10 w-10 rounded-full" src={crop.image} alt="" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <a href="#" className="focus:outline-none">
+                  <span className="absolute inset-0" aria-hidden="true" />
+                  <p className="text-sm font-medium text-gray-900">{crop.title}</p>
+                  <p className="truncate text-sm text-gray-500">{crop.status}</p>
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
 
     </div>
   );
 };
 
 
-export default FarmComponent;
+export default CropsComponent;

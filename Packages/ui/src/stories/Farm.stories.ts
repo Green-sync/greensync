@@ -1,15 +1,15 @@
 import { Meta, StoryObj } from "@storybook/react";
-import FarmComponent from '../components/Farm/FarmComponent';
+import CropsComponent from "../components/Farm/CropsComponent";
 
 const Farm = {
-  component: FarmComponent,
+  component: CropsComponent,
   title: "Components/Farm",
   args: {},
-}satisfies Meta<typeof FarmComponent>;
+}satisfies Meta<typeof CropsComponent>;
 
 export default Farm;
 
-type FarmStory = StoryObj<typeof FarmComponent>;
+type FarmStory = StoryObj<typeof CropsComponent>;
 
 export const Default: FarmStory = {
 
