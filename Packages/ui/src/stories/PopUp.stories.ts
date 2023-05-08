@@ -22,6 +22,7 @@ export const PopUpView: PopUpStory = {
     args: {
         onClickTitile: 'Click Up here',
         popUpTittle: 'Information',
+        style: 'text-red',
         popFunction: () => 'Here there'
     }
 

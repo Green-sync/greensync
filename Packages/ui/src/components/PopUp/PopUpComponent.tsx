@@ -6,7 +6,7 @@ import { IPopUp } from '..'
 
 
 
-export const PopUpComponent = ({ onClickTitile, popUpTittle, popFunction }: IPopUp) => {
+export const PopUpComponent = ({ onClickTitile, popUpTittle, popFunction, style }: IPopUp) => {
 
     let [isOpen, setIsOpen] = useState(true)
 
@@ -18,13 +18,15 @@ export const PopUpComponent = ({ onClickTitile, popUpTittle, popFunction }: IPop
         setIsOpen(true)
     }
 
+
+
     return (
         <>
-            <div className="fixed inset-0 flex items-center justify-center">
+            <div className="">
                 <button
                     type="button"
                     onClick={openModal}
-                    className=""
+                    className={style}
                 >
                     {onClickTitile}
                 </button>

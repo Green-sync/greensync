@@ -17,7 +17,7 @@ export const DataAnalysisComponent = () => {
 
     return (
         <>
-            <div className="flex justify-evenly items-center">
+            <div className="flex justify-evenly items-center w-full">
                 <div className='w-60'>
                     <p className="text-lg font-bold"> Crops</p>
 

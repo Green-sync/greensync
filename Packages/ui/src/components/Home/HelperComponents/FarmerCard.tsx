@@ -1,4 +1,5 @@
 import { CheckCircleIcon, PlusIcon } from "@heroicons/react/20/solid"
+import { PopUp } from "../../.."
 
 export const FarmerCard = () => {
     return (
@@ -18,7 +19,7 @@ export const FarmerCard = () => {
                                 type="button"
                                 className="relative inline-flex items-center  px-3 py-2 text-sm font-semibold text-indigo-500 "
                             >
-                                Add New Farm
+                                <div><PopUp onClickTitile={"Add Farm"} popUpTittle={"Farm Form Fields"} popFunction={undefined} style={""} /></div>
                                 <div className="w-5"><PlusIcon /></div>
 
                             </button>
