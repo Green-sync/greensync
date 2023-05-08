@@ -1,3 +1,4 @@
+import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { CardComponent } from "../Cards";
 
 const crops = [
@@ -60,6 +61,17 @@ export const CropsComponent = () => {
       <div>
         <h1 className="text-2xl flex items-center justify-center p-3 rounded-md text-white bg-lime-900 font-bold mb-4">My Crops</h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
+        <div className="relative flex bg-yellow-600 items-center space-x-3 rounded-lg border border-gray-300 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400">
+        <div className="flex-shrink-0">
+          <PlusCircleIcon className="h-10 w-10 text-white" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <a href="#" className="focus:outline-none">
+            <span className="absolute inset-0" aria-hidden="true" />
+            <p className="text-sm font-medium text-white">Add Livestock</p>
+          </a>
+        </div>
+      </div>
           {crops.map((crop, index) => (
             <div
               key={index}

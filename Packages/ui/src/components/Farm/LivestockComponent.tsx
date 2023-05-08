@@ -1,3 +1,4 @@
+import { PlusCircleIcon } from "@heroicons/react/24/outline";
 
 
 const livestock = [
@@ -39,31 +40,45 @@ export const LivestockComponent= () => {
 
     <div>
 
-     
-      <div className="">
-      <h1 className="text-2xl flex items-center justify-center p-3 rounded-md text-white bg-yellow-600 font-bold mb-4">My Livestock</h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-          {livestock.map((livestock, index) => (
-            <div
-              key={index}
-              className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
-            >
-              <div className="flex-shrink-0">
-                <img className="h-10 w-10 rounded-full" src={livestock.image} alt="" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <a href="#" className="focus:outline-none">
-                  <span className="absolute inset-0" aria-hidden="true" />
-                  <p className="text-sm font-medium text-gray-900">{livestock.title}</p>
-                  <p className="truncate text-sm text-gray-500">{livestock.status}</p>
-                </a>
-              </div>
-            </div>
-          ))}
+ 
+  <div className="pb-10">
+    <h1 className="text-2xl flex items-center justify-center p-3 rounded-md text-white bg-yellow-600 font-bold mb-4">My Livestock</h1>
+    
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
+       <div className="relative flex bg-lime-900 items-center space-x-3 rounded-lg border border-gray-300 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400">
+        <div className="flex-shrink-0">
+          <PlusCircleIcon className="h-10 w-10 text-white" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <a href="#" className="focus:outline-none">
+            <span className="absolute inset-0" aria-hidden="true" />
+            <p className="text-sm font-medium text-white">Add Livestock</p>
+          </a>
         </div>
       </div>
-
+      {livestock.map((livestock, index) => (
+        <div
+          key={index}
+          className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
+        >
+          <div className="flex-shrink-0">
+            <img className="h-10 w-10 rounded-full" src={livestock.image} alt="" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <a href="#" className="focus:outline-none">
+              <span className="absolute inset-0" aria-hidden="true" />
+              <p className="text-sm font-medium text-gray-900">{livestock.title}</p>
+              <p className="truncate text-sm text-gray-500">{livestock.status}</p>
+            </a>
+          </div>
+        </div>
+      ))}
+      
     </div>
+  </div>
+
+</div>
+
   );
 };
 
