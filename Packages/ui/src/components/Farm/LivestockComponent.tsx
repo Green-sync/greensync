@@ -41,7 +41,7 @@ export const LivestockComponent= () => {
 
      
       <div className="">
-      <h1 className="text-2xl flex items-center justify-center font-bold mb-4">My Livestock</h1>
+      <h1 className="text-2xl flex items-center justify-center p-3 rounded-md text-white bg-yellow-600 font-bold mb-4">My Livestock</h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
           {livestock.map((livestock, index) => (
             <div

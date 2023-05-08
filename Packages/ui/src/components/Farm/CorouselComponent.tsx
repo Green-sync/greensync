@@ -1,29 +1,10 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { useState, useEffect } from 'react';
-import { CardComponent } from '../Cards';
 import CropsComponent from './CropsComponent';
 import LivestockComponent from './LivestockComponent';
+import FarmTypeComponent from './FarmType/FarmTypeComponent';
 
-const FarmDetails = [
-  {
-    title: "Livestock",
-    description: "Manage your Livestock",
-    image: ""
 
-  },
-  {
-    title: "Crops",
-    description: "Manage your Crops",
-    image: ""
-
-  },
-  {
-    title: "Livestock and Crops",
-    description: "Manage your Farm",
-    image: ""
-
-  }
-]
 
 export const CorouselComponent = ({ slides }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -55,14 +36,14 @@ export const CorouselComponent = ({ slides }: any) => {
   return (
     <div>
       <div className="relative">
-        <div className="relative flex items-center justify-center h-[50vh] ">
-          <div className="w-full h-[50vh]">
-            <div className="relative flex rounded-lg items-center justify-center h-[50vh]">
+        <div className="relative flex items-center justify-center h-[40vh] ">
+          <div className="w-full h-[40vh]">
+            <div className="relative flex rounded-lg items-center justify-center h-[40vh]">
               <div className="absolute inset-0 rounded-lg bg-lime-900 opacity-70 z-10"></div>
               <img
                 src={slides[currentIndex].image}
                 alt={slides[currentIndex].caption}
-                className="absolute rounded-lg inset-0 object-cover w-full h-[50vh]"
+                className="absolute rounded-lg inset-0 object-cover w-full h-[40vh]"
               />
               <div className="relative justify-center text-center z-10 text-white">
                 <h1 className="text-4xl font-bold mb-4">
@@ -71,7 +52,11 @@ export const CorouselComponent = ({ slides }: any) => {
                 <p className="px-20 mt-8 text-md">
                   {slides[currentIndex].description}
                 </p>
-                <button className='bg-yellow-600 mt-6 p-2 text-sm  text-white rounded-lg'>Learn More</button>
+                <div className="p-4">
+                <button className="items-center rounded-md  bg-yellow-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-lime-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >Learn More</button>
+                </div>
+             
               </div>
             </div>
           </div>
@@ -91,21 +76,12 @@ export const CorouselComponent = ({ slides }: any) => {
 
 
       </div>
-      <div className='grid grid-cols-3 justify-content-center items-center border-b-4 w-full'>
+      <div >
         {
-          FarmDetails.map((farm, index) => (
-            <div key={index} className="p-10">
-              <CardComponent image={farm.image} title={farm.title} description={farm.description} />
-            </div>
-          ))
+          <FarmTypeComponent />
         }
       </div>
-      <div className="p-6">
-          <CropsComponent/>
-      </div>
-      <div className="p-6">
-          <LivestockComponent/>
-      </div>
+     
     </div>
 
   );

@@ -58,7 +58,7 @@ export const CropsComponent = () => {
     <div>
 
       <div>
-        <h1 className="text-2xl flex items-center justify-center font-bold mb-4">My Crops</h1>
+        <h1 className="text-2xl flex items-center justify-center p-3 rounded-md text-white bg-lime-900 font-bold mb-4">My Crops</h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
           {crops.map((crop, index) => (
             <div

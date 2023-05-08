@@ -1,4 +1,4 @@
-import { CorouselComponent, FarmComponent, Loader } from "../components";
+import { CorouselComponent, Loader } from "../components";
 
 
 const slides= [
