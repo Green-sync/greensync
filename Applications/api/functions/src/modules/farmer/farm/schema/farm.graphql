@@ -1,11 +1,11 @@
 type Farm {
-    farmId: ID!
-    userId: ID!
-    name: String!
-    location: String!
-    size: Float!
+    farmId: ID
+    userId: ID
+    name: String
+    location: String
+    size: Float
     description: String
-    dateCreated: String!
+   
 }
 
 input FarmInput {
@@ -15,7 +15,11 @@ input FarmInput {
     location: String
     size: Float!
     description: String
-    dateCreated: String
+    type: FarmType
+}
+enum FarmType{
+    LIVESTOCK 
+    CROPS
 }
 
 

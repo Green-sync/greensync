@@ -20,21 +20,39 @@ export class FarmService {
       message: `${error} failed to add farm details`, success: false,
     };
   }
-  static async getFarmByUserId(userId: string) {
+  static async getFarmByUserId(userId: string): Promise<any> {
     // Assume 'db' is a reference to your Firestore instance
-    const farmsArray: { id: string; }[] = [];
-    const querySnapshot = await db.collection('Farms')
-      .where('userId', '==', 'userId') // Replace with the desired user ID
-      .get();
+    // const farmsArray: { id: string; }[] = [];
+    // const querySnapshot = await db.collection('Farms')
+    //   .where('userId', '==', 'userId') 
+    //   .get();
 
-    // Iterate through the results and add each farm document to the array
-    querySnapshot.forEach(doc => {
-      farmsArray.push({ id: doc.id, ...doc.data() });
-    });
+    // // Iterate through the results and add each farm document to the array
+    // querySnapshot.forEach(doc => {
+    //   if (userId === userId){
+    //     farmsArray.push({ id: doc.id, ...doc.data() });
+    //   } 
+      
+    // });
 
-    // Log the resulting array to the console
-    console.log(farmsArray);
-    return farmsArray
+    // // Log the resulting array to the console
+    // console.log(farmsArray);
+    // return farmsArray
+    
+    
+      const farmsRef = db.collection('Farms');
+      const query = farmsRef.where('userId', '==', userId);
+    
+      const snapshot = await query.get();
+      const farms: any[] = [];
+    
+      snapshot.forEach(doc => {
+        farms.push({ id: doc.id, ...doc.data() });
+      });
+      console.log(farms);
+    
+      return farms;
   }
+
 
 }

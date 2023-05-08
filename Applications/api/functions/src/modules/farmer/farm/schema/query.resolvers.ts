@@ -6,4 +6,7 @@ export const FarmQueryResolver = {
 
     return FarmService.getFarmByUserId(args.userId);
  },
+
+
+
 }
