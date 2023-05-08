@@ -5,3 +5,9 @@ export declare interface IWeekWeather {
     degrees: number
 }
 
+export declare interface IWeatherType {
+    wetherType: string
+    image: string
+    degrees: number
+
+} 
