@@ -74,7 +74,7 @@ export const FarmTypeComponent = () => {
           <div key={farm.id} className="bg-white cursor-pointer overflow-hidden shadow rounded-lg">
 
             <div onClick={() => handleFarmClick(farm.type)} className="px-4 py-5 sm:p-6">
-              <div className="relative h-48">
+              <div className="relative h-40">
                 {farm.image ? (
                   <img src={farm.image} alt={farm.name} className="absolute rounded-md inset-0 w-full h-full object-cover" />
                 ) : (
@@ -88,16 +88,19 @@ export const FarmTypeComponent = () => {
               <p className="mt-1 max-w-2xl text-sm text-gray-500">{farm.type}</p>
               <p className="mt-1 max-w-2xl text-sm text-gray-500">{farm.location}</p>
               <p className="mt-1 max-w-2xl text-sm text-gray-500">Size: {farm.size}</p>
-              
+
             </div>
-            <div className="flex justify-end px-4 py-5 sm:p-6 mt-3">
+            <div className="flex justify-end h-10 px-4  sm:p-6">
+              <div className="flex items-center">
                 <button type="button" onClick={() => console.log('edit button clicked')} className="mr-2">
                   <PencilSquareIcon className="h-5 w-5 text-yellow-600" />
                 </button>
                 <button onClick={() => console.log('Delete button clicked')} type="button">
-                  <TrashIcon  className="h-5 w-5 text-red-600" />
+                  <TrashIcon className="h-5 w-5 text-red-600" />
                 </button>
               </div>
+            </div>
+
           </div>
         ))}
       </div>

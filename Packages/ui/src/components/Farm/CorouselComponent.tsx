@@ -1,7 +1,5 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
-import { useState, useEffect } from 'react';
-import CropsComponent from './CropsComponent';
-import LivestockComponent from './LivestockComponent';
+import { useState, useEffect } from 'react'
 import FarmTypeComponent from './FarmType/FarmTypeComponent';
 
 
