@@ -6,3 +6,4 @@ export * from "./Navigation"
 export * from "./Hero"
 export * from './Calendar'
 export * from './Home'
+export * from './PopUp'
