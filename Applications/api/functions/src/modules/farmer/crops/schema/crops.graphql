@@ -28,6 +28,7 @@ type CroRresponse {
 
   extend type  Mutation {
     createCrop(crop: CropInput): CroRresponse
+    deleteCrop(cropId:ID!): CroRresponse
   }
 
   ## PascalCase
