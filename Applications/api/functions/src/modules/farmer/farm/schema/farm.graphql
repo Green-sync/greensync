@@ -30,7 +30,7 @@ type FarmResponse {
 }
 extend type Query {
     getFarm: [Farm]
-    getFarmByUserId(userId: ID!): Farm
+    getFarmByUserId(userId: ID!): [Farm]
 }
 
 extend type Mutation {
