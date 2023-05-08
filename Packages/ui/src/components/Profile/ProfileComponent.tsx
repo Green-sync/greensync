@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useState } from "react";
-import { IProfile, IProfileData, ProfileProps } from "./ProfileDto/ProfileDto";
+import { IProfileData } from "./ProfileDto/ProfileDto";
 // import { device, data, farm, stock} from "./ProfileDto/ProfileStaticData"
 
 
-export const ProfileComponent = ({data,device,farm,stock, onChange, checkPassword, updatePassword }: IProfileData) => {
+export const ProfileComponent = ({data,device,farm,stock, checkPassword, updateProfileData }: IProfileData) => {
 
     const [open, setOpen] = useState(false)
-    // const [password, setPassword] = useState("")
     const [changeDetails, setChangeDetails] = useState(false);
     const [formData, setFormData] = useState({
             name: data.name,
@@ -17,6 +16,10 @@ export const ProfileComponent = ({data,device,farm,stock, onChange, checkPasswor
             homeAddress: data.homeAddress
         }
     )
+    const onState = () => {
+        setChangeDetails(!changeDetails)
+        console.log("Clicked")
+    }
     // const checkPassword = (e: any) => {
     //     e.preventDefault()
     //     const confirmPassword = data.password
@@ -33,16 +36,13 @@ export const ProfileComponent = ({data,device,farm,stock, onChange, checkPasswor
     //     data.password = newPassword;
     //     // setFormData()
     // }
-    // const onSubmit = () => {
-    //     setChangeDetails(!changeDetails)
-    //     console.log("Clicked")
-    // }
-    // const onChange = (e : any) => {
-    // const id = e.target.id
-    // //@ts-ignore
-    // formData[`${id}`] = e.target.value
-    //    setFormData({...formData})
-    // }
+
+    const onChange = (e : any) => {
+    const id = e.target.id
+    //@ts-ignore
+    formData[`${id}`] = e.target.value
+       setFormData({...formData})
+    }
     return (
         <>
          <div className="container p-6 bg-gray-100">
@@ -56,7 +56,7 @@ export const ProfileComponent = ({data,device,farm,stock, onChange, checkPasswor
                 <div className="flex justify-between max-w-500 m-2">
                     <p className="text-2xl font-medium">My Profile</p>
                     <button
-                    // onClick={onSubmit}
+                    onClick={onState}
                      className={`bg-lime-300 rounded-md text-white pl-4 pr-5 ${changeDetails ? "hidden": ""}`}>
                         edit
                     </button>
@@ -85,7 +85,7 @@ export const ProfileComponent = ({data,device,farm,stock, onChange, checkPasswor
                 })}
                 {changeDetails && <div className="flex justify-center">
                     <button 
-                    // onClick={onSubmit}
+                    onClick={onState}
                     className="bg-lime-300 rounded-md text-white pl-4 pr-5 p-2 m-4">
                         Save
                     </button>
@@ -103,7 +103,7 @@ export const ProfileComponent = ({data,device,farm,stock, onChange, checkPasswor
                     <form onSubmit={checkPassword}>
                         <input type="password" placeholder="Enter Current Password" className="outline-none w-full m-4"/>
                         <div className="border-t border-lime-400 ml-4 mr-4"></div>
-                        <input id="confirm" onChange={updatePassword} type="password" placeholder="Enter new Password" className="outline-none w-full m-4"/>
+                        <input id="confirm" onChange={updateProfileData} type="password" placeholder="Enter new Password" className="outline-none w-full m-4"/>
                         <div className="border-t border-lime-400 ml-4 mr-4"></div>
 
                         <div className="m-4 justify-end flex">

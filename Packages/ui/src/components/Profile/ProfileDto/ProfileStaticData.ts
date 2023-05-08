@@ -61,6 +61,12 @@ device: [{
 {
     name: "Amazon Echo Plus",
     type: "speaker lol",
-}]
+}],
+
+// onChange: (e : any) => {
+//     const id = e.target.id
+//     formData[`${id}`] = e.target.value
+//        setFormData({...formData})
+//     }
 
 }
