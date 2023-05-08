@@ -20,4 +20,18 @@ export class WeatherService {
     };
   }
 
+  static async getWeatherByUserId(userId: string): Promise<any> {
+
+    const weatherRef = db.collection('WeatherData');
+    const query = weatherRef.where('userId', '==', userId);
+  
+    const snapshot = await query.get();
+    const weather: any[] = [];
+  
+    snapshot.forEach(doc => {
+        weather.push({ id: doc.id, ...doc.data() });
+    });
+    return weather;
+  }
+
 }

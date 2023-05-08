@@ -10,14 +10,14 @@ input weatherDataInput {
 }
 
 type WeatherData {
-    weatherDataId: ID!
-    userId: ID!
-    farmId: ID!
-    date: String!
-    temperature: Float!
-    humidity: Float!
-    rainfall: Float!
-    windSpeed: Float!
+    weatherDataId: ID
+    userId: ID
+    farmId: ID
+    date: String
+    temperature: Float
+    humidity: Float
+    rainfall: Float
+    windSpeed: Float
 }
 
 
@@ -27,6 +27,7 @@ type WeatheResponse {
 }
 extend type Query {
     getWeather: [WeatherData] 
+    getWeatherByUserId(userId: ID!): [WeatherData]
 }
 
 extend type Mutation {
