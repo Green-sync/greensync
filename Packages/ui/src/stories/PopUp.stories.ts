@@ -9,6 +9,8 @@ const metaPopUp = {
     component: PopUpComponent,
     title: "Components/PopUp",
 
+
+
 } satisfies Meta<typeof PopUpComponent>
 
 
@@ -17,7 +19,11 @@ type PopUpStory = StoryObj<typeof metaPopUp>
 
 export const PopUpView: PopUpStory = {
 
+    args: {
+        onClickTitile: 'Click Up here',
+        popUpTittle: 'Information',
+        popFunction: () => 'Here there'
+    }
 
 
-    
 }
