@@ -36,6 +36,7 @@ export const CorouselComponent = ({ slides }: any) => {
   return (
     <div>
       <div className="relative">
+        
         <div className="relative flex items-center justify-center h-[40vh] ">
           <div className="w-full h-[40vh]">
             <div className="relative flex rounded-lg items-center justify-center h-[40vh]">
@@ -62,13 +63,13 @@ export const CorouselComponent = ({ slides }: any) => {
           </div>
         </div>
         <button
-          className="absolute z-10 top-1/2 left-2 transform -translate-y-1/2 bg-transparent text-white rounded-full p-2 hover:bg-white hover:text-gray-900 transition-colors transition-opacity opacity-0 group-hover:opacity-100"
+          className="absolute z-10 top-1/2 left-2 transform -translate-y-1/2 bg-transparent text-white rounded-full p-2 hover:bg-white hover:text-gray-900 text-transparent group-hover:opacity-100"
           onClick={goToPreviousSlide}
         >
           <ChevronLeftIcon className="h-6 w-6" />
         </button>
         <button
-          className="absolute z-10 top-1/2 right-2 transform -translate-y-1/2 bg-transparent text-white rounded-full p-2 hover:bg-white hover:text-gray-900 transition-colors transition-opacity opacity-0 group-hover:opacity-100"
+          className="absolute z-10 top-1/2 right-2 transform -translate-y-1/2 bg-transparent text-white rounded-full p-2 hover:bg-white hover:text-gray-900 text-transparent  group-hover:opacity-100"
           onClick={goToNextSlide}
         >
           <ChevronRightIcon className="h-6 w-6" />

@@ -88,15 +88,16 @@ export const FarmTypeComponent = () => {
               <p className="mt-1 max-w-2xl text-sm text-gray-500">{farm.type}</p>
               <p className="mt-1 max-w-2xl text-sm text-gray-500">{farm.location}</p>
               <p className="mt-1 max-w-2xl text-sm text-gray-500">Size: {farm.size}</p>
-              <div className="flex justify-end mt-3">
-                <button type="button" className="mr-2">
+              
+            </div>
+            <div className="flex justify-end px-4 py-5 sm:p-6 mt-3">
+                <button type="button" onClick={() => console.log('edit button clicked')} className="mr-2">
                   <PencilSquareIcon className="h-5 w-5 text-yellow-600" />
                 </button>
-                <button type="button">
-                  <TrashIcon className="h-5 w-5 text-red-600" />
+                <button onClick={() => console.log('Delete button clicked')} type="button">
+                  <TrashIcon  className="h-5 w-5 text-red-600" />
                 </button>
               </div>
-            </div>
           </div>
         ))}
       </div>
