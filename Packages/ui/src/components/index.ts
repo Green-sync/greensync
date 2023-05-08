@@ -7,3 +7,4 @@ export * from "./Hero"
 export * from './Calendar'
 export * from './Home'
 export * from './PopUp'
+export * from './RegistrationForms'
