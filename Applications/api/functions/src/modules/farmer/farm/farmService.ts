@@ -3,8 +3,6 @@ import { db } from "../../../utils";
 export class FarmService {
   
   static async addFarm(farm: any) {
-
-
     // Create a new document in the "farms" collection with the specified user ID and farm details
     const farmRef = await db.collection('Farms').add({
       ...farm,
@@ -20,6 +18,7 @@ export class FarmService {
       message: `${error} failed to add farm details`, success: false,
     };
   }
+
   static async getFarmByUserId(userId: string): Promise<any> {
 
       const farmsRef = db.collection('Farms');
