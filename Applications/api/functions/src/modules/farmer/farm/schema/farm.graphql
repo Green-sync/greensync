@@ -30,6 +30,7 @@ extend type Query {
 
 extend type Mutation {
     createFarm(farm: FarmInput): FarmResponse
+    deleteFarm(farmId: ID): FarmResponse 
 }
 
 
