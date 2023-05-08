@@ -1,10 +1,10 @@
-import { Loader } from "../components";
+import { Loader, WeatherComponent } from "../components";
 
 export const HomePage = () => {
     return {
         home: <><Loader type="placeholder" msg="welcome home"/></>,
         profile: <>Profile</>,
-        weather: <>Weather</>,
+        weather: <><WeatherComponent /></>,
         calendar: <>Calendar</>,
         farm: <>Farm</>,
         recent: <>recent</>,
