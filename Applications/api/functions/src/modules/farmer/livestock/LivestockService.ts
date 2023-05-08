@@ -1,7 +1,7 @@
 import { db } from "../../../utils";
 
 export class LivestockService {
-     static async addStock(stock: any) {
+  static async addStock(stock: any) {
     //     try {          
     //       await db.collection("Stock").add(stock)
     //       return {
@@ -27,10 +27,23 @@ export class LivestockService {
       message: `${error} failed to add livestock details`, success: false,
     };
 
+  }
+  static async getLivestockByUserId(userId: string): Promise<any> {
 
-    
-       }
+    const livestockRef = db.collection('Livestocks');
+    const query = livestockRef.where('userId', '==', userId);
+  
+    const snapshot = await query.get();
+    const livestocks: any[] = [];
+  
+    snapshot.forEach(doc => {
+      livestocks.push({ id: doc.id, ...doc.data() });
+    });
+    console.log(livestocks);
+  
+    return livestocks;
+}
 
-    
+
 
 }

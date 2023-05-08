@@ -24,7 +24,7 @@ type CroRresponse {
 }
   extend type Query {
     getCrop: CroRresponse
-     getCropByUserId(userId: ID!): [Crop]
+    getCropByUserId(userId: ID!): [Crop]
   }
 
   extend type  Mutation {
