@@ -1,19 +1,9 @@
 import { db } from "../../../utils";
 
 export class FarmService {
-
+  
   static async addFarm(farm: any) {
-    // try {
 
-    //     await db.collection("Farms").add(farm)
-    //   return {
-    //     message: "Farm details successfully added", success: true,
-    //   };
-    // } catch (error) {
-    //   return {
-    //     message: `${error} failed to add farm details`, success: false,
-    //   };
-    // }
 
     // Create a new document in the "farms" collection with the specified user ID and farm details
     const farmRef = await db.collection('Farms').add({
@@ -29,6 +19,22 @@ export class FarmService {
     return {
       message: `${error} failed to add farm details`, success: false,
     };
+  }
+  static async getFarmByUserId(userId: string) {
+    // Assume 'db' is a reference to your Firestore instance
+    const farmsArray: { id: string; }[] = [];
+    const querySnapshot = await db.collection('Farms')
+      .where('userId', '==', 'userId') // Replace with the desired user ID
+      .get();
+
+    // Iterate through the results and add each farm document to the array
+    querySnapshot.forEach(doc => {
+      farmsArray.push({ id: doc.id, ...doc.data() });
+    });
+
+    // Log the resulting array to the console
+    console.log(farmsArray);
+    return farmsArray
   }
 
 }
