@@ -4,38 +4,38 @@ import { IProfileData } from "./ProfileDto/ProfileDto";
 // import { device, data, farm, stock} from "./ProfileDto/ProfileStaticData"
 
 
-export const ProfileComponent = ({data,device,farm,stock, checkPassword, updateProfileData }: IProfileData) => {
+export const ProfileComponent = (ProfileStaticData : IProfileData) => {
 
     const [open, setOpen] = useState(false)
     const [changeDetails, setChangeDetails] = useState(false);
     const [formData, setFormData] = useState({
-            name: data.name,
-            surname: data.surname,
-            email: data.email,
-            website: data.website,
-            homeAddress: data.homeAddress
+            name: ProfileStaticData.data.name,
+            surname: ProfileStaticData.data.surname,
+            email: ProfileStaticData.data.email,
+            website: ProfileStaticData.data.website,
+            homeAddress: ProfileStaticData.data.homeAddress
         }
     )
     const onState = () => {
         setChangeDetails(!changeDetails)
         console.log("Clicked")
     }
-    // const checkPassword = (e: any) => {
-    //     e.preventDefault()
-    //     const confirmPassword = data.password
-    //     // const password = e.target.value 
-    //     if(confirmPassword === password){
-    //         console.log("confirmed")
-    //     }
-    //     else {
-    //         console.log("wrong password")
-    //     }
-    // }
-    // const updatePassword = (e: any) => {
-    //     const newPassword = e.target.value
-    //     data.password = newPassword;
-    //     // setFormData()
-    // }
+    const checkPassword = (e: any) => {
+        e.preventDefault()
+        const confirmPassword = ProfileStaticData.data.password
+        const password = e.target.value 
+        if(confirmPassword === password){
+            console.log("confirmed")
+        }
+        else {
+            console.log("wrong password")
+        }
+    }
+    const updatePassword = (e: any) => {
+        const newPassword = e.target.value
+        ProfileStaticData.data.password = newPassword;
+        // setFormData()
+    }
 
     const onChange = (e : any) => {
     const id = e.target.id
@@ -51,7 +51,7 @@ export const ProfileComponent = ({data,device,farm,stock, checkPassword, updateP
                 <div>
                 <div className=" bg-white rounded m-2 pb-6">
                 <div className="p-2 h-40">
-                  <img className=" mx-auto h-40 w-40 rounded-md border" src={ data.photoURL ? `${data.photoURL}` : "https://th.bing.com/th/id/R.08637f47762d9826b134576b3d008a05?rik=4GVDJkAco4u7PQ&pid=ImgRaw&r=0"} alt="" />
+                  <img className=" mx-auto h-40 w-40 rounded-md border" src={ ProfileStaticData.data.photoURL ? `${ProfileStaticData.data.photoURL}` : "https://th.bing.com/th/id/R.08637f47762d9826b134576b3d008a05?rik=4GVDJkAco4u7PQ&pid=ImgRaw&r=0"} alt="" />
                 </div>
                 <div className="flex justify-between max-w-500 m-2">
                     <p className="text-2xl font-medium">My Profile</p>
@@ -103,7 +103,7 @@ export const ProfileComponent = ({data,device,farm,stock, checkPassword, updateP
                     <form onSubmit={checkPassword}>
                         <input type="password" placeholder="Enter Current Password" className="outline-none w-full m-4"/>
                         <div className="border-t border-lime-400 ml-4 mr-4"></div>
-                        <input id="confirm" onChange={updateProfileData} type="password" placeholder="Enter new Password" className="outline-none w-full m-4"/>
+                        <input id="confirm" onChange={() => ""} type="password" placeholder="Enter new Password" className="outline-none w-full m-4"/>
                         <div className="border-t border-lime-400 ml-4 mr-4"></div>
 
                         <div className="m-4 justify-end flex">
@@ -122,7 +122,7 @@ export const ProfileComponent = ({data,device,farm,stock, checkPassword, updateP
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My Farms</p>
                 </div>
-                {farm.map((farm) => {
+                {ProfileStaticData.farm.map((farm: any) => {
                    return <>
                     <div className="bg-gray-100 p-2 rounded-md m-2">
                         <div className="text-orange-600 text-xl">{farm.name}</div>
@@ -137,7 +137,7 @@ export const ProfileComponent = ({data,device,farm,stock, checkPassword, updateP
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My Stock</p>
                 </div>
-                {stock.map((stock) => {
+                {ProfileStaticData.stock.map((stock: any) => {
                    return <>
                     <div className="bg-gray-100 p-2 rounded-lg m-2">
                         <div className="text-orange-600 text-xl">{stock.itemName}</div>
@@ -151,7 +151,7 @@ export const ProfileComponent = ({data,device,farm,stock, checkPassword, updateP
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My devices</p>
                 </div>
-                {device.map((device) => {
+                {ProfileStaticData.device.map((device: any) => {
                    return <>
                     <div className="bg-gray-100 p-2 rounded-lg m-2">
                         <div className="text-orange-600 text-xl">{device.name}</div>
