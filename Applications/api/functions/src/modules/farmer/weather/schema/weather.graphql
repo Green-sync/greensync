@@ -1,0 +1,34 @@
+input weatherDataInput {
+    weatherDataId: ID
+    userId: ID
+    farmId: ID
+    date: String
+    temperature: Float
+    humidity: Float
+    rainfall: Float
+    windSpeed: Float
+}
+
+type WeatherData {
+    weatherDataId: ID!
+    userId: ID!
+    farmId: ID!
+    date: String!
+    temperature: Float!
+    humidity: Float!
+    rainfall: Float!
+    windSpeed: Float!
+}
+
+
+type WeatheResponse {
+    success: Boolean
+    message: String
+}
+extend type Query {
+    getWeather: [WeatherData] 
+}
+
+extend type Mutation {
+    createWeather(weather: weatherDataInput): WeatheResponse
+}
