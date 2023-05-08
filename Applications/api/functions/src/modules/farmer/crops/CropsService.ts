@@ -29,4 +29,20 @@ export class CropsService {
         };
       }
 
+      static async getCropByUserId(userId: string): Promise<any> {
+
+        const cropsRef = db.collection('Crops');
+        const query = cropsRef.where('userId', '==', userId);
+      
+        const snapshot = await query.get();
+        const crops: any[] = [];
+      
+        snapshot.forEach(doc => {
+          crops.push({ id: doc.id, ...doc.data() });
+        });
+        console.log(crops);
+      
+        return crops;
+    }
+
 }
