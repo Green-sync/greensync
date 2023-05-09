@@ -39,6 +39,7 @@ extend type Query {
 
 extend type Mutation {
     createIotdevice(device: IoTDeviceInput): DeviceResponse
+    editIotdevice(deviceId: ID, updates: IoTDeviceInput): DeviceResponse
     deleteDevice(deviceId:ID!): DeviceResponse
 
 }
