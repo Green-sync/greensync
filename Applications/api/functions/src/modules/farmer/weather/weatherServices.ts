@@ -1,4 +1,5 @@
 import { db } from "../../../utils";
+import { WeatherInput } from "./schema/weatherDto";
 
 export class WeatherService {
 
@@ -18,6 +19,24 @@ export class WeatherService {
     return {
       message: `${error} failed to add weather details`, success: false,
     };
+  }
+
+
+  static async updateWeather(weatherId: string, updates: WeatherInput) {
+    try {
+
+      // Update the farm document with the specified ID
+      await db.collection('WeatherData').doc(weatherId).update({...updates});
+      // Return a success message
+      return {
+        message: "Weather details successfully updated", success: true,
+      };
+    } catch (error) {
+      // Return an error message
+      return {
+        message: `${error} failed to update weather details`, success: false,
+      };
+    }
   }
 
   static async getWeatherByUserId(userId: string): Promise<any> {

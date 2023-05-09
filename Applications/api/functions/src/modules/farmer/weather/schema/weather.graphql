@@ -32,5 +32,6 @@ extend type Query {
 
 extend type Mutation {
     createWeather(weather: weatherDataInput): WeatheResponse
+    editWeather(weatherId: ID, updates: weatherDataInput): WeatheResponse
     deleteWeather(weatherId: ID!): WeatheResponse
 }
