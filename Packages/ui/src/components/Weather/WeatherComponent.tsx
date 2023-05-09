@@ -28,7 +28,7 @@ export const WeatherComponent = () => {
                         <img src="https://camo.githubusercontent.com/f45ac6a3081bef820e779dbaa0765cae602ba0bf7030749059b1a2234f6dd1f4/68747470733a2f2f626d63646e2e6e6c2f6173736574732f776561746865722d69636f6e732f76322e302f6c696e652f636c6561722d6461792e737667" />
 
                     </div>
-                    {WeatherIcon("sunny")}
+                    {WeatherIcon("storm")}
                 </div>
 
                 <div className=" border-gray-400 mb-2 bg-gray-400 rounded-sm pb-4">
