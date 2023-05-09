@@ -5,7 +5,6 @@ import cors, {CorsRequest} from "cors"
 
 const greensyncApp = express()
 import dotenv from "dotenv"
-import {env} from "process"
 import {ExpressContextFunctionArgument, expressMiddleware} from "@apollo/server/express4"
 import {QueryResolvers, MutationResolver} from "./resolvers"
 import {MainSchema} from "./schema";
@@ -31,7 +30,6 @@ interface GreenContext {
 }
 
 const greenApp = async () => {
-    console.log(env)
     const server = new ApolloServer<GreenContext>({
         typeDefs: MainSchema,
         resolvers,
@@ -44,7 +42,7 @@ const greenApp = async () => {
     greensyncApp.use("/", cors<CorsRequest>(), express.json(), expressMiddleware(server, {
         context: async ({req, res}: ExpressContextFunctionArgument) => {
             const user = await AuthService.isAuthenticated(req, res)
-            console.log(user)
+            console.log({user,auth: ""})
             return user ?? {
                 user,
                 res,
