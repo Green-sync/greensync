@@ -1,6 +1,6 @@
 export declare interface IWeekWeather {
     day: string
-    imgage: string
+    icon: any
     wetherType: string
     degrees: number
 }

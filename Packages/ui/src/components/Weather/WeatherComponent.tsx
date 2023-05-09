@@ -15,9 +15,9 @@ const weekDay = [
 export const WeatherComponent = () => {
     return <>
          <div className="container p-6 bg-green-900 text-white">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex flex-wrap md:grid-cols-2 gap-4">
                 {/* <!-- First column --> */}
-                <div>
+                <div className="flex-grow md:w-auto">
                 <div className="flex justify-between">
                     <div>
                     <p className="text-white text-2xl font-extrabold">Soshanguve</p>
@@ -28,7 +28,6 @@ export const WeatherComponent = () => {
                         <img src="https://camo.githubusercontent.com/f45ac6a3081bef820e779dbaa0765cae602ba0bf7030749059b1a2234f6dd1f4/68747470733a2f2f626d63646e2e6e6c2f6173736574732f776561746865722d69636f6e732f76322e302f6c696e652f636c6561722d6461792e737667" />
 
                     </div>
-                    {WeatherIcon("storm")}
                 </div>
 
                 <div className=" border-gray-400 mb-2 bg-gray-400 rounded-sm pb-4">
@@ -48,14 +47,17 @@ export const WeatherComponent = () => {
                 </div>
                 </div>
                 {/* ===========================================SECOND COLUMN============================================================= */}
-                <div className="">
+                <div className="w-full md:w-auto">
                 <div className=" border-gray-400 mb-2 bg-gray-400 rounded-sm pb-4">
                     <p className="m-2 font-semibold">7 days  forecast</p>
                         {weekData.map((value,index) => {
                         return <>
                         <div className="m-4 marker flex justify-between">
                             <p>{weekDay[index]}</p>
-                            <img src={value.imgage} />{value.wetherType}
+                            <div className="flex justify-between justify-items-center">
+                            {value.icon}
+                            {value.wetherType}
+                            </div>
                             <p>{value.degrees}/21</p>
                         </div>
                         <div className="border-t border-gray-300 ml-4  mr-4"></div>

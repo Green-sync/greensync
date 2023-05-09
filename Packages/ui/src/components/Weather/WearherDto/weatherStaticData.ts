@@ -1,8 +1,9 @@
 import { IWeatherType, IWeekWeather } from "./WeatherDto";
+import { WeatherIcon } from "./WeatherIcon";
 
  export const weekData: IWeekWeather[] = [{
      day: "Monday",
-     imgage: "../photos/static/day.svg",
+     icon: WeatherIcon("sunny"),
      wetherType: "Sunny",
      degrees: 40
  },
@@ -10,36 +11,36 @@ import { IWeatherType, IWeekWeather } from "./WeatherDto";
     day: "Tuesday",
     wetherType: "Sunny",
     degrees: 42,
-    imgage: "../photos/static/day.svg",
+    icon: WeatherIcon("sunny"),
 
 },
 {
     day: "Wednesday",
     wetherType: "Cloudy",
-    imgage: "../photos/static/cloudy.svg",
+     icon: WeatherIcon("cloudy"),
     degrees: 26
 },
 {
     day: "Thursday",
     wetherType: "Cloudy",
-    imgage: "../photos/static/cloudy-day-3.svg",
+    icon: WeatherIcon("cloudy"),
     degrees: 24
 },
 {
     day: "Friday",
     wetherType: "Rainy",
-    imgage: "../photos/static/rainy-7.svg",
+    icon: WeatherIcon("rainy"),
     degrees: 19
 },
 {
     day: "Saturday",
     wetherType: "Rainy",
-    imgage: "../photos/static/rainy-1.svg",
+    icon: WeatherIcon("rainy"),
     degrees: 19
 },{
     day: "Sunday",
     wetherType: "Storm",
-    imgage: "../photos/static/thunder.svg",
+    icon: WeatherIcon("storm"),
     degrees: 18
 }]
 
