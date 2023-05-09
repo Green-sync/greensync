@@ -8,7 +8,7 @@ import { IPopUp } from '..'
 
 export const PopUpComponent = ({ onClickTitile, popUpTittle, popFunction, style }: IPopUp) => {
 
-    let [isOpen, setIsOpen] = useState(true)
+    let [isOpen, setIsOpen] = useState(false)
 
     function closeModal() {
         setIsOpen(false)
