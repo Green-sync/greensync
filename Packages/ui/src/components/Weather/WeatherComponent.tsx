@@ -1,5 +1,5 @@
 import { WeatherIcon } from "./WearherDto/WeatherIcon"
-import { weekData } from "./WearherDto/weatherStaticData"
+import { weekData, timeWeather } from "./WearherDto/weatherStaticData"
 import "./Weather.scss"
 
 const weekDay = [
@@ -31,7 +31,24 @@ export const WeatherComponent = () => {
                 </div>
 
                 <div className=" border-gray-400 mb-2 bg-gray-400 rounded-sm pb-4">
-                    <p className="m-2 font-extrabold text-lg">Today's forecast</p>   
+                    <p className="m-2 font-extrabold text-lg">Today's forecast</p>
+                    <div className="flex flex-wrap">
+                    {
+                        
+                        timeWeather.map((value) => {
+                            return <>
+                            <div className="flex justify-between m-4">
+                                <div>
+                                 <span className="flex justify-start">{value.time}</span> 
+                                 <span className="flex justify-start"> {WeatherIcon(value.weatherType)}</span>
+                                 <span className="">{value.degrees}&#176;C</span>
+                                </div>
+                                <div className="border-l"></div>
+                            </div>
+                            </>
+                        })
+                    } 
+                    </div>  
                 </div>
                 <div className=" border-gray-400 mb-2 bg-gray-400 rounded-sm pb-4">
                     <div className="flex justify-between">
@@ -48,7 +65,7 @@ export const WeatherComponent = () => {
                 </div>
                 {/* ===========================================SECOND COLUMN============================================================= */}
                 <div className="w-full md:w-auto">
-                <div className=" border-gray-400 mb-2 bg-gray-400 rounded-sm pb-4 md:w-96 ">
+                <div className=" border-gray-400 mb-2 bg-gray-400 rounded-md pb-4 md:w-96 ">
                     <p className="m-2 font-semibold">7 days  forecast</p>
                         {weekData.map((value,index) => {
                         return <>

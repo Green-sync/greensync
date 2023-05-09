@@ -11,7 +11,11 @@ export declare interface IWeatherType {
     degrees: number
 
 } 
-
+export declare interface Iintervals {
+    time: string
+    weatherType: TWeatherTypes
+    degrees: number
+}
 export declare type TWeatherTypes = "sunny" | "cloudy" | "windy" | "rainy" | "humid" | "snow" | "storm"
 // export declare interface IFooterProps {
 //     footer: IFooterDto;
