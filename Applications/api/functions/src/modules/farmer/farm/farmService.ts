@@ -1,7 +1,9 @@
 import { db } from "../../../utils";
+import { FarmInput } from "./schema/farmDto";
+
 
 export class FarmService {
-  
+
   static async addFarm(farm: any) {
     // Create a new document in the "farms" collection with the specified user ID and farm details
     const farmRef = await db.collection('Farms').add({
@@ -19,20 +21,37 @@ export class FarmService {
     };
   }
 
+  static async updateFarm(farmId: string, updates: FarmInput) {
+    try {
+
+      // Update the farm document with the specified ID
+      await db.collection('Farms').doc(farmId).update({...updates});
+      // Return a success message
+      return {
+        message: "Farm details successfully updated", success: true,
+      };
+    } catch (error) {
+      // Return an error message
+      return {
+        message: `${error} failed to update farm details`, success: false,
+      };
+    }
+  }
+
   static async getFarmByUserId(userId: string): Promise<any> {
 
-      const farmsRef = db.collection('Farms');
-      const query = farmsRef.where('userId', '==', userId);
-    
-      const snapshot = await query.get();
-      const farms: any[] = [];
-    
-      snapshot.forEach(doc => {
-        farms.push({ id: doc.id, ...doc.data() });
-      });
-      console.log(farms);
-    
-      return farms;
+    const farmsRef = db.collection('Farms');
+    const query = farmsRef.where('userId', '==', userId);
+
+    const snapshot = await query.get();
+    const farms: any[] = [];
+
+    snapshot.forEach(doc => {
+      farms.push({ id: doc.id, ...doc.data() });
+    });
+    console.log(farms);
+
+    return farms;
   }
 
 
