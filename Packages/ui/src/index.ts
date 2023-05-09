@@ -10,3 +10,4 @@ export { CalendarStaticData as CalendarStaticData } from './components'
 export { GreenSyncContext as GreenSyncContext } from "./components"
 export { HomePage as HomePage } from "./pages"
 export { PopUpComponent as PopUp } from './components'
+export { RegistrationFormComponent as RegistrationFormComponent } from './components'
