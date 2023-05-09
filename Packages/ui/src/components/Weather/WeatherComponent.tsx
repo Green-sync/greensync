@@ -3,13 +3,13 @@ import { weekData } from "./WearherDto/weatherStaticData"
 import "./Weather.scss"
 
 const weekDay = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday"
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun"
 ]
 
 export const WeatherComponent = () => {
@@ -48,17 +48,18 @@ export const WeatherComponent = () => {
                 </div>
                 {/* ===========================================SECOND COLUMN============================================================= */}
                 <div className="w-full md:w-auto">
-                <div className=" border-gray-400 mb-2 bg-gray-400 rounded-sm pb-4">
+                <div className=" border-gray-400 mb-2 bg-gray-400 rounded-sm pb-4 md:w-96 ">
                     <p className="m-2 font-semibold">7 days  forecast</p>
                         {weekData.map((value,index) => {
                         return <>
-                        <div className="m-4 marker flex justify-between">
+                            <div className="flex justify-between items-center ml-4 mr-4">
                             <p>{weekDay[index]}</p>
-                            <div className="flex justify-between justify-items-center">
+                        <div 
+                        onClick={() => ""} className="m-4 flex items-center">
                             {value.icon}
-                            {value.wetherType}
+                            <span className="m-0">{value.wetherType}</span>
                             </div>
-                            <p>{value.degrees}/21</p>
+                            <p>{value.degrees}&#176;C</p>
                         </div>
                         <div className="border-t border-gray-300 ml-4  mr-4"></div>
                         </>
