@@ -23,8 +23,6 @@ enum FarmType{
     BOTH
 }
 
-
-
 type FarmResponse {
     success: Boolean
     message: String

@@ -1,19 +1,9 @@
 import { db } from "../../../utils";
+import { CropInput } from "./schema/cropDto";
 
 export class CropsService {
   static async addCrop(crop: any) {
-        // try {
-          
-        //   await db.collection("Crops").add(crop)
-        //   return {
-        //     message: "Crop details successfully added", success: true,
-        //   };
-        // } catch (error) {
-        //   return {
-        //     message: `${error} failed to add crop details`, success: false,
-        //   };
-        // }
-
+       
         const cropRef = await db.collection('Crops').add({
           ...crop,
           userId: "1d1d12345" //context.uid
@@ -27,6 +17,23 @@ export class CropsService {
         return {
           message: `${error} failed to add crop details`, success: false,
         };
+      }
+     
+      static async updateCrop(cropId: string, updates: CropInput) {
+        try {
+    
+          // Update the farm document with the specified ID
+          await db.collection('Crops').doc(cropId).update({...updates});
+          // Return a success message
+          return {
+            message: "Crop details successfully updated", success: true,
+          };
+        } catch (error) {
+          // Return an error message
+          return {
+            message: `${error} failed to update crop details`, success: false,
+          };
+        }
       }
 
       static async getCropByUserId(userId: string): Promise<any> {
