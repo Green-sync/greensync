@@ -2,6 +2,7 @@ export declare interface IProfile {
     name: string,
     surname: string,
     email: string,
+    phoneNumber: string,
     password: string
     website: string  
     photoURL: string

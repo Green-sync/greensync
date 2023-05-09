@@ -4,6 +4,7 @@ export const ProfileStaticData: IProfileData = {
 data: {
     name: "John",
     surname: "Doe",
+    phoneNumber: "",
     email: "johndoe@gmail.com",
     password: "neo",
     website: "www.johndoe.co.za",

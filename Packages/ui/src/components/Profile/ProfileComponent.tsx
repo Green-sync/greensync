@@ -13,7 +13,8 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
             surname: ProfileStaticData.data.surname,
             email: ProfileStaticData.data.email,
             website: ProfileStaticData.data.website,
-            homeAddress: ProfileStaticData.data.homeAddress
+            homeAddress: ProfileStaticData.data.homeAddress,
+            phoneNumber: ProfileStaticData.data.phoneNumber,
         }
     )
     const onState = () => {
@@ -76,8 +77,8 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         <input
                         type={key == "password" ? "password" : "text" }
                         id={key}
-                        value={value}
-                        className="outline-none w-full"
+                        value={value !== "" ? value : `edit ${key}`}
+                        className={`outline-none w-full ${value == "" ? "text-gray-500" : ""}`}
                         />
                     </form>
                     <div className="border-t border-lime-400 ml-4 mr-4"></div>
