@@ -1,23 +1,44 @@
+import { CalendarComponent, CalendarStaticData, DataAnalysisComponent, FarmerCard } from ".."
+
 export const HomeComponent = () => {
-  return (
-    <>
-      <div className="container">
+    return (
+        <>
+            {/**This is the main container Div which will curry all the compoent in main  */}
+            <div className="container p-10 ">
 
 
-        <div className="flex">
-            
-          <div>
-            Content from left side
-          </div>
-          <div>
-                Content from the right side 
-          </div>
-        </div>
+                {/** This Div controls all the section to be two an side by side */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
+
+                    <div className='grid grid-cols-1 gap-2 sm:grid-cols-1'>
+
+                        <div className="rounded-lg shadow p-4 m-3 text-3xl">
+                            <CalendarComponent days={CalendarStaticData.days} events={CalendarStaticData.events} />
+
+                        </div>
+                    </div>
+
+                    <div className='grid grid-cols-1 gap-2 sm:grid-cols-1'>
+
+                        <div className="rounded-lg shadow p-4 m-3  text-3xl">
+                            <FarmerCard />
+                        </div>
+
+                        <div className="rounded-lg shadow p-4 m-3 text-3xl">
+                            <DataAnalysisComponent />
+                        </div>
+                    </div>
 
 
-      </div>
-    </>
-  );
-};
 
-export default HomeComponent;
+
+
+                </div>
+
+
+            </div>
+
+
+        </>
+    )
+}

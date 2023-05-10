@@ -8,7 +8,7 @@ import { CalendarProps } from './CalendarDto'
 
 
 
-export const CalendarComponent = ({days,events}: CalendarProps) => {
+export const CalendarComponent = (prop: CalendarProps) => {
   return (
     <div>
       <div className="flex items-center">
@@ -38,7 +38,7 @@ export const CalendarComponent = ({days,events}: CalendarProps) => {
         <div>S</div>
       </div>
       <div className="mt-2 grid grid-cols-7 text-sm">
-        {days.map((day, dayIdx) => (
+        {prop.days.map((day, dayIdx) => (
           <div key={day.date} className={classMerge(dayIdx > 6 && 'border-t border-gray-200', 'py-2')}>
             <button
               type="button"
@@ -54,7 +54,7 @@ export const CalendarComponent = ({days,events}: CalendarProps) => {
                 'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
               )}
             >
-                {/* @ts-ignore */}
+              {/* @ts-ignore */}
               <time dateTime={day.date}>{day.date.split('-').pop().replace(/^0/, '')}</time>
             </button>
           </div>
@@ -65,7 +65,7 @@ export const CalendarComponent = ({days,events}: CalendarProps) => {
           Schedule for <time dateTime="2022-01-21">January 21, 2022</time>
         </h2>
         <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500">
-          {events.map((meeting, index: number) => (
+          {prop.events.map((meeting, index: number) => (
             <li
               key={index}
               className="group flex items-center space-x-4 rounded-xl px-4 py-2 focus-within:bg-gray-100 hover:bg-gray-100"

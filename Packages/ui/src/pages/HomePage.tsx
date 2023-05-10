@@ -1,5 +1,6 @@
+import { HomeComponent } from "../components";
 
-import { CorouselComponent, Loader } from "../components";
+
 
 
 const slides= [
@@ -25,7 +26,7 @@ import { Loader, ProfileComponent, ProfileStaticData } from "../components";
 
 export const HomePage = () => {
     return {
-        home: <><Loader type="placeholder" msg="welcome home"/></>,
+        home: <>home</>,
         profile: <><ProfileComponent data={ProfileStaticData.data} farm={ProfileStaticData.farm} stock={ProfileStaticData.stock} device={ProfileStaticData.device} /></>,
         weather: <>Weather</>,
         calendar: <>Calendar</>,
