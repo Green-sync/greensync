@@ -8,3 +8,7 @@ export * from './Calendar'
 export * from './Home'
 export * from './PopUp'
 export * from './RegistrationForms'
+export * from './Calendar'
+export * from './Farm'
+export * from './Profile'
+
