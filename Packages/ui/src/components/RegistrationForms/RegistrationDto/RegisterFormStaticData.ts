@@ -14,8 +14,5 @@ export const FarmFormStaticData: InputTypes[] = [
     },
     {
         isTextArea: { cols: '10', rows: "10" }, label: 'Description', name: 'description', id: 'description', placeholder: 'Type Your Details about the farm'
-    },
-    {
-        isSelect: [{ name: 'CROP', value: "CROP" }, { name: 'LIFESTOCK', value: "LIFESTOCK" }, { name: 'BOTH', value: "BOTH" },], name: 'farmingtype', label: "Select The Type Of Farming", id: 'farmingType', type: 'radio'
     }
 ]
