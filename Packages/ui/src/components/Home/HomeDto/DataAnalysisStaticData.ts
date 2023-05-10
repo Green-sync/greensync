@@ -2,11 +2,11 @@ import { IDataDonut } from ".";
 
 export const DonutViewStaticData: IDataDonut = {
 
-    labels: ['Wheat', 'ButterBeans', 'Pottatos', 'Tomattos', 'Maize', 'Grain'],
+
     datasets: [
         {
 
-            label: '# of Votes',
+            label: 'The Number Of Crops',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 '#facc15',
@@ -27,7 +27,7 @@ export const DonutViewStaticData: IDataDonut = {
             borderWidth: 1,
         },
     ],
-
+    labels: ['Wheat', 'ButterBeans', 'Pottatos', 'Tomattos', 'Maize', 'Onions']
 }
 
 export const LiveStockStaticData: IDataDonut = {
@@ -36,7 +36,7 @@ export const LiveStockStaticData: IDataDonut = {
     datasets: [
         {
 
-            label: '# of Votes',
+            label: 'The number ofLive Stock',
             data: [22, 133, 33,],
             backgroundColor: [
                 '#facc15',

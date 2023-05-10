@@ -10,6 +10,7 @@ const cutout = 60
 const options = {
     cutout: cutout,
     borderRadius: 1,
+
 }
 
 ChartJS.register(ArcElement, Tooltip, Legend);
