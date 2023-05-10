@@ -74,20 +74,7 @@ export const timeWeather: Iintervals[] = [{
     time: "18:00",
     weatherType: "rainy",
     degrees: 0
-},{
-    time: "08:00",
-    weatherType: "cloudy",
-    degrees: 0
-},
-{
-    time: "10:00",
-    weatherType: "cloudy",
-    degrees: 0
-},{
-    time: "12:00",
-    weatherType: "storm",
-    degrees: 0
-},]
+}]
 
 
 // export const weatherType: IWeatherType[] = [{
