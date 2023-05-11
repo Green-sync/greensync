@@ -8,7 +8,7 @@ import { IWeatherData } from "./WearherDto/WeatherDto";
 
 export const WeatherComponent = () => {
   const [open, setOpen] = useState(false);
-  const [searchWeather, setSearchWeather] = useState([weekData[0]]);
+  const [searchWeather, setSearchWeather] = useState(weekData);
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (e: any) => {
@@ -29,7 +29,7 @@ export const WeatherComponent = () => {
         <div className="flex flex-wrap md:grid-cols-2 gap-4">
           {/* <!-- First column --> */}
           <div className="flex-grow md:w-auto">
-            <div className="grid grid-col1 justify-items-center ">
+            <div className="grid grid-cols-1 justify-items-center ">
               <div
                 onClick={() => setOpen(!open)}
                 className="pr-1 flex justify-between border-1 border-gray-600 w-1/3 rounded-lg bg-gray-600 items-center"
@@ -78,7 +78,7 @@ export const WeatherComponent = () => {
             <div className=" border-gray-400 mb-2 bg-gray-400 rounded-sm pb-4">
               <p className="m-2 font-extrabold text-lg">Today's forecast</p>
               <div className="flex flex-wrap">
-                {searchWeather.map((value, index) => {
+                {searchWeather.map((value) => {
                   return (
                     <>
                         {value.weekWeather.map((d, i) => { 
@@ -113,14 +113,26 @@ export const WeatherComponent = () => {
               <div className="flex justify-between">
                 <p className="m-2 font-extrabold text-lg">Air conditions</p>
                 <button className="bg-green-800 rounded m-2 p-1">
-                  See more...
+                  See more
                 </button>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 m-4">
-                <p className="font-medium">{WeatherIcon("realFeel")}Real Feel</p>
-                <p className="font-medium">{WeatherIcon("wind")}Wind</p>
-                <p className="font-medium">{WeatherIcon("drop")}Chance of rain</p>
-                <p className="font-medium">{WeatherIcon("index")}UV Index</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 m-4 text-gray-200 ">
+                <div className="flex items-center space-x-2 font-medium">
+                    {WeatherIcon("realFeel")} Real Feel 
+                    <span className="text-2xl text-white">30&#176;</span>
+                </div>
+                <div className="flex items-center space-x-2 font-medium">
+                    {WeatherIcon("wind")}Wind
+                    <span className="text-2xl text-white">0.2 Km/h</span>
+                    </div>
+                <div className="flex items-center space-x-2 font-medium">
+                    {WeatherIcon("drop")}Chance of rain
+                    <span className="text-2xl text-white">0%</span>
+                    </div>
+                <div className="flex items-center space-x-2 font-medium">
+                    {WeatherIcon("index")}UV Index
+                    <span className="text-2xl text-white">3</span>
+                    </div>
               </div>
             </div>
           </div>
