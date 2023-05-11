@@ -1,5 +1,7 @@
+import { useState } from "react"
 import { WeatherIcon } from "./WearherDto/WeatherIcon"
 import { weekData, timeWeather } from "./WearherDto/weatherStaticData"
+import {MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import "./Weather.scss"
 
 const weekDay = [
@@ -13,16 +15,21 @@ const weekDay = [
 ]
 
 export const WeatherComponent = () => {
+    const [open, setOpen] = useState(false);
     return <>
          <div className="container p-6 bg-green-900 text-white">
             <div className="flex flex-wrap md:grid-cols-2 gap-4">
                 {/* <!-- First column --> */}
                 <div className="flex-grow md:w-auto">
-                <svg width="60px" height="60px" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                    <div className="flex justify-center">
+                    <div className=" flex justify-between border-1 border-gray-600 w-1/3 rounded-lg bg-gray-600 items-center">
+                    <input type="text" placeholder="Search  for location" className="outline-none p-1 bg-gray-600 w-full" />
+                        <span className="flex">
+                            <MagnifyingGlassIcon className="w-5 pointer-events-none" />
+                        </span>
+                    </div> 
+                    </div>
+
                 <div className="flex justify-between">
                     <div>
                     <p className="text-white text-2xl font-extrabold">Soshanguve</p>
