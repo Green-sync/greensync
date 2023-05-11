@@ -23,7 +23,7 @@ export const HomeComponent = () => {
     return (
         <>
 
-            <div className="text-lg font-semibold">
+            <div className="text-lg text-lime-700 font-semibold">
                 {GreetingMessage()}
             </div>
             {/**This is the main container Div which will curry all the compoent in main  */}
