@@ -4,20 +4,19 @@ import { ProfileInput } from "./schema";
 
 
 export class ProfileService {
-    static async user(profile: any) {
+    static async user(profile: any, user: any) {
 
 
 
         // Create a new document in the "farms" collection with the specified user ID and farm details
-        const userRef = await db.collection('User').add({
+         await db.collection('User').doc(user.uid).set({
           ...profile,
-          
         });
         // Return the newly created farm with its ID
         
         return {
           message: "User details successfully added", success: true,
-          id: userRef.id, userRef
+         
         };
       } catch(error: any) {
         return {

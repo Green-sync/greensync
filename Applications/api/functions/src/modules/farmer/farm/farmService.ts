@@ -1,14 +1,15 @@
 import { db } from "../../../utils";
+import { UserDetails } from "../../auth/contextDto";
 import { FarmInput } from "./schema/farmDto";
 
 
 export class FarmService {
 
-  static async addFarm(farm: any) {
+  static async addFarm(farm: any, user: UserDetails) {
     // Create a new document in the "farms" collection with the specified user ID and farm details
     const farmRef = await db.collection('Farms').add({
       ...farm,
-      userId: "1d1d12345" //context.uid
+      userId: user.uid
     });
     // Return the newly created farm with its ID
     return {

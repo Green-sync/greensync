@@ -1,4 +1,5 @@
 import { db } from "../../../../utils/firbase.config";
+import { UserDetails } from "../../../auth/contextDto";
 import { FarmService } from "../farmService"
 import { FarmInput } from "./farmDto";
 
@@ -6,8 +7,9 @@ import { FarmInput } from "./farmDto";
 
 
 export const FarmMutationResolver = {
-  createFarm: (_: any, arg: { farm: any }) => {
-    return FarmService.addFarm(arg.farm);
+  createFarm: (_: any, arg: { farm: any }, context: {user:UserDetails}) => {
+    console.log(context)
+    return FarmService.addFarm(arg.farm, context.user);
   },
   editFarm: (_parent: unknown, args:
     { farmId: string, updates: FarmInput }) => {
