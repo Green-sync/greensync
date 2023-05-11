@@ -1,9 +1,9 @@
-import { CorouselComponent, HomeComponent } from "../components";
+import { CalendarComponent, CalendarStaticData, CorouselComponent, HomeComponent } from "../components";
 
 
 
 
-const slides= [
+const slides = [
   {
     image: "https://images.pexels.com/photos/760281/pexels-photo-760281.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     caption: "Sustainable Farming Practices",
@@ -21,22 +21,22 @@ const slides= [
   }
 ]
 
-import {ProfileComponent, ProfileStaticData } from "../components";
+import { ProfileComponent, ProfileStaticData } from "../components";
 
 
 export const HomePage = () => {
-    return {
-        home: <><HomeComponent/></>,
-        profile: <><ProfileComponent data={ProfileStaticData.data} farm={ProfileStaticData.farm} stock={ProfileStaticData.stock} device={ProfileStaticData.device} /></>,
-        weather: <>Weather</>,
-        calendar: <>Calendar</>,
-        farm: <><CorouselComponent slides={slides}/></>,
-        recent: <>recent</>,
-        marketplace: <>marketplace</>,
-        iot: <>iot</>,
-        education: <>Education</>,
+  return {
+    home: <><HomeComponent /></>,
+    profile: <><ProfileComponent data={ProfileStaticData.data} farm={ProfileStaticData.farm} stock={ProfileStaticData.stock} device={ProfileStaticData.device} /></>,
+    weather: <>Weather</>,
+    calendar: <>  <CalendarComponent days={CalendarStaticData.days} events={CalendarStaticData.events} ctype={'HomeView'}/></>,
+    farm: <><CorouselComponent slides={slides} /></>,
+    recent: <>recent</>,
+    marketplace: <>marketplace</>,
+    iot: <>iot</>,
+    education: <>Education</>,
 
-    }
+  }
 };
 
 

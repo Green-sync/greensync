@@ -14,7 +14,7 @@ export const HomeComponent = () => {
                     <div className='grid grid-cols-1 gap-2 sm:grid-cols-1'>
 
                         <div className="rounded-lg shadow p-4 m-3 text-3xl">
-                            <CalendarComponent days={CalendarStaticData.days} events={CalendarStaticData.events} />
+                            <CalendarComponent days={CalendarStaticData.days} events={CalendarStaticData.events} ctype={'HomeView'} />
 
                         </div>
                     </div>

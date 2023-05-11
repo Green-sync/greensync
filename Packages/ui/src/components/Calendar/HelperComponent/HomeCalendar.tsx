@@ -1,8 +1,9 @@
 import { Menu, Transition } from "@headlessui/react"
 import { ChevronLeftIcon, ChevronRightIcon, EllipsisVerticalIcon } from "@heroicons/react/20/solid"
 import { Fragment } from "react"
-import { classMerge } from "../../utils"
-import { CalendarProps } from "./CalendarDto/CalendarDto"
+import { classMerge } from "../../../utils"
+import { CalendarProps } from "../CalendarDto"
+
 
 export const HomeCalendar = (prop: CalendarProps) => {
 
