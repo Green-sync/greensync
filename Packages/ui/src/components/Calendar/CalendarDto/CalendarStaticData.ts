@@ -49,13 +49,14 @@ export const CalendarStaticData: CalendarProps = {
   events: [
     {
       id: 1,
-      name: 'Leslie Alexander',
+      name: 'Doornrandjies Farm Life',
       imageUrl:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        'https://cdn-icons-png.flaticon.com/512/187/187039.png',
       start: '1:00 PM',
       startDatetime: '2022-01-21T13:00',
       end: '2:30 PM',
       endDatetime: '2022-01-21T14:30',
+      description: 'Heavy Rain detected and Thundershowres'
     }
   ]
 }

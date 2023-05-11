@@ -12,6 +12,7 @@ declare interface CalendarEvents {
     startDatetime: string,
     end: string,
     endDatetime: string,
+    description: string,
 
 
 }

@@ -6,13 +6,13 @@ import { CalendarProps } from "../CalendarDto"
 
 
 export const HomeCalendar = (prop: CalendarProps) => {
-   
+
 
     return (
         <>
             <div>
 
-                
+
 
                 <div className="flex items-center">
                     <h2 className="flex-auto text-sm font-semibold text-gray-900">January 2022</h2>
@@ -80,6 +80,7 @@ export const HomeCalendar = (prop: CalendarProps) => {
                                         <time dateTime={meeting.startDatetime}>{meeting.start}</time> -{' '}
                                         <time dateTime={meeting.endDatetime}>{meeting.end}</time>
                                     </p>
+                                    <p className="text-lime-900 font-extrabold">{meeting.description}</p>
                                 </div>
                                 <Menu as="div" className="relative opacity-0 focus-within:opacity-100 group-hover:opacity-100">
                                     <div>
