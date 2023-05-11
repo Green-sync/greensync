@@ -10,11 +10,11 @@ export const HomeComponent = () => {
         let greeting: string;
 
         if (currentHour < 12) {
-            greeting = "Good morning!";
+            greeting = "Good Morning!";
         } else if (currentHour < 18) {
-            greeting = "Good afternoon!";
+            greeting = "Good Afternoon!";
         } else {
-            greeting = "Good evening!";
+            greeting = "Good Evening!";
         }
 
         return greeting
