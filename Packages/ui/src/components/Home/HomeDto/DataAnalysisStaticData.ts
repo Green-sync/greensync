@@ -1,5 +1,6 @@
 import { IDataDonut } from ".";
 
+
 export const DonutViewStaticData: IDataDonut = {
 
 

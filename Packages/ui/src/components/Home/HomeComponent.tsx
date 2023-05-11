@@ -1,4 +1,5 @@
-import { CalendarComponent, CalendarStaticData, DataAnalysisComponent, FarmerCard } from ".."
+import { CalendarComponent, FarmerCard } from ".."
+import { CalendarStaticData } from "../.."
 
 export const HomeComponent = () => {
     return (
@@ -25,7 +26,7 @@ export const HomeComponent = () => {
                         </div>
 
                         <div className="rounded-lg shadow p-4 m-3 text-3xl">
-                            <DataAnalysisComponent />
+
                         </div>
                     </div>
 
