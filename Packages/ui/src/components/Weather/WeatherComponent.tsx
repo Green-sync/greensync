@@ -20,7 +20,7 @@ export const WeatherComponent = () => {
   useEffect(()=>{
     setSearchWeather(filteredData)
   },[filteredData])
-  console.log(searchWeather);
+  console.log(weekData);
   return (
     <>
       <div className="container p-6 bg-lime-900 text-white">
@@ -66,21 +66,21 @@ export const WeatherComponent = () => {
                   Chance of rain 0 %
                 </p>
                 <div className="flex space-x-0">
-                 {searchWeather[0]?.weekWeather[0].icon} 
+                 {searchWeather[0]?.weekWeather[1].icon} 
                 <p className="text-gray-100 font-medium text-2xl">{31}&#176;</p>
                 </div>
               </div>
             </div>
 
-            <div className=" border-gray-400 mb-2 bg-lime-700 bg-opacity-10 rounded-md pb-4">
-              <p className="m-2 font-extrabold text-lg">Today's forecast</p>
+            <div className=" border-gray-400 mb-2 bg-lime-700 bg-opacity-10 rounded-md">
+              <p className="m-4 pt-4 font-extrabold text-lg">Today's forecast</p>
               <div className="flex flex-wrap">
                 {searchWeather.map((value) => {
                   return (
                     <>
                         {value.weekWeather.map((d, i) => { 
                             return <>
-                       <div className="flex justify-between m-4">
+                       <div className="flex justify-between m-6">
                         <div>
                           <span className="flex justify-start">
                             {d.time[i].time}
@@ -96,7 +96,7 @@ export const WeatherComponent = () => {
                             &#176;C
                           </span>
                         </div>
-                        <div className="border-l"></div>
+                        <div className="border-l "></div>
                       </div> 
                       </>
                     })}
@@ -108,12 +108,12 @@ export const WeatherComponent = () => {
             </div>
             <div className=" border-gray-400 mb-2 bg-lime-700 bg-opacity-10 rounded-md border-1 pb-4">
               <div className="flex justify-between">
-                <p className="m-2 font-extrabold text-lg">Air conditions</p>
+                <p className="m-4 font-extrabold text-lg">Air conditions</p>
                 <button className="bg-lime-800 rounded m-2 p-1">
                   See more
                 </button>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 m-4 text-gray-200 ">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 m-8 text-gray-200 ">
                 <div className="flex items-center space-x-2 font-medium">
                     {WeatherIcon("realFeel")} Real Feel 
                     <span className="text-2xl text-white">30&#176;</span>
@@ -136,7 +136,7 @@ export const WeatherComponent = () => {
           {/* ===========================================SECOND COLUMN============================================================= */}
           <div className="w-full md:w-auto">
             <div className="border-gray-400 mb-4 bg-lime-700 bg-opacity-10 rounded-md pb-4 md:w-96 ">
-              <p className="m-4 font-semibold">7 days forecast</p>
+              <p className="m-4 pt-4 font-extrabold text-lg">7 days forecast</p>
               {searchWeather.map((value) => {
                 return (
                   <>
