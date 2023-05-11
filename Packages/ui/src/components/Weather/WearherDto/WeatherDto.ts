@@ -5,6 +5,10 @@ export declare interface IWeekWeather {
     degrees: number
 }
 
+export declare interface IWeatherData {
+    location: string
+    weekWeather: IWeekWeather[]
+}
 export declare interface IWeatherType {
     wetherType: string
     image: string

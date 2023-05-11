@@ -16,6 +16,16 @@ const weekDay = [
 
 export const WeatherComponent = () => {
     const [open, setOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (e: any) => {
+    setSearchTerm(e.target.value);
+  };
+
+  console.log(searchTerm)
+//   const filteredData = data.filter((item) =>
+//     item.name.toLowerCase().includes(searchTerm.toLowerCase())
+//   );
     return <>
          <div className="container p-6 bg-green-900 text-white">
             <div className="flex flex-wrap md:grid-cols-2 gap-4">
@@ -23,7 +33,9 @@ export const WeatherComponent = () => {
                 <div className="flex-grow md:w-auto">
                     <div className="flex justify-center">
                     <div className=" flex justify-between border-1 border-gray-600 w-1/3 rounded-lg bg-gray-600 items-center">
-                    <input type="text" placeholder="Search  for location" className="outline-none p-1 bg-gray-600 w-full" />
+                    <input type="text" placeholder="Search  for location"
+                    onChange={handleSearch}
+                    className="outline-none p-1 bg-gray-600 w-full" />
                         <span className="flex">
                             <MagnifyingGlassIcon className="w-5 pointer-events-none" />
                         </span>

@@ -1,47 +1,143 @@
-import { IWeatherType, IWeekWeather, Iintervals } from "./WeatherDto";
+import { IWeatherData, IWeatherType, IWeekWeather, Iintervals } from "./WeatherDto";
 import { WeatherIcon } from "./WeatherIcon";
 
- export const weekData: IWeekWeather[] = [{
+ export const weekData: IWeatherData[] = [{
+    location: "pretoria",
+    weekWeather: [
+         {
      day: "Monday",
      icon: WeatherIcon("sunny"),
      wetherType: "Sunny",
      degrees: 40
- },
- {
-    day: "Tuesday",
-    wetherType: "Sunny",
-    degrees: 42,
-    icon: WeatherIcon("sunny"),
+    },
+    {
+        day: "Tuesday",
+        wetherType: "Sunny",
+        degrees: 42,
+        icon: WeatherIcon("sunny"),
 
+    },
+    {
+        day: "Wednesday",
+        wetherType: "Cloudy",
+        icon: WeatherIcon("cloudy"),
+        degrees: 26
+    },
+    {
+        day: "Thursday",
+        wetherType: "Cloudy",
+        icon: WeatherIcon("cloudy"),
+        degrees: 24
+    },
+    {
+        day: "Friday",
+        wetherType: "Rainy",
+        icon: WeatherIcon("rainy"),
+        degrees: 19
+    },
+    {
+        day: "Saturday",
+        wetherType: "Rainy",
+        icon: WeatherIcon("rainy"),
+        degrees: 19
+    },{
+        day: "Sunday",
+        wetherType: "Storm",
+        icon: WeatherIcon("storm"),
+        degrees: 18
+    }]
 },
 {
-    day: "Wednesday",
-    wetherType: "Cloudy",
-     icon: WeatherIcon("cloudy"),
-    degrees: 26
+    location: "Johannesburg",
+    weekWeather: [
+         {
+     day: "Monday",
+     icon: WeatherIcon("sunny"),
+     wetherType: "Sunny",
+     degrees: 40
+    },
+    {
+        day: "Tuesday",
+        wetherType: "Sunny",
+        degrees: 42,
+        icon: WeatherIcon("sunny"),
+
+    },
+    {
+        day: "Wednesday",
+        wetherType: "Cloudy",
+        icon: WeatherIcon("cloudy"),
+        degrees: 26
+    },
+    {
+        day: "Thursday",
+        wetherType: "Cloudy",
+        icon: WeatherIcon("cloudy"),
+        degrees: 24
+    },
+    {
+        day: "Friday",
+        wetherType: "Rainy",
+        icon: WeatherIcon("rainy"),
+        degrees: 19
+    },
+    {
+        day: "Saturday",
+        wetherType: "Rainy",
+        icon: WeatherIcon("rainy"),
+        degrees: 19
+    },{
+        day: "Sunday",
+        wetherType: "Storm",
+        icon: WeatherIcon("storm"),
+        degrees: 18
+    }]
 },
-{
-    day: "Thursday",
-    wetherType: "Cloudy",
-    icon: WeatherIcon("cloudy"),
-    degrees: 24
-},
-{
-    day: "Friday",
-    wetherType: "Rainy",
-    icon: WeatherIcon("rainy"),
-    degrees: 19
-},
-{
-    day: "Saturday",
-    wetherType: "Rainy",
-    icon: WeatherIcon("rainy"),
-    degrees: 19
-},{
-    day: "Sunday",
-    wetherType: "Storm",
-    icon: WeatherIcon("storm"),
-    degrees: 18
+{s
+    location: "Cape Town",
+    weekWeather: [
+         {
+     day: "Monday",
+     icon: WeatherIcon("sunny"),
+     wetherType: "Sunny",
+     degrees: 40
+    },
+    {
+        day: "Tuesday",
+        wetherType: "Sunny",
+        degrees: 42,
+        icon: WeatherIcon("sunny"),
+
+    },
+    {
+        day: "Wednesday",
+        wetherType: "Cloudy",
+        icon: WeatherIcon("cloudy"),
+        degrees: 26
+    },
+    {
+        day: "Thursday",
+        wetherType: "Cloudy",
+        icon: WeatherIcon("cloudy"),
+        degrees: 24
+    },
+    {
+        day: "Friday",
+        wetherType: "Rainy",
+        icon: WeatherIcon("rainy"),
+        degrees: 19
+    },
+    {
+        day: "Saturday",
+        wetherType: "Rainy",
+        icon: WeatherIcon("rainy"),
+        degrees: 19
+    },{
+        day: "Sunday",
+        wetherType: "Storm",
+        icon: WeatherIcon("storm"),
+        degrees: 18
+    }]
 }]
 
 export const timeWeather: Iintervals[] = [{
