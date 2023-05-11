@@ -1,4 +1,4 @@
-import { CalendarProps } from "./CalendarDto";
+import { CalendarProps, IDashBoardCalendar } from "./CalendarDto";
 
 export const CalendarStaticData: CalendarProps = {
   ctype: 'HomeView',
@@ -57,5 +57,72 @@ export const CalendarStaticData: CalendarProps = {
       end: '2:30 PM',
       endDatetime: '2022-01-21T14:30',
     }
+  ]
+}
+
+export const DashBoardCalendarStaticData: IDashBoardCalendar = {
+  ctype: 'DashboardView',
+  meetings: [{
+    id: 1,
+    date: 'January 23rd, 2022',
+    time: '5:00 PM',
+    datetime: '2022-01-10T17:00',
+    name: 'Leslie Alexander',
+    imageUrl:
+      'https://www.freeiconspng.com/thumbs/male-icon/male-icon-32.png',
+    location: 'Ebeneza Farm',
+  }, {
+    id: 2,
+    date: 'June 10th, 2022',
+    time: '18:00 PM',
+    datetime: '2022-01-10T17:00',
+    name: 'Mitch Chanza',
+    imageUrl:
+      'data:image/png;base64,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',
+    location: 'Freedom Vilage Farm',
+  },],
+  days: [
+    { date: '2021-12-27' },
+    { date: '2021-12-28' },
+    { date: '2021-12-29' },
+    { date: '2021-12-30' },
+    { date: '2021-12-31' },
+    { date: '2022-01-01', isCurrentMonth: true },
+    { date: '2022-01-02', isCurrentMonth: true },
+    { date: '2022-01-03', isCurrentMonth: true },
+    { date: '2022-01-04', isCurrentMonth: true },
+    { date: '2022-01-05', isCurrentMonth: true },
+    { date: '2022-01-06', isCurrentMonth: true },
+    { date: '2022-01-07', isCurrentMonth: true },
+    { date: '2022-01-08', isCurrentMonth: true },
+    { date: '2022-01-09', isCurrentMonth: true },
+    { date: '2022-01-10', isCurrentMonth: true },
+    { date: '2022-01-11', isCurrentMonth: true },
+    { date: '2022-01-12', isCurrentMonth: true, isToday: true },
+    { date: '2022-01-13', isCurrentMonth: true },
+    { date: '2022-01-14', isCurrentMonth: true },
+    { date: '2022-01-15', isCurrentMonth: true },
+    { date: '2022-01-16', isCurrentMonth: true },
+    { date: '2022-01-17', isCurrentMonth: true },
+    { date: '2022-01-18', isCurrentMonth: true },
+    { date: '2022-01-19', isCurrentMonth: true },
+    { date: '2022-01-20', isCurrentMonth: true },
+    { date: '2022-01-21', isCurrentMonth: true },
+    { date: '2022-01-22', isCurrentMonth: true, isSelected: true },
+    { date: '2022-01-23', isCurrentMonth: true },
+    { date: '2022-01-24', isCurrentMonth: true },
+    { date: '2022-01-25', isCurrentMonth: true },
+    { date: '2022-01-26', isCurrentMonth: true },
+    { date: '2022-01-27', isCurrentMonth: true },
+    { date: '2022-01-28', isCurrentMonth: true },
+    { date: '2022-01-29', isCurrentMonth: true },
+    { date: '2022-01-30', isCurrentMonth: true },
+    { date: '2022-01-31', isCurrentMonth: true },
+    { date: '2022-02-01' },
+    { date: '2022-02-02' },
+    { date: '2022-02-03' },
+    { date: '2022-02-04' },
+    { date: '2022-02-05' },
+    { date: '2022-02-06' },
   ]
 }

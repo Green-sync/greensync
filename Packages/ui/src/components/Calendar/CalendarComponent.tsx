@@ -5,7 +5,7 @@ import { Menu, Transition } from '@headlessui/react'
 import { EllipsisVerticalIcon } from '@heroicons/react/24/outline'
 import { classMerge } from '../../utils'
 import { CalendarProps, TCalendarType } from './CalendarDto/CalendarDto'
-import { HomeCalendar } from '.'
+import { DashBoardCalendar, DashBoardCalendarStaticData, HomeCalendar } from '.'
 
 
 
@@ -16,7 +16,7 @@ export const CalendarComponent = ({ days, events, ctype }: CalendarProps) => {
       {
         ctype === 'HomeView' ? <>
           <HomeCalendar days={days} events={events} ctype={'HomeView'} />
-        </> : <><HomeCalendar days={[]} events={[]} ctype={'MainView'} /></>
+        </> : <DashBoardCalendar meetings={DashBoardCalendarStaticData.meetings} days={DashBoardCalendarStaticData.days} ctype={'DashboardView'} />
       }
     </>
 

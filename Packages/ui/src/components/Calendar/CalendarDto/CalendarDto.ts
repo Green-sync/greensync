@@ -25,4 +25,24 @@ declare interface CalendarDays {
 
 }
 
-export declare type TCalendarType = 'HomeView' | 'MainView'
+export declare type TCalendarType = 'HomeView' | 'DashboardView'
+
+export declare interface IDashBoardCalendar {
+
+    meetings: IMeetings[]
+    days: CalendarDays[]
+    ctype: TCalendarType
+
+
+}
+
+
+export declare interface IMeetings {
+    id: Number,
+    date: string,
+    time: string
+    datetime: string,
+    name: string,
+    imageUrl: string,
+    location: string
+}

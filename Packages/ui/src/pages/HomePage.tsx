@@ -1,4 +1,4 @@
-import { CalendarComponent, CalendarStaticData, CorouselComponent, HomeComponent } from "../components";
+import { CalendarComponent, CalendarStaticData, CorouselComponent, DashBoardCalendarStaticData, HomeComponent } from "../components";
 
 
 
@@ -29,7 +29,7 @@ export const HomePage = () => {
     home: <><HomeComponent /></>,
     profile: <><ProfileComponent data={ProfileStaticData.data} farm={ProfileStaticData.farm} stock={ProfileStaticData.stock} device={ProfileStaticData.device} /></>,
     weather: <>Weather</>,
-    calendar: <>  <CalendarComponent days={CalendarStaticData.days} events={CalendarStaticData.events} ctype={'HomeView'}/></>,
+    calendar: <>  <CalendarComponent ctype={'DashboardView'} days={DashBoardCalendarStaticData.days} events={[]}/></>,
     farm: <><CorouselComponent slides={slides} /></>,
     recent: <>recent</>,
     marketplace: <>marketplace</>,
