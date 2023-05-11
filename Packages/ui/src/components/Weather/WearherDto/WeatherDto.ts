@@ -1,4 +1,5 @@
 export declare interface IWeekWeather {
+    // weekWeather: any
     day: string
     icon: any
     wetherType: string

@@ -272,8 +272,8 @@ import { WeatherIcon } from "./WeatherIcon";
     weekWeather: [
          {
      day: "Monday",
-     icon: WeatherIcon("storm"),
-     wetherType: "storm",
+     icon: WeatherIcon("sunny"),
+     wetherType: "Sunny",
      degrees: 40,     time: [{
         time: "06:00",
         weatherType: "sunny",
