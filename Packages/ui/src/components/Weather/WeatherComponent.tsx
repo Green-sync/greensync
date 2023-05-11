@@ -23,9 +23,10 @@ export const WeatherComponent = () => {
   };
 
   console.log(searchTerm)
-//   const filteredData = data.filter((item) =>
-//     item.name.toLowerCase().includes(searchTerm.toLowerCase())
-//   );
+  const filteredData = weekData.filter((item) =>
+    item.location.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+//   console.log(filteredData)
     return <>
          <div className="container p-6 bg-green-900 text-white">
             <div className="flex flex-wrap md:grid-cols-2 gap-4">
@@ -44,7 +45,7 @@ export const WeatherComponent = () => {
 
                 <div className="flex justify-between">
                     <div>
-                    <p className="text-white text-2xl font-extrabold">Soshanguve</p>
+                    <p className="text-white text-2xl font-extrabold">{weekData[0].location}</p>
                     <p className="text-gray-100 font-thin text-sm">Chance of rain 0 %</p>
                     <p className="text-gray-100 font-medium p-4">{31}&#176;</p>
                     </div>

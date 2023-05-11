@@ -2,49 +2,269 @@ import { IWeatherData, IWeatherType, IWeekWeather, Iintervals } from "./WeatherD
 import { WeatherIcon } from "./WeatherIcon";
 
  export const weekData: IWeatherData[] = [{
-    location: "pretoria",
+    location: "Pretoria",
     weekWeather: [
          {
      day: "Monday",
      icon: WeatherIcon("sunny"),
      wetherType: "Sunny",
-     degrees: 40
+     degrees: 40,
+     time: [{
+        time: "06:00",
+        weatherType: "sunny",
+        degrees: 0
+    },
+    {
+        time: "08:00",
+        weatherType: "cloudy",
+        degrees: 0
+    },
+    {
+        time: "10:00",
+        weatherType: "cloudy",
+        degrees: 0
+    },{
+        time: "12:00",
+        weatherType: "storm",
+        degrees: 0
+    },{
+        time: "14:00",
+        weatherType: "storm",
+        degrees: 0
+    },{
+        time: "16:00",
+        weatherType: "rainy",
+        degrees: 0
+    },{
+        time: "18:00",
+        weatherType: "rainy",
+        degrees: 0
+    }]
     },
     {
         day: "Tuesday",
         wetherType: "Sunny",
         degrees: 42,
         icon: WeatherIcon("sunny"),
-
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },
     {
         day: "Wednesday",
         wetherType: "Cloudy",
         icon: WeatherIcon("cloudy"),
-        degrees: 26
+        degrees: 26,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
+
     },
     {
         day: "Thursday",
         wetherType: "Cloudy",
         icon: WeatherIcon("cloudy"),
-        degrees: 24
+        degrees: 24,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },
     {
         day: "Friday",
         wetherType: "Rainy",
         icon: WeatherIcon("rainy"),
-        degrees: 19
+        degrees: 19,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
+
     },
     {
         day: "Saturday",
         wetherType: "Rainy",
         icon: WeatherIcon("rainy"),
-        degrees: 19
+        degrees: 19,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
+
     },{
         day: "Sunday",
         wetherType: "Storm",
         icon: WeatherIcon("storm"),
-        degrees: 18
+        degrees: 18,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
+
     }]
 },
 {
@@ -54,89 +274,519 @@ import { WeatherIcon } from "./WeatherIcon";
      day: "Monday",
      icon: WeatherIcon("sunny"),
      wetherType: "Sunny",
-     degrees: 40
+     degrees: 40,     time: [{
+        time: "06:00",
+        weatherType: "sunny",
+        degrees: 0
+    },
+    {
+        time: "08:00",
+        weatherType: "cloudy",
+        degrees: 0
+    },
+    {
+        time: "10:00",
+        weatherType: "cloudy",
+        degrees: 0
+    },{
+        time: "12:00",
+        weatherType: "storm",
+        degrees: 0
+    },{
+        time: "14:00",
+        weatherType: "storm",
+        degrees: 0
+    },{
+        time: "16:00",
+        weatherType: "rainy",
+        degrees: 0
+    },{
+        time: "18:00",
+        weatherType: "rainy",
+        degrees: 0
+    }]
     },
     {
         day: "Tuesday",
         wetherType: "Sunny",
         degrees: 42,
         icon: WeatherIcon("sunny"),
-
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },
     {
         day: "Wednesday",
         wetherType: "Cloudy",
         icon: WeatherIcon("cloudy"),
-        degrees: 26
+        degrees: 26,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },
     {
         day: "Thursday",
         wetherType: "Cloudy",
         icon: WeatherIcon("cloudy"),
-        degrees: 24
+        degrees: 24,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },
     {
         day: "Friday",
         wetherType: "Rainy",
         icon: WeatherIcon("rainy"),
-        degrees: 19
+        degrees: 19,     time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },
     {
         day: "Saturday",
         wetherType: "Rainy",
         icon: WeatherIcon("rainy"),
-        degrees: 19
+        degrees: 19,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },{
         day: "Sunday",
         wetherType: "Storm",
         icon: WeatherIcon("storm"),
-        degrees: 18
+        degrees: 18,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     }]
 },
-{s
+{
     location: "Cape Town",
     weekWeather: [
          {
      day: "Monday",
      icon: WeatherIcon("sunny"),
      wetherType: "Sunny",
-     degrees: 40
+     degrees: 40,
+     time: [{
+        time: "06:00",
+        weatherType: "sunny",
+        degrees: 0
+    },
+    {
+        time: "08:00",
+        weatherType: "cloudy",
+        degrees: 0
+    },
+    {
+        time: "10:00",
+        weatherType: "cloudy",
+        degrees: 0
+    },{
+        time: "12:00",
+        weatherType: "storm",
+        degrees: 0
+    },{
+        time: "14:00",
+        weatherType: "storm",
+        degrees: 0
+    },{
+        time: "16:00",
+        weatherType: "rainy",
+        degrees: 0
+    },{
+        time: "18:00",
+        weatherType: "rainy",
+        degrees: 0
+    }]
     },
     {
         day: "Tuesday",
         wetherType: "Sunny",
         degrees: 42,
         icon: WeatherIcon("sunny"),
-
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },
     {
         day: "Wednesday",
         wetherType: "Cloudy",
         icon: WeatherIcon("cloudy"),
-        degrees: 26
+        degrees: 26,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },
     {
         day: "Thursday",
         wetherType: "Cloudy",
         icon: WeatherIcon("cloudy"),
-        degrees: 24
+        degrees: 24,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },
     {
         day: "Friday",
         wetherType: "Rainy",
         icon: WeatherIcon("rainy"),
-        degrees: 19
+        degrees: 19,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },
     {
         day: "Saturday",
         wetherType: "Rainy",
         icon: WeatherIcon("rainy"),
-        degrees: 19
+        degrees: 19,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     },{
         day: "Sunday",
         wetherType: "Storm",
         icon: WeatherIcon("storm"),
-        degrees: 18
+        degrees: 18,
+        time: [{
+            time: "06:00",
+            weatherType: "sunny",
+            degrees: 0
+        },
+        {
+            time: "08:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },
+        {
+            time: "10:00",
+            weatherType: "cloudy",
+            degrees: 0
+        },{
+            time: "12:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "14:00",
+            weatherType: "storm",
+            degrees: 0
+        },{
+            time: "16:00",
+            weatherType: "rainy",
+            degrees: 0
+        },{
+            time: "18:00",
+            weatherType: "rainy",
+            degrees: 0
+        }]
     }]
 }]
 

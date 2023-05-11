@@ -3,6 +3,8 @@ export declare interface IWeekWeather {
     icon: any
     wetherType: string
     degrees: number
+    time: Iintervals[]
+
 }
 
 export declare interface IWeatherData {
