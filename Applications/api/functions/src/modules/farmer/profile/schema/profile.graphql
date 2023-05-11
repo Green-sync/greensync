@@ -28,7 +28,8 @@ type ProfileResponse {
     message: String
 }
 extend type Query {
-    getUser: [Profile]
+    getUserByUserId(userId: ID!): [Profile]
+    
 }
 
 extend type Mutation {

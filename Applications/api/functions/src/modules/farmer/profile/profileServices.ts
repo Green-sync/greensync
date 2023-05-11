@@ -37,4 +37,20 @@ export class ProfileService {
           };
         }
       }
+
+      static async getUserByUserId(userId: string): Promise<any> {
+
+        const farmsRef = db.collection('User');
+        const query = farmsRef.where('userId', '==', userId);
+    
+        const snapshot = await query.get();
+        const user: any[] = [];
+    
+        snapshot.forEach(doc => {
+          user.push({ id: doc.id, ...doc.data() });
+        });
+        console.log(user);
+    
+        return user;
+      }
   }
