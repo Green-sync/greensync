@@ -81,24 +81,29 @@ export const WeatherComponent = () => {
                 {searchWeather.map((value, index) => {
                   return (
                     <>
-                      <div className="flex justify-between m-4">
+                        {value.weekWeather.map((d, i) => { 
+                            return <>
+                       <div className="flex justify-between m-4">
                         <div>
                           <span className="flex justify-start">
-                            {value.weekWeather[index].time[index].time}
+                            {d.time[i].time}
                           </span>
                           <span className="flex justify-start">
                             {" "}
                             {WeatherIcon(
-                              value.weekWeather[index].time[index].weatherType
+                              d.time[i].weatherType
                             )}
                           </span>
                           <span className="">
-                            {value.weekWeather[index].time[index].degrees}
+                            {d.time[i].degrees}
                             &#176;C
                           </span>
                         </div>
                         <div className="border-l"></div>
-                      </div>
+                      </div> 
+                      </>
+                    })}
+                    
                     </>
                   );
                 })}
