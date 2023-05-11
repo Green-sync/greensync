@@ -6,10 +6,14 @@ import { CalendarProps } from "../CalendarDto"
 
 
 export const HomeCalendar = (prop: CalendarProps) => {
+   
 
     return (
         <>
             <div>
+
+                
+
                 <div className="flex items-center">
                     <h2 className="flex-auto text-sm font-semibold text-gray-900">January 2022</h2>
                     <button

@@ -2,8 +2,30 @@ import { CalendarComponent, FarmerCard } from ".."
 import { CalendarStaticData } from "../.."
 
 export const HomeComponent = () => {
+
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours();
+
+    const GreetingMessage = () => {
+        let greeting: string;
+
+        if (currentHour < 12) {
+            greeting = "Good morning!";
+        } else if (currentHour < 18) {
+            greeting = "Good afternoon!";
+        } else {
+            greeting = "Good evening!";
+        }
+
+        return greeting
+
+    }
     return (
         <>
+
+            <div className="text-lg font-semibold">
+                {GreetingMessage()}
+            </div>
             {/**This is the main container Div which will curry all the compoent in main  */}
             <div className="container p-10 ">
 
