@@ -23,7 +23,7 @@ export declare interface Iintervals {
     weatherType: TWeatherTypes
     degrees: number
 }
-export declare type TWeatherTypes = "sunny" | "cloudy" | "windy" | "rainy" | "humid" | "snow" | "storm"
+export declare type TWeatherTypes = "sunny" | "cloudy" | "windy" | "rainy" | "humid" | "snow" | "storm" | "wind" | "drop" | "realFeel" | "index"
 // export declare interface IFooterProps {
 //     footer: IFooterDto;
 // }

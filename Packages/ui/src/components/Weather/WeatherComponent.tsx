@@ -8,7 +8,7 @@ import { IWeatherData } from "./WearherDto/WeatherDto";
 
 export const WeatherComponent = () => {
   const [open, setOpen] = useState(false);
-  const [searchWeather, setSearchWeather] = useState<IWeatherData[]>([]);
+  const [searchWeather, setSearchWeather] = useState([weekData[0]]);
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (e: any) => {
@@ -112,10 +112,10 @@ export const WeatherComponent = () => {
                 </button>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 m-4">
-                <p className="font-medium">Real Feel</p>
-                <p className="font-medium">Wind</p>
-                <p className="font-medium">Chance of rain</p>
-                <p className="font-medium">UV Index</p>
+                <p className="font-medium">{WeatherIcon("realFeel")}Real Feel</p>
+                <p className="font-medium">{WeatherIcon("wind")}Wind</p>
+                <p className="font-medium">{WeatherIcon("drop")}Chance of rain</p>
+                <p className="font-medium">{WeatherIcon("index")}UV Index</p>
               </div>
             </div>
           </div>
