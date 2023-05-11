@@ -272,8 +272,8 @@ import { WeatherIcon } from "./WeatherIcon";
     weekWeather: [
          {
      day: "Monday",
-     icon: WeatherIcon("sunny"),
-     wetherType: "Sunny",
+     icon: WeatherIcon("cloudy"),
+     wetherType: "cloudy",
      degrees: 40,     time: [{
         time: "06:00",
         weatherType: "sunny",
@@ -532,12 +532,12 @@ import { WeatherIcon } from "./WeatherIcon";
     weekWeather: [
          {
      day: "Monday",
-     icon: WeatherIcon("sunny"),
-     wetherType: "Sunny",
+     icon: WeatherIcon("storm"),
+     wetherType: "storm",
      degrees: 40,
      time: [{
         time: "06:00",
-        weatherType: "sunny",
+        weatherType: "storm",
         degrees: 0
     },
     {

@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { WeatherIcon } from "./WearherDto/WeatherIcon";
-import { weekData, timeWeather } from "./WearherDto/weatherStaticData";
+import { weekData } from "./WearherDto/weatherStaticData";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
-import "./Weather.scss";
+import "./Weather.scss"; 
+import { IWeatherData } from "./WearherDto/WeatherDto";
 
-const weekDay = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export const WeatherComponent = () => {
   const [open, setOpen] = useState(false);
-  const [searchWeather, setSearchWeather] = useState("");
+  const [searchWeather, setSearchWeather] = useState<IWeatherData[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (e: any) => {
@@ -16,10 +16,13 @@ export const WeatherComponent = () => {
   };
 
   const filteredData = weekData.filter((item) =>
-    item.location.toLowerCase().includes(searchTerm.toLowerCase())
+    item.location.toLowerCase() === searchTerm.toLowerCase()
+    // item.location.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  // setSearchWeather(filteredData[0].location)
-  console.log(filteredData);
+  useEffect(()=>{
+    setSearchWeather(filteredData)
+  },[filteredData])
+  console.log(searchWeather);
   return (
     <>
       <div className="container p-6 bg-green-900 text-white">
@@ -46,7 +49,11 @@ export const WeatherComponent = () => {
                         open && <>
                         <div className=" rounded bg-gray-600 w-1/3 m-2">
                             <p className="m-2 text-lg text-gray-500">My Locations</p>
-                            <p className="font-medium m-2" onClick={() => setSearchWeather("now")}>{filteredData[0].location}</p>
+                            {searchWeather.map((v) => {
+                                return <>
+                            <p className="font-medium m-2" onClick={() => ""}>{v.location}</p>
+                            </>
+                            })}
                         </div>
                         </>
                     }
@@ -55,7 +62,7 @@ export const WeatherComponent = () => {
             <div className="flex justify-between">
               <div>
                 <p className="text-white text-2xl font-extrabold">
-                  {filteredData[0].location}
+                  {/* {searchWeather.location} */}
                 </p>
                 <p className="text-gray-100 font-thin text-sm">
                   Chance of rain 0 %
@@ -64,14 +71,14 @@ export const WeatherComponent = () => {
               </div>
               <div className="h-40 w-40">
                 {/* <img src="https://camo.githubusercontent.com/f45ac6a3081bef820e779dbaa0765cae602ba0bf7030749059b1a2234f6dd1f4/68747470733a2f2f626d63646e2e6e6c2f6173736574732f776561746865722d69636f6e732f76322e302f6c696e652f636c6561722d6461792e737667" /> */}
-                {filteredData[0].weekWeather[3].icon}
+                {/* {searchWeather[0].weekWeather[3].icon} */}
               </div>
             </div>
 
             <div className=" border-gray-400 mb-2 bg-gray-400 rounded-sm pb-4">
               <p className="m-2 font-extrabold text-lg">Today's forecast</p>
               <div className="flex flex-wrap">
-                {filteredData.map((value, index) => {
+                {searchWeather.map((value, index) => {
                   return (
                     <>
                       <div className="flex justify-between m-4">
@@ -116,33 +123,23 @@ export const WeatherComponent = () => {
           <div className="w-full md:w-auto">
             <div className="border-gray-400 mb-2 bg-gray-400 rounded-md pb-4 md:w-96 ">
               <p className="m-2 font-semibold">7 days forecast</p>
-              {filteredData.map((value, index) => {
+              {searchWeather.map((value, index) => {
                 return (
                   <>
-                  {/* {
-                    JSON.stringify(value,null,2)
-                  } */}
                     {value.weekWeather.map((d, i) => {
                       return (
                         <>
-                        {/* {
-                            JSON.stringify(d.day,null,2)
-                        } */}
                         <div className="flex justify-between items-center ml-4 mr-4">
                             <p>{d.day}</p>
-                                        
-                                    <div
-                                    onClick={() => ""}
-                              className="m-4 flex items-center"
-                            >
+                               <div
+                                 onClick={() => ""}
+                                className="m-4 flex items-center">
                                     {d.icon}
-                                        <span className="m-0">
-                                {d.wetherType}
-                              </span>
-                                        </div>
-                                        <p>{d.degrees}&#176;C</p>
+                                <span className="m-0">{d.wetherType}</span>
+                                </div>
+                                <p>{d.degrees}&#176;C</p>
                             </div>
-                                    <div className="border-t border-gray-300 ml-4  mr-4"></div>
+                            <div className="border-t border-gray-300 ml-4  mr-4"></div>
                         </>
                       );
                     })}
