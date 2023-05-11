@@ -1,15 +1,20 @@
+
 import { db } from "../../../utils/firbase.config";
 import { ProfileInput } from "./schema";
 
 
 export class ProfileService {
     static async user(profile: any) {
+
+
+
         // Create a new document in the "farms" collection with the specified user ID and farm details
         const userRef = await db.collection('User').add({
           ...profile,
           
         });
         // Return the newly created farm with its ID
+        
         return {
           message: "User details successfully added", success: true,
           id: userRef.id, userRef
