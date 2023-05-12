@@ -3,11 +3,12 @@ import { WeatherIcon } from "./WearherDto/WeatherIcon";
 import { weekData } from "./WearherDto/weatherStaticData";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import "./Weather.scss"; 
+import { IWeatherData } from "./WearherDto/WeatherDto";
 
 
 export const WeatherComponent = () => {
   const [open, setOpen] = useState(false);
-  const [searchWeather, setSearchWeather] = useState(weekData);
+  const [searchWeather, setSearchWeather] = useState<IWeatherData[]>([weekData[0]]);
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (e: any) => {
@@ -23,27 +24,27 @@ export const WeatherComponent = () => {
   console.log(weekData);
   return (
     <>
-      <div className="container p-6 bg-lime-900 text-white">
+      <div className="container p-6 bg-green-700 text-white">
         <div className="flex flex-wrap md:grid-cols-2 gap-4">
           {/* <!-- First column --> */}
           <div className="flex-grow md:w-auto">
             <div className="grid grid-cols-1 justify-items-center ">
               <div
                 onClick={() => setOpen(!open)}
-                className="pr-1 flex justify-between border-1 border-gray-600 w-1/3 rounded-lg bg-lime-700 bg-opacity-10 items-center"
+                className="pr-1 flex justify-between border-1 border-gray-600 w-1/3 rounded-lg bg-green-800 bg-opacity-10 items-center"
               >
                 <input
                   type="text"
                   placeholder="Search  for location"
                   onChange={handleSearch}
-                  className="outline-none p-2 bg-lime-700 bg-opacity-10 w-full rounded-lg"
+                  className="outline-none p-2 bg-green-800 bg-opacity-10 w-full rounded-lg"
                 />
                 <span className="flex">
                   <MagnifyingGlassIcon className="w-5 pointer-events-none" />
                 </span>
               </div>
              
-              {
+              {/* {
                         open && <>
                         <div className=" rounded bg-green-900 bg-opacity-10 w-1/3 m-2">
                             <p className="m-2 text-lg text-gray-500">My Locations</p>
@@ -54,7 +55,7 @@ export const WeatherComponent = () => {
                             })}
                         </div>
                         </>
-                    }
+                    } */}
             </div>
 
             <div className="flex justify-between">
@@ -72,7 +73,7 @@ export const WeatherComponent = () => {
               </div>
             </div>
 
-            <div className=" border-gray-400 mb-2 bg-lime-700 bg-opacity-10 rounded-md">
+            <div className=" border-gray-400 mb-2 bg-green-800 bg-opacity-10 rounded-md">
               <p className="m-4 pt-4 font-extrabold text-lg">Today's forecast</p>
               <div className="flex flex-wrap">
                 {searchWeather.map((value) => {
@@ -106,10 +107,10 @@ export const WeatherComponent = () => {
                 })}
               </div>
             </div>
-            <div className=" border-gray-400 mb-2 bg-lime-700 bg-opacity-10 rounded-md border-1 pb-4">
+            <div className=" border-gray-400 mb-2 bg-green-800 bg-opacity-10 rounded-md border-1 pb-4">
               <div className="flex justify-between">
                 <p className="m-4 font-extrabold text-lg">Air conditions</p>
-                <button className="bg-lime-800 rounded m-2 p-1">
+                <button className="bg-green-800 rounded m-2 p-1">
                   See more
                 </button>
               </div>
@@ -135,7 +136,7 @@ export const WeatherComponent = () => {
           </div>
           {/* ===========================================SECOND COLUMN============================================================= */}
           <div className="w-full md:w-auto">
-            <div className="border-gray-400 mb-4 bg-lime-700 bg-opacity-10 rounded-md pb-4 md:w-96 ">
+            <div className="border-gray-400 mb-4 bg-green-800 bg-opacity-10 rounded-md pb-4 md:w-96 ">
               <p className="m-4 pt-4 font-extrabold text-lg">7 days forecast</p>
               {searchWeather.map((value) => {
                 return (
