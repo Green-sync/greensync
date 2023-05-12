@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {  useState } from "react";
 import { WeatherIcon } from "./WearherDto/WeatherIcon";
 import { weekData } from "./WearherDto/weatherStaticData";
@@ -11,9 +12,10 @@ export const WeatherComponent = () => {
   const [searchWeather, setSearchWeather] = useState<IWeatherData[]>([weekData[0]]);
   const [searchTerm, setSearchTerm] = useState("");
 
-//   const handleSearch = (e: any) => {
-//     setSearchTerm(e.target.value);
-//   };
+  const handleSearch = (e: any) => {
+    setSearchTerm(e.target.value);
+    // setSearchWeather(filteredData)
+  };
 
   const selectLocation = (locationName: string) => {
     setSearchTerm(locationName)
@@ -23,12 +25,17 @@ export const WeatherComponent = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setSearchWeather(filteredData);
+    setOpen(false)
   }
 
   const filteredData = weekData.filter((item) =>
     item.location.toLowerCase() === searchTerm.toLowerCase()
   );
 
+  const selectLocation = (locationName: string) => {
+    setSearchTerm(locationName)
+    setOpen(false)
+  }
   console.log(searchWeather);
   return (
     <>
@@ -53,9 +60,11 @@ export const WeatherComponent = () => {
               </form>
              
               {
+              {
                         open && <>
                         <div className=" rounded bg-green-900 bg-opacity-10 w-1/3 m-2">
                             <p className="m-2 text-lg text-gray-500">My Locations</p>
+                            {weekData.map((v) => {
                             {weekData.map((v) => {
                                 return <>
                             <p className="font-medium p-1 hover:bg-green-950" onClick={() => {selectLocation(v.location)
@@ -65,6 +74,7 @@ export const WeatherComponent = () => {
                             })}
                         </div>
                         </>
+                    }
                     }
             </div>
 
