@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {  useState } from "react";
 import { WeatherIcon } from "./WearherDto/WeatherIcon";
 import { weekData } from "./WearherDto/weatherStaticData";
@@ -12,16 +11,7 @@ export const WeatherComponent = () => {
   const [searchWeather, setSearchWeather] = useState<IWeatherData[]>([weekData[0]]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearch = (e: any) => {
-    setSearchTerm(e.target.value);
-    // setSearchWeather(filteredData)
-  };
 
-  const selectLocation = (locationName: string) => {
-    setSearchTerm(locationName)
-    handleSubmit
-    // setOpen(false)
-  }
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setSearchWeather(filteredData);
@@ -59,23 +49,20 @@ export const WeatherComponent = () => {
                 </span>
               </form>
              
-              {
+
               {
                         open && <>
                         <div className=" rounded bg-green-900 bg-opacity-10 w-1/3 m-2">
                             <p className="m-2 text-lg text-gray-500">My Locations</p>
                             {weekData.map((v) => {
-                            {weekData.map((v) => {
                                 return <>
-                            <p className="font-medium p-1 hover:bg-green-950" onClick={() => {selectLocation(v.location)
-                            handleSubmit
-                            }}>{v.location}</p>
+                            <p className="font-medium p-1 hover:bg-green-950" onClick={() => {selectLocation(v.location)}}>{v.location}</p>
                             </>
                             })}
                         </div>
                         </>
                     }
-                    }
+
             </div>
 
             <div className="flex justify-between">
