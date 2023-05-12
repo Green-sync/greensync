@@ -1,4 +1,4 @@
-import { IWeatherData, IWeatherType, IWeekWeather, Iintervals } from "./WeatherDto";
+import { IWeatherData, Iintervals } from "./WeatherDto";
 import { WeatherIcon } from "./WeatherIcon";
 
  export const weekData: IWeatherData[] = [{
@@ -272,9 +272,9 @@ import { WeatherIcon } from "./WeatherIcon";
     weekWeather: [
          {
      day: "Monday",
-     icon: WeatherIcon("cloudy"),
-     wetherType: "cloudy",
-     degrees: 40,     time: [{
+     icon: WeatherIcon("storm"),
+     wetherType: "storm",
+     degrees: 36,     time: [{
         time: "06:00",
         weatherType: "sunny",
         degrees: 0

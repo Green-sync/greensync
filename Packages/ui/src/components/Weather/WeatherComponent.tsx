@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { WeatherIcon } from "./WearherDto/WeatherIcon";
 import { weekData } from "./WearherDto/weatherStaticData";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
@@ -10,18 +10,25 @@ export const WeatherComponent = () => {
   const [open, setOpen] = useState(false);
   const [searchWeather, setSearchWeather] = useState<IWeatherData[]>([weekData[0]]);
   const [searchTerm, setSearchTerm] = useState("");
+  const inputRef = useRef(null);
 
   const handleSearch = (e: any) => {
     setSearchTerm(e.target.value);
+    // setSearchWeather(filteredData)
   };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setSearchWeather(filteredData);
+  }
 
   const filteredData = weekData.filter((item) =>
     item.location.toLowerCase() === searchTerm.toLowerCase()
   );
-  useEffect(()=>{
-    setSearchWeather(filteredData)
-  },[filteredData])
-  console.log(weekData);
+//   useEffect(()=>{
+//     setSearchWeather(filteredData)
+//   },[filteredData])
+  console.log(searchWeather);
   return (
     <>
       <div className="container p-6 bg-green-700 text-white">
@@ -29,7 +36,8 @@ export const WeatherComponent = () => {
           {/* <!-- First column --> */}
           <div className="flex-grow md:w-auto">
             <div className="grid grid-cols-1 justify-items-center ">
-              <div
+              <form
+              onSubmit={handleSubmit}
                 onClick={() => setOpen(!open)}
                 className="pr-1 flex justify-between border-1 border-gray-600 w-1/3 rounded-lg bg-green-800 bg-opacity-10 items-center"
               >
@@ -42,7 +50,7 @@ export const WeatherComponent = () => {
                 <span className="flex">
                   <MagnifyingGlassIcon className="w-5 pointer-events-none" />
                 </span>
-              </div>
+              </form>
              
               {/* {
                         open && <>
@@ -68,7 +76,7 @@ export const WeatherComponent = () => {
                 </p>
                 <div className="flex space-x-0">
                  {searchWeather[0]?.weekWeather[1].icon} 
-                <p className="text-gray-100 font-medium text-2xl">{31}&#176;</p>
+                <p className="text-gray-100 font-medium text-2xl">{searchWeather[0]?.weekWeather[0].degrees}&#176;</p>
                 </div>
               </div>
             </div>
