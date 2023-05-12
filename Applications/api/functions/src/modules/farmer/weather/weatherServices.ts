@@ -1,9 +1,10 @@
 import { db } from "../../../utils";
+import { UserDetails } from "../../auth/contextDto";
 import { WeatherInput } from "./schema/weatherDto";
 
 export class WeatherService {
 
-  static async addWeather(weather: any) {
+  static async addWeather(weather: any, user:UserDetails) {
 
     // Create a new document in the "farms" collection with the specified user ID and farm details
     const farmRef = await db.collection('WeatherData').add({

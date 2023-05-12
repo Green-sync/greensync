@@ -1,11 +1,12 @@
 import { db } from "../../../../utils/firbase.config";
+import { UserDetails } from "../../../auth/contextDto";
 import { WeatherService } from "../weatherServices";
 import { WeatherInput } from "./weatherDto";
 
 export const WeatherMutationResolver = {
-    createWeather: (_:any, arg: {weather: any}) => {
+    createWeather: (_:any, arg: {weather: any},context: {user:UserDetails}) => {
 
-        return WeatherService.addWeather(arg.weather);
+        return WeatherService.addWeather(arg.weather, context.user);
      },
      editWeather: (_parent: unknown, args:
         { weatherId: string, updates: WeatherInput }) => {
