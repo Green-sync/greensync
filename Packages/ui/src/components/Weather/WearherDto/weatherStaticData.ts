@@ -534,7 +534,7 @@ import { WeatherIcon } from "./WeatherIcon";
      day: "Monday",
      icon: WeatherIcon("storm"),
      wetherType: "storm",
-     degrees: 40,
+     degrees: 19,
      time: [{
         time: "06:00",
         weatherType: "storm",

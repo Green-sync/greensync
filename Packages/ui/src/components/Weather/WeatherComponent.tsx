@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { WeatherIcon } from "./WearherDto/WeatherIcon";
 import { weekData } from "./WearherDto/weatherStaticData";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
@@ -10,24 +10,26 @@ export const WeatherComponent = () => {
   const [open, setOpen] = useState(false);
   const [searchWeather, setSearchWeather] = useState<IWeatherData[]>([weekData[0]]);
   const [searchTerm, setSearchTerm] = useState("");
-  const inputRef = useRef(null);
 
-  const handleSearch = (e: any) => {
-    setSearchTerm(e.target.value);
-    // setSearchWeather(filteredData)
-  };
+//   const handleSearch = (e: any) => {
+//     setSearchTerm(e.target.value);
+//     // setSearchWeather(filteredData)
+//   };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setSearchWeather(filteredData);
+    setOpen(false)
   }
 
   const filteredData = weekData.filter((item) =>
     item.location.toLowerCase() === searchTerm.toLowerCase()
   );
-//   useEffect(()=>{
-//     setSearchWeather(filteredData)
-//   },[filteredData])
+
+  const selectLocation = (locationName: string) => {
+    setSearchTerm(locationName)
+    setOpen(false)
+  }
   console.log(searchWeather);
   return (
     <>
@@ -44,7 +46,7 @@ export const WeatherComponent = () => {
                 <input
                   type="text"
                   placeholder="Search  for location"
-                  onChange={handleSearch}
+                //   value={searchTerm}
                   className="outline-none p-2 bg-green-800 bg-opacity-10 w-full rounded-lg"
                 />
                 <span className="flex">
@@ -52,18 +54,18 @@ export const WeatherComponent = () => {
                 </span>
               </form>
              
-              {/* {
+              {
                         open && <>
                         <div className=" rounded bg-green-900 bg-opacity-10 w-1/3 m-2">
                             <p className="m-2 text-lg text-gray-500">My Locations</p>
-                            {searchWeather.map((v) => {
+                            {weekData.map((v) => {
                                 return <>
-                            <p className="font-medium m-2" onClick={() => ""}>{v.location}</p>
+                            <p className="font-medium p-2 hover:bg-green-800" onClick={() => selectLocation(v.location)}>{v.location}</p>
                             </>
                             })}
                         </div>
                         </>
-                    } */}
+                    }
             </div>
 
             <div className="flex justify-between">
