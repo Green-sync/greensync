@@ -1,12 +1,13 @@
 import { db } from "../../../utils";
+import { UserDetails } from "../../auth/contextDto";
 import { CropInput } from "./schema/cropDto";
 
 export class CropsService {
-  static async addCrop(crop: any) {
+  static async addCrop(crop: any, user:UserDetails) {
        
         const cropRef = await db.collection('Crops').add({
           ...crop,
-          userId: "1d1d12345" //context.uid
+          userId: user.uid
         });
         // Return the newly created crop with its ID
         return {

@@ -1,9 +1,11 @@
 import { db } from "../../../../utils/firbase.config";
+import { UserDetails } from "../../../auth/contextDto";
 import {LivestockService} from "../LivestockService"
 import { LivestockInput } from "./livestockDto";
+
 export const StockMutationResolver = {
-    createStock: (_:any, arg: {stock: any}) =>{
-        return LivestockService.addStock(arg.stock);
+    createStock: (_:any, arg: {stock: any}, context: {user:UserDetails}) =>{
+        return LivestockService.addStock(arg.stock, context.user);
     },
     editLivestock: (_parent: unknown, args:
       { livestockId: string, updates: LivestockInput }) => {

@@ -43,7 +43,7 @@ const greenApp = async () => {
         context: async ({req, res}: ExpressContextFunctionArgument) => {
             const user = await AuthService.isAuthenticated(req, res)
             console.log({user,auth: ""})
-            return user ?? {
+            return  {
                 user,
                 res,
                 req,

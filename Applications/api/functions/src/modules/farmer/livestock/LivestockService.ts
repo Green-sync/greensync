@@ -1,11 +1,12 @@
 import { db } from "../../../utils";
+import { UserDetails } from "../../auth/contextDto";
 import { LivestockInput } from "./schema/livestockDto";
 
 export class LivestockService {
-  static async addStock(stock: any) {
+  static async addStock(stock: any,user:UserDetails) {
     const livestockRef = await db.collection('Livestocks').add({
       ...stock,
-      userId: "1d1d12345" //context.uid
+      userId: user.uid
     });
     // Return the newly created livestock with its ID
     return {
