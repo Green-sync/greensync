@@ -15,17 +15,23 @@ data: {
 farm: [{
     name: "DelportFarm",
     farmType: "Crops",
-    location: "Centurion"
+    location: "Centurion",
+    size: 1.7,
+    image: ""
 },
 {
     name: "OrangeFarm",
     farmType: "Crops",
-    location: "Soshanguve"
+    location: "Soshanguve",
+    size: 1.7,
+    image: ""
 },
 {
     name: "idontknow",
     farmType: "livestock",
-    location: "Hamskraal"
+    location: "Hamskraal",
+    size: 1.7,
+    image: ""
 }
 ],
  stock: [{

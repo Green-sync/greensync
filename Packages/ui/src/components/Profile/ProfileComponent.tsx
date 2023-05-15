@@ -133,7 +133,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         <div className="text-gray-500 text-xs">{farm.location} | {farm.farmType}</div>
                         <button
                         className="bg-lime-300 rounded-md text-white pl-4 pr-5"
-                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name}`} popFunction={<FarmProfile />} style={""} /></button>
+                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name}`} popFunction={<FarmProfile name={farm.name} farmType={farm.farmType} location={farm.location} size={farm.size} image={farm.image}  />} style={""} /></button>
                     </div>
                    </> 
                 })}
@@ -151,7 +151,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         <div className="text-gray-500 text-xs">R{stock.price} each | {stock.quantity}pack</div>
                         <button
                         className="bg-lime-300 rounded-md text-white pl-4 pr-5"
-                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${stock.itemName}`} popFunction={<FarmProfile />} style={""} /></button>
+                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${stock.itemName}`} popFunction={""} style={""} /></button>
                     </div>
                    </> 
                 })}
@@ -168,7 +168,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         <div className="text-gray-500 text-xs">{device.type}</div>
                         <button
                         className="bg-lime-300 rounded-md text-white pl-4 pr-5"
-                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${device.name}`} popFunction={<FarmProfile />} style={""} /></button>
+                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${device.name}`} popFunction={""} style={""} /></button>
                     </div>
                    </> 
                 })}

@@ -20,6 +20,8 @@ export declare interface IFarms {
     name: string,
     farmType: string,
     location: string,
+    size: number,
+    image: string
 }
 
 export declare interface IStock {
