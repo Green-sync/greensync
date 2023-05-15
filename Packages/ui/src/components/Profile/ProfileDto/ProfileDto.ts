@@ -31,7 +31,8 @@ export declare interface IStock {
 }
 export declare interface IDevice {
     name: string,
-    type: string
+    type: string,
+    image: string
 }
 
 export declare interface ProfileProps {

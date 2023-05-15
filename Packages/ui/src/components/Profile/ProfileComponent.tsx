@@ -3,7 +3,8 @@ import { useState } from "react";
 import { IProfileData } from "./ProfileDto/ProfileDto";
 import { PopUp } from "../..";
 import { FarmProfile } from "./FarmProfile";
-// import { device, data, farm, stock} from "./ProfileDto/ProfileStaticData"
+import { StockProfile } from "./StockProfile";
+import { DeviceProfile } from "./deviceProfile";
 
 
 export const ProfileComponent = (ProfileStaticData : IProfileData) => {
@@ -133,7 +134,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         <div className="text-gray-500 text-xs">{farm.location} | {farm.farmType}</div>
                         <button
                         className="bg-lime-300 rounded-md text-white pl-4 pr-5"
-                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name}`} popFunction={<FarmProfile name={farm.name} farmType={farm.farmType} location={farm.location} size={farm.size} image={farm.image}  />} style={""} /></button>
+                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name} Farming`} popFunction={<FarmProfile name={farm.name} farmType={farm.farmType} location={farm.location} size={farm.size} image={farm.image}  />} style={""} /></button>
                     </div>
                    </> 
                 })}
@@ -151,7 +152,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         <div className="text-gray-500 text-xs">R{stock.price} each | {stock.quantity}pack</div>
                         <button
                         className="bg-lime-300 rounded-md text-white pl-4 pr-5"
-                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${stock.itemName}`} popFunction={""} style={""} /></button>
+                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${stock.itemName}`} popFunction={<StockProfile itemName={stock.itemName} quantity={stock.quantity} price={stock.price} />} style={""} /></button>
                     </div>
                    </> 
                 })}
@@ -168,7 +169,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         <div className="text-gray-500 text-xs">{device.type}</div>
                         <button
                         className="bg-lime-300 rounded-md text-white pl-4 pr-5"
-                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${device.name}`} popFunction={""} style={""} /></button>
+                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${device.name}`} popFunction={<DeviceProfile name={device.name} type={device.type} image={device.image} />} style={""} /></button>
                     </div>
                    </> 
                 })}

@@ -13,17 +13,17 @@ data: {
 },
 
 farm: [{
-    name: "DelportFarm",
+    name: "Delport",
     farmType: "Crops",
     location: "Centurion",
-    size: 1.7,
-    image: ""
+    size: 105,
+    image: "https://th.bing.com/th/id/R.08637f47762d9826b134576b3d008a05?rik=4GVDJkAco4u7PQ&pid=ImgRaw&r=0"
 },
 {
-    name: "OrangeFarm",
+    name: "Orange",
     farmType: "Crops",
     location: "Soshanguve",
-    size: 1.7,
+    size: 265,
     image: ""
 },
 {
@@ -53,10 +53,13 @@ farm: [{
 device: [{
     name: "Google sensor detector",
     type: "sensor",
+    image: ""
 },
 {
     name: "Amazon Echo Plus",
     type: "speaker lol",
+    image: ""
+
 }],
 
 // onChange: (e : any) => {

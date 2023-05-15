@@ -1,8 +1,8 @@
 import { MapPinIcon } from "@heroicons/react/20/solid"
-import { IFarms } from "./ProfileDto"
+import { IDevice } from "./ProfileDto"
 
 
-export const FarmProfile = (farmData: IFarms) => {
+export const DeviceProfile = (farmData: IDevice) => {
 
     return(
         <>
@@ -15,10 +15,10 @@ export const FarmProfile = (farmData: IFarms) => {
             <span className="text-2xl font-bold">{farmData.name}</span>
             <div className="flex">
                 <MapPinIcon className="w-5 h-5 flex" />
-                <span className="flex">{farmData.location}</span>      
+                <span className="flex">{farmData.name}</span>      
             </div>
-            <span className="flex">Size: {farmData.size} hectares</span>  
-            <span className="flex">{farmData.farmType}</span>
+            <span className="flex">Size: {farmData.type} hectares</span>  
+            {/* <span className="flex">{farmData.farmType}</span> */}
             <button className="bg-lime-300 rounded-md text-white pl-4 pr-5">Update</button>
             </div>
         </div>
