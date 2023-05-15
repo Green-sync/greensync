@@ -11,4 +11,4 @@ export { GreenSyncContext as GreenSyncContext } from "./components"
 export { HomePage as HomePage } from "./pages"
 export { PopUpComponent as PopUp } from './components'
 export { RegistrationFormComponent as RegistrationFormComponent } from './components'
-export {ProfilesComponent as Profile} from "./components"
+export { ProfileComponent as Profile } from "./components"
