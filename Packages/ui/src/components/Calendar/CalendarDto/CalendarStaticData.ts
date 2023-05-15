@@ -47,17 +47,17 @@ export const CalendarStaticData: CalendarProps = {
     { date: '2022-02-06' },
   ],
   events: [
-    {
-      id: 1,
-      name: 'Doornrandjies Farm Life',
-      imageUrl:
-        'https://cdn-icons-png.flaticon.com/512/187/187039.png',
-      start: '1:00 PM',
-      startDatetime: '2022-01-21T13:00',
-      end: '2:30 PM',
-      endDatetime: '2022-01-21T14:30',
-      description: 'Heavy Rain detected and Thundershowres'
-    }
+    // {
+    //   id: 1,
+    //   name: 'Doornrandjies Farm Life',
+    //   imageUrl:
+    //     'https://cdn-icons-png.flaticon.com/512/187/187039.png',
+    //   start: '1:00 PM',
+    //   startDatetime: '2022-01-21T13:00',
+    //   end: '2:30 PM',
+    //   endDatetime: '2022-01-21T14:30',
+    //   description: 'Heavy Rain detected and Thundershowres'
+    // }
   ]
 }
 

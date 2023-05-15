@@ -1,5 +1,6 @@
 import { CheckCircleIcon, PlusIcon } from "@heroicons/react/20/solid"
 import { PopUp, RegistrationFormComponent } from "../../.."
+import { FarmFormStaticData, FarmStaticData } from "../.."
 
 export const FarmerCard = () => {
     return (
@@ -19,26 +20,41 @@ export const FarmerCard = () => {
                                 type="button"
                                 className="relative inline-flex items-center  px-3 py-2 text-sm font-semibold text-indigo-500 "
                             >
-                                <div><PopUp onClickTitile={"Add Farm"} popUpTittle={"Farm Form Fields"} popFunction={<RegistrationFormComponent/>} style={""} /></div>
+                                <div><PopUp onClickTitile={"Add Farm"} popUpTittle={"Add Your Farm"} popFunction={<RegistrationFormComponent />} style={""} /></div>
                                 <div className="w-5"><PlusIcon /></div>
 
                             </button>
                         </div>
                     </div>
+                    {
+                        FarmStaticData.length > 0 ? (
+                            FarmStaticData.map((data, index) => {
+                                return (
+                                    <>
+                                        <div key={index} className="border-b text-lg flex justify-between align-middle ml-4 mt-4 flex-shrink-">
+                                            <div className="flex justify-start items-center">
+                                                <div className="w-4  text-lime-600">
+                                                    <CheckCircleIcon />
+                                                </div>
+                                                <div className="ml-2 cursor-pointer font-bold">
+                                                    {data.farmName}
+                                                </div>
+                                            </div>
 
-                    <div className="border-b text-lg flex justify-between align-middle ml-4 mt-4 flex-shrink-">
-                        <div className="flex justify-start items-center">
-                            <div className="w-4  text-lime-600">
-                                <CheckCircleIcon />
-                            </div>
-                            <div className="ml-2 cursor-pointer font-bold">
-                                Doorange
-                            </div>
-                        </div>
-                        <div className="text-xs text-gray-500">
-                            Crop : Live Stock
-                        </div>
-                    </div>
+                                           
+                                        </div>
+                                    </>
+                                )
+                            })
+                            // Render when data exists
+
+                        ) : (
+                            // Render when data is empty or undefined
+                            <div className="text-lg pt-4 font-extrabold text-lime-800">You Can Now Add Your Farms</div>
+                        )
+                    }
+
+
 
                 </div>
 
