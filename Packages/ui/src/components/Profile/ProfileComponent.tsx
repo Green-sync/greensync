@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useState } from "react";
 import { IProfileData } from "./ProfileDto/ProfileDto";
+import { PopUp } from "../..";
+import { FarmProfile } from "./FarmProfile";
 // import { device, data, farm, stock} from "./ProfileDto/ProfileStaticData"
 
 
@@ -125,9 +127,13 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                 </div>
                 {ProfileStaticData.farm.map((farm: any) => {
                    return <>
-                    <div className="bg-gray-100 p-2 rounded-md m-2">
+                    <div  className="bg-gray-100 p-2 rounded-md m-2">
+                        
                         <div className="text-orange-600 text-xl">{farm.name}</div>
                         <div className="text-gray-500 text-xs">{farm.location} | {farm.farmType}</div>
+                        <button
+                        className="bg-lime-300 rounded-md text-white pl-4 pr-5"
+                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name}`} popFunction={<FarmProfile />} style={""} /></button>
                     </div>
                    </> 
                 })}
@@ -143,6 +149,9 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                     <div className="bg-gray-100 p-2 rounded-lg m-2">
                         <div className="text-orange-600 text-xl">{stock.itemName}</div>
                         <div className="text-gray-500 text-xs">R{stock.price} each | {stock.quantity}pack</div>
+                        <button
+                        className="bg-lime-300 rounded-md text-white pl-4 pr-5"
+                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${stock.itemName}`} popFunction={<FarmProfile />} style={""} /></button>
                     </div>
                    </> 
                 })}
@@ -157,6 +166,9 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                     <div className="bg-gray-100 p-2 rounded-lg m-2">
                         <div className="text-orange-600 text-xl">{device.name}</div>
                         <div className="text-gray-500 text-xs">{device.type}</div>
+                        <button
+                        className="bg-lime-300 rounded-md text-white pl-4 pr-5"
+                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${device.name}`} popFunction={<FarmProfile />} style={""} /></button>
                     </div>
                    </> 
                 })}

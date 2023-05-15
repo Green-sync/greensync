@@ -27,17 +27,6 @@ farm: [{
     farmType: "livestock",
     location: "Hamskraal"
 }
-,
-{
-    name: "OrangeFarm",
-    farmType: "Crops",
-    location: "Soshanguve"
-},
-{
-    name: "idontknow",
-    farmType: "livestock",
-    location: "Hamskraal"
-},
 ],
  stock: [{
     itemName: "Tomatos",
