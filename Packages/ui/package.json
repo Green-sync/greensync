@@ -70,6 +70,7 @@
     "sort-by": "^1.2.0"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.14",
     "@headlessui/react": "^1.7.14",
     "chart.js": "^4.3.0",
     "react-chartjs-2": "^5.2.0"
