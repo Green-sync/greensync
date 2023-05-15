@@ -35,26 +35,26 @@ export class AuthService {
     const { authorization } = req.headers;
 
     if (!authorization) {
-      return null
+      return {message: "No Authorization"}
     }
 
     if (!authorization.startsWith("AgriTechGreen")) {
-      return null
+      return {message: "no AgriTechGreen"}
     }
 
     const split = authorization.split("AgriTechGreen ");
     if (split.length !== 2) {
-      return null
+      return {msg: "Invalid authorization split failed"}
     }
 
     const token = split[1];
-
+console.log(token)
     try {
       const decodedToken: any = await admin.auth().verifyIdToken(token);
-      res.locals = { ...res.locals, uid: decodedToken.uid, role: decodedToken.role, email: decodedToken.email, fullName: decodedToken.displayName  };
-      return res.locals
+      // res.locals = { ...res.locals, uid: decodedToken.uid, role: decodedToken.role, email: decodedToken.email, fullName: decodedToken.displayName  };
+      return decodedToken
     } catch (err) {
-      return null
+      return {message: "Decode Token Error", error: err}
     }
   }
   static async customRoles(req: Request, res: Response) {

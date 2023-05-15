@@ -1,0 +1,39 @@
+
+type Profile {
+    name: String
+    surname: String
+    email: String
+    PhoneNumbers: String
+    password: String
+    website: String 
+    photoURL: String
+    homeAddress: String
+   
+}
+
+input ProfileInput {
+    name: String
+    surname: String
+    email: String
+    PhoneNumbers: String
+    password: String
+    website: String 
+    photoURL: String
+    homeAddress: String
+}
+
+
+type ProfileResponse {
+    success: Boolean
+    message: String
+}
+extend type Query {
+    getUserByUserId(userId: ID!): [Profile]
+    
+}
+
+extend type Mutation {
+    createUser(profile: ProfileInput): ProfileResponse
+    editUser(profileId: ID, updates: ProfileInput): ProfileResponse 
+    deleteUser(profileId: ID): ProfileResponse 
+}

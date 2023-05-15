@@ -1,0 +1,45 @@
+type IoTDevice {
+    deviceId: ID!
+    userId: ID!
+    farmId: ID!
+    type: String!
+    location: Location!
+    data: String!
+    lastUpdated: String!
+}
+
+  type Location {
+    latitude: Float!
+    longitude: Float!
+  }
+
+input IoTDeviceInput {
+    deviceId: ID!
+    userId: ID!
+    farmId: ID!
+    type: String!
+    location: Locations!
+    data: String!
+    lastUpdated: String!
+}
+
+input Locations {
+    latitude: Float!
+    longitude: Float!
+}
+
+
+type DeviceResponse {
+    success: Boolean
+    message: String
+}
+extend type Query {
+     getIotdeviceByUserId(userId: ID!): [IoTDevice]
+}
+
+extend type Mutation {
+    createIotdevice(device: IoTDeviceInput): DeviceResponse
+    editIotdevice(deviceId: ID, updates: IoTDeviceInput): DeviceResponse
+    deleteDevice(deviceId:ID!): DeviceResponse
+
+}
