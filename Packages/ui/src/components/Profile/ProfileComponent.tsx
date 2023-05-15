@@ -4,7 +4,7 @@ import { IProfileData } from "./ProfileDto/ProfileDto";
 import { PopUp } from "../..";
 import { FarmProfile } from "./FarmProfile";
 import { StockProfile } from "./StockProfile";
-import { DeviceProfile } from "./deviceProfile";
+import { DeviceProfile } from "./DeviceProfile";
 
 
 export const ProfileComponent = (ProfileStaticData : IProfileData) => {

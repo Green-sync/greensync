@@ -28,6 +28,7 @@ export declare interface IStock {
     itemName: string,
     quantity: number,
     price: number,
+    image?: string
 }
 export declare interface IDevice {
     name: string,

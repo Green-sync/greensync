@@ -19,7 +19,7 @@ export const FarmProfile = (farmData: IFarms) => {
             </div>
             <span className="flex">Size: {farmData.size} hectares</span>  
             <span className="flex">{farmData.farmType}</span>
-            <button className="bg-lime-300 rounded-md text-white pl-4 pr-5">Update</button>
+            <button onClick={() => ""} className="bg-lime-300 rounded-md text-white pl-4 pr-5">Update</button>
             </div>
         </div>
         </>
