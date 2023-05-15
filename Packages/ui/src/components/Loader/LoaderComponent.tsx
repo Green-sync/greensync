@@ -1,13 +1,8 @@
-import "./loader.scss"
-export const LoaderComponent = ({ msg, type }: any) => {
-    return <>
-        <div className="flex flex-col justify-center items-center">
-                <span className="loader w-[70vw] h-[80vh]"></span>
-                <p className=" mt-6 text-green-600 text-2xl">{msg}</p>
-                <p>the descrio shshshsh {type}</p>
-        </div>
+import { LoaderDto } from "./LoaderDto";
+import { LoaderSwitcher } from "./LoaderThemes";
 
-    </>
-}
+export const LoaderComponent = ({ msg, type }: LoaderDto) => {
+  return LoaderSwitcher()[`${type ? type : "spinner"}`](msg);
+};
 
-export default { LoaderComponent }
+export default { LoaderComponent };

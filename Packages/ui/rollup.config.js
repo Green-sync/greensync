@@ -4,7 +4,8 @@ import resolve from "@rollup/plugin-node-resolve";
 import scss from "rollup-plugin-scss";
 import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
-
+import url from "@rollup/plugin-url"
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 export default [
   {
     input: "./src/index.ts",
@@ -25,14 +26,16 @@ export default [
         failOnError: true,
         outputStyle: "compressed",
       }),
+      url(),
       babel({
-        exclude: "node_modules/**",
+        exclude: ["node_modules/**", "src/stories"],
         include: ["package.json"],
         babelHelpers: 'bundled',
         presets: ["@babel/preset-react"],
       }),
-      external(),
+      external(['react-router-dom']),
       resolve(),
+      peerDepsExternal(),
       typescript(),
       terser(),
     ],

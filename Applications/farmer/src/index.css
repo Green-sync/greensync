@@ -1,6 +1,4 @@
-
-@import url("../node_modules/greensync-ui/dist/greensync.css");
-
+@import url('../node_modules/greensync-ui/dist/greensync.css');
 @tailwind base;
-@tailwind components;
+@tailwind component;
 @tailwind utilities;

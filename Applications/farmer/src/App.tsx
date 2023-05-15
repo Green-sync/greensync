@@ -1,22 +1,24 @@
-import { Routes, Route} from "react-router-dom"
-import ErrorPage from "./pages/errorPage"
-// import LoginPage from "./pages/loginPage"
-import DashboardPage from "./pages/dashboard"
-import { SignUp } from "./pages/signUpPage"
-import {env} from "./utils"
-import { LoginPage } from "./pages/loginPage"
-function App() {
-console.log(env)
-  return (
-    <>
-<Routes>
-  <Route index path="/" element={<LoginPage/>}/>
-  <Route path="/signUp" element={<SignUp />} />
-  <Route path="/dashboard" element={<DashboardPage/>}/>
-  <Route path="*" element={<ErrorPage/>}/>
-</Routes>
-    </>
-  )
-}
 
-export default App
+import {Routes,Route} from 'react-router-dom'
+import { HomeLayout } from './Layouts';
+import { AuthPage } from './Pages/AuthPage';
+import DashboardLayout from './Layouts/DashboardLayout';
+import { DashboardPage } from './Pages';
+
+export const App = () => {
+
+  return <>
+  <Routes>
+    <Route path="/" element={<HomeLayout />} />
+    <Route path="/auth" element={<AuthPage/>} >
+      <Route path=":id" element={<AuthPage/>} />
+    </Route>
+    <Route path='/dashboard' element={
+     <DashboardLayout/>
+    } >
+     <Route path='/dashboard' index element={<DashboardPage/>}></Route>
+      <Route path=":id" element={<DashboardPage/>}/>
+    </Route>
+  </Routes>
+  </>
+};

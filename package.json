@@ -1,17 +1,22 @@
 {
   "name": "greensync",
-  "version": "0.1.0",
+  "version": "0.0.100",
   "description": "",
   "main": "index.js",
   "scripts": {
     "client": "pnpm --filter client",
-    "api": "pnpm --filter functions",
+    "api": "pnpm --filter api",
+    "client:dev": "concurrently \"pnpm api serve\" \"pnpm client dev\"",
+    "apisite": "pnpm --filter apidocs",
     "market": "pnpm --filter marketplace",
-    "ui": "pnpm --filter greensync-ui",
+    "ui":"pnpm --filter greensync-ui",
+    "release":"standard-version",
+
     "doc": "pnpm --filter documentation",
     "deploy:doc": "pnpm doc build && GIT_USER=mitch1009 pnpm doc pages",
     "start": "concurrently \"pnpm doc start\"  \"pnpm api dev\" \" pnpm client start\"",
-    "sb:dev": "concurrently \"pnpm ui watch\" \"pnpm ui sb\""
+    "sb:dev": "concurrently \"pnpm ui watch\" \"pnpm ui sb\"",
+    "api:deploy": "pnpm --filter apidocs build && pnpm api build && pnpm api deploy:api"
   },
   "keywords": [],
   "author": "",

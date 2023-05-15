@@ -33,6 +33,7 @@ const greenApp = async () => {
     greensyncApp.use("/", cors<CorsRequest>(), express.json(), expressMiddleware(server, {
         context: async ({ req, res }: ExpressContextFunctionArgument) => {
             const user = await AuthService.isAuthenticated(req,res)
+            console.log(user)
             return user?? {
                 user,
                 res,
