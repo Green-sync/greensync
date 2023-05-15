@@ -38,7 +38,7 @@ export const HomeComponent = () => {
                             <FarmerCard />
                         </div>
 
-                        <div className="rounded-lg shadow p-4 m-3 text-3xl">
+                        <div className="rounded-lg shadow p-4 m-3 text-3xl hidden">
 
                         </div>
 
