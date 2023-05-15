@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 import { HomePage } from "greensync-ui";
 import { useParams } from "react-router-dom";
 
