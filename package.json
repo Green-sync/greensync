@@ -11,6 +11,7 @@
     "market": "pnpm --filter marketplace",
     "ui":"pnpm --filter greensync-ui",
     "release":"standard-version",
+
     "doc": "pnpm --filter documentation",
     "deploy:doc": "pnpm doc build && GIT_USER=mitch1009 pnpm doc pages",
     "start": "concurrently \"pnpm doc start\"  \"pnpm api dev\" \" pnpm client start\"",
