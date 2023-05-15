@@ -4,7 +4,6 @@ import { HomeLayout } from './Layouts';
 import { AuthPage } from './Pages/AuthPage';
 import DashboardLayout from './Layouts/DashboardLayout';
 import { DashboardPage } from './Pages';
-import TempAddFarm from './components/FarmerFormTemp/TempAddFarmComponent';
 
 export const App = () => {
 
@@ -19,9 +18,7 @@ export const App = () => {
     } >
      <Route path='/dashboard' index element={<DashboardPage/>}></Route>
       <Route path=":id" element={<DashboardPage/>}/>
-     
     </Route>
-    <Route path='/temp' element={<TempAddFarm/>}/>
   </Routes>
   </>
 };
