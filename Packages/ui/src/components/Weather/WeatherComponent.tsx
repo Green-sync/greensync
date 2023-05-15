@@ -14,7 +14,6 @@ export const WeatherComponent = () => {
 
   const handleSearch = (e: any) => {
     setSearchTerm(e.target.value);
-    // setSearchWeather(filteredData)
   };
 
   const handleSubmit = (e: any) => {
@@ -25,10 +24,7 @@ export const WeatherComponent = () => {
   const filteredData = weekData.filter((item) =>
     item.location.toLowerCase() === searchTerm.toLowerCase()
   );
-//   useEffect(()=>{
-//     setSearchWeather(filteredData)
-//   },[filteredData])
-  console.log(searchWeather);
+
   return (
     <>
       <div className="container p-6 bg-green-700 text-white">

@@ -9,7 +9,7 @@ import {env} from "process"
 import {ExpressContextFunctionArgument, expressMiddleware} from "@apollo/server/express4"
 import {QueryResolvers, MutationResolver} from "./resolvers"
 import {MainSchema} from "./schema";
-import {db, introspect, LandingPagePluginConfig} from "./utils";
+import {db, LandingPagePluginConfig} from "./utils";
 import {AuthService} from "./modules/auth/AuthService";
 
 dotenv.config()
@@ -35,7 +35,7 @@ const greenApp = async () => {
     const server = new ApolloServer<GreenContext>({
         typeDefs: MainSchema,
         resolvers,
-        introspection: introspect(),
+        // introspection: introspect(),
         plugins: [
             LandingPagePluginConfig()
         ]
