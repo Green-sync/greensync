@@ -20,7 +20,7 @@ export const FarmerCard = () => {
                                 type="button"
                                 className="relative inline-flex items-center  px-3 py-2 text-sm font-semibold text-indigo-500 "
                             >
-                                <div><PopUp onClickTitile={"Add Farm"} popUpTittle={"Add Your Farm"} popFunction={<RegistrationFormComponent />} style={""} /></div>
+                                <div><PopUp onClickTitile={"Add Farm"} popUpTittle={"Add Your Farm"} popFunction={<RegistrationFormComponent />} style={"sm:max-w-lg"} /></div>
                                 <div className="w-5"><PlusIcon /></div>
 
                             </button>
@@ -41,7 +41,7 @@ export const FarmerCard = () => {
                                                 </div>
                                             </div>
 
-                                           
+
                                         </div>
                                     </>
                                 )
