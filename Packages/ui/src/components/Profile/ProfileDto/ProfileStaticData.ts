@@ -24,14 +24,14 @@ farm: [{
     farmType: "Crops",
     location: "Soshanguve",
     size: 265,
-    image: ""
+    image: "https://th.bing.com/th/id/R.08637f47762d9826b134576b3d008a05?rik=4GVDJkAco4u7PQ&pid=ImgRaw&r=0"
 },
 {
     name: "idontknow",
     farmType: "livestock",
     location: "Hamskraal",
     size: 1.7,
-    image: ""
+    image: "https://th.bing.com/th/id/R.08637f47762d9826b134576b3d008a05?rik=4GVDJkAco4u7PQ&pid=ImgRaw&r=0"
 }
 ],
  stock: [{

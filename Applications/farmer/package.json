@@ -11,8 +11,10 @@
     "deploy:dev": "firebase deploy --only hosting:dev"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.14",
     "@heroicons/react": "^2.0.17",
     "firebase": "^9.21.0",
+    "graphql": "^16.6.0",
     "greensync-ui": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
