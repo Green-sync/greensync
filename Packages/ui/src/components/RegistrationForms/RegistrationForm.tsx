@@ -1,9 +1,25 @@
+import { useState } from "react";
 import { ISelectDto, InputTypes } from ".";
 import { FarmFormStaticData } from "./RegistrationDto/RegisterFormStaticData"
 
 
 
 export const RegistrationFormComponent = () => {
+    const [formData, setFormData] = useState({});
+
+    const handleChange = (e: any) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e: any) => {
+        e.preventDefault();
+        // Add logic here
+        console.log(formData);
+
+
+        setFormData({});
+    };
+
 
     return (
         <div>
@@ -13,7 +29,7 @@ export const RegistrationFormComponent = () => {
 
                     <div className="w-4/5  bg-white border-b border-gray-200 md:p-8">
 
-                        <form className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6">
 
 
                             {
@@ -22,7 +38,7 @@ export const RegistrationFormComponent = () => {
                                         <div key={index}>
 
                                             {
-                                                input.type === 'text' ? <input type={input.type} name={input.name} id={input.id} className=" border-b border-grey-600 text-lime-900 text-sm  block w-full p-2.5 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-lime-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" placeholder={input.placeholder} required={true} /> :
+                                                input.type === 'text' ? <input onChange={handleChange} type={input.type} name={input.name} id={input.id} className=" border-b border-grey-600 text-lime-900 text-sm  block w-full p-2.5 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-lime-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" placeholder={input.placeholder} required={true} /> :
                                                     input.type === 'radio' ? <>
 
                                                         <div key={index} className="relative h-10 w-72 min-w-[200px] mt-4">
@@ -38,7 +54,7 @@ export const RegistrationFormComponent = () => {
                                                                         <>
 
 
-                                                                            <option value={data.value}>{data.name}</option>
+                                                                            <option onChange={handleChange} value={data.value}>{data.name}</option>
 
 
 
@@ -49,7 +65,7 @@ export const RegistrationFormComponent = () => {
                                                             </select>
                                                         </div>
                                                     </> :
-                                                        <textarea name={input.name} id={input.id} placeholder={input.placeholder} className="bg-gray-50 border h-28 dark:bg-inherit border-lime-300 text-gray-900 text-sm  focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required={true} />}
+                                                        <textarea name={input.name} onChange={handleChange} id={input.id} placeholder={input.placeholder} className="bg-gray-50 border h-28 dark:bg-inherit border-lime-300 text-gray-900 text-sm  focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required={true} />}
 
                                         </div>
                                     )
