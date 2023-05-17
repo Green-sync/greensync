@@ -1,5 +1,7 @@
-import { PlusCircleIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { useMutation } from "@apollo/client";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { useState } from 'react';
+import { ADD_LIVESTOCK } from "./schema";
 
 
 interface ILivestockItem {
@@ -42,9 +44,8 @@ const livestock: ILivestockItem[] = [
     image: 'https://images.pexels.com/photos/3193155/pexels-photo-3193155.jpeg?auto=compress&cs=tinysrgb&w=600'
   }
 ];
-
-
 export const LivestockComponent = () => {
+  // const [addFarm] = useMutation(ADD_LIVESTOCK)
   const [selectedLivestocks, setSelectedLivestocks] = useState<ILivestockItem[]>([]);
 
   const handleCardClick = (livestockItem: ILivestockItem) => {
@@ -60,8 +61,16 @@ export const LivestockComponent = () => {
     setSelectedLivestocks(prevSelectedCards => prevSelectedCards.filter(item => item.id !== livestockItem.id));
   };
 
-  const handleAddLivestocks = () => {
-  
+  const handleAddLivestocks = async () => {
+    // DatabaseService.addFarm(selectedLivestocks)
+    // const {data,errors} = await addFarm({
+    //   variables: selectedLivestocks
+    // })
+    // if(errors) {
+    //   console.log(errors)
+    // }
+    // console.log(data)
+
     console.log("Selected Livestocks:", selectedLivestocks);
   };
 
