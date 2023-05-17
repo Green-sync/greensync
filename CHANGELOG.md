@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/Green-sync/greensync/compare/v0.3.0...v0.4.0) (2023-05-17)
+
+
+### Features
+
+* adjust api ([70e082d](https://www.github.com/Green-sync/greensync/commit/70e082d0e8025f7a97ddee1c28c4d6b3dd422d0b))
+
+
+### Bug Fixes
+
+* remove farmer ([36acb9c](https://www.github.com/Green-sync/greensync/commit/36acb9ce312a51540a116b68efb3cf8b58f19d1a))
+
 ## [0.3.0](https://www.github.com/Green-sync/greensync/compare/v0.2.0...v0.3.0) (2023-05-17)
 
 
