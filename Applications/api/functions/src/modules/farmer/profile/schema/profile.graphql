@@ -1,24 +1,18 @@
 
 type Profile {
-    name: String
-    surname: String
+    firstName: String
+    lastName: String
     email: String
-    PhoneNumbers: String
-    password: String
-    website: String 
-    photoURL: String
+    phone: String
     homeAddress: String
-   
+    farmIds: [String]
 }
 
 input ProfileInput {
-    name: String
-    surname: String
+    firstName: String
+    lastName: String
     email: String
-    PhoneNumbers: String
-    password: String
-    website: String 
-    photoURL: String
+    phone: String
     homeAddress: String
 }
 
@@ -26,10 +20,11 @@ input ProfileInput {
 type ProfileResponse {
     success: Boolean
     message: String
+    profile: Profile
 }
 extend type Query {
     getUserByUserId(userId: ID!): [Profile]
-    
+    getProfile: ProfileResponse
 }
 
 extend type Mutation {
