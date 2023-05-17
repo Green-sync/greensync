@@ -1,4 +1,5 @@
 export declare interface LivestockInput {
+    name: any
     farmId: string
     userId: string
     type: string

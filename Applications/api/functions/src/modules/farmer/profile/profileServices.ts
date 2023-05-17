@@ -1,29 +1,44 @@
 
 import { db } from "../../../utils/firbase.config";
+import { UserDetails } from "../../auth/contextDto";
 import { ProfileInput } from "./schema";
 
 
 export class ProfileService {
-    static async user(profile: any, user: any) {
-
-
-
-        // Create a new document in the "farms" collection with the specified user ID and farm details
+    static async  getProfile(user: UserDetails) {
+      try {
+        const data = (await db.collection("User").doc(user.uid).get()).data()
+        if(data){
+          return {message: "", success: true, profile:data}
+        }
+        return {
+          message: "No User At all", success: false
+        }
+      } catch (error) {
+        return {
+          message: `${error} ${user.uid}`, success: false
+        }
+      }
+    }
+    static async createUser(profile: any, user: any) {
+      try {
          await db.collection('User').doc(user.uid).set({
           ...profile,
         });
         // Return the newly created farm with its ID
-        
         return {
           message: "User details successfully added", success: true,
          
-        };
-      } catch(error: any) {
+      //   };
+      }} catch(error: any) {
         return {
           message: `${error} failed to add user details`, success: false,
         };
-      }
 
+
+        }
+      }
+    
 
       static async editUser(profileId: string, updates: ProfileInput) {
         try {
@@ -42,19 +57,5 @@ export class ProfileService {
         }
       }
 
-      static async getUserByUserId(userId: string): Promise<any> {
-
-        const farmsRef = db.collection('User');
-        const query = farmsRef.where('userId', '==', userId);
-    
-        const snapshot = await query.get();
-        const user: any[] = [];
-    
-        snapshot.forEach(doc => {
-          user.push({ id: doc.id, ...doc.data() });
-        });
-        console.log(user);
-    
-        return user;
-      }
+      
   }

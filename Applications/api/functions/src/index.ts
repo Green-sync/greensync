@@ -33,7 +33,7 @@ const greenApp = async () => {
     const server = new ApolloServer<GreenContext>({
         typeDefs: MainSchema,
         resolvers,
-        //introspection: introspect(),
+
         plugins: [
             LandingPagePluginConfig()
         ]
