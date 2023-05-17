@@ -1,4 +1,5 @@
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
 const crops = [
   {
@@ -53,24 +54,32 @@ const crops = [
 ];
 
 export const CropsComponent = () => {
+  const [selectedCrops, setSelectedCrops] =useState([])
+  const handleSelectedCrop = (ev: any) => {
+    console.log(ev.target.id)
+    // @ts-ignore
+    setSelectedCrops([...selectedCrops, crops[+ev.target.id]])
+  }
   return (
 
-    <div>
+  <div>
+      <pre>
 
-      <div>
+        {JSON.stringify(selectedCrops, null, 2)}
+      </pre><div>
         <h1 className="text-2xl flex items-center justify-center p-3 rounded-md text-white bg-lime-900 font-bold mb-4">My Crops</h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-        <div className="relative flex bg-yellow-600 items-center space-x-3 rounded-lg border border-gray-300 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400">
-        <div className="flex-shrink-0">
-          <PlusCircleIcon className="h-10 w-10 text-white" />
-        </div>
-        <div className="min-w-0 flex-1">
-          <a href="#" className="focus:outline-none">
-            <span className="absolute inset-0" aria-hidden="true" />
-            <p className="text-sm font-medium text-white">Add Crops</p>
-          </a>
-        </div>
-      </div>
+          <div className="relative flex bg-yellow-600 items-center space-x-3 rounded-lg border border-gray-300 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400">
+            <div className="flex-shrink-0">
+              <PlusCircleIcon className="h-10 w-10 text-white" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <a href="#" className="focus:outline-none">
+                <span className="absolute inset-0" aria-hidden="true" />
+                <p className="text-sm font-medium text-white">Add Crops</p>
+              </a>
+            </div>
+          </div>
           {crops.map((crop, index) => (
             <div
               key={index}
@@ -80,7 +89,7 @@ export const CropsComponent = () => {
                 <img className="h-10 w-10 rounded-full" src={crop.image} alt="" />
               </div>
               <div className="min-w-0 flex-1">
-                <a href="#" className="focus:outline-none">
+                <a onClick={handleSelectedCrop} id={index} href="#" className="focus:outline-none">
                   <span className="absolute inset-0" aria-hidden="true" />
                   <p className="text-sm font-medium text-gray-900">{crop.title}</p>
                   <p className="truncate text-sm text-gray-500">{crop.status}</p>
