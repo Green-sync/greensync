@@ -1,4 +1,4 @@
-import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import { PlusCircleIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 interface ICrops{
@@ -74,24 +74,25 @@ export const CropsComponent = () => {
     }
   }
 
+  const handleSelectedCardClick = (CropsItem: ICrops) => {
+    setSelectedCrops(prevSelectedCards => prevSelectedCards.filter(item => item.id !== CropsItem.id));
+  };
+
+  const handleAddCrops = () => {
+  
+    console.log("Selected Crops:", selectedCrops);
+  };
+
   return (
 
     <div>
 
-      <div>
-        <h1 className="text-2xl flex items-center justify-center p-3 rounded-md text-white bg-lime-900 font-bold mb-4">My Crops</h1>
+      <div className="pb-4">
+        <h1 className="text-xl  flex  p-3 rounded-md text-white bg-lime-900 font-medium mb-4">
+        Select Crops that you have on your farm by clicking on the card
+        </h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-        <div className="relative flex bg-yellow-600 items-center space-x-3 rounded-lg border border-gray-300 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400">
-        <div className="flex-shrink-0">
-          <PlusCircleIcon className="h-10 w-10 text-white" />
-        </div>
-        <div className="min-w-0 flex-1">
-          <a href="#" className="focus:outline-none">
-            <span className="absolute inset-0" aria-hidden="true" />
-            <p className="text-sm font-medium text-white">Add Crops</p>
-          </a>
-        </div>
-      </div>
+       
           {crops.map((crop, index) => (
             <div
               key={index}
@@ -112,9 +113,39 @@ export const CropsComponent = () => {
           ))}
         </div>
       </div>
-      <pre>
-        {JSON.stringify(selectedCrops, null, 2)}
-      </pre>
+      <div className="p-t-4">
+     {selectedCrops.length > 0 && (<h1 className="text-xl flex items-center justify-between p-3 font-medium  rounded-md text-white bg-gray-600 mb-4">
+          Selected Crops 
+          <div className="flex items-center">
+            <ShoppingCartIcon className="h-6 w-6 text-white mr-2" />
+            <span className="bg-green-500 text-white text-sm rounded-full w-6 h-6 text-center flex items-center justify-center">
+              {selectedCrops.length}
+            </span>
+          </div>
+        </h1>)}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {selectedCrops.map((CropsItem) => (
+            <div
+              key={CropsItem.id}
+              className="p-4 border rounded-md"
+              onClick={() => handleSelectedCardClick(CropsItem)}
+            >
+              <img className="h-40 w-full object-cover mb-2 rounded-md" src={CropsItem.image} alt="" />
+              <h3 className="text-lg font-medium mb-1">{CropsItem.title}</h3>
+              <p className="text-sm text-gray-500">{CropsItem.status}</p>
+            </div>
+            
+          ))}
+        </div>
+        {selectedCrops.length > 0 && (
+          <button
+            className="bg-green-500 text-white py-2 px-4 rounded-md mt-4"
+            onClick={handleAddCrops}
+          >
+            Add Crops
+          </button>
+        )}
+      </div>
 
     </div>
   );
