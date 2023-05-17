@@ -72,12 +72,12 @@ export const FarmProfile = (farmData: IFarms) => {
         <>
         <div className="p-4 grid grid-cols-1 md:grid-cols-2">
             <div>
-                <div className="p-4 grid w-80 md:w-auto md:grid-cols-2">
-                <img className=" mx-auto rounded-full border h-40 w-40 mr-0" src={ farmData.image ? "https://media.istockphoto.com/id/1091940998/photo/sunrise-strawberry-farm-landscape-agricultural-agriculture.jpg?s=612x612&w=0&k=20&c=PY6nR5kk5T4RwHd-aYBRCXA3Se3qYtflSKnJqjFu-PM=" : `${farmData.image}` } alt="" />
-                <div className="mr-0">
+                <div className="flex items-center">
+                <img className="flex mr-2 rounded-full border h-40 w-40" src={ farmData.image ? "https://media.istockphoto.com/id/1091940998/photo/sunrise-strawberry-farm-landscape-agricultural-agriculture.jpg?s=612x612&w=0&k=20&c=PY6nR5kk5T4RwHd-aYBRCXA3Se3qYtflSKnJqjFu-PM=" : `${farmData.image}` } alt="" />
+                <div className="ml-0">
                 <span className="text-3xl font-bold">{farmData.name}</span>
-                        <div className="flex items-center">
-                        <div className="mr-0">
+                        <div className="flex ">
+                        <div className="ml-0">
                             <MapPinIcon className="w-12 h-12 flex" />
                         </div>
                         <div>
@@ -96,7 +96,7 @@ export const FarmProfile = (farmData: IFarms) => {
             </div>
             {/* ========================================================================================================================= */}
             <div className=" m-4 flex-grow md:w-auto grid md:grid-cols-2">
-            {farmData.farmType === "Crops"  ? crops.map((crop, index) => (
+            {/* {farmData.farmType === "Crops"  ? crops.map((crop, index) => (
                  <div
                    key={index}
                    className=" flex items-center mb-2 space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
@@ -132,6 +132,46 @@ export const FarmProfile = (farmData: IFarms) => {
               ))}
               
                </>
+             } */}
+             {
+              <div className="flex flex-col h-screen">
+              {/* <!-- Sidebar --> */}
+              <div className="bg-gray-800 text-gray-100 py-4 px-6">
+                  {/* <!-- Sidebar content goes here --> */}
+                  <div className="mb-6">
+                      <h2 className="text-2xl font-bold">Dashboard</h2>
+                  </div>
+                  <ul className="space-y-2">
+                      <li className="p-2 rounded-md hover:bg-gray-700">
+                          <a href="#" className="block">Home</a>
+                      </li>
+                      <li className="p-2 rounded-md hover:bg-gray-700">
+                          <a href="#" className="block">Analytics</a>
+                      </li>
+                      <li className="p-2 rounded-md hover:bg-gray-700">
+                          <a href="#" className="block">Reports</a>
+                      </li>
+                      {/* <!-- Add more sidebar links as needed --> */}
+                  </ul>
+              </div>
+      
+              {/* <!-- Main Content --> */}
+              <div className="flex flex-col flex-1">
+                  {/* <!-- Header --> */}
+                  <header className="bg-white shadow-sm py-4 px-6">
+                      {/* <!-- Header content goes here --> */}
+                      <h1 className="text-xl font-bold">Welcome to the Dashboard</h1>
+                  </header>
+      
+                  {/* <!-- Content Area --> */}
+                  <main className="p-6">
+                      {/* <!-- Dashboard content goes here --> */}
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quos molestiae aperiam, odit fugiat
+                          suscipit rem excepturi, provident quam enim blanditiis at autem sed. Architecto quibusdam
+                          necessitatibus alias iste consectetur?</p>
+                  </main>
+              </div>
+          </div>
              }
             </div>
         </div>
