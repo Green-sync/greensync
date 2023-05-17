@@ -126,7 +126,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My Farms</p>
                 </div>
-                {ProfileStaticData.length > 0 ? ProfileStaticData.farm.map((farm: any) => {
+                {ProfileStaticData.farm.length > 0 ? ProfileStaticData.farm.map((farm: any) => {
                    return <>
                     <div  className="bg-gray-100 p-2 rounded-md m-2">
                         
