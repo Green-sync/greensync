@@ -1,12 +1,12 @@
 type Livestock {
-    livestockId: ID!
-    farmId: ID!
-    userId: ID!
-    type: String!
-    quantity: Int!
-    healthStatus: String!
-    location: String!
-    dateCreated: String!
+    livestockId: ID
+    farmId: ID
+    userId: ID
+    type: String
+    quantity: Int
+    healthStatus: String
+    location: String
+    dateCreated: String
 }
 input LivestockInput {
    farmId: ID
@@ -23,8 +23,11 @@ type LivestockRresponse {
 }
 extend type Query {
    getStock: LivestockRresponse
+   getLivestockByUserId(userId: ID!): [Livestock]
 }
 
 extend type  Mutation {
    createStock(stock: LivestockInput): LivestockRresponse
+   editLivestock(livestockId: ID, updates: LivestockInput): LivestockRresponse 
+   deleteLivestock(livestockId: ID!): LivestockRresponse
 }

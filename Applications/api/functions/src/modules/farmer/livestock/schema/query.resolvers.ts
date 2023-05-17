@@ -1,5 +1,9 @@
+import { LivestockService } from "../LivestockService";
+
 export const LivestockQueryResolver = {
-    getStock: () => {
-        return {message:"",success:true}
-    },
+    getLivestockByUserId: async (_parent: unknown, args:
+        { userId: string; }, context: { user: any }) => {
+    
+        return LivestockService.getLivestockByUserId(args.userId);
+     },
 }
