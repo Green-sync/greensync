@@ -60,7 +60,8 @@ jobs:
           token: ${{ secrets.GREENSYNC_TOKEN }}
           release-type: node
           package-name: farmer-dashboard
-          bump-minor-pre-major: true
+          bump-patch-for-minor-pre-major: true
+
 
   deploy:
     needs: build
