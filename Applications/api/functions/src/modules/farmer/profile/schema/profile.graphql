@@ -14,7 +14,6 @@ input ProfileInput {
     email: String
     phone: String
     homeAddress: String
-    farms: [IFarm!]!
   }
  
  input IFarm {
