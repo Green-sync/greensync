@@ -5,6 +5,9 @@ import { ProfileInput } from "./schema";
 
 
 export class ProfileService {
+    static getUserByUserId(userId: string) {
+        throw new Error("Method not implemented.");
+    }
     static async  getProfile(user: UserDetails) {
       try {
         const data = (await db.collection("User").doc(user.uid).get()).data()
