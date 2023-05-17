@@ -87,8 +87,8 @@ export const RegistrationFormComponent = () => {
                                                                 })}
                                                             </select>
                                                         </div>
-                                                    </> : input.type === 'file' ? <>
-                                                        <label className="block mb-2 text-sm font-extralight text-lime-700 dark:text-white" htmlFor={input.id}>{input.label}</label>
+                                                    </> : input.type === 'file' ? <> {selectedImage ? <> </> : <> <label className="block mb-2 text-sm font-extralight text-lime-700 dark:text-white" htmlFor={input.id}>{input.label}</label></>}
+
                                                         <input
                                                             type={input.type}
                                                             id={input.id}
