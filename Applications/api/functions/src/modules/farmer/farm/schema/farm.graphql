@@ -9,8 +9,6 @@ type Farm {
 }
 
 input FarmInput {
-    farmId: ID
-    userId: ID
     name: String
     location: String
     size: Float!
@@ -20,7 +18,7 @@ input FarmInput {
 enum FarmType{
     LIVESTOCK 
     CROPS
-    BOTH
+    MIX
 }
 
 type FarmResponse {
