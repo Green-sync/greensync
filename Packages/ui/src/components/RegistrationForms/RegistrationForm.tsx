@@ -6,9 +6,32 @@ import { FarmFormStaticData } from "./RegistrationDto/RegisterFormStaticData"
 
 export const RegistrationFormComponent = () => {
     const [formData, setFormData] = useState({});
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const handleImageChange = (e: any) => {
+        const file = e.target.files[0];
+        setSelectedImage(file);
+        setErrorMessage("");
+    };
 
     const handleChange = (e: any) => {
+        // if (selectedImage) {
+        //     if (selectedImage.type === "image/jpeg" || selectedImage.type === "image/png") {
+        //       // Valid image file
+        //       console.log(selectedImage);
+        //       // Perform the necessary actions with the selected image
+        //     } else {
+        //       // Invalid image file
+        //       setErrorMessage("Please select a JPEG or PNG image.");
+        //     }
+        //   } else {
+        //     // No image selected
+        //     setErrorMessage("Please select an image.");
+        //   }
         setFormData({ ...formData, [e.target.name]: e.target.value });
+
+
     };
 
     const handleSubmit = (e: any) => {
@@ -64,8 +87,18 @@ export const RegistrationFormComponent = () => {
                                                                 })}
                                                             </select>
                                                         </div>
-                                                    </> :
-                                                        <textarea name={input.name} onChange={handleChange} id={input.id} placeholder={input.placeholder} className="bg-gray-50 border h-28 dark:bg-inherit border-lime-300 text-gray-900 text-sm  focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required={true} />}
+                                                    </> : input.type === 'file' ? <>
+                                                        <label className="block mb-2 text-sm font-extralight text-lime-700 dark:text-white" htmlFor={input.id}>{input.label}</label>
+                                                        <input
+                                                            type={input.type}
+                                                            id={input.id}
+                                                            placeholder={input.placeholder}
+                                                            accept="image/jpeg, image/png"
+                                                            onChange={handleImageChange}
+                                                            className="border-b w-full text-sm text-gray-900 focus:border-lime-900 border-gray-300 px-4 py-2 mt-2"
+
+                                                        /> </> :
+                                                        <textarea name={input.name} onChange={handleChange} id={input.id} placeholder={input.placeholder} className="bg-gray-50 border h-16 dark:bg-inherit border-lime-300 text-gray-900 text-sm  focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required={true} />}
 
                                         </div>
                                     )

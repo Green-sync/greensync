@@ -1,6 +1,6 @@
 import { CheckCircleIcon, PlusIcon } from "@heroicons/react/20/solid"
 import { PopUp, RegistrationFormComponent } from "../../.."
-import { FarmFormStaticData, FarmStaticData } from "../.."
+import { FarmStaticData } from "../.."
 
 export const FarmerCard = () => {
     return (
