@@ -11,4 +11,5 @@ export * from './RegistrationForms'
 export * from './Calendar'
 export * from './Farm'
 export * from './Profile'
+export * from "./GreenSyncApolloProvider"
 

@@ -7,11 +7,13 @@ export const AuthGuardProvider = ({children}:any) => {
     const nav = useNavigate()
     const auth= getAuth()
     useEffect(() => {
-     const sub = onAuthStateChanged(auth, user=>{
+     const sub = onAuthStateChanged(auth, async(user)=>{
         if(!user){
             nav("/auth")
         }
         setUserData(user)
+        const tkn=  await user?.getIdTokenResult(true)
+        localStorage.setItem("_AgriTKN",tkn?.token as string)
      })
      return sub;
     }, [setUserData])
