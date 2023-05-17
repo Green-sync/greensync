@@ -12,6 +12,7 @@ type Profile {
 }
 
 input ProfileInput {
+    userId: ID
     name: String
     surname: String
     email: String
@@ -20,7 +21,45 @@ input ProfileInput {
     website: String 
     photoURL: String
     homeAddress: String
-}
+    farms: [IFarm!]!
+  }
+ 
+ input IFarm {
+    name: String!
+    location: String
+    size: Float!
+    description: String
+    crops: [ICrop]
+    livestocks: [ILivestock]
+ }
+
+ input ICrop {
+    farmId: ID
+    title: String
+    name: String
+    quantity: String
+    stage: String
+    plantingDate: String
+    harvestDate: String
+    healthStatus: Status
+ } 
+
+ enum Status {
+     GOOD
+     BAD
+     EXCELLENT
+ }
+
+ input ILivestock {
+    farmId: ID
+    type: String!
+    name: String
+    image: String
+    stage: String
+    quantity: Int
+    healthStatus: String
+    
+ }
 
 
 type ProfileResponse {
