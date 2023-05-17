@@ -1,8 +1,7 @@
 import { HomeIcon, UserCircleIcon, SunIcon, CalendarIcon, GlobeAltIcon, ClockIcon } from "@heroicons/react/24/solid"
 import { IDashboardNavigation, IHomeNavigation } from "./NavigationsDto"
 
-
- export const HomeNavigationStaticData: IHomeNavigation = {
+export const HomeNavigationStaticData: IHomeNavigation = {
     isOpen: false,
     setOpen: ()=>{},
     authOptions: [
@@ -75,33 +74,30 @@ import { IDashboardNavigation, IHomeNavigation } from "./NavigationsDto"
     { name: 'auctions', href: '#' },
   ],
   brand: {
-    name: "greensync",
+    name: "GreenSync",
     logo: ""
   }
 }
 
 
-export const DashBordNavigationStaticData: IDashboardNavigation = {
-    bgColor: "bg-indigo-900",
+export const DashBordNavigationStaticData :IDashboardNavigation= {
+    bgColor: "bg-green-800",
     searhPrompt: '',
     searchData: [{name: 'Soul', age:" 78"}],
 
-    user: {
-        displayName: "Farmer User" // SU
-    },
-
     teams: [
-    {initial: "MKP", href: "", name: "Market Place" },
-    {initial: "Edu", href: "", name: "Education" },
-    {initial: "IoT", href: "", name: "Internet of Things" }
+    {initial: "MK", href: "marketplace", name: "Marketplace" },
+    {initial: "ED", href: "education", name: "Education" },
+    {initial: "IoT", href: "iot", name: "Internet of Things" }
     ],
     navData: [ 
-    { name: "Home", icon: HomeIcon, href: "#" },
-    { name: "Profile", icon: UserCircleIcon, href: "#"},
-    { name: "Weather", icon: SunIcon, href: "#"},
-    { name: "Calendar", icon: CalendarIcon, href: "#"},
-    { name: "Farm", icon: GlobeAltIcon, href: "#" },
-    { name: "Recent", icon: ClockIcon, href: "#"},]
+    { name: "Home", icon: HomeIcon, href: "/dashboard" },
+    { name: "Profile", icon: UserCircleIcon, href: "profile"},
+    { name: "Weather", icon: SunIcon, href: "weather"},
+    { name: "Calendar", icon: CalendarIcon, href: "calendar"},
+    { name: "Farm", icon: GlobeAltIcon, href: "farm" },
+    { name: "Recent", icon: ClockIcon, href: "recent"},]
+
 
 
 }

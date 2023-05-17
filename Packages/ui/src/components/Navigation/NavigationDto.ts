@@ -22,6 +22,7 @@ export declare interface FarmerNavigationDto {
     onClose?: () => void
     navData: NavigationData[]
     user?: Partial<User>
+    outlet?:JSX.Element;
     [key: string]: any
 }
 

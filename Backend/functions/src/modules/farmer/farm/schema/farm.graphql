@@ -1,12 +1,28 @@
+"""
+Farmer Type Definitions 
+"""
 type Farm {
     farmId: ID!
     userId: ID!
+    user: User!
     name: String!
-    location: String!
+    location: Location!
     size: Float!
+    unit: Unit!
     description: String
     dateCreated: String!
+     
 }
+
+enum Unit {
+   HECTARES
+    ACRES
+  }
+
+  type Location {
+    latitude: Float!
+    longitude: Float!
+  }
 
 input FarmInput {
     farmId: ID
@@ -18,18 +34,19 @@ input FarmInput {
     dateCreated: String
 }
 
-
-
 type FarmResponse {
     success: Boolean
     message: String
 }
 extend type Query {
     getFarm: [Farm]
+    getFarms: [Farm]
+    getFarmsByUserId: Farm
 }
 
 extend type Mutation {
     createFarm(farm: FarmInput): FarmResponse
+    updateFarm(farm: FarmInput): FarmResponse
 }
 
 

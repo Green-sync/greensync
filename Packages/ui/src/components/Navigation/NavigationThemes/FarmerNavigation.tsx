@@ -1,18 +1,22 @@
 import { Transition, Dialog } from "@headlessui/react"
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/20/solid"
-import { Fragment, useState } from "react"
+import { Fragment, useContext, useEffect, useState } from "react"
 import { NavigationProfileComponent } from "./NavigationProfile"
 import { FarmerNavigationDto, NavigationData } from "../NavigationDto"
-import { NavLink } from "react-router-dom"
+import { NavLink, Outlet } from "react-router-dom"
 import { classMerge } from "../../../utils"
-import { SearchComponent } from "../../Search"
+import { GreenSyncContext } from "../.."
 
-export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchData, searchPrompt }: FarmerNavigationDto) => {
-    const [sideOpen, setSideOpen] = useState(false)
-    console.log(sideOpen)
+export const FarmerNavigationComponent = ({teams,navData, bgColor }: FarmerNavigationDto) => {
+    const user = useContext(GreenSyncContext)
+    const [sideOpen, setSideOpen] = useState<boolean|null>(null)
+    useEffect(()=> {
+      setSideOpen(false)
+    }, [setSideOpen])
+    if(user) {
     return <>
           <div>
-        <Transition.Root show={sideOpen} as={Fragment}>
+        <Transition.Root show={sideOpen as boolean} as={Fragment}>
           <Dialog as="div" className="relative z-50 lg:hidden" onClose={()=> setSideOpen(false)}>
             <Transition.Child
               as={Fragment}
@@ -78,22 +82,21 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
                           </ul>
                         </li>
                         <li>
-                          <div className="text-xs font-semibold leading-6 text-gray-400">Usefull Links</div>
-                          <ul role="list" className="-mx-2 mt-2 space-y-1">
+                          <div className="text-xs font-semibold leading-6 text-gray-400">Useful Links</div>
+                          <ul role="list" className="hidden -mx-2 mt-2 space-y-1">
                             {teams.map((team) => (
                               <li key={team.name}>
-                                <a
-                                  href={team.href}
+                              <NavLink
+                                  to={team.href}
                                   className={
-                                    `text-white hover:text-white hover:bg-yellow-600
-                                    group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold`
+                                    'text-white hover:text-white hover:bg-yellow-600   group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                                   }
                                 >
-                                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-yellow-600 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
+                                  <span className=" hidden flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-yellow-600 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
                                     {team.initial}
                                   </span>
-                                  <span className="truncate">{team.name}</span>
-                                </a>
+                                  <span className=" flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-yellow-600 text-[0.625rem] font-medium text-gray-400 group-hover:text-white truncate">{team.name}</span>
+                               </NavLink>
                               </li>
                             ))}
                           </ul>
@@ -126,8 +129,8 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
                   <ul role="list" className="-mx-2 space-y-1">
                     {navData.map((item:NavigationData) => (
                       <li key={item.name}>
-                        <a
-                          href={item.href}
+                      <NavLink
+                          to={item.href}
                           className={
                             `
                               text-white hover:text-white hover:bg-yellow-600
@@ -136,28 +139,27 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
                         >
                           <item.icon className="h-6 w-6 shrink-0" aria-hidden="true" />
                           {item.name}
-                        </a>
+                       </NavLink>
                       </li>
                     ))}
                   </ul>
                 </li>
                 <li>
-                  <div className="text-xs font-semibold leading-6 text-gray-400">Usefull Links</div>
+                  <div className="text-xs font-semibold leading-6 text-gray-400">Useful Links</div>
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
                     {teams.map((team) => (
                       <li key={team.name}>
-                        <a
-                          href={team.href}
+                      <NavLink
+                          to={team.href}
                           className={
-                            `text-white hover:text-white hover:bg-yellow-600
-                            group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold`
+                            "text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                           }
                         >
-                          <span className="flex h-6 w-7 shrink-0 items-center hover:bg-lime-900 justify-center rounded-lg border border-white bg-yellow-600 text-[0.625rem] font-medium text-white group-hover:text-white">
+                          <span className="flex mt-4 h-6 w-6 shrink-0 items-center hover:bg-lime-900 justify-center rounded-lg border border-white bg-yellow-600 text-[0.625rem] font-medium text-white group-hover:text-white">
                             {team.initial}
                           </span>
-                          <span className="truncate">{team.name}</span>
-                        </a>
+                          <span className=" truncate">{team.name}</span>
+                       </NavLink>
                       </li>
                     ))}
                   </ul>
@@ -176,10 +178,10 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
             </button>
 
             {/* Separator */}
-            <div className="h-4 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
+            <div className="h-5 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
             {/* Dineo will Provide search component here */}
-            <div className="flex flex-1 gap-x-4 justify-between items-center self-stretch lg:gap-x-6">
-           {<SearchComponent searchPrompt={searchPrompt} searchData={searchData}/>}
+            <div className="flex flex-1 gap-x-4 justify-end items-center self-stretch lg:gap-x-6 pt-5 pt-4 pb-4">
+               {/* {<SearchComponent searchPrompt={searchPrompt} searchData={searchData}/>} */}
              
               <div className="flex items-center gap-x-4 lg:gap-x-6">
                 {/* Separator */}
@@ -190,11 +192,13 @@ export const FarmerNavigationComponent = ({teams,navData,user, bgColor, searchDa
           </div>
 
           <main className="py-10">
-            <div className="px-4 sm:px-6 lg:px-8">{/* Your content */}</div>
+            <div className="px-4 sm:px-6 lg:px-8">
+              <Outlet/>
+            </div>
           </main>
         </div>
       </div>
 
 
-    </>
+    </>} else return  <></>
 }
