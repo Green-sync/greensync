@@ -29,13 +29,16 @@ export class ProfileService {
         return {
           message: "User details successfully added", success: true,
          
-        };
-      } catch(error: any) {
+      //   };
+      }} catch(error: any) {
         return {
           message: `${error} failed to add user details`, success: false,
         };
+
+
+        }
       }
-    }
+    
 
       static async editUser(profileId: string, updates: ProfileInput) {
         try {
@@ -54,19 +57,5 @@ export class ProfileService {
         }
       }
 
-      static async getUserByUserId(userId: string): Promise<any> {
-
-        const farmsRef = db.collection('User');
-        const query = farmsRef.where('userId', '==', userId);
-    
-        const snapshot = await query.get();
-        const user: any[] = [];
-    
-        snapshot.forEach(doc => {
-          user.push({ id: doc.id, ...doc.data() });
-        });
-        console.log(user);
-    
-        return user;
-      }
+      
   }
