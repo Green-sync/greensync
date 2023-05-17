@@ -126,7 +126,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My Farms</p>
                 </div>
-                {ProfileStaticData.farm  ? ProfileStaticData.farm.map((farm: any) => {
+                {ProfileStaticData.length > 0 ? ProfileStaticData.farm.map((farm: any) => {
                    return <>
                     <div  className="bg-gray-100 p-2 rounded-md m-2">
                         
@@ -137,7 +137,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         ><PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name} Farming`} popFunction={<FarmProfile name={farm.name} farmType={farm.farmType} location={farm.location} size={farm.size} image={farm.image}  />} style={"sm:max-w-auto"} /></button>
                     </div>
                    </> 
-                }) : <><div className="text-2xl font-medium">No farms added</div></> }
+                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No farms added</div> }
 
                 </div>
                 {/* ==========================second row============================================= */}
@@ -145,7 +145,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">MarketPlace Stock</p>
                 </div>
-                {ProfileStaticData.stock != null ? ProfileStaticData.stock.map((stock: any) => {
+                {ProfileStaticData.stock.length > 0 ? ProfileStaticData.stock.map((stock: any) => {
                    return <>
                     <div className="bg-gray-100 p-2 rounded-lg m-2">
                         <div className="text-orange-600 text-xl">{stock.itemName}</div>
@@ -155,14 +155,14 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         ><PopUp onClickTitile={"view more >"} popUpTittle={`${stock.itemName}`} popFunction={<StockProfile itemName={stock.itemName} quantity={stock.quantity} price={stock.price} />} style={""} /></button>
                     </div>
                    </> 
-                }) : "No Stocks in the market at the moment"}
+                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No Stocks in the market at the moment</div>}
             </div>
                 {/* ==========================third row============================================= */}
                 <div className=" mb-5 mt-5 bg-white rounded-xl pb-6">
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My devices</p>
                 </div>
-                {ProfileStaticData.device.map((device: any) => {
+                {ProfileStaticData.device.length > 0 ? ProfileStaticData.device.map((device: any) => {
                    return <>
                     <div className="bg-gray-100 p-2 rounded-lg m-2">
                         <div className="text-orange-600 text-xl">{device.name}</div>
@@ -172,7 +172,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         ><PopUp onClickTitile={"view more >"} popUpTittle={`${device.name}`} popFunction={<DeviceProfile name={device.name} type={device.type} image={device.image} />} style={""} /></button>
                     </div>
                    </> 
-                })}
+                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">You dont own devices at the moment</div>}
             </div>
                 </div>
             </div>
