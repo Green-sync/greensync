@@ -1,13 +1,13 @@
 type Crop {
-    cropId: ID!
-    farmId: ID!
-    userId: ID!
-    type: String!
-    stage: String!
-    plantingDate: String!
+    cropId: ID
+    farmId: ID
+    userId: ID
+    type: String
+    stage: String
+    plantingDate: String
     harvestDate: String
-    healthStatus: String!
-    dateCreated: String!
+    healthStatus: String
+    dateCreated: String
   }
 input CropInput {
     farmId: ID
@@ -24,10 +24,13 @@ type CroRresponse {
 }
   extend type Query {
     getCrop: CroRresponse
+    getCropByUserId(userId: ID!): [Crop]
   }
 
   extend type  Mutation {
     createCrop(crop: CropInput): CroRresponse
+    editCrop(cropId: ID, updates: CropInput): CroRresponse
+    deleteCrop(cropId:ID!): CroRresponse
   }
 
   ## PascalCase
