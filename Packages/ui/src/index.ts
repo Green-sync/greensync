@@ -12,3 +12,4 @@ export { HomePage as HomePage } from "./pages"
 export { PopUpComponent as PopUp } from './components'
 export { RegistrationFormComponent as RegistrationFormComponent } from './components'
 export { ProfileComponent as Profile } from "./components"
+export { GreenSyncApolloProvider as GreenSyncApolloProvider} from "./components"

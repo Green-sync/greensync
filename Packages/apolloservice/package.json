@@ -1,0 +1,23 @@
+{
+  "name": "apolloservice",
+  "version": "0.0.10",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/types",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.16.3",
+    "typescript": "^5.0.4"
+  }
+}

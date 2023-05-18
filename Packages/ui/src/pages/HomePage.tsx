@@ -1,4 +1,7 @@
-import { CalendarComponent, CalendarStaticData, CorouselComponent, DashBoardCalendarStaticData, HomeComponent } from "../components";
+import { CalendarComponent,ProfileComponent,
+     CorouselComponent, ProfileStaticData,
+     WeatherComponent,
+ DashBoardCalendarStaticData, HomeComponent } from "../components";
 
 
 
@@ -21,14 +24,11 @@ const slides = [
   }
 ]
 
-import { ProfileComponent, ProfileStaticData } from "../components";
-
-
 export const HomePage = () => {
   return {
     home: <><HomeComponent /></>,
     profile: <><ProfileComponent data={ProfileStaticData.data} farm={ProfileStaticData.farm} stock={ProfileStaticData.stock} device={ProfileStaticData.device} /></>,
-    weather: <>Weather</>,
+    weather: <><WeatherComponent /></>,
     calendar: <>  <CalendarComponent ctype={'DashboardView'} days={DashBoardCalendarStaticData.days} events={[]}/></>,
     farm: <><CorouselComponent slides={slides} /></>,
     recent: <>recent</>,
