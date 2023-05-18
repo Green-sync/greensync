@@ -6,15 +6,8 @@ import { useMutation, useQuery } from "@apollo/client";
 import { FarmProfile } from "./FarmProfile";
 import { StockProfile } from "./StockProfile";
 import { DeviceProfile } from "./DeviceProfile";
-import { GET_PROFILE } from "../Home/schema";
-import { farmData } from "..";
+import { GET_PROFILE, UPDATE_PROFILE } from "../Home/schema";
 
-// "__typename": "Profile",
-// "firstName": "Dineo",
-// "farmIds": null,
-// "email": "dineo@opher.com",
-// "lastName": "Mathibela",
-// "phone": "06655237625"
 export const ProfileComponent = () => {
     const [open, setOpen] = useState(false);
     const [changeDetails, setChangeDetails] = useState(false);
@@ -26,6 +19,7 @@ export const ProfileComponent = () => {
     });
   
     const { data, loading, error } = useQuery(GET_PROFILE);
+    const [ editUser ] = useMutation(UPDATE_PROFILE)
   
     useEffect(() => {
       if (!loading) {
@@ -37,8 +31,8 @@ export const ProfileComponent = () => {
               lastName: lastName,
               phone: phone,
             });
-            console.log("form", formData);
-            console.log("Dineo", data.getProfile.profile);
+            // console.log("form", formData);
+            // console.log("Dineo", data.getProfile.profile);
         }
       }
       if (error) {
@@ -48,8 +42,20 @@ export const ProfileComponent = () => {
   
         const onState = () => {
         setChangeDetails(!changeDetails)
-        console.log("Clicked")
     }
+
+    const onChange = (e : any) => {
+    const id = e.target.id
+    //@ts-ignore
+    formData[`${id}`] = e.target.value
+       setFormData({...formData})
+       console.log(formData)
+    }
+    const handleProfileUpdate = async (e: any) => {
+        e.preventDefault();
+        const { data: editedUserData, errors } = await editUser({variables: {formData}, "QX6rh3ZavEctoz9xRrgT2ZxwpBzy"});
+        console.log(editedUserData)
+      };
     return (
       <>
         {/* <pre>{JSON.stringify(formData, null, 2)}</pre> */}
@@ -77,7 +83,7 @@ export const ProfileComponent = () => {
                         id={key}
                         placeholder={`Enter ${key}`}
                         className="outline-none w-full"
-                        // onChange={onChange}
+                        onChange={onChange}
                         />
                     </form>
                     <form className={`p-4 ${changeDetails ? "hidden": ""}`}>
@@ -93,7 +99,7 @@ export const ProfileComponent = () => {
                 })}
                 {changeDetails && <div className="flex justify-center">
                     <button 
-                    onClick={onState}
+                    onClick={handleProfileUpdate}
                     className="bg-lime-300 rounded-md text-white pl-4 pr-5 p-2 m-4">
                         Save
                     </button>
