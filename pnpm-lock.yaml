@@ -29,9 +29,6 @@ importers:
       express:
         specifier: ^4.18.2
         version: 4.18.2
-      firebase:
-        specifier: ^9.21.0
-        version: 9.21.0
       firebase-admin:
         specifier: ^11.5.0
         version: 11.5.0
@@ -84,9 +81,6 @@ importers:
       firebase:
         specifier: ^9.21.0
         version: 9.21.0
-      graphql:
-        specifier: ^16.6.0
-        version: 16.6.0
       greensync-ui:
         specifier: workspace:*
         version: link:../../Packages/ui
@@ -296,8 +290,20 @@ importers:
         specifier: ^4.3.2
         version: 4.3.2(sass@1.62.1)
 
+  Packages/apolloservice:
+    devDependencies:
+      '@types/node':
+        specifier: ^18.16.3
+        version: 18.16.3
+      typescript:
+        specifier: ^5.0.4
+        version: 5.0.4
+
   Packages/ui:
     dependencies:
+      '@apollo/client':
+        specifier: ^3.7.14
+        version: 3.7.14(graphql@16.6.0)(react-dom@18.2.0)(react@18.2.0)
       '@headlessui/react':
         specifier: ^1.7.14
         version: 1.7.14(react-dom@18.2.0)(react@18.2.0)
@@ -310,6 +316,9 @@ importers:
       firebase:
         specifier: ^9.20.0
         version: 9.21.0
+      graphql:
+        specifier: ^16.6.0
+        version: 16.6.0
       localforage:
         specifier: ^1.10.0
         version: 1.10.0
@@ -475,8 +484,8 @@ packages:
         optional: true
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.6.0)
-      '@wry/context': 0.7.3
-      '@wry/equality': 0.5.6
+      '@wry/context': 0.7.2
+      '@wry/equality': 0.5.5
       '@wry/trie': 0.3.2
       graphql: 16.6.0
       graphql-tag: 2.12.6(graphql@16.6.0)
@@ -5016,15 +5025,15 @@ packages:
       '@xtuc/long': 4.2.2
     dev: true
 
-  /@wry/context@0.7.3:
-    resolution: {integrity: sha512-Nl8WTesHp89RF803Se9X3IiHjdmLBrIvPMaJkl+rKVJAYyPsz1TEUbu89943HpvujtSJgDUx9W4vZw3K1Mr3sA==}
+  /@wry/context@0.7.2:
+    resolution: {integrity: sha512-WBGObg2bxt9UYGX4Dh3heUpHeULiFIP/yLpKrcebPfwaLuwCSj6rS7kpQegQ/K7jbkTQ1nLGZnfyAvY1T2LG4g==}
     engines: {node: '>=8'}
     dependencies:
       tslib: 2.5.0
     dev: false
 
-  /@wry/equality@0.5.6:
-    resolution: {integrity: sha512-D46sfMTngaYlrH+OspKf8mIJETntFnf6Hsjb0V41jAXJ7Bx2kB8Rv8RCUujuVWYttFtHkUNp7g+FwxNQAr6mXA==}
+  /@wry/equality@0.5.5:
+    resolution: {integrity: sha512-tI95+tJlL2LoOY27EHy0V0zKRVgbPp6vk9p6ZqWZOCSVslEhYEGeI+gaskc2rnjQxfszsXhtgYZTQ1xAUrMkOg==}
     engines: {node: '>=8'}
     dependencies:
       tslib: 2.5.0
@@ -9234,7 +9243,7 @@ packages:
   /optimism@0.16.2:
     resolution: {integrity: sha512-zWNbgWj+3vLEjZNIh/okkY2EUfX+vB9TJopzIZwT1xxaMqC5hRLLraePod4c5n4He08xuXNH+zhKFFCu390wiQ==}
     dependencies:
-      '@wry/context': 0.7.3
+      '@wry/context': 0.7.2
       '@wry/trie': 0.3.2
     dev: false
 

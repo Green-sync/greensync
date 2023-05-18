@@ -1,24 +1,25 @@
 type Farm {
-    farmId: ID!
-    userId: ID!
-    name: String!
-    location: String!
-    size: Float!
-    description: String
-    dateCreated: String!
-}
-
-input FarmInput {
     farmId: ID
     userId: ID
     name: String
     location: String
-    size: Float!
+    size: Float
     description: String
-    dateCreated: String
+   
 }
 
-
+input FarmInput {
+    name: String
+    location: String
+    size: Float!
+    description: String
+    type: FarmType
+}
+enum FarmType{
+    LIVESTOCK 
+    CROPS
+MIX
+}
 
 type FarmResponse {
     success: Boolean
@@ -26,10 +27,14 @@ type FarmResponse {
 }
 extend type Query {
     getFarm: [Farm]
+    getFarmByUserId(userId: ID!): [Farm]
 }
 
 extend type Mutation {
     createFarm(farm: FarmInput): FarmResponse
+    editFarm(farmId: ID, updates: FarmInput): FarmResponse 
+    deleteFarm(farmId: ID): FarmResponse 
+
 }
 
 

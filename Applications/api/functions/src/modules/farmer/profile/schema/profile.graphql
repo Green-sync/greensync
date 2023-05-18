@@ -1,0 +1,71 @@
+
+type Profile {
+    firstName: String
+    lastName: String
+    email: String
+    phone: String
+    homeAddress: String
+    farmIds: [String]
+}
+
+input ProfileInput {
+    firstName: String
+    lastName: String
+    email: String
+    phone: String
+    homeAddress: String
+  }
+ 
+ input IFarm {
+    name: String!
+    location: String
+    size: Float!
+    description: String
+    crops: [ICrop]
+    livestocks: [ILivestock]
+ }
+
+ input ICrop {
+    farmId: ID
+    title: String
+    name: String
+    quantity: String
+    stage: String
+    plantingDate: String
+    harvestDate: String
+    healthStatus: Status
+ } 
+
+ enum Status {
+     GOOD
+     BAD
+     EXCELLENT
+ }
+
+ input ILivestock {
+    farmId: ID
+    type: String!
+    name: String
+    image: String
+    stage: String
+    quantity: Int
+    healthStatus: String
+    
+ }
+
+
+type ProfileResponse {
+    success: Boolean
+    message: String
+    profile: Profile
+}
+extend type Query {
+    getUserByUserId(userId: ID!): [Profile]
+    getProfile: ProfileResponse
+}
+
+extend type Mutation {
+    createUser(profile: ProfileInput): ProfileResponse
+    editUser(profileId: ID, updates: ProfileInput): ProfileResponse 
+    deleteUser(profileId: ID): ProfileResponse 
+}
