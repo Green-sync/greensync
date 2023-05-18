@@ -2,9 +2,11 @@
 import { useState } from "react";
 import { IProfileData } from "./ProfileDto/ProfileDto";
 import { PopUp } from "../..";
+import { useMutation, useQuery } from "@apollo/client";
 import { FarmProfile } from "./FarmProfile";
 import { StockProfile } from "./StockProfile";
 import { DeviceProfile } from "./DeviceProfile";
+import { GET_PROFILE } from "../Home/schema";
 
 
 export const ProfileComponent = (ProfileStaticData : IProfileData) => {
@@ -35,6 +37,15 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
             console.log("wrong password")
         }
     }
+    // ===================GRAPHQL=======================================
+    const {data,loading,error} = useQuery(GET_PROFILE);
+    if(!loading) {
+        console.log("Dineo",data.getProfile);
+    }
+    if(error){
+        console.log(error);
+    }
+    // ===================================================================
     const updatePassword = (e: any) => {
         const newPassword = e.target.value
         ProfileStaticData.data.password = newPassword;
@@ -49,6 +60,15 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
     }
     return (
         <>
+         {
+                <>
+                <pre>
+                    {
+                        JSON.stringify(data,null,2)
+                    }
+                </pre>
+
+            </>}
          <div className="container p-6 bg-gray-100">
             <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* <!-- First column --> */}
@@ -132,6 +152,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         
                         <div className="text-orange-600 text-xl">{farm.name}</div>
                         <div className="text-gray-500 text-xs">{farm.location} | {farm.farmType}</div>
+                        {/* //@ts-ignore */}
                         <button
                         className="bg-lime-300 rounded-md text-white pl-4 pr-5">
                         <PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name} Farming`} popFunction={<FarmProfile name={farm.name} type={farm.type} location={farm.location} size={farm.size} />} style={"sm:max-w-auto"} /></button>
