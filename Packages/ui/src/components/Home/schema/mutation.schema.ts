@@ -27,7 +27,6 @@ mutation Mutation($updates: ProfileInput, $profileId: ID) {
       email
       phone
       homeAddress
-      farmIds
     }
   }
 }

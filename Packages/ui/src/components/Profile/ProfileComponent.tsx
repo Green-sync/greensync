@@ -53,12 +53,14 @@ export const ProfileComponent = () => {
     }
     const handleProfileUpdate = async (e: any) => {
         e.preventDefault();
-        const { data: editedUserData, errors } = await editUser({variables: {formData}, "QX6rh3ZavEctoz9xRrgT2ZxwpBzy"});
+        const { data: editedUserData, errors } = await editUser({
+            variables: { updates: formData,profileId: "QX6rh3ZavEctoz9xRrgT2ZxwpBzy"},
+          });
         console.log(editedUserData)
+        setChangeDetails(!changeDetails)
       };
     return (
       <>
-        {/* <pre>{JSON.stringify(formData, null, 2)}</pre> */}
          <div className="container p-6 bg-gray-100">
             {/* <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* <!-- First column --> */}
