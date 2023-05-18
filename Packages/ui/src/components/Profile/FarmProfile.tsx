@@ -1,5 +1,5 @@
 import { MapPinIcon } from "@heroicons/react/20/solid"
-import { IFarms, IProfileData } from "./ProfileDto"
+import { IFarms, IProfileData,FarmDto } from "./ProfileDto"
 import { useState } from "react";
 
 const crops = [
@@ -34,40 +34,34 @@ const crops = [
       image: 'https://images.pexels.com/photos/6280177/pexels-photo-6280177.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
   ];
-  type Farm = {
-    id: number;
-    name: string;
-    type: string;
-    location: string;
-    image?: string;
-    size: string
-  };
-
-  const farms: Farm[] = [
+  export const Farm: FarmDto[] =  [
     {
-      id: 1,
-      name: "Green Acres Farm",
-      type: "Crops",
-      location: "Centurion, PTA",
-      size: "100 hectors",
-      image: "https://images.pexels.com/photos/872483/pexels-photo-872483.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      id: 2,
-      name: "Happy Hens Farm",
-      type: "Livestock",
-      location: "Krugersdorp, JHB",
-      size: "50 hectors",
-      image: "https://images.pexels.com/photos/39351/purple-grapes-vineyard-napa-valley-napa-vineyard-39351.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      id: 3,
-      name: "Golden Fields Farm",
-      type: "Livestock and Crops",
-      location: "Dalmada, PLK",
-      size: "200 hectors"
-    },
-  ];
+     name: "Green Acres Farm",
+     type: "MIX",
+     location: "Centurion, PTA",
+     description: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum felis quis libero
+     consectetur, at euismod neque tincidunt. Ut id metus quis neque viverra eleifend. Suspendisse
+     hendrerit auctor dolor ut venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum felis quis libero
+     consectetur, at euismod neque tincidunt. Ut id metus quis neque viverra eleifend. Suspendisse
+     hendrerit auctor dolor ut venenatis.`,
+     size: "100 hectors",
+     image: "https://images.pexels.com/photos/872483/pexels-photo-872483.jpeg?auto=compress&cs=tinysrgb&w=600"
+    }
+//    },
+//    {
+//      name: "Happy Hens Farm",
+//      type: "LIVESTOCKS",
+//      location: "Krugersdorp, JHB",
+//      size: "50 hectors",
+//      image: "https://images.pexels.com/photos/39351/purple-grapes-vineyard-napa-valley-napa-vineyard-39351.jpeg?auto=compress&cs=tinysrgb&w=600"
+//  },
+//  {
+//    name: "Golden Fields Farm",
+//    type: "Livestock and Crops",
+//    location: "Dalmada, PLK",
+//    size: "200 hectors"
+// }
+] 
   const livestock = [
     {
       title: 'Cattle',
@@ -100,42 +94,49 @@ const crops = [
       image: 'https://images.pexels.com/photos/3193155/pexels-photo-3193155.jpeg?auto=compress&cs=tinysrgb&w=600'
     }
   ];
-export const FarmProfile = (ProfileStaticData : IProfileData) => {
+export const FarmProfile = () => {
   const [view, setView] = useState("farmType")
 
     const handleView = (e: any) => {
       const id = e.target.id
       setView(id)
     }
-    // const farmArray = Object.values(ProfileStaticData?.farm);
-    console.log(ProfileStaticData.farm)
+    // const farmKeys = Object.values(Farm);
+    console.log(Farm)
     return (
         <>
         <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
-        <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 max-w-2xl w-full">
-        {farms.map((farm) => {
+        <div className="bg-white rounded-lg shadow-lg p-6 md:p-8  w-full">
+        {Farm.map((v,i) => {
           return <>
-          <div key={farm.id}> 
-        <img
-          src={farm.image} // Replace with the actual farm image URL
+          <div key={i}> 
+          <div className="flex m-4">      
+              <img
+          src={v.image} // Replace with the actual farm image URL
           alt="Farm"
           className="rounded-lg mb-6 h-40 w-40"
         />
-          
-        <h1 className="text-2xl md:text-3xl font-semibold mb-2">{farm.name}</h1>
-        <p className="text-gray-600 mb-4">{farm.location}</p>
-
+        <div className="m-4">
+        <h1 className="text-2xl md:text-3xl font-semibold mb-2">{v.name}</h1>
+            <div className="flex ">
+                            <div className="ml-0">
+                                <MapPinIcon className="w-8 h-8 flex" />
+                            </div>
+            <p className="text-gray-600 mb-4">{v.location}</p>
+            </div>
+            <div className="flex"><p className="ml-2 text-sm  bg-gray-300 rounded-md m-1 p-1">Regitered Date:</p><p className="ml-2 bg-gray-300 rounded-md m-1 p-1"> {"01/03/2009"}</p></div>
+            <div className="flex"><p className="ml-2 text-sm bg-gray-300 rounded-md m-1 p-1">Soil level</p><p className="ml-2 bg-gray-300 rounded-md m-1 p-1">  sandy clay loam </p></div>
+        </div>
+        </div>
         <div className="mb-6">
           <h2 className="text-lg font-semibold mb-2">Description</h2>
           <p className="text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum felis quis libero
-            consectetur, at euismod neque tincidunt. Ut id metus quis neque viverra eleifend. Suspendisse
-            hendrerit auctor dolor ut venenatis.
+           {v.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {farm.type === "Crops" ? crops.length > 0 ? (
+                  {(v.type === "CROPS" || v.type === "MIX") ? crops.length > 0 ? (
                     crops.map((crop, index) => (
                       <div
                         key={index}
@@ -145,22 +146,45 @@ export const FarmProfile = (ProfileStaticData : IProfileData) => {
                           <img className="h-10 w-10 rounded-full" src={crop.image} alt="" />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <a href="#" className="focus:outline-none">
+                          <div className="focus:outline-none">
                             <span className="absolute inset-0" aria-hidden="true" />
                             <p className="text-sm font-medium text-gray-900">{crop.title}</p>
                             <p className="truncate text-sm text-gray-500">{crop.status}</p>
-                          </a>
+                          </div>
                         </div>
                       </div>
                     ))
          ) : <div className="text-md font-medium text-center text-orange-600 m-4">your Crops</div> : ""  }
+         {
+          (v.type === "LIVESTOCKS" || v.type === "MIX")? livestock.length > 0 ? (
+            livestock.map((livestock, index) => {
+              return <>
+              <div
+                key={index}
+                className="flex items-center mb-2 space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
+              >
+                <div className="flex-shrink-0">
+                  <img className="h-10 w-10 rounded-full" src={livestock.image} alt="" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <a href="#" className="focus:outline-none">
+                    <span className="absolute inset-0" aria-hidden="true" />
+                    <p className="text-sm font-medium text-gray-900">{livestock.title}</p>
+                    <p className="truncate text-sm text-gray-500">{livestock.status}</p>
+                  </a>
+                </div>
+              </div>
+           </> })
+          ) : <div className="text-md font-medium text-center text-orange-600 m-4">your Crops</div> : "" 
+         }
         </div>
-          <h2 className="text-lg font-semibold mb-2">Land Management</h2>
+          <h2 className="text-lg font-semibold mb-4">Land Management</h2>
           <p className="text-gray-600">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum felis quis libero
             consectetur, at euismod neque tincidunt. Ut id metus quis neque viverra eleifend. Suspendisse
             hendrerit auctor dolor ut venenatis.
           </p>
+
         </div> 
             </>})}
       </div>

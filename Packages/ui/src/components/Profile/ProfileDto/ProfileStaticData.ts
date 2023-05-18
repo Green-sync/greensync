@@ -1,4 +1,28 @@
-import { IProfileData } from "./ProfileDto";
+import { IProfileData, FarmDto } from "./ProfileDto";
+
+
+export const Farm: FarmDto[] =  [
+   {
+    name: "Green Acres Farm",
+    type: "CROPS",
+    location: "Centurion, PTA",
+    size: "100 hectors",
+    image: "https://images.pexels.com/photos/872483/pexels-photo-872483.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    name: "Happy Hens Farm",
+    type: "LIVESTOCKS",
+    location: "Krugersdorp, JHB",
+    size: "50 hectors",
+    image: "https://images.pexels.com/photos/39351/purple-grapes-vineyard-napa-valley-napa-vineyard-39351.jpeg?auto=compress&cs=tinysrgb&w=600"
+},
+{
+  name: "Golden Fields Farm",
+  type: "Livestock and Crops",
+  location: "Dalmada, PLK",
+  size: "200 hectors"
+}] 
+
 
 export const ProfileStaticData: IProfileData = {
 data: {

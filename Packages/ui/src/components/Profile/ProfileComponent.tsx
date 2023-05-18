@@ -133,8 +133,8 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         <div className="text-orange-600 text-xl">{farm.name}</div>
                         <div className="text-gray-500 text-xs">{farm.location} | {farm.farmType}</div>
                         <button
-                        className="bg-lime-300 rounded-md text-white pl-4 pr-5"
-                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name} Farming`} popFunction={<FarmProfile />} style={"sm:max-w-auto"} /></button>
+                        className="bg-lime-300 rounded-md text-white pl-4 pr-5">
+                        <PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name} Farming`} popFunction={<FarmProfile name={farm.name} type={farm.type} location={farm.location} size={farm.size} />} style={"sm:max-w-auto"} /></button>
                     </div>
                    </> 
                 }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No farms added</div> }
