@@ -19,3 +19,16 @@ export const FarmFormStaticData: InputTypes[] = [
         isTextArea: { cols: '5', rows: "5" }, label: 'Description', name: 'description', id: 'description', placeholder: 'Type Your Details about the farm'
     }
 ]
+
+export const FarmerRegisterStaticData: InputTypes[] = [
+    {
+        name: "firstName", type: "text", placeholder: '', id: 'firstName', label: 'First Name'
+    },
+    {
+        name: "lastName", type: "text", placeholder: '', id: 'lastName', label: "lastName"
+    },
+    {
+        name: "phone", type: "tel", label: "Contact No", placeholder: '', id: 'phone',
+    }
+
+]
