@@ -12,13 +12,14 @@ input FarmInput {
     name: String
     location: String
     size: Float!
+    image: String
     description: String
     type: FarmType
 }
 enum FarmType{
     LIVESTOCK 
     CROPS
-MIX
+    MIX
 }
 
 type FarmResponse {

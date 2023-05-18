@@ -1,13 +1,13 @@
 export declare interface FarmInput {
-    farmId: string
-    userId: string
     name: string
     location: string
     size: number
+    image: string
     description: string
     type: FarmType
 }
 enum FarmType{
     LIVESTOCK, 
-    CROPS
+    CROPS,
+    MIX
 }
