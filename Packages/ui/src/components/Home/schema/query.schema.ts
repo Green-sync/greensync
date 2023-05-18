@@ -7,7 +7,6 @@ query GetProfile {
       success
       profile {
         firstName
-        farmIds
         email
         lastName
         phone

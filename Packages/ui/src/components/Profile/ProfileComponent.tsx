@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IProfileData } from "./ProfileDto/ProfileDto";
 import { PopUp } from "../..";
 import { useMutation, useQuery } from "@apollo/client";
@@ -7,75 +7,59 @@ import { FarmProfile } from "./FarmProfile";
 import { StockProfile } from "./StockProfile";
 import { DeviceProfile } from "./DeviceProfile";
 import { GET_PROFILE } from "../Home/schema";
+import { farmData } from "..";
 
-
-export const ProfileComponent = (ProfileStaticData : IProfileData) => {
-
-    const [open, setOpen] = useState(false)
+// "__typename": "Profile",
+// "firstName": "Dineo",
+// "farmIds": null,
+// "email": "dineo@opher.com",
+// "lastName": "Mathibela",
+// "phone": "06655237625"
+export const ProfileComponent = () => {
+    const [open, setOpen] = useState(false);
     const [changeDetails, setChangeDetails] = useState(false);
     const [formData, setFormData] = useState({
-            name: ProfileStaticData.data.name,
-            surname: ProfileStaticData.data.surname,
-            email: ProfileStaticData.data.email,
-            website: ProfileStaticData.data.website,
-            homeAddress: ProfileStaticData.data.homeAddress,
-            phoneNumber: ProfileStaticData.data.phoneNumber,
+    //   firstName: '',
+    //   email: '',
+    //   lastName: '',
+    //   phone: '',
+    });
+  
+    const { data, loading, error } = useQuery(GET_PROFILE);
+  
+    useEffect(() => {
+      if (!loading) {
+        if (data && data.getProfile && data.getProfile.profile) {
+            const { firstName, email, lastName, phone } = data.getProfile.profile;
+            setFormData({
+              firstName: firstName,
+              email: email,
+              lastName: lastName,
+              phone: phone,
+            });
+            console.log("form", formData);
+            console.log("Dineo", data.getProfile.profile);
         }
-    )
-    const onState = () => {
+      }
+      if (error) {
+        console.log(error);
+      }
+    }, [data, loading, error]);
+  
+        const onState = () => {
         setChangeDetails(!changeDetails)
         console.log("Clicked")
     }
-    const checkPassword = (e: any) => {
-        e.preventDefault()
-        const confirmPassword = ProfileStaticData.data.password
-        const password = e.target.value 
-        if(confirmPassword === password){
-            console.log("confirmed")
-        }
-        else {
-            console.log("wrong password")
-        }
-    }
-    // ===================GRAPHQL=======================================
-    const {data,loading,error} = useQuery(GET_PROFILE);
-    if(!loading) {
-        console.log("Dineo",data.getProfile);
-    }
-    if(error){
-        console.log(error);
-    }
-    // ===================================================================
-    const updatePassword = (e: any) => {
-        const newPassword = e.target.value
-        ProfileStaticData.data.password = newPassword;
-        // setFormData()
-    }
-
-    const onChange = (e : any) => {
-    const id = e.target.id
-    //@ts-ignore
-    formData[`${id}`] = e.target.value
-       setFormData({...formData})
-    }
     return (
-        <>
-         {
-                <>
-                <pre>
-                    {
-                        JSON.stringify(data,null,2)
-                    }
-                </pre>
-
-            </>}
+      <>
+        {/* <pre>{JSON.stringify(formData, null, 2)}</pre> */}
          <div className="container p-6 bg-gray-100">
-            <div className="grid grid-cols-1 md:grid-cols-2">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* <!-- First column --> */}
                 <div>
                 <div className=" bg-white rounded m-2 pb-6">
                 <div className="p-2 h-40">
-                  <img className=" mx-auto h-40 w-40 rounded-md border" src={ ProfileStaticData.data.photoURL ? `${ProfileStaticData.data.photoURL}` : "https://th.bing.com/th/id/R.08637f47762d9826b134576b3d008a05?rik=4GVDJkAco4u7PQ&pid=ImgRaw&r=0"} alt="" />
+                  <img className=" mx-auto h-40 w-40 rounded-md border" src={ data.photoURL ? `${data.photoURL}` : "https://th.bing.com/th/id/R.08637f47762d9826b134576b3d008a05?rik=4GVDJkAco4u7PQ&pid=ImgRaw&r=0"} alt="" />
                 </div>
                 <div className="flex justify-between max-w-500 m-2">
                     <p className="text-2xl font-medium">My Profile</p>
@@ -93,7 +77,7 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                         id={key}
                         placeholder={`Enter ${key}`}
                         className="outline-none w-full"
-                        onChange={onChange}
+                        // onChange={onChange}
                         />
                     </form>
                     <form className={`p-4 ${changeDetails ? "hidden": ""}`}>
@@ -124,7 +108,9 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                  </div>
                 {
                     open && <div className="m-4">Reset Password
-                    <form onSubmit={checkPassword}>
+                    <form 
+                    // onSubmit={checkPassword}
+                    >
                         <input type="password" placeholder="Enter Current Password" className="outline-none w-full m-4"/>
                         <div className="border-t border-lime-400 ml-4 mr-4"></div>
                         <input id="confirm" onChange={() => ""} type="password" placeholder="Enter new Password" className="outline-none w-full m-4"/>
@@ -141,63 +127,9 @@ export const ProfileComponent = (ProfileStaticData : IProfileData) => {
                 </div>
                 </div>
                 {/* ===========================================SECOND COLUMN============================================================= */}
-                <div className="">
-                <div className=" border-gray-400 mb-5 bg-white rounded-xl pb-6">
-                <div className="flex justify-between max-w-500 m-2 p-2">
-                    <p className="text-2xl font-medium">My Farms</p>
-                </div>
-                {ProfileStaticData.farm.length > 0 ? ProfileStaticData.farm.map((farm: any) => {
-                   return <>
-                    <div  className="bg-gray-100 p-2 rounded-md m-2">
-                        
-                        <div className="text-orange-600 text-xl">{farm.name}</div>
-                        <div className="text-gray-500 text-xs">{farm.location} | {farm.farmType}</div>
-                        {/* //@ts-ignore */}
-                        <button
-                        className="bg-lime-300 rounded-md text-white pl-4 pr-5">
-                        <PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name} Farming`} popFunction={<FarmProfile name={farm.name} type={farm.type} location={farm.location} size={farm.size} />} style={"sm:max-w-auto"} /></button>
-                    </div>
-                   </> 
-                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No farms added</div> }
-
-                </div>
-                {/* ==========================second row============================================= */}
-                <div className=" mb-5 mt-5 bg-white rounded-xl pb-6">
-                <div className="flex justify-between max-w-500 m-2 p-2">
-                    <p className="text-2xl font-medium">MarketPlace Stock</p>
-                </div>
-                {ProfileStaticData.stock.length > 0 ? ProfileStaticData.stock.map((stock: any) => {
-                   return <>
-                    <div className="bg-gray-100 p-2 rounded-lg m-2">
-                        <div className="text-orange-600 text-xl">{stock.itemName}</div>
-                        <div className="text-gray-500 text-xs">R{stock.price} each | {stock.quantity}pack</div>
-                        <button
-                        className="bg-lime-300 rounded-md text-white pl-4 pr-5"
-                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${stock.itemName}`} popFunction={<StockProfile itemName={stock.itemName} quantity={stock.quantity} price={stock.price} />} style={""} /></button>
-                    </div>
-                   </> 
-                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No Stocks in the market at the moment</div>}
-            </div>
-                {/* ==========================third row============================================= */}
-                <div className=" mb-5 mt-5 bg-white rounded-xl pb-6">
-                <div className="flex justify-between max-w-500 m-2 p-2">
-                    <p className="text-2xl font-medium">My devices</p>
-                </div>
-                {ProfileStaticData.device.length > 0 ? ProfileStaticData.device.map((device: any) => {
-                   return <>
-                    <div className="bg-gray-100 p-2 rounded-lg m-2">
-                        <div className="text-orange-600 text-xl">{device.name}</div>
-                        <div className="text-gray-500 text-xs">{device.type}</div>
-                        <button
-                        className="bg-lime-300 rounded-md text-white pl-4 pr-5"
-                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${device.name}`} popFunction={<DeviceProfile name={device.name} type={device.type} image={device.image} />} style={""} /></button>
-                    </div>
-                   </> 
-                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">You dont own devices at the moment</div>}
-            </div>
-                </div>
-            </div>
-            </div>
+                
+            </div> 
+        {/* </div> */}
       </>
     );
-  }
+};
