@@ -18,4 +18,4 @@ import {gql} from "@apollo/client"
     dateCreated?: string | null;
   }
   
-`;
+
