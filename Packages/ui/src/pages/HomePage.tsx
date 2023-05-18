@@ -27,6 +27,7 @@ const slides = [
 export const HomePage = () => {
   return {
     home: <><HomeComponent /></>,
+    // profile: <><FarmProfile name={ProfileStaticData.farm} farmType={farm.farmType} location={farm.location} size={farm.size} image={farm.image} /></>,
     profile: <><ProfileComponent data={ProfileStaticData.data} farm={ProfileStaticData.farm} stock={ProfileStaticData.stock} device={ProfileStaticData.device} /></>,
     weather: <><WeatherComponent /></>,
     calendar: <>  <CalendarComponent ctype={'DashboardView'} days={DashBoardCalendarStaticData.days} events={[]}/></>,

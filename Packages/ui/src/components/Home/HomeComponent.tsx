@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import { useMutation, useQuery } from "@apollo/client";
 import { CalendarComponent, FarmerCard, GreenSyncContext } from ".."
 import { CalendarStaticData } from "../.."
