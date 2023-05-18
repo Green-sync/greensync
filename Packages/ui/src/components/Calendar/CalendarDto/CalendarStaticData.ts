@@ -47,59 +47,63 @@ export const CalendarStaticData: CalendarProps = {
     { date: '2022-02-06' },
   ],
   events: [
-    {
-      id: 1,
-      name: 'Doornrandjies Farm Life',
-      imageUrl:
-        'https://cdn-icons-png.flaticon.com/512/187/187039.png',
-      start: '1:00 PM',
-      startDatetime: '2022-01-21T13:00',
-      end: '2:30 PM',
-      endDatetime: '2022-01-21T14:30',
-      description: 'Heavy Rain detected and Thundershowres'
-    }
+    // {
+    //   id: 1,
+    //   name: 'Doornrandjies Farm Life',
+    //   imageUrl:
+    //     'https://cdn-icons-png.flaticon.com/512/187/187039.png',
+    //   start: '1:00 PM',
+    //   startDatetime: '2022-01-21T13:00',
+    //   end: '2:30 PM',
+    //   endDatetime: '2022-01-21T14:30',
+    //   description: 'Heavy Rain detected and Thundershowres'
+    // }
   ]
 }
 
 export const DashBoardCalendarStaticData: IDashBoardCalendar = {
   ctype: 'DashboardView',
-  meetings: [{
-    id: 1,
-    date: 'January 23rd, 2022',
-    time: '5:00 PM',
-    datetime: '2022-01-10T17:00',
-    name: 'Doornrandjies Farm Life',
-    imageUrl:
-      'https://cdn-icons-png.flaticon.com/512/187/187039.png',
-    location: 'Centurion',
-  }, {
-    id: 2,
-    date: 'June 10th, 2022',
-    time: '18:00 PM',
-    datetime: '2022-01-10T17:00',
-    name: 'Ebeneza Farm',
-    imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_HS0fI5-1mD81Lr_6PG1Izo1AZHF2Ek3jMg&usqp=CAU',
-    location: 'Pretoia East',
-  }, {
-    id: 3,
-    date: 'May  28, 2022',
-    time: '15:30 PM',
-    datetime: '2022-01-10T17:00',
-    name: 'Inkomo Cows Clan',
-    imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgsf0JaK1xEyH0F6LIiur3jPFBSlR77OZmhA&usqp=CAU',
-    location: '12 Main street Plot 669 Pretoria',
-  }, {
-    id: 4,
-    date: 'September 11th, 2022',
-    time: '13:00 PM',
-    datetime: '2022-01-10T17:00',
-    name: 'Green Land farm',
-    imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG7ZhprmW0ayqgOO8tBVEm7FDVNtGqJOa9-A&usqp=CAU',
-    location: 'Pretoia East',
-  },],
+  meetings: [
+    
+  //   {
+  //   id: 1,
+  //   date: 'January 23rd, 2022',
+  //   time: '5:00 PM',
+  //   datetime: '2022-01-10T17:00',
+  //   name: 'Doornrandjies Farm Life',
+  //   imageUrl:
+  //     'https://cdn-icons-png.flaticon.com/512/187/187039.png',
+  //   location: 'Centurion',
+  // }, {
+  //   id: 2,
+  //   date: 'June 10th, 2022',
+  //   time: '18:00 PM',
+  //   datetime: '2022-01-10T17:00',
+  //   name: 'Ebeneza Farm',
+  //   imageUrl:
+  //     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_HS0fI5-1mD81Lr_6PG1Izo1AZHF2Ek3jMg&usqp=CAU',
+  //   location: 'Pretoia East',
+  // }, {
+  //   id: 3,
+  //   date: 'May  28, 2022',
+  //   time: '15:30 PM',
+  //   datetime: '2022-01-10T17:00',
+  //   name: 'Inkomo Cows Clan',
+  //   imageUrl:
+  //     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgsf0JaK1xEyH0F6LIiur3jPFBSlR77OZmhA&usqp=CAU',
+  //   location: '12 Main street Plot 669 Pretoria',
+  // }, {
+  //   id: 4,
+  //   date: 'September 11th, 2022',
+  //   time: '13:00 PM',
+  //   datetime: '2022-01-10T17:00',
+  //   name: 'Green Land farm',
+  //   imageUrl:
+  //     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG7ZhprmW0ayqgOO8tBVEm7FDVNtGqJOa9-A&usqp=CAU',
+  //   location: 'Pretoia East',
+  // }
+  
+  ],
   days: [
     { date: '2021-12-27' },
     { date: '2021-12-28' },

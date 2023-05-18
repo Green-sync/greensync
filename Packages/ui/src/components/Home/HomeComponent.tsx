@@ -17,20 +17,21 @@ const InternalComp = ({GreetingMessage}:any) => {
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
 
                     <div className='grid grid-cols-1 gap-2 sm:grid-cols-1'>
-
-                        <div className="rounded-lg shadow p-4 m-3 text-3xl">
-                            <CalendarComponent days={CalendarStaticData.days} events={CalendarStaticData.events} ctype={'HomeView'} />
-
-                        </div>
-                    </div>
-
-                    <div className='grid grid-cols-1 gap-2 sm:grid-cols-1'>
-
                         <div className="rounded-lg shadow p-4 m-3  text-3xl">
                             <FarmerCard />
                         </div>
 
+                        <div className="rounded-lg shadow p-4 m-3 text-3xl hidden">
+
+                        </div>
+
+
+                    </div>
+
+                    <div className='grid grid-cols-1 gap-2 sm:grid-cols-1'>
+
                         <div className="rounded-lg shadow p-4 m-3 text-3xl">
+                            <CalendarComponent days={CalendarStaticData.days} events={CalendarStaticData.events} ctype={'HomeView'} />
 
                         </div>
                     </div>
