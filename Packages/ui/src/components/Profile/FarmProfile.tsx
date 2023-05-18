@@ -1,5 +1,5 @@
 import { MapPinIcon } from "@heroicons/react/20/solid"
-import { IFarms, IProfileData,FarmDto } from "./ProfileDto"
+import { IFarms, IProfileData,FarmDto, land } from "./ProfileDto"
 import { useState } from "react";
 
 const crops = [
@@ -37,7 +37,7 @@ const crops = [
   export const Farm: FarmDto[] =  [
     {
      name: "Green Acres Farm",
-     type: "MIX",
+     type: "LIVESTOCKS",
      location: "Centurion, PTA",
      description: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum felis quis libero
      consectetur, at euismod neque tincidunt. Ut id metus quis neque viverra eleifend. Suspendisse
@@ -47,20 +47,6 @@ const crops = [
      size: "100 hectors",
      image: "https://images.pexels.com/photos/872483/pexels-photo-872483.jpeg?auto=compress&cs=tinysrgb&w=600"
     }
-//    },
-//    {
-//      name: "Happy Hens Farm",
-//      type: "LIVESTOCKS",
-//      location: "Krugersdorp, JHB",
-//      size: "50 hectors",
-//      image: "https://images.pexels.com/photos/39351/purple-grapes-vineyard-napa-valley-napa-vineyard-39351.jpeg?auto=compress&cs=tinysrgb&w=600"
-//  },
-//  {
-//    name: "Golden Fields Farm",
-//    type: "Livestock and Crops",
-//    location: "Dalmada, PLK",
-//    size: "200 hectors"
-// }
 ] 
   const livestock = [
     {
@@ -94,6 +80,33 @@ const crops = [
       image: 'https://images.pexels.com/photos/3193155/pexels-photo-3193155.jpeg?auto=compress&cs=tinysrgb&w=600'
     }
   ];
+
+const landManagement: land[] =[
+  {
+    name: "Soil Testing",
+    status: "Healthy",
+    link: "",
+    manager: "John Doe"
+  },
+  {
+    name: "Harvesting and Storages",
+    status: "Initial Stage",
+    link: "",
+    manager: "Paul"
+  },
+  {
+    name: "Irrigation Management",
+    status: "in Progress",
+    link: "",
+    manager: "Lebo"
+  },
+  {
+    name: "Pest Control",
+    status: "Clear",
+    link: "",
+    manager: "Moses"
+  }
+]
 export const FarmProfile = () => {
   const [view, setView] = useState("farmType")
 
@@ -112,9 +125,9 @@ export const FarmProfile = () => {
           <div key={i}> 
           <div className="flex m-4">      
               <img
-          src={v.image} // Replace with the actual farm image URL
+          src={v.image}
           alt="Farm"
-          className="rounded-lg mb-6 h-40 w-40"
+          className="rounded-lg mb-6 h-48 w-40"
         />
         <div className="m-4">
         <h1 className="text-2xl md:text-3xl font-semibold mb-2">{v.name}</h1>
@@ -134,7 +147,10 @@ export const FarmProfile = () => {
            {v.description}
           </p>
         </div>
-
+        <div>       
+            <h1 className="text-xl  flex  p-3 rounded-md text-white bg-lime-900 font-medium mb-4">
+                     {v.type} Status
+                   </h1></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {(v.type === "CROPS" || v.type === "MIX") ? crops.length > 0 ? (
                     crops.map((crop, index) => (
@@ -184,9 +200,23 @@ export const FarmProfile = () => {
             consectetur, at euismod neque tincidunt. Ut id metus quis neque viverra eleifend. Suspendisse
             hendrerit auctor dolor ut venenatis.
           </p>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 m-4">
+          {landManagement.map((farm,i) => (
+              <div key={i} className="bg-white cursor-pointer overflow-hidden shadow rounded-lg">
+                <div className="px-4 py-5 sm:p-6">
 
-        </div> 
-            </>})}
+                  <h1 className="text-lg leading-6 font-medium text-gray-900">{farm.name}</h1>
+                  <p className="mt-1 max-w-2xl text-md text-gray-800">{farm.manager}</p>
+                  <p className="mt-1 max-w-2xl text-sm text-gray-500">{farm.status}</p>
+
+                </div>
+
+              </div>
+            ))}
+            </div>
+</div>
+        </>
+        })}
       </div>
         </div>
         </>

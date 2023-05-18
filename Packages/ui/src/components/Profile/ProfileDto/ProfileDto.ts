@@ -8,6 +8,12 @@ export declare interface IProfile {
     photoURL: string
     homeAddress: string
 }
+export type land = {
+    name: string
+    status: string
+    link: string
+    manager: string
+}
 export type FarmDto = {
 
     name: string;
