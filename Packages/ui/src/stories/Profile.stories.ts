@@ -5,16 +5,16 @@ import {FarmProfile, ProfileComponent, ProfileStaticData } from '../components'
 
 
 const metaProfile = {
-    component: ProfileComponent,
+    component: FarmProfile,
     title: "Components/Profile",
     
 } satisfies Meta<typeof ProfileComponent>
 
-const metaFarmProfile = {
-    component: FarmProfile,
-    title: "Components/Profile",
+// const metaFarmProfile = {
+//     component: FarmProfile,
+//     title: "Components/Profile",
     
-} satisfies Meta<typeof FarmProfile>
+// } satisfies Meta<typeof FarmProfile>
 
 export default metaProfile;
 // export default metaFarmProfile;

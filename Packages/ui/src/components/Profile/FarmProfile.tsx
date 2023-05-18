@@ -137,7 +137,7 @@ export const FarmProfile = () => {
                             </div>
             <p className="text-gray-600 mb-4">{v.location}</p>
             </div>
-            <div className="flex"><p className="ml-2 text-sm  bg-gray-300 rounded-md m-1 p-1">Regitered Date:</p><p className="ml-2 bg-gray-300 rounded-md m-1 p-1"> {"01/03/2009"}</p></div>
+            <div className="flex"><p className="ml-2 text-sm  bg-gray-300 rounded-md m-0 p-1">Regitered Date:</p><p className="ml-2 bg-gray-300 rounded-md m-0 p-1"> {"01/03/2009"}</p></div>
             <div className="flex"><p className="ml-2 text-sm bg-gray-300 rounded-md m-1 p-1">Soil level</p><p className="ml-2 bg-gray-300 rounded-md m-1 p-1">  sandy clay loam </p></div>
         </div>
         </div>
@@ -194,7 +194,7 @@ export const FarmProfile = () => {
           ) : <div className="text-md font-medium text-center text-orange-600 m-4">your Crops</div> : "" 
          }
         </div>
-          <h2 className="text-lg font-semibold mb-4">Land Management</h2>
+          <h2 className="text-xl  flex  p-3 rounded-md text-white bg-lime-900 font-medium mb-4 mt-4">Land Management</h2>
           <p className="text-gray-600">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum felis quis libero
             consectetur, at euismod neque tincidunt. Ut id metus quis neque viverra eleifend. Suspendisse
@@ -206,8 +206,8 @@ export const FarmProfile = () => {
                 <div className="px-4 py-5 sm:p-6">
 
                   <h1 className="text-lg leading-6 font-medium text-gray-900">{farm.name}</h1>
-                  <p className="mt-1 max-w-2xl text-md text-gray-800">{farm.manager}</p>
-                  <p className="mt-1 max-w-2xl text-sm text-gray-500">{farm.status}</p>
+                  <p className="mt-1 max-w-2xl text-md text-gray-800">Caretaker: {farm.manager}</p>
+                  <p className="mt-1 max-w-2xl text-sm text-gray-500">Status: {farm.status}</p>
 
                 </div>
 
