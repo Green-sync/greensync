@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IProfileData } from "./ProfileDto/ProfileDto";
-import { PopUp } from "../..";
+import { GreenSyncContext, PopUp } from "../..";
 import { useMutation, useQuery } from "@apollo/client";
 import { FarmProfile } from "./FarmProfile";
 import { StockProfile } from "./StockProfile";
@@ -11,12 +11,8 @@ import { GET_PROFILE, UPDATE_PROFILE } from "../Home/schema";
 export const ProfileComponent = () => {
     const [open, setOpen] = useState(false);
     const [changeDetails, setChangeDetails] = useState(false);
-    const [formData, setFormData] = useState({
-    //   firstName: '',
-    //   email: '',
-    //   lastName: '',
-    //   phone: '',
-    });
+    const context = useContext(GreenSyncContext)
+    const [formData, setFormData] = useState({});
   
     const { data, loading, error } = useQuery(GET_PROFILE);
     const [ editUser ] = useMutation(UPDATE_PROFILE)
@@ -54,9 +50,9 @@ export const ProfileComponent = () => {
     const handleProfileUpdate = async (e: any) => {
         e.preventDefault();
         const { data: editedUserData, errors } = await editUser({
-            variables: { updates: formData,profileId: "QX6rh3ZavEctoz9xRrgT2ZxwpBzy"},
+            variables: { updates: formData,profileId: context?.uid},
           });
-        console.log(editedUserData)
+          console.log(editedUserData)
         setChangeDetails(!changeDetails)
       };
     return (
