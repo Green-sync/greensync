@@ -34,7 +34,40 @@ const crops = [
       image: 'https://images.pexels.com/photos/6280177/pexels-photo-6280177.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
   ];
+  type Farm = {
+    id: number;
+    name: string;
+    type: string;
+    location: string;
+    image?: string;
+    size: string
+  };
 
+  const farms: Farm[] = [
+    {
+      id: 1,
+      name: "Green Acres Farm",
+      type: "Crops",
+      location: "Centurion, PTA",
+      size: "100 hectors",
+      image: "https://images.pexels.com/photos/872483/pexels-photo-872483.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+      id: 2,
+      name: "Happy Hens Farm",
+      type: "Livestock",
+      location: "Krugersdorp, JHB",
+      size: "50 hectors",
+      image: "https://images.pexels.com/photos/39351/purple-grapes-vineyard-napa-valley-napa-vineyard-39351.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+      id: 3,
+      name: "Golden Fields Farm",
+      type: "Livestock and Crops",
+      location: "Dalmada, PLK",
+      size: "200 hectors"
+    },
+  ];
   const livestock = [
     {
       title: 'Cattle',
@@ -74,19 +107,23 @@ export const FarmProfile = (ProfileStaticData : IProfileData) => {
       const id = e.target.id
       setView(id)
     }
-    console.log(ProfileStaticData.data)
-    return(
+    // const farmArray = Object.values(ProfileStaticData?.farm);
+    console.log(ProfileStaticData.farm)
+    return (
         <>
         <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
-      <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 max-w-2xl w-full">
+        <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 max-w-2xl w-full">
+        {farms.map((farm) => {
+          return <>
+          <div key={farm.id}> 
         <img
-          src="farm-image.jpg" // Replace with the actual farm image URL
+          src={farm.image} // Replace with the actual farm image URL
           alt="Farm"
-          className="w-full rounded-lg mb-6"
+          className="rounded-lg mb-6 h-40 w-40"
         />
-
-        <h1 className="text-2xl md:text-3xl font-semibold mb-2">Farm Name</h1>
-        <p className="text-gray-600 mb-4">Location</p>
+          
+        <h1 className="text-2xl md:text-3xl font-semibold mb-2">{farm.name}</h1>
+        <p className="text-gray-600 mb-4">{farm.location}</p>
 
         <div className="mb-6">
           <h2 className="text-lg font-semibold mb-2">Description</h2>
@@ -97,27 +134,37 @@ export const FarmProfile = (ProfileStaticData : IProfileData) => {
           </p>
         </div>
 
-        {crops && crops.length > 0 && (
-          <div className="mb-6">
-            <h2 className="text-lg font-semibold mb-2">Crops</h2>
-            <ul className="list-disc list-inside">
-              {crops.map((crop,i) => (
-                <li key={i}>{crop.title}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {farm.type === "Crops" ? crops.length > 0 ? (
+                    crops.map((crop, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400"
+                      >
+                        <div className="flex-shrink-0">
+                          <img className="h-10 w-10 rounded-full" src={crop.image} alt="" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <a href="#" className="focus:outline-none">
+                            <span className="absolute inset-0" aria-hidden="true" />
+                            <p className="text-sm font-medium text-gray-900">{crop.title}</p>
+                            <p className="truncate text-sm text-gray-500">{crop.status}</p>
+                          </a>
+                        </div>
+                      </div>
+                    ))
+         ) : <div className="text-md font-medium text-center text-orange-600 m-4">your Crops</div> : ""  }
+        </div>
           <h2 className="text-lg font-semibold mb-2">Land Management</h2>
           <p className="text-gray-600">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum felis quis libero
             consectetur, at euismod neque tincidunt. Ut id metus quis neque viverra eleifend. Suspendisse
             hendrerit auctor dolor ut venenatis.
           </p>
-        </div>
+        </div> 
+            </>})}
       </div>
-    </div>
+        </div>
         </>
     )
 }
