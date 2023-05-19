@@ -5,7 +5,7 @@ import {FarmProfile,StockProfile, ProfileComponent, ProfileStaticData, DevicePro
 
 
 const metaProfile = {
-    component: StockProfile,
+    component: DeviceProfile,
     title: "Components/Profile",
     
 } satisfies Meta<typeof ProfileComponent>

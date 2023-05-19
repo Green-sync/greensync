@@ -180,7 +180,7 @@ export const ProfileComponent = () => {
                         <div className="text-gray-500 text-xs">{device.type}</div>
                         <button
                         className="bg-lime-300 rounded-md text-white pl-4 pr-5"
-                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${device.name}`} popFunction={<DeviceProfile name={device.name} type={device.type} image={device.image} />} style={""} /></button>
+                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${device.name}`} popFunction={<DeviceProfile />}/></button>
                     </div>
                    </> 
                 }) : <div className="text-sm font-medium text-center text-orange-600 m-4">You dont own devices at the moment</div>}
