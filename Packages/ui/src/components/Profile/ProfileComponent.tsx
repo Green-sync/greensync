@@ -7,15 +7,22 @@ import { DeviceProfile } from "./DeviceProfile";
 import { GET_PROFILE } from "../Home/schema";
 import { UPDATE_PROFILE } from "./GRAPHQL/mutation";
 import { StockProfile } from ".";
+import { GET_FARM } from "./GRAPHQL/query";
 
 export const ProfileComponent = () => {
     const [open, setOpen] = useState(false);
     const [changeDetails, setChangeDetails] = useState(false);
     const context = useContext(GreenSyncContext)
     const [formData, setFormData] = useState({});
+    const [farm, setFarm] = useState({})
   
     const { data, loading, error } = useQuery(GET_PROFILE);
     const [ editUser ] = useMutation(UPDATE_PROFILE)
+    const { data: farmData, loading: isFetching, error: fetchError } = useQuery(GET_FARM, {
+        variables: {
+            userId: context?.uid
+        }});
+
   
     useEffect(() => {
       if (!loading) {
@@ -27,9 +34,16 @@ export const ProfileComponent = () => {
               lastName: lastName,
               phone: phone,
             });
-            // console.log("form", formData);
-            // console.log("Dineo", data.getProfile.profile);
         }
+      }
+      if(farmData){
+        const {name, location, size, description} = farmData
+        setFarm({
+            name: name,
+            location: location,
+            size: size,
+            description: description
+        });
       }
       if (error) {
         console.log(error);
@@ -39,6 +53,8 @@ export const ProfileComponent = () => {
         const onState = () => {
         setChangeDetails(!changeDetails)
     }
+    console.log("farm", farm)
+    console.log("farmData", farmData)
 
     const onChange = (e : any) => {
     const id = e.target.id
@@ -136,19 +152,22 @@ export const ProfileComponent = () => {
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My Farms</p>
                 </div>
-                {farmData.length > 0 ? farmData.map((farm: any) => {
+                {
+                    <pre>{JSON.stringify(farmData,null, 2)}</pre>
+                }
+                {/* {farmData.length > 0 ? farmData.map((farm: any) => {
                    return <>
                     <div  className="bg-gray-100 p-2 rounded-md m-2">
                         
                         <div className="text-orange-600 text-xl">{farm.name}</div>
                         <div className="text-gray-500 text-xs">{farm.location} | {farm.farmType}</div>
                         {/* //@ts-ignore */}
-                        <button
+                        {/* <button
                         className="bg-lime-300 rounded-md text-white pl-4 pr-5">
-                        <PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name} Farming`} popFunction={<FarmProfile name={farm.name} type={farm.type} location={farm.location} size={farm.size} />} style={"sm:max-w-auto"} /></button>
+                        <PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name} Farming`} popFunction={<FarmProfile />} style={"sm:max-w-auto"} /></button>
                     </div>
                    </> 
-                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No farms added</div> }
+                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No farms added</div> } */} 
 
                 </div>
                 {/* ==========================second row============================================= */}
@@ -156,7 +175,7 @@ export const ProfileComponent = () => {
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">MarketPlace Stock</p>
                 </div>
-                {ProfileStaticData.stock.length > 0 ? ProfileStaticData.stock.map((stock: any) => {
+                {/* {ProfileStaticData.stock.length > 0 ? ProfileStaticData.stock.map((stock: any) => {
                    return <>
                     <div className="bg-gray-100 p-2 rounded-lg m-2">
                         <div className="text-orange-600 text-xl">{stock.itemName}</div>
@@ -166,14 +185,15 @@ export const ProfileComponent = () => {
                         ><PopUp onClickTitile={"view more >"} popUpTittle={`${stock.itemName}`} popFunction={<StockProfile />} /></button>
                     </div>
                    </> 
-                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No Stocks in the market at the moment</div>}
+                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No Stocks in the market at the moment</div>
+                } */}
             </div>
                 {/* ==========================third row============================================= */}
                 <div className=" mb-5 mt-5 bg-white rounded-xl pb-6">
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My devices</p>
                 </div>
-                {ProfileStaticData.device.length > 0 ? ProfileStaticData.device.map((device: any) => {
+                {/* {ProfileStaticData.device.length > 0 ? ProfileStaticData.device.map((device: any) => {
                    return <>
                     <div className="bg-gray-100 p-2 rounded-lg m-2">
                         <div className="text-orange-600 text-xl">{device.name}</div>
@@ -183,7 +203,8 @@ export const ProfileComponent = () => {
                         ><PopUp onClickTitile={"view more >"} popUpTittle={`${device.name}`} popFunction={<DeviceProfile />}/></button>
                     </div>
                    </> 
-                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">You dont own devices at the moment</div>}
+                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">You dont own devices at the moment</div>
+                } */}
             </div>
                 </div>
             </div> 
