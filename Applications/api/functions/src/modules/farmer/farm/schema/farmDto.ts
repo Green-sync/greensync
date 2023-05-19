@@ -1,7 +1,7 @@
 export declare interface FarmInput {
     name: string
     location: string
-    size: number
+    size: string
     image: string
     description: string
     type: FarmType

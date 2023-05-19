@@ -11,7 +11,7 @@ type Farm {
 input FarmInput {
     name: String
     location: String
-    size: Float!
+    size: String
     image: String
     description: String
     type: FarmType
