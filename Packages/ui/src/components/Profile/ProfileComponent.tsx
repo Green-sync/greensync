@@ -6,6 +6,7 @@ import { FarmProfile } from "./FarmProfile";
 import { DeviceProfile } from "./DeviceProfile";
 import { GET_PROFILE } from "../Home/schema";
 import { UPDATE_PROFILE } from "./GRAPHQL/mutation";
+import { StockProfile } from ".";
 
 export const ProfileComponent = () => {
     const [open, setOpen] = useState(false);
@@ -151,7 +152,7 @@ export const ProfileComponent = () => {
 
                 </div>
                 {/* ==========================second row============================================= */}
-                {/* <div className=" mb-5 mt-5 bg-white rounded-xl pb-6">
+                <div className=" mb-5 mt-5 bg-white rounded-xl pb-6">
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">MarketPlace Stock</p>
                 </div>
@@ -162,11 +163,11 @@ export const ProfileComponent = () => {
                         <div className="text-gray-500 text-xs">R{stock.price} each | {stock.quantity}pack</div>
                         <button
                         className="bg-lime-300 rounded-md text-white pl-4 pr-5"
-                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${stock.itemName}`} popFunction={<StockProfile itemName={stock.itemName} quantity={stock.quantity} price={stock.price} />} style={""} /></button>
+                        ><PopUp onClickTitile={"view more >"} popUpTittle={`${stock.itemName}`} popFunction={<StockProfile />} /></button>
                     </div>
                    </> 
                 }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No Stocks in the market at the moment</div>}
-            </div> */}
+            </div>
                 {/* ==========================third row============================================= */}
                 <div className=" mb-5 mt-5 bg-white rounded-xl pb-6">
                 <div className="flex justify-between max-w-500 m-2 p-2">

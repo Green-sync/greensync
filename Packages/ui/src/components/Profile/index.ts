@@ -1,3 +1,5 @@
 export * from './ProfileComponent'
 export * from './FarmProfile'
+export * from './DeviceProfile'
+export * from './StockProfile'
 export * from './ProfileDto'

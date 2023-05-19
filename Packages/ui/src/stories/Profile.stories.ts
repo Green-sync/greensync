@@ -1,25 +1,20 @@
 import { Meta, StoryObj } from "@storybook/react";
-import {FarmProfile, ProfileComponent, ProfileStaticData } from '../components'
+import {FarmProfile,StockProfile, ProfileComponent, ProfileStaticData, DeviceProfile } from '../components'
 
 
 
 
 const metaProfile = {
-    component: FarmProfile,
+    component: StockProfile,
     title: "Components/Profile",
     
 } satisfies Meta<typeof ProfileComponent>
 
-// const metaFarmProfile = {
-//     component: FarmProfile,
-//     title: "Components/Profile",
-    
-// } satisfies Meta<typeof FarmProfile>
 
 export default metaProfile;
-// export default metaFarmProfile;
+
 type profileStory  = StoryObj<typeof metaProfile>
-// type farmProfileStory = StoryObj<typeof metaFarmProfile>
+
 
 export const UserProfile: profileStory = {
     args: {
@@ -27,8 +22,3 @@ export const UserProfile: profileStory = {
     }
 
 }
-// export const FarmProfile: farmProfileStory = {
-//     args: {        
-//     }
-
-// }
