@@ -4,7 +4,6 @@ export const GET_FARM = gql`
 query GetFarmByUserId($userId: ID!) {
   getFarmByUserId(userId: $userId) {
     name
-    type
     location
     size
     description

@@ -25,6 +25,7 @@ export const ProfileComponent = () => {
 
   
     useEffect(() => {
+// =====================User/Farmer data==========================================================
       if (!loading) {
         if (data && data.getProfile && data.getProfile.profile) {
             const { firstName, email, lastName, phone } = data.getProfile.profile;
@@ -36,19 +37,25 @@ export const ProfileComponent = () => {
             });
         }
       }
-      if(farmData){
-        const {name, location, size, description} = farmData
-        setFarm({
-            name: name,
-            location: location,
-            size: size,
-            description: description
-        });
-      }
       if (error) {
         console.log(error);
       }
-    }, [data, loading, error]);
+    //   ==================farm data====================================
+    if (!isFetching) {
+        if (farmData && farmData.getFarmByUserId && farmData.getFarmByUserId.length > 0) {
+          const { name, location, size, description } = farmData.getFarmByUserId[0];
+          setFarm({
+            name: name,
+            location: location,
+            size: size,
+            description: description,
+          });
+        }
+      }
+      if (fetchError) {
+        console.log(fetchError);
+      }
+    }, [data, loading, error, farmData, isFetching, fetchError]);
   
         const onState = () => {
         setChangeDetails(!changeDetails)
@@ -153,7 +160,7 @@ export const ProfileComponent = () => {
                     <p className="text-2xl font-medium">My Farms</p>
                 </div>
                 {
-                    <pre>{JSON.stringify(farmData,null, 2)}</pre>
+                    <pre>{JSON.stringify(farm,null, 2)}</pre>
                 }
                 {/* {farmData.length > 0 ? farmData.map((farm: any) => {
                    return <>
