@@ -28,6 +28,7 @@ type CroRresponse {
 }
   extend type Query {
     getCrop: [Crop] 
+    getCropByfarmId(farmId: ID): [Crop]
   }
 
   extend type  Mutation {

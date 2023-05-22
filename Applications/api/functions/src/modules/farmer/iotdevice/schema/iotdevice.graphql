@@ -1,17 +1,14 @@
 type IoTDevice {
-    deviceId: ID!
-    userId: ID!
-    farmId: ID!
-    type: String!
-    location: Location!
-    data: String!
-    lastUpdated: String!
+    deviceId: ID
+    userId: ID
+    farmId: ID
+    type: String
+    location: String
+    data: String
+    lastUpdated: String
 }
 
-  type Location {
-    latitude: Float!
-    longitude: Float!
-  }
+ 
 
 input IoTDeviceInput {
     deviceId: ID!

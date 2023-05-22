@@ -3,7 +3,7 @@ import { db } from "../../../utils/firbase.config";
 export class IotdeviceService {
     static async addIotdevice(device: any) {
         // Create a new document in the "farms" collection with the specified user ID and farm details
-        const deviceRef = await db.collection('Iotdevices').add({
+        const deviceRef = await db.collection('Iotdevice').add({
           ...device,
           userId: "1d1d12345" //context.uid
         });

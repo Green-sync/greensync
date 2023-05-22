@@ -6,7 +6,7 @@ import { CropInput } from "./schema/cropDto";
 export class CropsService {
   static async addCrop(crop: any, user:UserDetails) {
        
-        const cropRef = await db.collection('Crops').add({
+        const cropRef = await db.collection('Crop').add({
           ...crop,
           userId: user.uid
         });
@@ -27,7 +27,7 @@ export class CropsService {
         try {
     
           // Update the farm document with the specified ID
-          await db.collection('Crops').doc(cropId).update({...updates});
+          await db.collection('Crop').doc(cropId).update({...updates});
           // Return a success message
           return {
             message: "Crop details successfully updated", success: true,
@@ -42,7 +42,7 @@ export class CropsService {
 
       static async getCrop(user: UserDetails): Promise<any> {
 
-        const cropsRef = db.collection('Crops');
+        const cropsRef = db.collection('Crop');
         const query = cropsRef.where('userId', '==', user.uid);
       
         const snapshot = await query.get();
@@ -54,6 +54,22 @@ export class CropsService {
         console.log(crops);
       
         return crops;
+    }
+
+    static async getCropByfarmId(farmId: string,user: UserDetails): Promise<any> {
+
+      const cropRef = db.collection('Crop');
+      const query = cropRef.where('farmId', '==', farmId);
+  
+      const snapshot = await query.get();
+      const crops: any[] = [];
+  
+      snapshot.forEach(doc => {
+        crops.push({ id: doc.id, ...doc.data() });
+      });
+      console.log(crops);
+  
+      return crops;
     }
 
 }

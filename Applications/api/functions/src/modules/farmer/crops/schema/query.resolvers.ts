@@ -1,3 +1,4 @@
+import { UserDetails } from "../../../auth/contextDto";
 import { CropsService } from "../CropsService";
 
 export const CropsQueryResolver = {
@@ -5,4 +6,8 @@ export const CropsQueryResolver = {
     
         return CropsService.getCrop(context.user);
      },
+     getCropByfarmId: async(_:unknown, args: {farmId: string}, context: {user: UserDetails})=>{
+        return CropsService.getCropByfarmId(args.farmId, context.user)
+
+     }
 }
