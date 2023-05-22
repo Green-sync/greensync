@@ -8,13 +8,15 @@ import { GET_PROFILE } from "../Home/schema";
 import { UPDATE_PROFILE } from "./GRAPHQL/mutation";
 import { StockProfile } from ".";
 import { GET_FARM } from "./GRAPHQL/query";
+import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
 export const ProfileComponent = () => {
     const [open, setOpen] = useState(false);
+    const [navigate, setNavigate] = useState(false)
     const [changeDetails, setChangeDetails] = useState(false);
     const context = useContext(GreenSyncContext)
     const [formData, setFormData] = useState({});
-    const [farm, setFarm] = useState({})
+    const [farm, setFarm] = useState([])
   
     const { data, loading, error } = useQuery(GET_PROFILE);
     const [ editUser ] = useMutation(UPDATE_PROFILE)
@@ -43,18 +45,28 @@ export const ProfileComponent = () => {
     //   ==================farm data====================================
     if (!isFetching) {
         if (farmData && farmData.getFarmByUserId && farmData.getFarmByUserId.length > 0) {
-          const { name, location, size, description } = farmData.getFarmByUserId[0];
-          setFarm({
-            name: name,
-            location: location,
-            size: size,
-            description: description,
-          });
+            const updatedFarm = [...farm];
+            farmData.getFarmByUserId.forEach((farmObject: any) => {
+                const { name, location, size, description } = farmObject;
+                //@ts-ignore
+                updatedFarm.push({
+                  name: name,
+                  location: location,
+                  size: size,
+                  description: description,
+                });
+
+                setFarm(updatedFarm);
+                console.log(name, location, size, description);
+            });
+         
         }
       }
       if (fetchError) {
         console.log(fetchError);
       }
+
+    // ============================STOCK DATA======================================================
     }, [data, loading, error, farmData, isFetching, fetchError]);
   
         const onState = () => {
@@ -159,22 +171,18 @@ export const ProfileComponent = () => {
                 <div className="flex justify-between max-w-500 m-2 p-2">
                     <p className="text-2xl font-medium">My Farms</p>
                 </div>
-                {
-                    <pre>{JSON.stringify(farm,null, 2)}</pre>
-                }
-                {/* {farmData.length > 0 ? farmData.map((farm: any) => {
+                {farm.length > 0 ? farm.map((farm: any) => {
                    return <>
-                    <div  className="bg-gray-100 p-2 rounded-md m-2">
-                        
+                   <div onClick={() => setNavigate(true)} className="flex justify-between bg-gray-100  p-2 rounded-md m-2">
+                    <div  className="">
                         <div className="text-orange-600 text-xl">{farm.name}</div>
-                        <div className="text-gray-500 text-xs">{farm.location} | {farm.farmType}</div>
-                        {/* //@ts-ignore */}
-                        {/* <button
-                        className="bg-lime-300 rounded-md text-white pl-4 pr-5">
-                        <PopUp onClickTitile={"view more >"} popUpTittle={`${farm.name} Farming`} popFunction={<FarmProfile />} style={"sm:max-w-auto"} /></button>
+                        <div className="text-gray-500 text-xs">{farm.location} | Crops</div>
+                        {/* {navigate && <FarmProfile />} */}
+                    </div>
+                    <span className="h-10 w-10">{<ChevronRightIcon />}</span>
                     </div>
                    </> 
-                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No farms added</div> } */} 
+                }) : <div className="text-sm font-medium text-center text-orange-600 m-4">No farms added</div> } 
 
                 </div>
                 {/* ==========================second row============================================= */}
