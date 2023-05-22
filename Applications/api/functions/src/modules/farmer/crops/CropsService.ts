@@ -37,10 +37,10 @@ export class CropsService {
         }
       }
 
-      static async getCropByUserId(userId: string): Promise<any> {
+      static async getCrop(user: UserDetails): Promise<any> {
 
         const cropsRef = db.collection('Crops');
-        const query = cropsRef.where('userId', '==', userId);
+        const query = cropsRef.where('userId', '==', user.uid);
       
         const snapshot = await query.get();
         const crops: any[] = [];

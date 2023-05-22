@@ -22,12 +22,11 @@ type LivestockRresponse {
  message: String
 }
 extend type Query {
-   getStock: LivestockRresponse
-   getLivestockByUserId(userId: ID!): [Livestock]
+   getLivestock: [Livestock]
 }
 
 extend type  Mutation {
-   createStock(stock: LivestockInput): LivestockRresponse
+   createLivestock(stock: LivestockInput): LivestockRresponse
    editLivestock(livestockId: ID, updates: LivestockInput): LivestockRresponse 
    deleteLivestock(livestockId: ID!): LivestockRresponse
 }

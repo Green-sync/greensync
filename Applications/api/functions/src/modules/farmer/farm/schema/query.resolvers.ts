@@ -1,10 +1,10 @@
+import { UserDetails } from "../../../auth/contextDto";
 import { FarmService } from "../farmService";
 
 export const FarmQueryResolver = {
-  getFarmByUserId: async (_parent: unknown, args:
-    { userId: string; }, context: { user: any }) => {
+  getFarm: async (_parent: unknown, ___: any, context: { user: UserDetails }) => {
 
-    return FarmService.getFarmByUserId(args.userId);
+    return FarmService.getFarmByUserId(context.user);
  },
 
 

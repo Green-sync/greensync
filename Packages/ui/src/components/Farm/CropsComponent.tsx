@@ -1,4 +1,4 @@
-import { PlusCircleIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 interface ICrops{
