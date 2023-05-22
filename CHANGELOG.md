@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://www.github.com/Green-sync/greensync/compare/v0.2.0...v0.3.0) (2023-05-17)
+
+
+### Features
+
+* add GreenSyncApolloProvider ([269e00a](https://www.github.com/Green-sync/greensync/commit/269e00afc3f5228cfbb61d59885fc521d4462dd2))
+* work ([b9fd6ab](https://www.github.com/Green-sync/greensync/commit/b9fd6ab6cacf5692973ef174a0f004747c0ff6fa))
+
+
+### Bug Fixes
+
+* create user ([3e9c84e](https://www.github.com/Green-sync/greensync/commit/3e9c84ee3f0e8246cbc325dbcf317580e51d58ea))
+
 ## [0.2.0](https://www.github.com/Green-sync/greensync/compare/v0.1.0...v0.2.0) (2023-05-15)
 
 
