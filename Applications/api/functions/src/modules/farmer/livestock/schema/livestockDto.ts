@@ -1,10 +1,6 @@
 export declare interface LivestockInput {
-    name: any
+    title: any
     farmId: string
     userId: string
-    type: string
-    quantity: number
-    healthStatus: string
-    location: string
-    dateCreated: string
+    quantity: string  
 }

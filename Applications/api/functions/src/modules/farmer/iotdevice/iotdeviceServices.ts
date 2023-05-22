@@ -1,12 +1,15 @@
 import { db } from "../../../utils/firbase.config";
+import { UserDetails } from "../../auth/contextDto";
+import { CommonService } from "../services/CommonServices";
 
 export class IotdeviceService {
-    static async addIotdevice(device: any) {
+    static async addIotdevice(device: any, user: UserDetails) {
         // Create a new document in the "farms" collection with the specified user ID and farm details
-        const deviceRef = await db.collection('Iotdevices').add({
+        const deviceRef = await db.collection('Iotdevice').add({
           ...device,
-          userId: "1d1d12345" //context.uid
+          userId: user.uid
         });
+        await CommonService.generalCollectionMapper(deviceRef.id, device.farmId, 'Farm', "IotdeviceIds")
         // Return the newly created farm with its ID
         return {
           message: "Iotdevice details successfully added", success: true,
@@ -18,10 +21,10 @@ export class IotdeviceService {
         };
       }
 
-      static async getIotdeviceByUserId(userId: string): Promise<any> {
+      static async getIotdevice(user: UserDetails): Promise<any> {
 
-        const farmsRef = db.collection('Farms');
-        const query = farmsRef.where('userId', '==', userId);
+        const farmsRef = db.collection('Iotdevice');
+        const query = farmsRef.where('userId', '==', user.uid);
       
         const snapshot = await query.get();
         const farms: any[] = [];
@@ -32,5 +35,21 @@ export class IotdeviceService {
         console.log(farms);
       
         return farms;
+    }
+
+    static async getDeviceByfarmId(farmId: string,user: UserDetails): Promise<any> {
+
+      const deviceRef = db.collection('Iotdevice');
+      const query = deviceRef.where('farmId', '==', farmId);
+  
+      const snapshot = await query.get();
+      const devices: any[] = [];
+  
+      snapshot.forEach(doc => {
+        devices.push({ id: doc.id, ...doc.data() });
+      });
+      console.log(devices);
+  
+      return devices;
     }
 }

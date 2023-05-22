@@ -3,10 +3,15 @@ type Farm {
     userId: ID
     name: String
     location: String
-    size: Float
+    size: String
     description: String
+    type: FarmType
+    livestockIds: [String]
+    farmIds: [String]
+    cropIds: [String]
    
 }
+
 
 input FarmInput {
     name: String

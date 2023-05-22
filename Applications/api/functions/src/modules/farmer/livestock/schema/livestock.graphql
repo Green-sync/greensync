@@ -2,27 +2,30 @@ type Livestock {
     livestockId: ID
     farmId: ID
     userId: ID
-    type: String
-    quantity: Int
-    healthStatus: String
-    location: String
-    dateCreated: String
+    title: String
+    description: String
+    image: String
+    quantity: String
+   
 }
 input LivestockInput {
    farmId: ID
    userId: ID
-   type: String!
-   quantity: Int!
-   healthStatus: String!
-   location: String!
-   dateCreated: String!
+   description: String
+   quantity: String
+   title: String
+   image: String
+
 }
 type LivestockRresponse {
  success: Boolean
  message: String
+ livestoks: [Livestock]
 }
 extend type Query {
    getLivestock: [Livestock]
+   getLivestockById(livestockId:String!): LivestockRresponse
+   getLivestockByfarmId(farmId: ID): [Livestock]
 }
 
 extend type  Mutation {
