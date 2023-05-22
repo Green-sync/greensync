@@ -49,6 +49,22 @@ export class LivestockService {
     }
   }
 
+  static async getLivestockByfarmId(farmId: string,user: UserDetails): Promise<any> {
+
+    const livestockRef = db.collection('Livestock');
+    const query = livestockRef.where('farmId', '==', farmId);
+
+    const snapshot = await query.get();
+    const livestocks: any[] = [];
+
+    snapshot.forEach(doc => {
+      livestocks.push({ id: doc.id, ...doc.data() });
+    });
+    console.log(livestocks);
+
+    return livestocks;
+  }
+
   static async getLivestock(user: UserDetails): Promise<any> {
 
     const livestockRef = db.collection('Livestock');
