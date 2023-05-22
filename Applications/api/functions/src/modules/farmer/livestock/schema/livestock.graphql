@@ -10,7 +10,6 @@ type Livestock {
 }
 input LivestockInput {
    farmId: ID
-   userId: ID
    type: String!
    quantity: Int!
    healthStatus: String!
@@ -20,9 +19,11 @@ input LivestockInput {
 type LivestockRresponse {
  success: Boolean
  message: String
+ livestoks: [Livestock]
 }
 extend type Query {
    getLivestock: [Livestock]
+   getLivestockById(livestockId:String!): LivestockRresponse
 }
 
 extend type  Mutation {

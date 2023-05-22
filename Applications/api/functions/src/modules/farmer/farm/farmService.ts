@@ -1,5 +1,6 @@
 import { db } from "../../../utils";
 import { UserDetails } from "../../auth/contextDto";
+import { CommonService } from "../services/CommonServices";
 import { FarmInput } from "./schema/farmDto";
 
 
@@ -11,6 +12,7 @@ export class FarmService {
       ...farm,
       userId: user.uid
     });
+    await CommonService.generalCollectionMapper(farmRef.id,user.uid,"User","farmIds")
     // Return the newly created farm with its ID
     return {
       message: "Farm details successfully added", success: true,
@@ -48,7 +50,7 @@ export class FarmService {
     const farms: any[] = [];
 
     snapshot.forEach(doc => {
-      farms.push({ id: doc.id, ...doc.data() });
+      farms.push({ farmId: doc.id, ...doc.data() });
     });
     console.log(farms);
 

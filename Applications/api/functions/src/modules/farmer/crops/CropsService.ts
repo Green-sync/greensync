@@ -1,5 +1,6 @@
 import { db } from "../../../utils";
 import { UserDetails } from "../../auth/contextDto";
+import { CommonService } from "../services/CommonServices";
 import { CropInput } from "./schema/cropDto";
 
 export class CropsService {
@@ -9,6 +10,8 @@ export class CropsService {
           ...crop,
           userId: user.uid
         });
+
+        await CommonService.generalCollectionMapper(cropRef.id, crop.farmId, 'Farm', "CropIds")
         // Return the newly created crop with its ID
         return {
           message: "Crop details successfully added", success: true,

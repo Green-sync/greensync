@@ -11,7 +11,6 @@ type Crop {
   }
 input CropInput {
     farmId: ID
-    userId: ID
     type: String!
     stage: String!
     plantingDate: String!
