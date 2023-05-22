@@ -39,10 +39,10 @@ export class FarmService {
     }
   }
 
-  static async getFarmByUserId(userId: string): Promise<any> {
-
+  static async getFarmByUserId(user: UserDetails ): Promise<any> {
+    
     const farmsRef = db.collection('Farms');
-    const query = farmsRef.where('userId', '==', userId);
+    const query = farmsRef.where('userId', '==', user.uid);
 
     const snapshot = await query.get();
     const farms: any[] = [];

@@ -37,10 +37,10 @@ export class LivestockService {
     }
   }
   
-  static async getLivestockByUserId(userId: string): Promise<any> {
+  static async getLivestock(user: UserDetails): Promise<any> {
 
     const livestockRef = db.collection('Livestocks');
-    const query = livestockRef.where('userId', '==', userId);
+    const query = livestockRef.where('userId', '==', user.uid);
   
     const snapshot = await query.get();
     const livestocks: any[] = [];

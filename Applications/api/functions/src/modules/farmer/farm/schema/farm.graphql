@@ -11,14 +11,15 @@ type Farm {
 input FarmInput {
     name: String
     location: String
-    size: Float!
+    size: String
+    image: String
     description: String
     type: FarmType
 }
 enum FarmType{
     LIVESTOCK 
     CROPS
-MIX
+    MIX
 }
 
 type FarmResponse {
@@ -27,7 +28,6 @@ type FarmResponse {
 }
 extend type Query {
     getFarm: [Farm]
-    getFarmByUserId(userId: ID!): [Farm]
 }
 
 extend type Mutation {

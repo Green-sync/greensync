@@ -9,7 +9,7 @@ export class WeatherService {
     // Create a new document in the "farms" collection with the specified user ID and farm details
     const farmRef = await db.collection('WeatherData').add({
       ...weather,
-      userId: "1d1d12345" //context.uid
+      userId: user.uid
     });
     // Return the newly created farm with its ID
     return {
@@ -40,10 +40,10 @@ export class WeatherService {
     }
   }
 
-  static async getWeatherByUserId(userId: string): Promise<any> {
+  static async getWeather(user: UserDetails): Promise<any> {
 
     const weatherRef = db.collection('WeatherData');
-    const query = weatherRef.where('userId', '==', userId);
+    const query = weatherRef.where('userId', '==', user.uid);
   
     const snapshot = await query.get();
     const weather: any[] = [];
