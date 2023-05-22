@@ -2,10 +2,8 @@ type IoTDevice {
     deviceId: ID
     userId: ID
     farmId: ID
-    type: String
-    location: String
-    data: String
-    lastUpdated: String
+    deviceType: String
+    deviceName: String
 }
 
  
@@ -15,15 +13,11 @@ input IoTDeviceInput {
     userId: ID!
     farmId: ID!
     type: String!
-    location: Locations!
     data: String!
     lastUpdated: String!
 }
 
-input Locations {
-    latitude: Float!
-    longitude: Float!
-}
+
 
 
 type DeviceResponse {
@@ -31,7 +25,8 @@ type DeviceResponse {
     message: String
 }
 extend type Query {
-     getIotdeviceByUserId(userId: ID!): [IoTDevice]
+     getIotdevice: [IoTDevice]
+     getDeviceByfarmId(farmId: ID): [IoTDevice]
 }
 
 extend type Mutation {

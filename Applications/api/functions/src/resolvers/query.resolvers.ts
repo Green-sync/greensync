@@ -2,7 +2,7 @@
 
 import { CropsQueryResolver, LivestockQueryResolver } from "../modules";
 import { FarmQueryResolver } from "../modules/farmer/farm";
-import { IotdeviceMutationResolver } from "../modules/farmer/iotdevice";
+import { IotdeviceQueryResolver } from "../modules/farmer/iotdevice";
 import { UserQueryResolver } from "../modules/farmer/profile";
 import { WeatherQueryResolver } from "../modules/farmer/weather";
 
@@ -13,7 +13,7 @@ export const QueryResolvers = {
     ...WeatherQueryResolver,
     ...FarmQueryResolver,
     ...LivestockQueryResolver,
-    ...IotdeviceMutationResolver,
+    ...IotdeviceQueryResolver,
     ...UserQueryResolver,
     ...CropsQueryResolver,
     ...mainResolver
