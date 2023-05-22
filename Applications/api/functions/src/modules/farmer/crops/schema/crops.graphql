@@ -2,20 +2,25 @@ type Crop {
     cropId: ID
     farmId: ID
     userId: ID
-    type: String
     stage: String
     plantingDate: String
     harvestDate: String
-    healthStatus: String
-    dateCreated: String
+    title: String
+    description: String
+    image: String
+    perimeterSize: String
+    
   }
 input CropInput {
     farmId: ID
-    type: String!
     stage: String!
     plantingDate: String!
     harvestDate: String
-    healthStatus: String!
+    title: String
+    description: String
+    image: String
+    perimeterSize: String
+    
 }
 type CroRresponse {
   success: Boolean

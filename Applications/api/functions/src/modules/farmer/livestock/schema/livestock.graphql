@@ -2,19 +2,20 @@ type Livestock {
     livestockId: ID
     farmId: ID
     userId: ID
-    type: String
-    quantity: Int
-    healthStatus: String
-    location: String
-    dateCreated: String
+    title: String
+    description: String
+    image: String
+    quantity: String
+   
 }
 input LivestockInput {
    farmId: ID
-   type: String!
-   quantity: Int!
-   healthStatus: String!
-   location: String!
-   dateCreated: String!
+   userId: ID
+   description: String
+   quantity: String
+   title: String
+   image: String
+
 }
 type LivestockRresponse {
  success: Boolean
