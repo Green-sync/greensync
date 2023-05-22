@@ -20,16 +20,20 @@ export declare interface IFarms {
     name: string,
     farmType: string,
     location: string,
+    size: number,
+    image: string
 }
 
 export declare interface IStock {
     itemName: string,
     quantity: number,
     price: number,
+    image?: string
 }
 export declare interface IDevice {
     name: string,
-    type: string
+    type: string,
+    image: string
 }
 
 export declare interface ProfileProps {
