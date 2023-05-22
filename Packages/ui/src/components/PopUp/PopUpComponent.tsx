@@ -26,7 +26,7 @@ export const PopUpComponent = ({ onClickTitile, popUpTittle, popFunction, style 
                 <button
                     type="button"
                     onClick={openModal}
-                    className={style}
+                    
                 >
                     {onClickTitile}
                 </button>
@@ -58,6 +58,7 @@ export const PopUpComponent = ({ onClickTitile, popUpTittle, popFunction, style 
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className={`w-full ${style === null ? "" : style } transform overflow-hidden rounded-2xl bg-white  text-left align-middle shadow-xl transition-all`}>
+
                                     <Dialog.Title
                                         as="h3"
                                         className="text-lg font-medium leading-6 text-gray-900 p-6"

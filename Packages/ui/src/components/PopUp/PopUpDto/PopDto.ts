@@ -1,5 +1,5 @@
 export declare interface IPopUp {
-    onClickTitile: string,
+    onClickTitile: any,
     popUpTittle: string,
     popFunction: any,
     style: string

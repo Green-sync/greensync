@@ -18,12 +18,4 @@ import {gql} from "@apollo/client"
     dateCreated?: string | null;
   }
   
- 
-  export const ADD_FARM = gql`
-  mutation CreateFarm($farm: FarmInput) {
-    createFarm(farm: $farm) {
-      message
-      success
-    }
-  }
-`;
+

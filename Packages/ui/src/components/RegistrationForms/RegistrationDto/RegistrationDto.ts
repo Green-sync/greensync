@@ -18,7 +18,7 @@ enum FarmType {
 }
 
 export declare type TFarming = "CROP" | 'LIVESTOCK' | "MiXED"
-export declare type TInputTypes = "text" | "password" | "email" | "tel" | 'radio' | 'textarea'
+export declare type TInputTypes = "text" | "password" | "email" | "tel" | 'radio' | 'textarea' | 'file' | 'phone'
 
 export declare interface InputTypes {
     name?: string
