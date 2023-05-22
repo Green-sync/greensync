@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const ADD_PROFILE= gql`
+export const ADD_PROFILE = gql`
 mutation CreateUser($profile: ProfileInput) {
     createUser(profile: $profile) {
       message
@@ -14,4 +14,14 @@ mutation CreateUser($profile: ProfileInput) {
     }
   }
   
+`
+
+export const ADD_FARM = gql`
+mutation Mutation($farm: FarmInput) {
+  createFarm(farm: $farm) {
+    message
+    success
+  }
+}
+
 `

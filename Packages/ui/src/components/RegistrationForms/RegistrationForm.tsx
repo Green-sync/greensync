@@ -1,18 +1,34 @@
 import { useState } from "react";
 import { ISelectDto, InputTypes } from ".";
 import { FarmFormStaticData } from "./RegistrationDto/RegisterFormStaticData"
+import { ADD_FARM } from "../Home/schema";
+import { useMutation } from "@apollo/client";
 
-
+export declare interface IFarmData{
+    name: string,
+    location: string,
+    size: string,
+    description: string,
+    farmImg?: string
+}
 
 export const RegistrationFormComponent = () => {
-    const [formData, setFormData] = useState({});
+    const [formData, setFormData] = useState({
+        name: '',
+        location: '',
+        size: 0.0,
+        description: '',
+
+    });
     const [selectedImage, setSelectedImage] = useState(null);
-    const [errorMessage, setErrorMessage] = useState("");
+    const [Message, setMessage] = useState("");
+
+    const [addFarm] = useMutation(ADD_FARM)
 
     const handleImageChange = (e: any) => {
         const file = e.target.files[0];
         setSelectedImage(file);
-        setErrorMessage("");
+
     };
 
     const handleChange = (e: any) => {
@@ -29,18 +45,41 @@ export const RegistrationFormComponent = () => {
         //     // No image selected
         //     setErrorMessage("Please select an image.");
         //   }
+
+        if (e.target.name === 'size') {
+            formData.size = parseFloat(e.target.value);
+            console.log(typeof formData.size)
+
+        }
         setFormData({ ...formData, [e.target.name]: e.target.value });
 
 
     };
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         // Add logic here
+        // if (e.target.id === 'size') {
+        //     formData.size = parseFloat(e.target.value);
+        //     console.log(typeof formData.size)
+
+        // }
+        // setFormData({ ...formData, [e.target.name]: e.target.value });
         console.log(formData);
+        const { errors } = await addFarm({
+            variables: {
+                farm: formData
+            }
+        });
+        if (errors) {
+            console.log(errors)
+            setMessage(`${errors}`)
+
+        }
+
+        setMessage('You have successfully added a Farm into your Dashboard')
 
 
-        setFormData({});
     };
 
 
@@ -61,7 +100,7 @@ export const RegistrationFormComponent = () => {
                                         <div key={index}>
 
                                             {
-                                                input.type === 'text' ? <input onChange={handleChange} type={input.type} name={input.name} id={input.id} className=" border-b border-grey-600 text-lime-900 text-sm  block w-full p-2.5 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-lime-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" placeholder={input.placeholder} required={true} /> :
+                                                input.type === 'text' || input.type === 'number' ? <input onChange={handleChange} type={input.type} name={input.name} id={input.id} className=" border-b border-grey-600 text-lime-900 text-sm  block w-full p-2.5 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-lime-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" placeholder={input.placeholder} required={true} /> :
                                                     input.type === 'radio' ? <>
 
                                                         <div key={index} className="relative h-10 w-72 min-w-[200px] mt-4">
@@ -107,6 +146,7 @@ export const RegistrationFormComponent = () => {
                             <button type="submit" className="w-36 text-white bg-lime-800 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium  text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 rounded-none">Register Farm</button>
 
                         </form>
+                        {Message}
                     </div>
                 </div>
 
