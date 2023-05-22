@@ -27,7 +27,6 @@ type WeatheResponse {
 }
 extend type Query {
     getWeather: [WeatherData] 
-    getWeatherByUserId(userId: ID!): [WeatherData]
 }
 
 extend type Mutation {

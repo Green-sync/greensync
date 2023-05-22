@@ -4,7 +4,7 @@ import {LivestockService} from "../LivestockService"
 import { LivestockInput } from "./livestockDto";
 
 export const StockMutationResolver = {
-    createStock: (_:any, arg: {stock: any}, context: {user:UserDetails}) =>{
+    createLivestock: (_:any, arg: {stock: any}, context: {user:UserDetails}) =>{
         return LivestockService.addStock(arg.stock, context.user);
     },
     editLivestock: (_parent: unknown, args:
