@@ -25,7 +25,7 @@ type LivestockRresponse {
 extend type Query {
    getLivestock: [Livestock]
    getLivestockById(livestockId:String!): LivestockRresponse
-   getLivestockByfarmId(farmId: ID): LivestockRresponse
+   getLivestockByfarmId(farmId: ID): [Livestock]
 }
 
 extend type  Mutation {

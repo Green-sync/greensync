@@ -10,7 +10,7 @@ export const LivestockQueryResolver = {
 
      },
      getLivestockByfarmId: async(_:unknown, args: {farmId: string}, context: {user: UserDetails})=>{
-        return LivestockService.getLivestockId(args.farmId, context.user)
+        return LivestockService.getLivestockByfarmId(args.farmId, context.user)
 
      }
     
