@@ -13,7 +13,7 @@ export const FarmFormStaticData: InputTypes[] = [
         name: "size", type: "number", label: "Size Of The Farm in hectors", placeholder: 'Size of your farm in Hectors', id: 'size',
     },
     {
-        name: "farmImg", type: "file", label: "Select an Image/logo that represent your farm", placeholder: 'Farm Image', id: 'farmImg',
+        name: " image", type: "file", label: "Select an Image/logo that represent your farm", placeholder: 'Farm Image', id: ' image',
     },
     {
         isTextArea: { cols: '5', rows: "5" }, label: 'Description', name: 'description', id: 'description', placeholder: 'Type Your Details about the farm'
