@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.5.0](https://www.github.com/Green-sync/greensync/compare/v0.4.0...v0.5.0) (2024-08-30)
+
+
+### Features
+
+* **workfow:** update all workflows ([29be286](https://www.github.com/Green-sync/greensync/commit/29be286d6ec8a860bf9923fc2f2f446be477c603))
+* **workfow:** update bump versioning ([9da0849](https://www.github.com/Green-sync/greensync/commit/9da08494c91516bf5154163f6eb381a465d62d90))
+
+
+### Bug Fixes
+
+* get crop does not userId from frontend ([e274413](https://www.github.com/Green-sync/greensync/commit/e2744138b2b282405c2b167f996158d7256a027a))
+* livestock does not require userId ([b47a23c](https://www.github.com/Green-sync/greensync/commit/b47a23c971d9a67170ae59c253b8e03ca2c1138d))
+* query farm does not require userId anymore ([2a5883c](https://www.github.com/Green-sync/greensync/commit/2a5883c1ebe37777004aa979c8075c9084d9bfd6))
+* removed comments ([dfb88c7](https://www.github.com/Green-sync/greensync/commit/dfb88c7ce87a1c838868df06ea56e1da2dfe9213))
+* size datatype from number to string ([9ba8276](https://www.github.com/Green-sync/greensync/commit/9ba827652fcca497f40b0b412b69d771cd3d6a8b))
+* **ui:** remove PlusIcon ([7960558](https://www.github.com/Green-sync/greensync/commit/79605580a8134b98236e8c555ab86fc35805cdb3))
+
 ## [0.4.0](https://www.github.com/Green-sync/greensync/compare/v0.3.0...v0.4.0) (2023-05-17)
 
 
